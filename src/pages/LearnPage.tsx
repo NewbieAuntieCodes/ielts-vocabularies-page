@@ -1,0 +1,353 @@
+import React, { useState, useEffect, useCallback } from 'react';
+import { styled, keyframes } from 'styled-components';
+import { Page } from '../types';
+import { allSubTopics, SubTopic, Word } from '../data';
+
+const BackArrowIcon = () => <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><line x1="19" y1="12" x2="5" y2="12" /><polyline points="12 19 5 12 12 5" /></svg>;
+const PrevIcon = () => <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="15 18 9 12 15 6" /></svg>;
+const NextIcon = () => <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="9 18 15 12 9 6" /></svg>;
+const SpeakerIcon = () => <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg>;
+
+// --- Learning Step Component ---
+const LearnStep: React.FC<{ topic: SubTopic, onComplete: () => void }> = ({ topic, onComplete }) => {
+    const [currentIndex, setCurrentIndex] = useState(0);
+
+    // Handle case where words array is empty
+    if (topic.words.length === 0) {
+        return (
+            <StepContainer>
+                <p>没有选择单词！</p>
+                <CompleteButton onClick={onComplete}>返回</CompleteButton>
+            </StepContainer>
+        )
+    }
+    
+    const currentWord = topic.words[currentIndex];
+
+    const speak = useCallback((text: string) => {
+        if (!('speechSynthesis' in window)) {
+            console.warn('Speech synthesis not supported.');
+            return;
+        }
+        window.speechSynthesis.cancel();
+
+        const utterance = new SpeechSynthesisUtterance(text);
+        const voices = window.speechSynthesis.getVoices();
+
+        const preferredVoiceNames = [
+            'Google UK English Female',
+            'Google US English',
+            'Microsoft Zira - English (United States)',
+        ];
+        
+        let selectedVoice = voices.find(voice => preferredVoiceNames.includes(voice.name));
+        if (!selectedVoice) {
+            selectedVoice = voices.find(voice => voice.lang.startsWith('en-GB') && voice.name.includes('Google'));
+        }
+        if (!selectedVoice) {
+            selectedVoice = voices.find(voice => voice.lang.startsWith('en-US') && voice.name.includes('Google'));
+        }
+        if (!selectedVoice) {
+            selectedVoice = voices.find(voice => voice.lang.startsWith('en-GB'));
+        }
+        if (!selectedVoice) {
+            selectedVoice = voices.find(voice => voice.lang.startsWith('en-US'));
+        }
+        
+        utterance.voice = selectedVoice || null;
+        utterance.lang = 'en-US';
+        utterance.rate = 0.9;
+        window.speechSynthesis.speak(utterance);
+    }, []);
+
+    useEffect(() => {
+        const speakOnLoad = () => {
+            // A small delay for UI transition and voice readiness
+            setTimeout(() => speak(currentWord.word), 100);
+        };
+
+        if ('speechSynthesis' in window) {
+            const voices = window.speechSynthesis.getVoices();
+            if (voices.length > 0) {
+                speakOnLoad();
+            } else {
+                window.speechSynthesis.onvoiceschanged = speakOnLoad;
+            }
+        }
+
+        return () => {
+            if ('speechSynthesis' in window) {
+                window.speechSynthesis.onvoiceschanged = null;
+                window.speechSynthesis.cancel();
+            }
+        };
+    }, [currentWord, speak]);
+
+    const handleNext = () => setCurrentIndex(i => Math.min(i + 1, topic.words.length - 1));
+    const handlePrev = () => setCurrentIndex(i => Math.max(i - 1, 0));
+    
+    return (
+        <StepContainer>
+            <Flashcard>
+                <WordDetails>
+                    <WordRow>
+                        <WordText>{currentWord.word}</WordText>
+                        <SpeakButton onClick={() => speak(currentWord.word)} aria-label={`Listen to ${currentWord.word}`}>
+                            <SpeakerIcon />
+                        </SpeakButton>
+                    </WordRow>
+                    <PhoneticText>{currentWord.phonetic}</PhoneticText>
+                    <DefinitionText>{currentWord.definition}</DefinitionText>
+                    <ExampleText>"{currentWord.example}"</ExampleText>
+                </WordDetails>
+            </Flashcard>
+            <FlashcardNav>
+                <NavButton onClick={handlePrev} disabled={currentIndex === 0}><PrevIcon/></NavButton>
+                <ProgressText>{currentIndex + 1} / {topic.words.length}</ProgressText>
+                <NavButton onClick={handleNext} disabled={currentIndex === topic.words.length - 1}><NextIcon/></NavButton>
+            </FlashcardNav>
+             <CompleteButton onClick={onComplete}>
+                我学完了
+            </CompleteButton>
+        </StepContainer>
+    );
+};
+
+// --- Main Topic Page Component ---
+const LearnPage: React.FC<{ topicId: string, words: Word[], navigateTo: (page: Page) => void }> = ({ topicId, words, navigateTo }) => {
+    const originalTopic = allSubTopics.find(list => list.id === topicId);
+
+    if (!originalTopic) {
+        return (
+            <PageContainer>
+                <p>主题未找到！</p>
+                <button onClick={() => navigateTo('home')}>返回主页</button>
+            </PageContainer>
+        );
+    }
+
+    const activityTopic: SubTopic = { ...originalTopic, words };
+
+    const handleComplete = () => {
+        if (words && words.length > 0) {
+            navigateTo('practice');
+        } else {
+            navigateTo('home');
+        }
+    };
+    
+    return (
+        <PageContainer>
+            <PageHeader>
+                <BackButton onClick={() => navigateTo('home')} aria-label="返回主页">
+                    <BackArrowIcon />
+                </BackButton>
+                <h1>{activityTopic.title}</h1>
+            </PageHeader>
+            <main>
+                <LearnStep topic={activityTopic} onComplete={handleComplete} />
+            </main>
+        </PageContainer>
+    );
+};
+
+// --- STYLED COMPONENTS ---
+
+const fadeIn = keyframes`from { opacity: 0; } to { opacity: 1; }`;
+
+const PageContainer = styled.div`
+    max-width: 900px;
+    margin: 0 auto;
+    animation: ${fadeIn} 0.5s ease;
+`;
+
+const PageHeader = styled.header`
+    position: relative;
+    text-align: center;
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    h1 {
+        margin: 0;
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: ${({ theme }) => theme.colors.header};
+    }
+    
+    @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+        h1 { font-size: 1.75rem; }
+    }
+`;
+
+const BackButton = styled.button`
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: ${({ theme }) => theme.colors.cardBg};
+    border: 1px solid ${({ theme }) => theme.colors.border};
+    border-radius: 50%;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: ${({ theme }) => theme.colors.text};
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: ${({ theme }) => theme.shadows.subtle};
+
+    &:hover {
+        background-color: ${({ theme }) => theme.colors.boxBg};
+        color: ${({ theme }) => theme.colors.primary};
+        transform: translateY(-50%) scale(1.05);
+        box-shadow: ${({ theme }) => theme.shadows.main};
+    }
+`;
+
+const StepContainer = styled.div`
+    animation: ${fadeIn} 0.5s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+`;
+
+// Learn Step Styles
+const Flashcard = styled.div`
+    background-color: ${({ theme }) => theme.colors.cardBg};
+    border-radius: 24px;
+    box-shadow: ${({ theme }) => theme.shadows.main};
+    border: 1px solid ${({ theme }) => theme.colors.border};
+    width: 100%;
+    max-width: 450px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+`;
+
+const WordDetails = styled.div`
+    padding: 2rem;
+    text-align: center;
+`;
+
+const WordRow = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 0.25rem;
+`;
+
+const SpeakButton = styled.button`
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: ${({ theme }) => theme.colors.label};
+    padding: 0.5rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s, color 0.2s;
+    
+    &:hover {
+        background-color: ${({ theme }) => theme.colors.boxBg};
+        color: ${({ theme }) => theme.colors.primary};
+    }
+
+    svg {
+        width: 28px;
+        height: 28px;
+    }
+`;
+
+const WordText = styled.h2`
+    font-size: 3rem;
+    font-weight: 700;
+    color: ${({ theme }) => theme.colors.header};
+    margin: 0;
+`;
+
+const PhoneticText = styled.p`
+    font-size: 1.25rem;
+    color: ${({ theme }) => theme.colors.label};
+    margin: 0 0 1.5rem 0;
+`;
+
+const DefinitionText = styled.p`
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: ${({ theme }) => theme.colors.text};
+    margin: 0 0 1rem 0;
+`;
+
+const ExampleText = styled.p`
+    font-size: 1rem;
+    color: ${({ theme }) => theme.colors.label};
+    font-style: italic;
+    margin: 0;
+`;
+
+const FlashcardNav = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+`;
+
+const NavButton = styled.button`
+    background-color: ${({ theme }) => theme.colors.cardBg};
+    border: 1px solid ${({ theme }) => theme.colors.border};
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: ${({ theme }) => theme.colors.header};
+    cursor: pointer;
+    transition: all 0.2s ease;
+
+    &:hover:not(:disabled) {
+        background-color: ${({ theme }) => theme.colors.boxBg};
+        transform: scale(1.05);
+    }
+    &:disabled {
+        color: ${({ theme }) => theme.colors.label};
+        cursor: not-allowed;
+        opacity: 0.6;
+    }
+`;
+
+const ProgressText = styled.div`
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: ${({ theme }) => theme.colors.label};
+    width: 80px;
+    text-align: center;
+`;
+
+const CompleteButton = styled.button<{ $themeColor?: 'learn' | 'games' | 'practice' }>`
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 0.8rem 2rem;
+    border-radius: 9999px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: none;
+    background-color: ${({ theme, $themeColor = 'learn' }) => theme.colors[$themeColor]};
+    color: white;
+    box-shadow: 0 4px 10px ${({ theme, $themeColor = 'learn' }) => `${theme.colors[$themeColor]}4D`};
+    margin-top: 2rem;
+
+    &:hover {
+        transform: scale(1.05);
+        box-shadow: 0 6px 15px ${({ theme, $themeColor = 'learn' }) => `${theme.colors[$themeColor]}66`};
+    }
+`;
+
+export default LearnPage;
