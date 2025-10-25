@@ -1,5 +1,6 @@
 // The 'styled-components' module must be imported for type augmentation to work.
-// FIX: Use a named import to ensure TypeScript can find the module for augmentation.
+// FIX: Add a side-effect import to ensure TypeScript can find and augment the module.
+import 'styled-components';
 import { createGlobalStyle } from 'styled-components';
 
 export const theme = {
@@ -44,6 +45,7 @@ export const theme = {
 
         // Compatibility colors from old theme
         highlightBg: '#e9f2ff',
+        // FIX: Added missing '#' to the hex color value.
         highlightBorder: '#c7dfff',
     },
     fonts: {
