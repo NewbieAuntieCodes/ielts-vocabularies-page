@@ -308,24 +308,23 @@ const BackButton = styled.button`
     left: 0;
     top: 50%;
     transform: translateY(-50%);
-    background-color: ${({ theme }) => theme.colors.cardBg};
-    border: 1px solid ${({ theme }) => theme.colors.border};
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(5px);
     border-radius: 50%;
     width: 44px;
     height: 44px;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: ${({ theme }) => theme.colors.text};
+    color: #e2e8f0;
     cursor: pointer;
     transition: all 0.2s ease;
-    box-shadow: ${({ theme }) => theme.shadows.subtle};
 
     &:hover {
-        background-color: ${({ theme }) => theme.colors.boxBg};
-        color: ${({ theme }) => theme.colors.primary};
+        background-color: rgba(255, 255, 255, 0.2);
+        color: #a799ff;
         transform: translateY(-50%) scale(1.05);
-        box-shadow: ${({ theme }) => theme.shadows.main};
     }
 `;
 
@@ -348,9 +347,10 @@ const TabButton = styled.button<{ $active: boolean }>`
     border-radius: 9999px;
     cursor: pointer;
     transition: all 0.2s ease;
-    border: 1px solid ${({ theme, $active }) => $active ? 'transparent' : theme.colors.border};
-    background-color: ${({ theme, $active }) => $active ? theme.colors.practice : theme.colors.cardBg};
-    color: ${({ theme, $active }) => $active ? 'white' : theme.colors.header};
+    border: 1px solid ${({ theme, $active }) => $active ? theme.colors.practice : 'rgba(255, 255, 255, 0.2)'};
+    background-color: ${({ theme, $active }) => $active ? theme.colors.practice : 'rgba(255, 255, 255, 0.1)'};
+    backdrop-filter: blur(5px);
+    color: ${({ $active }) => $active ? 'white' : '#f1f5f9'};
 
     &:hover {
         transform: translateY(-2px);
@@ -358,10 +358,11 @@ const TabButton = styled.button<{ $active: boolean }>`
 `;
 
 const GameCard = styled.div`
-    background-color: ${({ theme }) => theme.colors.cardBg};
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
     border-radius: 24px;
-    box-shadow: ${({ theme }) => theme.shadows.main};
-    border: 1px solid ${({ theme }) => theme.colors.border};
     width: 100%;
     max-width: 700px;
     margin: 0 auto;
@@ -385,7 +386,7 @@ const ProgressBarContainer = styled.div`
     left: 0;
     width: 100%;
     height: 8px;
-    background-color: ${({ theme }) => theme.colors.boxBg};
+    background-color: rgba(255, 255, 255, 0.1);
 `;
 
 const ProgressBar = styled.div`
@@ -439,8 +440,8 @@ const ListenPromptContainer = styled.div`
 `;
 
 const ListenButton = styled.button`
-    background-color: ${({ theme }) => theme.colors.primaryLight};
-    border: none;
+    background-color: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.3);
     width: 120px;
     height: 120px;
     border-radius: 50%;
@@ -448,12 +449,12 @@ const ListenButton = styled.button`
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    color: ${({ theme }) => theme.colors.primary};
+    color: #a799ff;
     transition: all 0.2s ease;
     
     &:hover {
         transform: scale(1.1);
-        background-color: #E2DFFF;
+        background-color: rgba(255, 255, 255, 0.3);
     }
 `;
 
@@ -494,9 +495,10 @@ const OptionButton = styled.button<{ $state: 'default' | 'correct' | 'incorrect'
     border-radius: 16px;
     cursor: pointer;
     transition: all 0.2s ease;
-    border: 2px solid ${({ theme }) => theme.colors.border};
-    background-color: ${({ theme }) => theme.colors.cardBg};
-    color: ${({ theme }) => theme.colors.header};
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    color: #f1f5f9;
     min-height: 120px;
     display: flex;
     flex-direction: column;
@@ -507,22 +509,23 @@ const OptionButton = styled.button<{ $state: 'default' | 'correct' | 'incorrect'
     gap: 0.5rem;
 
     &:not(:disabled):hover {
-        border-color: ${({ theme }) => theme.colors.practice};
-        color: ${({ theme }) => theme.colors.practice};
+        border-color: rgba(255, 171, 0, 0.7);
+        background-color: rgba(255, 255, 255, 0.2);
+        color: #ffc966;
     }
     
     ${({ $state, theme }) => {
         switch ($state) {
             case 'correct':
                 return css`
-                    background-color: #E6F8F2;
+                    background-color: rgba(0, 196, 154, 0.25);
                     border-color: ${theme.colors.learn};
                     color: ${theme.colors.learn};
                     transform: scale(1.05);
                 `;
             case 'incorrect':
                 return css`
-                    background-color: #FDF2F2;
+                    background-color: rgba(231, 76, 60, 0.25);
                     border-color: ${theme.colors.primaryRed};
                     color: ${theme.colors.primaryRed};
                 `;
@@ -557,17 +560,18 @@ const OptionButton = styled.button<{ $state: 'default' | 'correct' | 'incorrect'
 const ResultsContainer = styled.div`
     text-align: center;
     padding: 4rem 2rem;
-    background-color: ${({ theme }) => theme.colors.cardBg};
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
     border-radius: 24px;
-    border: 1px solid ${({ theme }) => theme.colors.border};
-    box-shadow: ${({ theme }) => theme.shadows.main};
     width: 100%;
     max-width: 600px;
     margin: 0 auto;
     animation: ${popIn} 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 
     h2 { font-size: 2rem; color: ${({ theme }) => theme.colors.header}; margin: 0 0 0.5rem 0; }
-    p { font-size: 1.1rem; color: ${({ theme }) => theme.colors.label}; max-width: 40ch; margin: 0 auto 1rem auto; }
+    p { font-size: 1.1rem; color: #cbd5e1; max-width: 40ch; margin: 0 auto 1rem auto; }
 `;
 
 const ScoreText = styled.div`
@@ -592,8 +596,8 @@ const GameButton = styled.button<{ $secondary?: boolean }>`
     border-radius: 9999px;
     cursor: pointer;
     transition: all 0.2s ease;
-    border: none;
-    background-color: ${({ theme, $secondary }) => $secondary ? theme.colors.boxBg : theme.colors.practice};
+    border: 1px solid ${({ theme, $secondary }) => $secondary ? 'rgba(255,255,255,0.2)' : 'transparent'};
+    background-color: ${({ theme, $secondary }) => $secondary ? 'rgba(255, 255, 255, 0.1)' : theme.colors.practice};
     color: ${({ theme, $secondary }) => $secondary ? theme.colors.header : 'white'};
     
     &:hover {

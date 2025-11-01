@@ -10,7 +10,7 @@ export const theme = {
         columnBg: '#F0F3F9',
         boxBg: '#F1F3F5',
         text: '#4F5A77',
-        header: '#1B264F',
+        header: '#f8fafc', // Changed to light color for dark background
         border: '#EAEBEE',
         label: '#8A9BAB',
         
@@ -68,9 +68,14 @@ declare module 'styled-components' {
 
 export const GlobalStyles = createGlobalStyle`
     body {
-        background: linear-gradient(to bottom right, #f0f3ff, #ffffff);
+        background-color: #0f172a;
+        background-image: 
+            radial-gradient(at 15% 20%, hsla(258, 100%, 50%, 0.2) 0px, transparent 50%),
+            radial-gradient(at 80% 25%, hsla(210, 100%, 50%, 0.2) 0px, transparent 50%),
+            radial-gradient(at 85% 80%, hsla(330, 100%, 50%, 0.2) 0px, transparent 50%),
+            radial-gradient(at 20% 85%, hsla(40, 100%, 50%, 0.25) 0px, transparent 50%);
         background-attachment: fixed;
-        color: ${({ theme }) => theme.colors.text};
+        color: #94a3b8;
         margin: 0;
         font-family: ${({ theme }) => theme.fonts.body};
         font-size: 16px;
