@@ -190,7 +190,7 @@ const Game: React.FC<GameProps> = ({ topic, gameMode, onGameChange }) => {
                 </ListenPromptContainer>
             ) : (
                 <QuestionPrompt>
-                    {gameMode === 'en-to-zh' && currentQuestion.word.emoji && (
+                    {(gameMode === 'en-to-zh' || gameMode === 'zh-to-en') && currentQuestion.word.emoji && (
                         <EmojiPrompt>
                             {currentQuestion.word.emoji.startsWith('http') ? <img src={currentQuestion.word.emoji} alt="" /> : currentQuestion.word.emoji}
                         </EmojiPrompt>
@@ -201,7 +201,7 @@ const Game: React.FC<GameProps> = ({ topic, gameMode, onGameChange }) => {
 
             <OptionsGrid $isLongText={gameMode === 'en-to-zh'}>
                 {currentQuestion.options.map(option => {
-                    const isEmojiMode = gameMode === 'zh-to-en' || gameMode === 'listening';
+                    const isEmojiMode = gameMode === 'listening';
                     const wordObject = isEmojiMode
                         ? topic.words.find(w => w.word === option)
                         : null;
