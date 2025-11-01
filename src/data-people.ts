@@ -6,7 +6,7 @@ const friends: SubTopic = {
     type: '人物题',
     color: 'yellow',
     words: [
-      { word: 'sociable', phonetic: '/ˈsoʊʃəbl/', definition: '好交际的', example: 'My friend is very sociable and loves parties.', emoji: 'https://em-content.zobj.net/source/apple/391/smiling-face-with-open-hands_1f917.png' },
+      { word: 'sociable', phonetic: '/ˈsoʊʃəbl/', definition: '好交际的', example: 'My friend is very sociable and loves parties.', emoji: 'https://em-content.zobj.net/source/apple/391/partying-face_1f973.png' },
       { word: 'loyal', phonetic: '/ˈlɔɪəl/', definition: '忠诚的', example: 'A loyal friend will always support you.', emoji: 'https://em-content.zobj.net/source/apple/391/dog-face_1f436.png' },
       { word: 'trustworthy', phonetic: '/ˈtrʌstˌwɜːrði/', definition: '值得信赖的', example: 'She is a trustworthy person; your secret is safe with her.', emoji: 'https://em-content.zobj.net/source/apple/391/handshake_1f91d.png' },
       { word: 'supportive', phonetic: '/səˈpɔːrtɪv/', definition: '支持的', example: 'My parents are very supportive of my career choice.', emoji: 'https://em-content.zobj.net/source/apple/391/thumbs-up_1f44d.png' },

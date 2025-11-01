@@ -53,10 +53,9 @@ const WordSelectionPage: React.FC<WordSelectionPageProps> = ({ topicId, navigate
                 <BackButton onClick={() => navigateTo('home')} aria-label="返回主页">
                     <BackArrowIcon />
                 </BackButton>
-                <h1>选择单词</h1>
+                <h1>{topic.title}</h1>
             </PageHeader>
             <ContentContainer>
-                <TopicTitle>{topic.title}</TopicTitle>
                 <Controls>
                     <p>{selectedWords.length} / {topic.words.length} 已选择</p>
                     <div>
@@ -165,13 +164,6 @@ const ContentContainer = styled.div`
     }
 `;
 
-const TopicTitle = styled.h2`
-    font-size: 1.75rem;
-    color: ${({ theme }) => theme.colors.header};
-    margin: 0 0 1.5rem 0;
-    text-align: center;
-`;
-
 const Controls = styled.div`
     display: flex;
     justify-content: space-between;
@@ -273,7 +265,7 @@ const Checkbox = styled.div<{$checked: boolean}>`
 
 const WordText = styled.span`
     font-weight: 600;
-    color: ${({ theme }) => theme.colors.header};
+    color: ${({ theme }) => theme.colors.text};
     font-size: 1.1rem;
 `;
 

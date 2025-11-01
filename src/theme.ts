@@ -1,5 +1,4 @@
-// The 'styled-components' module must be imported for type augmentation to work.
-// FIX: Added a side-effect import for 'styled-components' to allow module augmentation to work correctly.
+// FIX: Add a direct import of 'styled-components' to make module augmentation work correctly.
 import 'styled-components';
 import { createGlobalStyle } from 'styled-components';
 
@@ -69,11 +68,6 @@ declare module 'styled-components' {
 export const GlobalStyles = createGlobalStyle`
     body {
         background-color: #0f172a;
-        background-image: 
-            radial-gradient(at 15% 20%, hsla(258, 100%, 50%, 0.2) 0px, transparent 50%),
-            radial-gradient(at 80% 25%, hsla(210, 100%, 50%, 0.2) 0px, transparent 50%),
-            radial-gradient(at 85% 80%, hsla(330, 100%, 50%, 0.2) 0px, transparent 50%),
-            radial-gradient(at 20% 85%, hsla(40, 100%, 50%, 0.25) 0px, transparent 50%);
         background-attachment: fixed;
         color: #94a3b8;
         margin: 0;

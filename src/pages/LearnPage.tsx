@@ -244,7 +244,7 @@ const SpeakButton = styled.button`
 const WordText = styled.h2`
     font-size: 3rem;
     font-weight: 700;
-    color: ${({ theme }) => theme.colors.header};
+    color: ${({ theme }) => theme.colors.text};
     margin: 0;
 `;
 
