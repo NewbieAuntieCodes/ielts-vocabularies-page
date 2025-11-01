@@ -7,10 +7,10 @@ import { speak } from '../utils/speech';
 type GameMode = 'zh-to-en' | 'en-to-zh' | 'listening';
 
 // --- ICONS ---
-const BackArrowIcon = () => <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><line x1="19" y1="12" x2="5" y2="12" /><polyline points="12 19 5 12 12 5" /></svg>;
-const SpeakerIcon = () => <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg>;
-const TranslateIcon = () => <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/><path d="M12 5V3M5 5.5V3H3m18 18v-2.5m-3.5 2.5h2.5v-2.5M12 19v2m-1.5-11-5-5m0 5 5-5"/></svg>;
-const SoundIcon = () => <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg>;
+const BackArrowIcon = () => <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><line x1="19" y1="12" x2="5" y2="12" /><polyline points="12 19 5 12 12 5" /></svg>;
+const SpeakerIcon = () => <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg>;
+const TranslateIcon = () => <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/><path d="M12 5V3M5 5.5V3H3m18 18v-2.5m-3.5 2.5h2.5v-2.5M12 19v2m-1.5-11-5-5m0 5 5-5"/></svg>;
+const SoundIcon = () => <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg>;
 
 // --- HELPER FUNCTIONS ---
 const shuffleArray = <T,>(array: T[]): T[] => array.sort(() => Math.random() - 0.5);
@@ -189,20 +189,38 @@ const Game: React.FC<GameProps> = ({ topic, gameMode, onGameChange }) => {
                     </ListenButton>
                 </ListenPromptContainer>
             ) : (
-                <QuestionPrompt>{currentQuestion.prompt}</QuestionPrompt>
+                <QuestionPrompt>
+                    {gameMode === 'en-to-zh' && currentQuestion.word.emoji && (
+                        <EmojiPrompt>
+                            {currentQuestion.word.emoji.startsWith('http') ? <img src={currentQuestion.word.emoji} alt="" /> : currentQuestion.word.emoji}
+                        </EmojiPrompt>
+                    )}
+                    <span>{currentQuestion.prompt}</span>
+                </QuestionPrompt>
             )}
 
             <OptionsGrid $isLongText={gameMode === 'en-to-zh'}>
-                {currentQuestion.options.map(option => (
-                    <OptionButton 
-                        key={option} 
-                        onClick={() => handleOptionClick(option)}
-                        disabled={!!selectedOption}
-                        $state={getButtonState(option)}
-                    >
-                        {option}
-                    </OptionButton>
-                ))}
+                {currentQuestion.options.map(option => {
+                    const isEmojiMode = gameMode === 'zh-to-en' || gameMode === 'listening';
+                    const wordObject = isEmojiMode
+                        ? topic.words.find(w => w.word === option)
+                        : null;
+                    return (
+                        <OptionButton 
+                            key={option} 
+                            onClick={() => handleOptionClick(option)}
+                            disabled={!!selectedOption}
+                            $state={getButtonState(option)}
+                        >
+                            {wordObject && (
+                                <EmojiOption>
+                                    {wordObject.emoji.startsWith('http') ? <img src={wordObject.emoji} alt="" /> : wordObject.emoji}
+                                </EmojiOption>
+                            )}
+                            <span>{option}</span>
+                        </OptionButton>
+                    )
+                })}
             </OptionsGrid>
         </GameCard>
     );
@@ -210,7 +228,7 @@ const Game: React.FC<GameProps> = ({ topic, gameMode, onGameChange }) => {
 
 
 const PracticePage: React.FC<{ topicId: string, words: Word[], navigateTo: (page: Page) => void }> = ({ topicId, words, navigateTo }) => {
-    const [gameMode, setGameMode] = useState<GameMode>('zh-to-en');
+    const [gameMode, setGameMode] = useState<GameMode>('en-to-zh');
     const originalTopic = allSubTopics.find(list => list.id === topicId);
 
     if (!originalTopic) {
@@ -234,11 +252,11 @@ const PracticePage: React.FC<{ topicId: string, words: Word[], navigateTo: (page
             </PageHeader>
             <main>
                 <GameTabs>
-                    <TabButton $active={gameMode === 'zh-to-en'} onClick={() => setGameMode('zh-to-en')}>
-                        <TranslateIcon /> 中选英
-                    </TabButton>
                     <TabButton $active={gameMode === 'en-to-zh'} onClick={() => setGameMode('en-to-zh')}>
                         <TranslateIcon /> 英选中
+                    </TabButton>
+                    <TabButton $active={gameMode === 'zh-to-en'} onClick={() => setGameMode('zh-to-en')}>
+                        <TranslateIcon /> 中选英
                     </TabButton>
                     <TabButton $active={gameMode === 'listening'} onClick={() => setGameMode('listening')}>
                         <SoundIcon /> 听音辨词
@@ -374,10 +392,27 @@ const ProgressBar = styled.div`
     transition: width 0.3s ease;
 `;
 
+const EmojiPrompt = styled.div`
+    font-size: 4rem;
+    line-height: 1;
+    height: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    img {
+        height: 100%;
+        width: 100%;
+        object-fit: contain;
+    }
+`;
+
 const QuestionPrompt = styled.div`
     width: 100%;
     min-height: 200px;
     display: flex;
+    flex-direction: column;
+    gap: 1rem;
     align-items: center;
     justify-content: center;
     margin-bottom: 2rem;
@@ -433,23 +468,41 @@ const OptionsGrid = styled.div<{ $isLongText?: boolean }>`
     }
 `;
 
+const EmojiOption = styled.div`
+    font-size: 2.5rem;
+    line-height: 1;
+    margin-bottom: 0.25rem;
+    height: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    img {
+      height: 100%;
+      width: 100%;
+      object-fit: contain;
+    }
+`;
+
 const OptionButton = styled.button<{ $state: 'default' | 'correct' | 'incorrect' | 'disabled' }>`
     font-family: inherit;
     font-size: 1.1rem;
     font-weight: 600;
-    padding: 1.25rem 1rem;
+    padding: 1rem;
     border-radius: 16px;
     cursor: pointer;
     transition: all 0.2s ease;
     border: 2px solid ${({ theme }) => theme.colors.border};
     background-color: ${({ theme }) => theme.colors.cardBg};
     color: ${({ theme }) => theme.colors.header};
-    min-height: 80px;
+    min-height: 120px;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     text-align: center;
     line-height: 1.4;
+    gap: 0.5rem;
 
     &:not(:disabled):hover {
         border-color: ${({ theme }) => theme.colors.practice};
@@ -484,7 +537,18 @@ const OptionButton = styled.button<{ $state: 'default' | 'correct' | 'incorrect'
     @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
         font-size: 1rem;
         padding: 1rem;
-        min-height: 60px;
+        min-height: 100px;
+        flex-direction: row;
+        justify-content: flex-start;
+        gap: 1rem;
+
+        ${EmojiOption} {
+            font-size: 2rem;
+            margin-bottom: 0;
+            height: 2rem;
+            width: 2rem;
+            flex-shrink: 0;
+        }
     }
 `;
 

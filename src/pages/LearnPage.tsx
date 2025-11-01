@@ -45,6 +45,9 @@ const LearnStep: React.FC<{ topic: SubTopic, onComplete: () => void }> = ({ topi
     return (
         <StepContainer>
             <Flashcard>
+                <EmojiDisplay>
+                    {currentWord.emoji.startsWith('http') ? <img src={currentWord.emoji} alt="" /> : currentWord.emoji}
+                </EmojiDisplay>
                 <WordDetails>
                     <WordRow>
                         <WordText>{currentWord.word}</WordText>
@@ -183,9 +186,28 @@ const Flashcard = styled.div`
     flex-direction: column;
 `;
 
+const EmojiDisplay = styled.div`
+    font-size: 5rem;
+    text-align: center;
+    padding: 2rem;
+    background-color: ${({ theme }) => theme.colors.columnBg};
+    line-height: 1;
+    height: 5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    img {
+      height: 100%;
+      width: 100%;
+      object-fit: contain;
+    }
+`;
+
 const WordDetails = styled.div`
     padding: 2rem;
     text-align: center;
+    flex-grow: 1;
 `;
 
 const WordRow = styled.div`

@@ -3,6 +3,7 @@ export interface Word {
   phonetic: string;
   definition: string;
   example: string;
+  emoji: string;
 }
 
 export interface SubTopic {

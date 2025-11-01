@@ -70,6 +70,9 @@ const WordSelectionPage: React.FC<WordSelectionPageProps> = ({ topicId, navigate
                             <Checkbox $checked={selectedWords.some(w => w.word === word.word)}>
                                 {selectedWords.some(w => w.word === word.word) && <CheckIcon />}
                             </Checkbox>
+                            <Emoji>
+                                {word.emoji.startsWith('http') ? <img src={word.emoji} alt="" /> : word.emoji}
+                            </Emoji>
                             <WordText>{word.word}</WordText>
                             <DefinitionText>{word.definition}</DefinitionText>
                         </WordItem>
@@ -206,35 +209,59 @@ const ControlButton = styled.button`
 
 const WordList = styled.div`
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 1rem;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1.5rem;
     max-height: 50vh;
     overflow-y: auto;
     padding: 0.5rem;
 `;
 
 const WordItem = styled.div<{$isSelected: boolean}>`
+    position: relative;
     display: flex;
+    flex-direction: column;
     align-items: center;
-    gap: 1rem;
-    padding: 0.75rem 1rem;
-    border-radius: 12px;
+    gap: 0.25rem;
+    padding: 1.25rem 1rem 1rem;
+    border-radius: 16px;
     cursor: pointer;
-    border: 1px solid ${({ theme, $isSelected }) => $isSelected ? theme.colors.primary : theme.colors.border};
-    background-color: ${({ theme, $isSelected }) => $isSelected ? theme.colors.primaryLight : 'transparent'};
+    border: 2px solid ${({ theme, $isSelected }) => $isSelected ? theme.colors.primary : theme.colors.border};
+    background-color: ${({ theme, $isSelected }) => $isSelected ? theme.colors.primaryLight : theme.colors.cardBg};
     transition: all 0.2s ease;
+    text-align: center;
+    box-shadow: ${({ theme }) => theme.shadows.subtle};
 
     &:hover {
         border-color: ${({ theme }) => theme.colors.primary};
-        background-color: ${({ theme }) => theme.colors.primaryLight};
+        transform: translateY(-2px);
+        box-shadow: ${({ theme }) => theme.shadows.main};
+    }
+`;
+
+const Emoji = styled.div`
+    font-size: 2.5rem;
+    line-height: 1;
+    margin-bottom: 0.75rem;
+    height: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    img {
+      height: 100%;
+      width: 100%;
+      object-fit: contain;
     }
 `;
 
 const Checkbox = styled.div<{$checked: boolean}>`
-    width: 22px;
-    height: 22px;
-    border-radius: 6px;
-    border: 2px solid ${({ theme, $checked }) => $checked ? theme.colors.primary : theme.colors.border};
+    position: absolute;
+    top: 0.75rem;
+    right: 0.75rem;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    border: 2px solid ${({ theme, $checked }) => $checked ? theme.colors.primary : '#D1D5DB'};
     background-color: ${({ theme, $checked }) => $checked ? theme.colors.primary : theme.colors.cardBg};
     color: white;
     display: flex;
@@ -252,9 +279,9 @@ const WordText = styled.span`
 
 const DefinitionText = styled.span`
     color: ${({ theme }) => theme.colors.label};
-    margin-left: auto;
     font-size: 0.9rem;
-    white-space: nowrap;
+    white-space: normal;
+    min-height: 2.2em;
 `;
 
 const Footer = styled.footer`
