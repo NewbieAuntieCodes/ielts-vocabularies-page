@@ -141,7 +141,7 @@ const Game: React.FC<GameProps> = ({ topic, gameMode, onGameChange }) => {
             }
             setSelectedOption(null);
             setIsCorrect(null);
-        }, 1200);
+        }, 300);
     };
 
     if (topic.words.length === 0) {

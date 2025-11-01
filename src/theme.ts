@@ -1,4 +1,4 @@
-// FIX: Add a direct import of 'styled-components' to make module augmentation work correctly.
+// To fix module augmentation, an explicit import of 'styled-components' is needed.
 import 'styled-components';
 import { createGlobalStyle } from 'styled-components';
 
@@ -44,7 +44,6 @@ export const theme = {
 
         // Compatibility colors from old theme
         highlightBg: '#e9f2ff',
-        // FIX: Added missing '#' to the hex color value.
         highlightBorder: '#c7dfff',
     },
     fonts: {
