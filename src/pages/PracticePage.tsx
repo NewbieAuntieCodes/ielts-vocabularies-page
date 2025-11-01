@@ -190,7 +190,7 @@ const Game: React.FC<GameProps> = ({ topic, gameMode, onGameChange }) => {
                 </ListenPromptContainer>
             ) : (
                 <QuestionPrompt>
-                    {(gameMode === 'en-to-zh' || gameMode === 'zh-to-en') && currentQuestion.word.emoji && (
+                    {gameMode === 'zh-to-en' && currentQuestion.word.emoji && (
                         <EmojiPrompt>
                             {currentQuestion.word.emoji.startsWith('http') ? <img src={currentQuestion.word.emoji} alt="" /> : currentQuestion.word.emoji}
                         </EmojiPrompt>
@@ -201,10 +201,12 @@ const Game: React.FC<GameProps> = ({ topic, gameMode, onGameChange }) => {
 
             <OptionsGrid $isLongText={gameMode === 'en-to-zh'}>
                 {currentQuestion.options.map(option => {
-                    const isEmojiMode = gameMode === 'listening';
-                    const wordObject = isEmojiMode
-                        ? topic.words.find(w => w.word === option)
-                        : null;
+                    let wordObject: Word | undefined;
+                    // Only find the word object (to show emoji) in en-to-zh mode,
+                    // where options are Chinese definitions.
+                    if (gameMode === 'en-to-zh') {
+                        wordObject = topic.words.find(w => w.definition === option);
+                    }
                     return (
                         <OptionButton 
                             key={option} 
