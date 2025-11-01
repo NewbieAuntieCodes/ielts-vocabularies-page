@@ -4,6 +4,21 @@ export const activitiesTopic: IeltsTopic = {
     title: '话题: 活动与爱好',
     subTopics: [
       {
+        id: 'change',
+        title: 'Change',
+        type: '事件题',
+        color: 'blue',
+        isNew: true,
+        words: [
+          { word: 'frequently', phonetic: '/ˈfriːkwəntli/', definition: '频繁地', example: 'I frequently change my hairstyle.' },
+          { word: 'regret', phonetic: '/rɪˈɡret/', definition: '后悔', example: 'She doesn\'t regret the changes she has made in her life.' },
+          { word: 'adapt', phonetic: '/əˈdæpt/', definition: '适应', example: 'Animals need to adapt to environmental changes to survive.' },
+          { word: 'unexpected', phonetic: '/ˌʌnɪkˈspektɪd/', definition: '意想不到的', example: 'The sudden change in weather was completely unexpected.' },
+          { word: 'transform', phonetic: '/trænsˈfɔːrm/', definition: '改变；转变', example: 'The internet has transformed the way people communicate.' },
+          { word: 'adjust', phonetic: '/əˈdʒʌst/', definition: '调整', example: 'You may need to adjust your plans if things change.' },
+        ],
+      },
+      {
         id: 'study',
         title: 'Study',
         type: '事件题',
@@ -43,7 +58,7 @@ export const activitiesTopic: IeltsTopic = {
           { word: 'roller coaster', phonetic: '/ˈroʊlər ˌkoʊstər/', definition: '过山车', example: 'Riding a roller coaster is a thrilling experience.' },
           { word: 'thrilling', phonetic: '/ˈθrɪlɪŋ/', definition: '惊险的；刺激的', example: 'The movie had a thrilling chase scene.' },
           { word: 'exhilarating', phonetic: '/ɪɡˈzɪləreɪtɪŋ/', definition: '令人振奋的', example: 'The exhilarating feeling of skiing down the mountain is unforgettable.' },
-          { word: 'adrenaline rush', phonetic: '/əˈdrenəlɪn rʌʃ/', definition: '肾上腺素飙升', example: 'I love the adrenaline rush I get from extreme sports.' },
+          { word: 'unforgettable', phonetic: '/ˌʌnfərˈɡetəbl/', definition: '难忘的', example: 'Visiting the Grand Canyon was an unforgettable experience.' },
           { word: 'adventurous', phonetic: '/ədˈventʃərəs/', definition: '富有冒险精神的', example: 'He is an adventurous traveler who loves exploring new places.' },
           { word: 'breathtaking', phonetic: '/ˈbreθteɪkɪŋ/', definition: '惊人的；惊险的', example: 'The view from the top of the mountain was breathtaking.' },
         ],
