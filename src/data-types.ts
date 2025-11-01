@@ -11,6 +11,7 @@ export interface SubTopic {
   type: string;
   color: 'yellow' | 'blue' | 'green' | 'purple';
   words: Word[];
+  isNew?: boolean;
 }
 
 export interface IeltsTopic {

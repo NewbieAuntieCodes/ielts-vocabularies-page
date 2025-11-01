@@ -1,5 +1,5 @@
 // The 'styled-components' module must be imported for type augmentation to work.
-// FIX: Add a side-effect import to ensure TypeScript can find and augment the module.
+// FIX: Added a side-effect import for 'styled-components' to allow module augmentation to work correctly.
 import 'styled-components';
 import { createGlobalStyle } from 'styled-components';
 

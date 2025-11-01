@@ -4,6 +4,21 @@ export const activitiesTopic: IeltsTopic = {
     title: '话题: 活动与爱好',
     subTopics: [
       {
+        id: 'doing-well',
+        title: 'Doing something well',
+        type: '事件题',
+        color: 'blue',
+        isNew: true,
+        words: [
+          { word: 'champion', phonetic: '/ˈtʃæmpiən/', definition: '冠军/拥护者', example: 'He is a true champion of the sport.' },
+          { word: 'praise', phonetic: '/preɪz/', definition: '赞扬', example: 'The critics praised the film for its originality.' },
+          { word: 'accomplishment', phonetic: '/əˈkʌmplɪʃmənt/', definition: '成就', example: 'Finishing the marathon was a huge accomplishment for her.' },
+          { word: 'excel', phonetic: '/ɪkˈsel/', definition: '擅长/超越', example: 'She has always excelled in science subjects.' },
+          { word: 'outstanding', phonetic: '/aʊtˈstændɪŋ/', definition: '杰出的', example: 'His performance was outstanding.' },
+          { word: 'proficient', phonetic: '/prəˈfɪʃnt/', definition: '精通的', example: 'I am proficient in both spoken and written English.' },
+        ],
+      },
+      {
         id: 'sharing',
         title: 'Sharing',
         type: '事件题',

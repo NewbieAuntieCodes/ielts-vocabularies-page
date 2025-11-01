@@ -24,12 +24,12 @@ const HomePage: React.FC<HomePageProps> = ({ navigateToWordSelection }) => {
                         </ColumnHeader>
                         <SubTopicList>
                             {category.subTopics.map(subTopic => (
-                                <SubTopicCard key={subTopic.id} onClick={() => navigateToWordSelection(subTopic.id)}>
+                                <SubTopicCard key={subTopic.id} onClick={() => navigateToWordSelection(subTopic.id)} $color={subTopic.color}>
                                     <CardBody>
                                         <Tag $color={subTopic.color}>{subTopic.type}</Tag>
                                         <CardTitle>{subTopic.title}</CardTitle>
                                     </CardBody>
-                                    <NewBadge>New</NewBadge>
+                                    {subTopic.isNew && <NewBadge>New</NewBadge>}
                                 </SubTopicCard>
                             ))}
                         </SubTopicList>
@@ -103,22 +103,40 @@ const SubTopicList = styled.div`
     gap: 0.75rem;
 `;
 
-const SubTopicCard = styled.div`
+const SubTopicCard = styled.div<{ $color: 'yellow' | 'blue' | 'green' | 'purple' }>`
     background-color: ${({ theme }) => theme.colors.cardBg};
     border-radius: 12px;
-    padding: 0.75rem 1rem;
+    padding: 0.75rem 1rem 0.75rem 1.5rem;
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
     cursor: pointer;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
-    border: 1px solid ${({ theme }) => theme.colors.cardBg};
+    position: relative;
+    overflow: hidden;
     display: flex;
     justify-content: space-between;
     align-items: center;
 
+    &::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 6px;
+        background-color: ${({ theme, $color }) => {
+            switch ($color) {
+                case 'yellow': return theme.colors.tagYellowText;
+                case 'blue': return theme.colors.tagBlueText;
+                case 'green': return theme.colors.tagGreenText;
+                case 'purple': return theme.colors.tagPurpleText;
+                default: return theme.colors.border;
+            }
+        }};
+    }
+    
     &:hover {
         transform: translateY(-2px);
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.07);
-        border-color: #dbe2f4;
     }
 `;
 

@@ -1,7 +1,8 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect } from 'react';
 import { styled, keyframes } from 'styled-components';
 import { Page } from '../types';
 import { allSubTopics, SubTopic, Word } from '../data';
+import { speak } from '../utils/speech';
 
 const BackArrowIcon = () => <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><line x1="19" y1="12" x2="5" y2="12" /><polyline points="12 19 5 12 12 5" /></svg>;
 const PrevIcon = () => <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="15 18 9 12 15 6" /></svg>;
@@ -24,64 +25,19 @@ const LearnStep: React.FC<{ topic: SubTopic, onComplete: () => void }> = ({ topi
     
     const currentWord = topic.words[currentIndex];
 
-    const speak = useCallback((text: string) => {
-        if (!('speechSynthesis' in window)) {
-            console.warn('Speech synthesis not supported.');
-            return;
-        }
-        window.speechSynthesis.cancel();
-
-        const utterance = new SpeechSynthesisUtterance(text);
-        const voices = window.speechSynthesis.getVoices();
-
-        const preferredVoiceNames = [
-            'Google UK English Female',
-            'Google US English',
-            'Microsoft Zira - English (United States)',
-        ];
-        
-        let selectedVoice = voices.find(voice => preferredVoiceNames.includes(voice.name));
-        if (!selectedVoice) {
-            selectedVoice = voices.find(voice => voice.lang.startsWith('en-GB') && voice.name.includes('Google'));
-        }
-        if (!selectedVoice) {
-            selectedVoice = voices.find(voice => voice.lang.startsWith('en-US') && voice.name.includes('Google'));
-        }
-        if (!selectedVoice) {
-            selectedVoice = voices.find(voice => voice.lang.startsWith('en-GB'));
-        }
-        if (!selectedVoice) {
-            selectedVoice = voices.find(voice => voice.lang.startsWith('en-US'));
-        }
-        
-        utterance.voice = selectedVoice || null;
-        utterance.lang = 'en-US';
-        utterance.rate = 0.9;
-        window.speechSynthesis.speak(utterance);
-    }, []);
-
     useEffect(() => {
-        const speakOnLoad = () => {
-            // A small delay for UI transition and voice readiness
-            setTimeout(() => speak(currentWord.word), 100);
-        };
-
-        if ('speechSynthesis' in window) {
-            const voices = window.speechSynthesis.getVoices();
-            if (voices.length > 0) {
-                speakOnLoad();
-            } else {
-                window.speechSynthesis.onvoiceschanged = speakOnLoad;
-            }
-        }
-
+        // A small delay for UI transition and voice readiness
+        const timeoutId = setTimeout(() => speak(currentWord.word), 100);
+        
         return () => {
+            clearTimeout(timeoutId);
+            // Stop any speech when the component unmounts or the word changes
             if ('speechSynthesis' in window) {
-                window.speechSynthesis.onvoiceschanged = null;
                 window.speechSynthesis.cancel();
             }
         };
-    }, [currentWord, speak]);
+    }, [currentWord]);
+
 
     const handleNext = () => setCurrentIndex(i => Math.min(i + 1, topic.words.length - 1));
     const handlePrev = () => setCurrentIndex(i => Math.max(i - 1, 0));

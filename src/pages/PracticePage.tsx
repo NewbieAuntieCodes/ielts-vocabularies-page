@@ -2,48 +2,83 @@ import React, { useState, useEffect, useCallback } from 'react';
 import { styled, keyframes, css } from 'styled-components';
 import { Page } from '../types';
 import { allSubTopics, SubTopic, Word } from '../data';
+import { speak } from '../utils/speech';
 
-type GameMode = 'image' | 'listening';
+type GameMode = 'zh-to-en' | 'en-to-zh' | 'listening';
 
-const BackArrowIcon = () => <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><line x1="19" y1="12" x2="5" y2="12" /><polyline points="12 19 5 12 12 5" /></svg>;
-const SpeakerIcon = () => <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg>;
-const ImageIcon = () => <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>;
-const SoundIcon = () => <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg>;
+// --- ICONS ---
+const BackArrowIcon = () => <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><line x1="19" y1="12" x2="5" y2="12" /><polyline points="12 19 5 12 12 5" /></svg>;
+const SpeakerIcon = () => <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg>;
+const TranslateIcon = () => <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/><path d="M12 5V3M5 5.5V3H3m18 18v-2.5m-3.5 2.5h2.5v-2.5M12 19v2m-1.5-11-5-5m0 5 5-5"/></svg>;
+const SoundIcon = () => <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg>;
 
-
+// --- HELPER FUNCTIONS ---
 const shuffleArray = <T,>(array: T[]): T[] => array.sort(() => Math.random() - 0.5);
+const generateUID = () => Date.now().toString(36) + Math.random().toString(36).substr(2);
 
 interface Question {
     word: Word;
     options: string[];
+    prompt: string;
+    answer: string;
+    uid: string;
+    isRetry?: boolean;
 }
 
-const createGameQuestions = (topic: SubTopic): Question[] => {
+const createGameQuestions = (topic: SubTopic, mode: GameMode): Question[] => {
+    // Need at least 4 words to generate 3 incorrect options.
+    if (topic.words.length < 4 && (mode === 'en-to-zh' || mode === 'zh-to-en')) {
+        return [];
+    }
     const shuffledWords = shuffleArray([...topic.words]);
+    
     return shuffledWords.map(correctWord => {
         const otherWords = topic.words.filter(w => w.word !== correctWord.word);
-        const numOptions = Math.min(3, otherWords.length); // Ensure we don't need more options than available words
-        const incorrectOptions = shuffleArray(otherWords).slice(0, numOptions).map(w => w.word);
-        const options = shuffleArray([correctWord.word, ...incorrectOptions]);
+        const numOptions = Math.min(3, otherWords.length);
+        const incorrectOptionsPool = shuffleArray(otherWords).slice(0, numOptions);
+
+        let options: string[] = [];
+        let prompt: string = '';
+        let answer: string = '';
+
+        switch (mode) {
+            case 'zh-to-en':
+                prompt = correctWord.definition;
+                answer = correctWord.word;
+                options = shuffleArray([
+                    correctWord.word, 
+                    ...incorrectOptionsPool.map(w => w.word)
+                ]);
+                break;
+            
+            case 'en-to-zh':
+                prompt = correctWord.word;
+                answer = correctWord.definition;
+                options = shuffleArray([
+                    correctWord.definition,
+                    ...incorrectOptionsPool.map(w => w.definition)
+                ]);
+                break;
+
+            case 'listening':
+                prompt = correctWord.word; // This is for speaking
+                answer = correctWord.word;
+                options = shuffleArray([
+                    correctWord.word,
+                    ...incorrectOptionsPool.map(w => w.word)
+                ]);
+                break;
+        }
+
         return {
             word: correctWord,
             options,
+            prompt,
+            answer,
+            uid: generateUID(),
         };
     });
 };
-
-const speak = (text: string) => {
-    if (!('speechSynthesis' in window)) {
-        console.warn('Speech synthesis not supported.');
-        return;
-    }
-    window.speechSynthesis.cancel();
-    const utterance = new SpeechSynthesisUtterance(text);
-    utterance.lang = 'en-US';
-    utterance.rate = 0.9;
-    window.speechSynthesis.speak(utterance);
-};
-
 
 interface GameProps {
     topic: SubTopic;
@@ -52,107 +87,112 @@ interface GameProps {
 }
 
 const Game: React.FC<GameProps> = ({ topic, gameMode, onGameChange }) => {
-    const [questions, setQuestions] = useState<Question[]>([]);
-    const [currentIndex, setCurrentIndex] = useState(0);
+    const [questionQueue, setQuestionQueue] = useState<Question[]>([]);
+    const [totalQuestions, setTotalQuestions] = useState(0);
     const [selectedOption, setSelectedOption] = useState<string | null>(null);
     const [isCorrect, setIsCorrect] = useState<boolean | null>(null);
     const [score, setScore] = useState(0);
-    const [isFinished, setIsFinished] = useState(false);
 
     const resetGame = useCallback(() => {
-        if (topic.words.length > 0) {
-            setQuestions(createGameQuestions(topic));
-        } else {
-            setQuestions([]);
-        }
-        setCurrentIndex(0);
+        const newQuestions = createGameQuestions(topic, gameMode);
+        setQuestionQueue(newQuestions);
+        setTotalQuestions(newQuestions.length);
         setSelectedOption(null);
         setIsCorrect(null);
         setScore(0);
-        setIsFinished(false);
-    }, [topic]);
+    }, [topic, gameMode]);
 
     useEffect(() => {
         resetGame();
     }, [resetGame]);
 
+    const currentQuestion = questionQueue[0];
+    
     useEffect(() => {
-        if (gameMode === 'listening' && questions.length > 0 && !isFinished) {
-            speak(questions[currentIndex].word.word);
+        if (gameMode === 'listening' && currentQuestion) {
+            speak(currentQuestion.prompt);
         }
-    }, [currentIndex, questions, gameMode, isFinished]);
+    }, [currentQuestion, gameMode]);
     
     const handleOptionClick = (option: string) => {
         if (selectedOption) return;
 
-        const correct = option === questions[currentIndex].word.word;
+        const correct = option === currentQuestion.answer;
         setSelectedOption(option);
         setIsCorrect(correct);
-        if (correct) {
-            setScore(s => s + 1);
-        }
 
         setTimeout(() => {
-            if (currentIndex < questions.length - 1) {
-                setCurrentIndex(i => i + 1);
-                setSelectedOption(null);
-                setIsCorrect(null);
+            if (correct) {
+                if (!currentQuestion.isRetry) {
+                    setScore(s => s + 1);
+                }
+                setQuestionQueue(q => q.slice(1));
             } else {
-                setIsFinished(true);
+                setQuestionQueue(q => {
+                    if (q.length <= 1) {
+                        return [...q]; 
+                    }
+                    const queue = [...q];
+                    const failedQuestion = queue.shift()!;
+                    failedQuestion.isRetry = true;
+                    queue.splice(1, 0, failedQuestion);
+                    return queue;
+                });
             }
-        }, 500);
+            setSelectedOption(null);
+            setIsCorrect(null);
+        }, 1200);
     };
 
     if (topic.words.length === 0) {
         return <GameCard><p>请至少选择一个单词开始练习！</p></GameCard>
     }
-
-    if (questions.length === 0) {
-        return <GameCard><p>正在加载游戏...</p></GameCard>;
+    if (totalQuestions === 0 && (gameMode === 'en-to-zh' || gameMode === 'zh-to-en')) {
+         return <GameCard><p>当前模式至少需要4个单词才能开始练习！</p></GameCard>
     }
 
-    if (isFinished) {
+    if (!currentQuestion) {
         return (
             <ResultsContainer>
                 <h2>练习完成!</h2>
                 <p>你的得分是:</p>
-                <ScoreText>{score} / {questions.length}</ScoreText>
+                <ScoreText>{score} / {totalQuestions}</ScoreText>
                 <ResultsActions>
                     <GameButton onClick={resetGame}>再玩一次</GameButton>
-                    <GameButton onClick={() => onGameChange(gameMode === 'image' ? 'listening' : 'image')} $secondary>
-                        {gameMode === 'image' ? '挑战听力' : '挑战识图'}
+                    <GameButton onClick={() => onGameChange(gameMode === 'listening' ? 'zh-to-en' : 'listening')} $secondary>
+                        {gameMode === 'listening' ? '挑战中选英' : '挑战听力'}
                     </GameButton>
                 </ResultsActions>
             </ResultsContainer>
         );
     }
     
-    const currentQuestion = questions[currentIndex];
-
     const getButtonState = (option: string) => {
         if (!selectedOption) return 'default';
-        if (option === currentQuestion.word.word) return 'correct';
+        if (option === currentQuestion.answer) return 'correct';
         if (option === selectedOption) return 'incorrect';
         return 'disabled';
     };
+    
+    const progress = totalQuestions > 0 ? ((totalQuestions - questionQueue.length) / totalQuestions) * 100 : 0;
 
     return (
         <GameCard>
              <ProgressBarContainer>
-                <ProgressBar style={{ width: `${((currentIndex) / questions.length) * 100}%` }} />
+                <ProgressBar style={{ width: `${progress}%` }} />
             </ProgressBarContainer>
 
-            {gameMode === 'image' ? (
-                 <QuestionPrompt>{currentQuestion.word.definition}</QuestionPrompt>
-            ) : (
+            {gameMode === 'listening' ? (
                 <ListenPromptContainer>
-                    <ListenButton onClick={() => speak(currentQuestion.word.word)} aria-label="Play sound">
+                    <ListenButton onClick={() => speak(currentQuestion.prompt)} aria-label="Play sound">
                         <SpeakerIcon />
                     </ListenButton>
                 </ListenPromptContainer>
+            ) : (
+                <QuestionPrompt>{currentQuestion.prompt}</QuestionPrompt>
             )}
 
-            <OptionsGrid>
+            <OptionsGrid $isLongText={gameMode === 'en-to-zh'}>
                 {currentQuestion.options.map(option => (
                     <OptionButton 
                         key={option} 
@@ -170,7 +210,7 @@ const Game: React.FC<GameProps> = ({ topic, gameMode, onGameChange }) => {
 
 
 const PracticePage: React.FC<{ topicId: string, words: Word[], navigateTo: (page: Page) => void }> = ({ topicId, words, navigateTo }) => {
-    const [gameMode, setGameMode] = useState<GameMode>('listening');
+    const [gameMode, setGameMode] = useState<GameMode>('zh-to-en');
     const originalTopic = allSubTopics.find(list => list.id === topicId);
 
     if (!originalTopic) {
@@ -194,15 +234,18 @@ const PracticePage: React.FC<{ topicId: string, words: Word[], navigateTo: (page
             </PageHeader>
             <main>
                 <GameTabs>
-                    <TabButton $active={gameMode === 'image'} onClick={() => setGameMode('image')}>
-                        <ImageIcon /> 看词识义
+                    <TabButton $active={gameMode === 'zh-to-en'} onClick={() => setGameMode('zh-to-en')}>
+                        <TranslateIcon /> 中选英
+                    </TabButton>
+                    <TabButton $active={gameMode === 'en-to-zh'} onClick={() => setGameMode('en-to-zh')}>
+                        <TranslateIcon /> 英选中
                     </TabButton>
                     <TabButton $active={gameMode === 'listening'} onClick={() => setGameMode('listening')}>
                         <SoundIcon /> 听音辨词
                     </TabButton>
                 </GameTabs>
 
-                <Game key={`${gameMode}-${topicId}`} topic={activityTopic} gameMode={gameMode} onGameChange={setGameMode} />
+                <Game key={`${gameMode}-${topicId}-${words.map(w => w.word).join('')}`} topic={activityTopic} gameMode={gameMode} onGameChange={setGameMode} />
             </main>
         </PageContainer>
     );
@@ -271,6 +314,7 @@ const GameTabs = styled.div`
     justify-content: center;
     gap: 1rem;
     margin-bottom: 2rem;
+    flex-wrap: wrap;
 `;
 
 const TabButton = styled.button<{ $active: boolean }>`
@@ -332,7 +376,7 @@ const ProgressBar = styled.div`
 
 const QuestionPrompt = styled.div`
     width: 100%;
-    height: 200px;
+    min-height: 200px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -341,6 +385,11 @@ const QuestionPrompt = styled.div`
     font-weight: bold;
     color: ${({ theme }) => theme.colors.header};
     text-align: center;
+
+     @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+        font-size: 1.5rem;
+        min-height: 150px;
+    }
 `;
 
 const ListenPromptContainer = styled.div`
@@ -371,26 +420,37 @@ const ListenButton = styled.button`
     }
 `;
 
-const OptionsGrid = styled.div`
+const OptionsGrid = styled.div<{ $isLongText?: boolean }>`
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 1rem;
     width: 100%;
-    max-width: 500px;
+    max-width: ${({ $isLongText }) => $isLongText ? '100%' : '500px'};
+    
+    @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+        grid-template-columns: 1fr;
+        ${({ $isLongText }) => $isLongText && 'gap: 0.75rem;'}
+    }
 `;
 
 const OptionButton = styled.button<{ $state: 'default' | 'correct' | 'incorrect' | 'disabled' }>`
     font-family: inherit;
-    font-size: 1.25rem;
+    font-size: 1.1rem;
     font-weight: 600;
-    padding: 1.25rem;
+    padding: 1.25rem 1rem;
     border-radius: 16px;
     cursor: pointer;
     transition: all 0.2s ease;
     border: 2px solid ${({ theme }) => theme.colors.border};
     background-color: ${({ theme }) => theme.colors.cardBg};
     color: ${({ theme }) => theme.colors.header};
-    
+    min-height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    line-height: 1.4;
+
     &:not(:disabled):hover {
         border-color: ${({ theme }) => theme.colors.practice};
         color: ${({ theme }) => theme.colors.practice};
@@ -413,13 +473,19 @@ const OptionButton = styled.button<{ $state: 'default' | 'correct' | 'incorrect'
                 `;
             case 'disabled':
                 return css`
-                    opacity: 0.5;
+                    opacity: 0.6;
                     cursor: not-allowed;
                 `;
             default:
                 return '';
         }
     }}
+
+    @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+        font-size: 1rem;
+        padding: 1rem;
+        min-height: 60px;
+    }
 `;
 
 const ResultsContainer = styled.div`
@@ -449,6 +515,7 @@ const ResultsActions = styled.div`
     display: flex;
     justify-content: center;
     gap: 1rem;
+    flex-wrap: wrap;
 `;
 
 const GameButton = styled.button<{ $secondary?: boolean }>`
