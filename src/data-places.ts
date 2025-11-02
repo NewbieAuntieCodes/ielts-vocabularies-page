@@ -36,8 +36,8 @@ const crowdedPlace: SubTopic = {
       { word: 'bustling', phonetic: '/ˈbʌslɪŋ/', definition: '熙熙攘攘的', example: 'The market was bustling with shoppers.', emoji: 'https://em-content.zobj.net/source/apple/391/man-running_1f3c3-200d-2642-fe0f.png' },
       { word: 'vibrant', phonetic: '/ˈvaɪbrənt/', definition: '充满活力的', example: 'It\'s a vibrant city with a lively nightlife.', emoji: 'https://em-content.zobj.net/source/apple/391/party-popper_1f389.png' },
       { word: 'packed', phonetic: '/pækt/', definition: '拥挤的', example: 'The train was so packed I could barely move.', emoji: 'https://em-content.zobj.net/source/apple/391/family-man-woman-girl-boy_1f468-200d-1f469-200d-1f467-200d-1f466.png' },
-      { word: 'throng', phonetic: '/θrɔːŋ/', definition: '人群', example: 'A throng of tourists gathered around the monument.', emoji: 'https://em-content.zobj.net/source/apple/391/busts-in-silhouette_1f465.png' },
       { word: 'hustle and bustle', phonetic: '/ˈhʌsl ænd ˈbʌsl/', definition: '熙熙攘攘', example: 'I love the hustle and bustle of the big city.', emoji: 'https://em-content.zobj.net/source/apple/391/cityscape_1f3d9-fe0f.png' },
+      { word: 'noisy', phonetic: '/ˈnɔɪzi/', definition: '嘈杂的', example: 'The restaurant was too noisy for a quiet conversation.', emoji: 'https://em-content.zobj.net/source/apple/391/speaker-high-volume_1f50a.png' },
     ],
 };
 

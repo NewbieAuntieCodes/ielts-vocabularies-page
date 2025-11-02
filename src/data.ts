@@ -3,6 +3,7 @@ import { peopleTopic } from './data-people';
 import { placesTopic } from './data-places';
 import { activitiesTopic } from './data-activities';
 import { thingsTopic } from './data-things';
+import { otherTopic } from './data-other';
 
 // Re-export types so they can be imported from this file, maintaining the original API
 export * from './data-types';
@@ -12,6 +13,7 @@ export const ieltsTopics: IeltsTopic[] = [
     placesTopic,
     activitiesTopic,
     thingsTopic,
+    otherTopic,
 ];
 
 export const allSubTopics: (SubTopic & { description?: string; illustration?: any; theme?: string })[] = ieltsTopics.flatMap(topic => topic.subTopics);

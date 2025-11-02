@@ -72,7 +72,7 @@ const ColumnHeader = styled.header`
     justify-content: space-between;
     align-items: center;
     padding: 0.5rem 0.75rem 1rem;
-    color: ${({ theme }) => theme.colors.header};
+    color: ${({ theme }) => theme.colors.text};
     font-weight: 600;
 `;
 
