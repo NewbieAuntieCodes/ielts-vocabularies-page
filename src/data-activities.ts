@@ -3,7 +3,6 @@ import { dailyRoutineChange } from './data-activities/daily-routine-change';
 import { study } from './data-activities/study';
 import { excitingActivity } from './data-activities/exciting-activity';
 import { doingWell } from './data-activities/doing-well';
-import { sharing } from './data-activities/sharing';
 import { borrowing } from './data-activities/borrowing';
 import { chatting } from './data-activities/chatting';
 import { breakTopic } from './data-activities/break';
@@ -16,7 +15,6 @@ export const activitiesTopic: IeltsTopic = {
       study,
       excitingActivity,
       doingWell,
-      sharing,
       borrowing,
       chatting,
       breakTopic,

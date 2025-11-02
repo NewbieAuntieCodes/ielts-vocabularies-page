@@ -46,22 +46,13 @@ const HomeContainer = styled.div`
 `;
 
 const TopicsGrid = styled.div`
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 1.5rem;
     align-items: flex-start;
-
-    @media (max-width: 1024px) {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-    }
-    @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
-        grid-template-columns: 1fr;
-    }
 `;
 
 const TopicColumn = styled.section`
-    flex: 1;
-    min-width: 250px;
     background-color: ${({ theme }) => theme.colors.columnBg};
     border-radius: 16px;
     padding: 0.75rem;

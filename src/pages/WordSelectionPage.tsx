@@ -255,7 +255,7 @@ const WordList = styled.div`
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     gap: 1.5rem;
-    max-height: 50vh;
+    max-height: 60vh;
     overflow-y: auto;
     padding: 0.5rem;
 `;

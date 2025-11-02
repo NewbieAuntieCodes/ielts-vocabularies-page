@@ -1,6 +1,4 @@
-// FIX: The module augmentation for 'styled-components' requires the module to be imported first. This import resolves the "module 'styled-components' cannot be found" error.
-import 'styled-components';
-import { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle, DefaultTheme } from 'styled-components';
 
 export const theme = {
     colors: {
@@ -61,6 +59,8 @@ export const theme = {
 
 type ThemeType = typeof theme;
 
+// FIX: To resolve the "module 'styled-components' cannot be found" error, explicitly import `DefaultTheme`
+// to help TypeScript's module resolver locate the module for augmentation.
 declare module 'styled-components' {
   export interface DefaultTheme extends ThemeType {}
 }

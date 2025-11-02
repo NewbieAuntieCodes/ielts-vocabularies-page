@@ -149,8 +149,8 @@ const WordsContent = styled.div`
 `;
 
 const TagContainer = styled.div`
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     gap: 0.75rem;
 `;
 
@@ -166,6 +166,7 @@ const Tag = styled.div`
     gap: 0.5rem;
     animation: ${fadeIn} 0.3s ease;
     font-size: 1rem;
+    justify-content: space-between;
 `;
 
 const DeleteTagButton = styled.button`
