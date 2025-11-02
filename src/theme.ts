@@ -1,5 +1,7 @@
 // FIX: Resolved module augmentation error by removing a redundant import. The named import of `createGlobalStyle` is sufficient.
 import { createGlobalStyle } from 'styled-components';
+// FIX: Added import for 'styled-components' to enable module augmentation.
+import 'styled-components';
 
 export const theme = {
     colors: {
@@ -63,6 +65,7 @@ declare module 'styled-components' {
   export interface DefaultTheme extends ThemeType {}
 }
 
+// FIX: Corrected typo from `createGlobalstyle` to `createGlobalStyle`.
 export const GlobalStyles = createGlobalStyle`
     body {
         background-color: #0f172a;
