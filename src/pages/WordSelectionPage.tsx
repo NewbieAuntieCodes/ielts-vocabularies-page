@@ -14,9 +14,30 @@ interface WordSelectionPageProps {
     onStartActivity: (page: 'learn' | 'practice', words: Word[]) => void;
 }
 
+const getEmojiCharacter = (emoji: string): string => {
+    if (emoji.startsWith('http')) {
+        // Extracts hex codepoints from URLs like:
+        // .../partying-face_1f973.png -> 1f973
+        // .../man-running_1f3c3-200d-2642-fe0f.png -> 1f3c3-200d-2642-fe0f
+        const match = emoji.match(/_([0-9a-fA-F\-]+)\.png$/);
+        if (match && match[1]) {
+            try {
+                const codePoints = match[1].split('-').map(hex => parseInt(hex, 16));
+                return String.fromCodePoint(...codePoints);
+            } catch (e) {
+                console.error('Failed to parse emoji codepoint from URL:', emoji, e);
+                return '▫️'; // Fallback for parsing errors
+            }
+        }
+        return '▫️'; // Fallback for URLs without a parsable codepoint
+    }
+    return emoji; // It's already a unicode character
+};
+
 const WordSelectionPage: React.FC<WordSelectionPageProps> = ({ topicId, navigateTo, onStartActivity }) => {
     const topic = useMemo(() => allSubTopics.find(list => list.id === topicId), [topicId]);
     const [selectedWords, setSelectedWords] = useState<Word[]>([]);
+    const [copyStatus, setCopyStatus] = useState('');
 
     useEffect(() => {
         if (topic) {
@@ -44,6 +65,26 @@ const WordSelectionPage: React.FC<WordSelectionPageProps> = ({ topicId, navigate
     const handleSelectAll = () => setSelectedWords(topic.words);
     const handleDeselectAll = () => setSelectedWords([]);
 
+    const handleCopy = () => {
+        if (selectedWords.length === 0) return;
+        
+        const textToCopy = selectedWords
+            .map(word => {
+                const emojiChar = getEmojiCharacter(word.emoji);
+                // Format: English Phonetic Icon Chinese
+                return `${word.word} ${word.phonetic} ${emojiChar} ${word.definition}`;
+            })
+            .join('\n');
+
+        navigator.clipboard.writeText(textToCopy).then(() => {
+            setCopyStatus('已复制！');
+            setTimeout(() => setCopyStatus(''), 2000);
+        }, () => {
+            setCopyStatus('复制失败');
+            setTimeout(() => setCopyStatus(''), 2000);
+        });
+    };
+
     const isAllSelected = selectedWords.length === topic.words.length;
     const isNoneSelected = selectedWords.length === 0;
 
@@ -59,6 +100,8 @@ const WordSelectionPage: React.FC<WordSelectionPageProps> = ({ topicId, navigate
                 <Controls>
                     <p>{selectedWords.length} / {topic.words.length} 已选择</p>
                     <div>
+                        {copyStatus && <CopyStatus>{copyStatus}</CopyStatus>}
+                        <ControlButton onClick={handleCopy} disabled={isNoneSelected}>复制笔记</ControlButton>
                         <ControlButton onClick={handleSelectAll} disabled={isAllSelected}>全选</ControlButton>
                         <ControlButton onClick={handleDeselectAll} disabled={isNoneSelected}>全部取消</ControlButton>
                     </div>
@@ -179,6 +222,7 @@ const Controls = styled.div`
     div {
         display: flex;
         gap: 0.75rem;
+        align-items: center;
     }
 `;
 
@@ -189,6 +233,8 @@ const ControlButton = styled.button`
     font-weight: 600;
     font-size: 0.9rem;
     cursor: pointer;
+    padding: 0;
+
     &:hover:not(:disabled) {
         text-decoration: underline;
     }
@@ -197,6 +243,12 @@ const ControlButton = styled.button`
         cursor: not-allowed;
         text-decoration: none;
     }
+`;
+
+const CopyStatus = styled.span`
+    font-size: 0.9rem;
+    color: ${({ theme }) => theme.colors.learn};
+    font-weight: 600;
 `;
 
 const WordList = styled.div`

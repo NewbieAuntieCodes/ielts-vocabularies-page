@@ -11,6 +11,15 @@ const friends: SubTopic = {
       { word: 'trustworthy', phonetic: '/ˈtrʌstˌwɜːrði/', definition: '值得信赖的', example: 'She is a trustworthy person; your secret is safe with her.', emoji: 'https://em-content.zobj.net/source/apple/391/handshake_1f91d.png' },
       { word: 'supportive', phonetic: '/səˈpɔːrtɪv/', definition: '支持的', example: 'My parents are very supportive of my career choice.', emoji: 'https://em-content.zobj.net/source/apple/391/thumbs-up_1f44d.png' },
       { word: 'get along with', phonetic: '/ɡet əˈlɔŋ wɪθ/', definition: '和...相处融洽', example: 'I get along with my colleagues very well.', emoji: 'https://em-content.zobj.net/source/apple/391/smiling-face-with-smiling-eyes_1f60a.png' },
+      { word: 'teammate', phonetic: '/ˈtiːmmeɪt/', definition: '队友', example: 'My teammate and I practice together every day.', emoji: 'https://em-content.zobj.net/source/apple/391/people-hugging_1fac2.png' },
+      { word: 'close friend', phonetic: '/kloʊs frend/', definition: '密友', example: 'She is not just a colleague, she is a close friend.', emoji: 'https://em-content.zobj.net/source/apple/391/two-hearts_1f495.png' },
+      { word: 'talkative', phonetic: '/ˈtɔːkətɪv/', definition: '健谈的', example: 'My roommate is very talkative, she can talk for hours.', emoji: 'https://em-content.zobj.net/source/apple/391/speaking-head_1f5e3-fe0f.png' },
+      { word: 'reliable', phonetic: '/rɪˈlaɪəbl/', definition: '可靠的', example: 'He is a very reliable employee who always meets deadlines.', emoji: 'https://em-content.zobj.net/source/apple/391/key_1f511.png' },
+      { word: 'easy-going', phonetic: '/ˈiːziˌɡoʊɪŋ/', definition: '随和的', example: 'He has an easy-going personality and gets along with everyone.', emoji: 'https://em-content.zobj.net/source/apple/391/smiling-face-with-sunglasses_1f60e.png' },
+      { word: 'caring', phonetic: '/ˈkerɪŋ/', definition: '有爱心的', example: 'She is a caring person who always helps others in need.', emoji: 'https://em-content.zobj.net/source/apple/391/smiling-face-with-hearts_1f970.png' },
+      { word: 'topics', phonetic: '/ˈtɒpɪks/', definition: '话题', example: 'We discussed a variety of topics during our conversation.', emoji: 'https://em-content.zobj.net/source/apple/391/speech-balloon_1f4ac.png' },
+      { word: 'trust', phonetic: '/trʌst/', definition: '信任', example: 'Trust is the foundation of any strong friendship.', emoji: 'https://em-content.zobj.net/source/apple/391/handshake_1f91d.png' },
+      { word: 'hang out', phonetic: '/hæŋ aʊt/', definition: '一起玩；闲逛', example: 'We often hang out at the cafe after school.', emoji: 'https://em-content.zobj.net/source/apple/391/hot-beverage_2615.png' },
     ],
 };
 

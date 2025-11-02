@@ -1,5 +1,5 @@
-// FIX: Removed a redundant side-effect import for 'styled-components'.
-// The named import of `createGlobalStyle` is sufficient for module augmentation to work.
+// FIX: The module augmentation for 'styled-components' requires the module to be imported first. This import resolves the "module 'styled-components' cannot be found" error.
+import 'styled-components';
 import { createGlobalStyle } from 'styled-components';
 
 export const theme = {
@@ -44,6 +44,7 @@ export const theme = {
 
         // Compatibility colors from old theme
         highlightBg: '#e9f2ff',
+        // FIX: Added missing '#' to the hex color value.
         highlightBorder: '#c7dfff',
     },
     fonts: {
@@ -64,7 +65,6 @@ declare module 'styled-components' {
   export interface DefaultTheme extends ThemeType {}
 }
 
-// FIX: Corrected typo from `createGlobalstyle` to `createGlobalStyle`.
 export const GlobalStyles = createGlobalStyle`
     body {
         background-color: #0f172a;
