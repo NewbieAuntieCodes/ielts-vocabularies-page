@@ -7,33 +7,7 @@ import { speak } from '../utils/speech';
 const BackArrowIcon = () => <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><line x1="19" y1="12" x2="5" y2="12" /><polyline points="12 19 5 12 12 5" /></svg>;
 const PrevIcon = () => <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="15 18 9 12 15 6" /></svg>;
 const NextIcon = () => <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="9 18 15 12 9 6" /></svg>;
-const SpeakerIcon = () => <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg>;
-
-// --- Word Sidebar Component (for Desktop/Tablet) ---
-const WordSidebar: React.FC<{
-    words: Word[];
-    currentIndex: number;
-    setCurrentIndex: (index: number) => void;
-}> = ({ words, currentIndex, setCurrentIndex }) => {
-    return (
-        <SidebarContainer>
-            <SidebarHeader>单词列表</SidebarHeader>
-            <SidebarList>
-                {words.map((word, index) => (
-                    <SidebarItem
-                        key={word.word}
-                        $isActive={index === currentIndex}
-                        onClick={() => setCurrentIndex(index)}
-                    >
-                        <SidebarWordText>{word.word}</SidebarWordText>
-                        <SidebarDefinitionText>{word.definition}</SidebarDefinitionText>
-                    </SidebarItem>
-                ))}
-            </SidebarList>
-        </SidebarContainer>
-    );
-};
-
+const SpeakerIcon = () => <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" /><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07" /></svg>;
 
 // --- Learning Step Component ---
 const LearnStep: React.FC<{ 
@@ -143,11 +117,6 @@ const LearnPage: React.FC<{ topicId: string, words: Word[], navigateTo: (page: P
                         setCurrentIndex={setCurrentIndex}
                     />
                 </main>
-                <WordSidebar 
-                    words={words}
-                    currentIndex={currentIndex}
-                    setCurrentIndex={setCurrentIndex}
-                />
             </LearnLayout>
         </PageContainer>
     );
@@ -210,14 +179,8 @@ const BackButton = styled.button`
 `;
 
 const LearnLayout = styled.div`
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 2rem;
-    align-items: flex-start;
-
-    @media (min-width: 900px) {
-        grid-template-columns: 1fr 320px;
-    }
+    display: flex;
+    justify-content: center;
 `;
 
 
@@ -381,63 +344,6 @@ const CompleteButton = styled.button<{ $themeColor?: 'learn' | 'games' | 'practi
         transform: scale(1.05);
         box-shadow: 0 6px 15px ${({ theme, $themeColor = 'learn' }) => `${theme.colors[$themeColor]}66`};
     }
-`;
-
-// --- Sidebar Styles ---
-const SidebarContainer = styled.aside`
-    display: none; // Hidden on mobile
-
-    @media (min-width: 900px) {
-        display: block;
-        position: sticky;
-        top: 2rem;
-        background-color: ${({ theme }) => theme.colors.cardBg};
-        border-radius: 16px;
-        border: 1px solid ${({ theme }) => theme.colors.border};
-        max-height: calc(100vh - 4rem);
-        display: flex;
-        flex-direction: column;
-    }
-`;
-
-const SidebarHeader = styled.h3`
-    margin: 0;
-    padding: 1rem 1.5rem;
-    font-size: 1.1rem;
-    font-weight: 600;
-    color: ${({ theme }) => theme.colors.text};
-    border-bottom: 1px solid ${({ theme }) => theme.colors.border};
-    flex-shrink: 0;
-`;
-
-const SidebarList = styled.ul`
-    list-style: none;
-    margin: 0;
-    padding: 0.5rem;
-    overflow-y: auto;
-    flex-grow: 1;
-`;
-
-const SidebarItem = styled.li<{$isActive: boolean}>`
-    padding: 0.75rem 1rem;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background-color 0.2s ease;
-    background-color: ${({ theme, $isActive }) => $isActive ? theme.colors.primaryLight : 'transparent'};
-
-    &:hover {
-        background-color: ${({ theme, $isActive }) => !$isActive && theme.colors.boxBg};
-    }
-`;
-
-const SidebarWordText = styled.div`
-    font-weight: 600;
-    color: ${({ theme }) => theme.colors.text};
-`;
-
-const SidebarDefinitionText = styled.div`
-    font-size: 0.9rem;
-    color: ${({ theme }) => theme.colors.label};
 `;
 
 export default LearnPage;

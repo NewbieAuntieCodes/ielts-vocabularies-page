@@ -5,7 +5,7 @@ import { allSubTopics, Word } from '../data';
 
 const BackArrowIcon = () => <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><line x1="19" y1="12" x2="5" y2="12" /><polyline points="12 19 5 12 12 5" /></svg>;
 
-const CheckIcon = () => <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>;
+const CheckIcon = () => <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12" /></svg>;
 
 
 interface WordSelectionPageProps {
@@ -214,6 +214,9 @@ const Controls = styled.div`
     margin-bottom: 1.5rem;
     padding-bottom: 1.5rem;
     border-bottom: 1px solid ${({ theme }) => theme.colors.border};
+    flex-wrap: wrap;
+    gap: 1rem;
+
     p {
         margin: 0;
         font-weight: 600;
@@ -223,6 +226,7 @@ const Controls = styled.div`
         display: flex;
         gap: 0.75rem;
         align-items: center;
+        flex-wrap: wrap;
     }
 `;
 
@@ -253,8 +257,8 @@ const CopyStatus = styled.span`
 
 const WordList = styled.div`
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 1rem;
     max-height: 60vh;
     overflow-y: auto;
     padding: 0.5rem;
@@ -262,18 +266,21 @@ const WordList = styled.div`
 
 const WordItem = styled.div<{$isSelected: boolean}>`
     position: relative;
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: 32px 1fr;
+    grid-template-rows: auto auto;
+    grid-template-areas:
+        "emoji word"
+        "emoji definition";
     align-items: center;
-    gap: 0.25rem;
-    padding: 1.25rem 1rem 1rem;
-    border-radius: 16px;
+    gap: 0 0.75rem;
+    padding: 0.75rem 1rem;
+    border-radius: 12px;
     cursor: pointer;
     border: 2px solid ${({ theme, $isSelected }) => $isSelected ? theme.colors.primary : theme.colors.border};
     background-color: ${({ theme, $isSelected }) => $isSelected ? theme.colors.primaryLight : theme.colors.cardBg};
     transition: all 0.2s ease;
-    text-align: center;
-    box-shadow: ${({ theme }) => theme.shadows.subtle};
+    box-shadow: ${({ theme, $isSelected }) => $isSelected ? 'none' : theme.shadows.subtle};
 
     &:hover {
         border-color: ${({ theme }) => theme.colors.primary};
@@ -283,10 +290,10 @@ const WordItem = styled.div<{$isSelected: boolean}>`
 `;
 
 const Emoji = styled.div`
-    font-size: 2.5rem;
+    grid-area: emoji;
+    font-size: 1.8rem;
     line-height: 1;
-    margin-bottom: 0.75rem;
-    height: 2.5rem;
+    height: 1.8rem;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -302,8 +309,8 @@ const Checkbox = styled.div<{$checked: boolean}>`
     position: absolute;
     top: 0.75rem;
     right: 0.75rem;
-    width: 24px;
-    height: 24px;
+    width: 22px;
+    height: 22px;
     border-radius: 50%;
     border: 2px solid ${({ theme, $checked }) => $checked ? theme.colors.primary : '#D1D5DB'};
     background-color: ${({ theme, $checked }) => $checked ? theme.colors.primary : theme.colors.cardBg};
@@ -316,16 +323,17 @@ const Checkbox = styled.div<{$checked: boolean}>`
 `;
 
 const WordText = styled.span`
+    grid-area: word;
     font-weight: 600;
     color: ${({ theme }) => theme.colors.text};
-    font-size: 1.1rem;
+    font-size: 1rem;
 `;
 
 const DefinitionText = styled.span`
+    grid-area: definition;
     color: ${({ theme }) => theme.colors.label};
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     white-space: normal;
-    min-height: 2.2em;
 `;
 
 const Footer = styled.footer`

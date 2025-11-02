@@ -1,4 +1,9 @@
-import { createGlobalStyle, DefaultTheme } from 'styled-components';
+// FIX: The module augmentation for 'styled-components' requires the module to be
+// resolved. The existing `createGlobalStyle` import is not always sufficient. Adding a
+// direct, side-effect import of 'styled-components' ensures that TypeScript
+// can find the module to augment.
+import 'styled-components';
+import { createGlobalStyle } from 'styled-components';
 
 export const theme = {
     colors: {
@@ -59,8 +64,8 @@ export const theme = {
 
 type ThemeType = typeof theme;
 
-// FIX: To resolve the "module 'styled-components' cannot be found" error, explicitly import `DefaultTheme`
-// to help TypeScript's module resolver locate the module for augmentation.
+// By declaring this module, we are augmenting the 'styled-components' module
+// to make it aware of our custom theme structure.
 declare module 'styled-components' {
   export interface DefaultTheme extends ThemeType {}
 }
