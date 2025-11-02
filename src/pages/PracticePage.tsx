@@ -155,8 +155,6 @@ const Game: React.FC<GameProps> = ({ topic, gameMode, onGameChange }) => {
         return (
             <ResultsContainer>
                 <h2>练习完成!</h2>
-                <p>你的得分是:</p>
-                <ScoreText>{score} / {totalQuestions}</ScoreText>
                 <ResultsActions>
                     <GameButton onClick={resetGame}>再玩一次</GameButton>
                     <GameButton onClick={() => onGameChange(gameMode === 'listening' ? 'zh-to-en' : 'listening')} $secondary>
@@ -570,15 +568,7 @@ const ResultsContainer = styled.div`
     margin: 0 auto;
     animation: ${popIn} 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 
-    h2 { font-size: 2rem; color: ${({ theme }) => theme.colors.header}; margin: 0 0 0.5rem 0; }
-    p { font-size: 1.1rem; color: #cbd5e1; max-width: 40ch; margin: 0 auto 1rem auto; }
-`;
-
-const ScoreText = styled.div`
-    font-size: 3.5rem;
-    font-weight: 700;
-    color: ${({ theme }) => theme.colors.practice};
-    margin-bottom: 2rem;
+    h2 { font-size: 2rem; color: ${({ theme }) => theme.colors.header}; margin: 0 0 2rem 0; }
 `;
 
 const ResultsActions = styled.div`

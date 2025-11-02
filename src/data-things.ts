@@ -10,6 +10,15 @@ const advertisement: SubTopic = {
       { word: 'persuasive', phonetic: '/pərˈsweɪsɪv/', definition: '有说服力的', example: 'Advertisements use persuasive language to attract customers.', emoji: 'https://em-content.zobj.net/source/apple/391/light-bulb_1f4a1.png' },
       { word: 'brand', phonetic: '/brænd/', definition: '品牌', example: 'Nike is a well-known brand.', emoji: 'https://em-content.zobj.net/source/apple/391/trade-mark_2122-fe0f.png' },
       { word: 'target audience', phonetic: '/ˈtɑːrɡɪt ˈɔːdiəns/', definition: '目标受众', example: 'The ad was designed for a young target audience.', emoji: 'https://em-content.zobj.net/source/apple/391/direct-hit_1f3af.png' },
+      { word: 'billboard', phonetic: '/ˈbɪlbɔːrd/', definition: '广告牌', example: 'There was a huge billboard advertising the new movie on the highway.', emoji: 'https://em-content.zobj.net/source/apple/391/cityscape_1f3d9-fe0f.png' },
+      { word: 'poster', phonetic: '/ˈpoʊstər/', definition: '海报', example: 'She put up a poster of her favorite band on her bedroom wall.', emoji: 'https://em-content.zobj.net/source/apple/391/framed-picture_1f5bc-fe0f.png' },
+      { word: 'slogan', phonetic: '/ˈsloʊɡən/', definition: '口号；标语', example: 'Nike\'s slogan "Just Do It" is known worldwide.', emoji: 'https://em-content.zobj.net/source/apple/391/megaphone_1f4e3.png' },
+      { word: 'eye-catching', phonetic: '/ˈaɪˌkætʃɪŋ/', definition: '引人注目的', example: 'The advertisement had an eye-catching design with bright colors.', emoji: 'https://em-content.zobj.net/source/apple/391/eyes_1f440.png' },
+      { word: 'misleading', phonetic: '/mɪsˈliːdɪŋ/', definition: '误导性的', example: 'Some critics argue that the advertisement is misleading to consumers.', emoji: 'https://em-content.zobj.net/source/apple/391/lying-face_1f925.png' },
+      { word: 'annoying', phonetic: '/əˈnɔɪɪŋ/', definition: '烦人的', example: 'Pop-up ads on websites can be very annoying.', emoji: 'https://em-content.zobj.net/source/apple/391/angry-face_1f620.png' },
+      { word: 'draw attention', phonetic: '/drɔː əˈtenʃn/', definition: '吸引注意力', example: 'A good advertisement should draw people’s attention immediately.', emoji: 'https://em-content.zobj.net/source/apple/391/sparkles_2728.png' },
+      { word: 'brand awareness', phonetic: '/brænd əˈwernəs/', definition: '品牌知名度', example: 'The campaign was successful in raising brand awareness.', emoji: 'https://em-content.zobj.net/source/apple/391/chart-increasing_1f4c8.png' },
+      { word: 'promote products', phonetic: '/prəˈmoʊt ˈprɒdʌkts/', definition: '推广产品', example: 'Companies use social media to promote their new products.', emoji: 'https://em-content.zobj.net/source/apple/391/loudspeaker_1f4e2.png' },
     ],
 };
 

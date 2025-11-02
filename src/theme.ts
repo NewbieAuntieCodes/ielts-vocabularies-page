@@ -1,4 +1,4 @@
-// To fix module augmentation, an explicit import of 'styled-components' is needed.
+// FIX: Add an explicit import for 'styled-components' to enable module augmentation.
 import 'styled-components';
 import { createGlobalStyle } from 'styled-components';
 
