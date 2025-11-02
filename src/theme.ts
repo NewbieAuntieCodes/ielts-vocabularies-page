@@ -1,8 +1,3 @@
-// FIX: The module augmentation for 'styled-components' requires the module to be
-// resolved. The existing `createGlobalStyle` import is not always sufficient. Adding a
-// direct, side-effect import of 'styled-components' ensures that TypeScript
-// can find the module to augment.
-import 'styled-components';
 import { createGlobalStyle } from 'styled-components';
 
 export const theme = {

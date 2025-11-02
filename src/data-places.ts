@@ -38,6 +38,9 @@ const crowdedPlace: SubTopic = {
       { word: 'packed', phonetic: '/pækt/', definition: '拥挤的', example: 'The train was so packed I could barely move.', emoji: 'https://em-content.zobj.net/source/apple/391/family-man-woman-girl-boy_1f468-200d-1f469-200d-1f467-200d-1f466.png' },
       { word: 'hustle and bustle', phonetic: '/ˈhʌsl ænd ˈbʌsl/', definition: '熙熙攘攘', example: 'I love the hustle and bustle of the big city.', emoji: 'https://em-content.zobj.net/source/apple/391/cityscape_1f3d9-fe0f.png' },
       { word: 'noisy', phonetic: '/ˈnɔɪzi/', definition: '嘈杂的', example: 'The restaurant was too noisy for a quiet conversation.', emoji: 'https://em-content.zobj.net/source/apple/391/speaker-high-volume_1f50a.png' },
+      { word: 'lively', phonetic: '/ˈlaɪvli/', definition: '活泼的；热闹的', example: 'The streets were lively with music and laughter.', emoji: 'https://em-content.zobj.net/source/apple/391/woman-dancing_1f483.png' },
+      { word: 'a crowd of people', phonetic: '/ə kraʊd əv ˈpiːpl/', definition: '一群人', example: 'A crowd of people gathered to watch the street performance.', emoji: 'https://em-content.zobj.net/source/apple/391/busts-in-silhouette_1f465.png' },
+      { word: 'overwhelming', phonetic: '/ˌoʊvərˈwelmɪŋ/', definition: '令人不知所措的', example: 'The noise and the number of people were overwhelming.', emoji: 'https://em-content.zobj.net/source/apple/391/face-with-spiral-eyes_1f635-200d-1f4ab.png' },
     ],
 };
 

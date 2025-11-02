@@ -145,10 +145,10 @@ const Game: React.FC<GameProps> = ({ topic, gameMode, onGameChange }) => {
     };
 
     if (topic.words.length === 0) {
-        return <GameCard><p>请至少选择一个单词开始练习！</p></GameCard>
+        return <GameCard><GameContent><p>请至少选择一个单词开始练习！</p></GameContent></GameCard>
     }
     if (totalQuestions === 0 && (gameMode === 'en-to-zh' || gameMode === 'zh-to-en')) {
-         return <GameCard><p>当前模式至少需要4个单词才能开始练习！</p></GameCard>
+         return <GameCard><GameContent><p>当前模式至少需要4个单词才能开始练习！</p></GameContent></GameCard>
     }
 
     if (!currentQuestion) {
@@ -179,49 +179,50 @@ const Game: React.FC<GameProps> = ({ topic, gameMode, onGameChange }) => {
              <ProgressBarContainer>
                 <ProgressBar style={{ width: `${progress}%` }} />
             </ProgressBarContainer>
+            <GameContent>
+                {gameMode === 'listening' ? (
+                    <ListenPromptContainer>
+                        <ListenButton onClick={() => speak(currentQuestion.prompt)} aria-label="Play sound">
+                            <SpeakerIcon />
+                        </ListenButton>
+                    </ListenPromptContainer>
+                ) : (
+                    <QuestionPrompt>
+                        {gameMode === 'zh-to-en' && currentQuestion.word.emoji && (
+                            <EmojiPrompt>
+                                {currentQuestion.word.emoji.startsWith('http') ? <img src={currentQuestion.word.emoji} alt="" /> : currentQuestion.word.emoji}
+                            </EmojiPrompt>
+                        )}
+                        <span>{currentQuestion.prompt}</span>
+                    </QuestionPrompt>
+                )}
 
-            {gameMode === 'listening' ? (
-                <ListenPromptContainer>
-                    <ListenButton onClick={() => speak(currentQuestion.prompt)} aria-label="Play sound">
-                        <SpeakerIcon />
-                    </ListenButton>
-                </ListenPromptContainer>
-            ) : (
-                <QuestionPrompt>
-                    {gameMode === 'zh-to-en' && currentQuestion.word.emoji && (
-                        <EmojiPrompt>
-                            {currentQuestion.word.emoji.startsWith('http') ? <img src={currentQuestion.word.emoji} alt="" /> : currentQuestion.word.emoji}
-                        </EmojiPrompt>
-                    )}
-                    <span>{currentQuestion.prompt}</span>
-                </QuestionPrompt>
-            )}
-
-            <OptionsGrid $isLongText={gameMode === 'en-to-zh'}>
-                {currentQuestion.options.map(option => {
-                    let wordObject: Word | undefined;
-                    // Only find the word object (to show emoji) in en-to-zh mode,
-                    // where options are Chinese definitions.
-                    if (gameMode === 'en-to-zh') {
-                        wordObject = topic.words.find(w => w.definition === option);
-                    }
-                    return (
-                        <OptionButton 
-                            key={option} 
-                            onClick={() => handleOptionClick(option)}
-                            disabled={!!selectedOption}
-                            $state={getButtonState(option)}
-                        >
-                            {wordObject && (
-                                <EmojiOption>
-                                    {wordObject.emoji.startsWith('http') ? <img src={wordObject.emoji} alt="" /> : wordObject.emoji}
-                                </EmojiOption>
-                            )}
-                            <span>{option}</span>
-                        </OptionButton>
-                    )
-                })}
-            </OptionsGrid>
+                <OptionsGrid $isLongText={gameMode === 'en-to-zh'}>
+                    {currentQuestion.options.map(option => {
+                        let wordObject: Word | undefined;
+                        // Only find the word object (to show emoji) in en-to-zh mode,
+                        // where options are Chinese definitions.
+                        if (gameMode === 'en-to-zh') {
+                            wordObject = topic.words.find(w => w.definition === option);
+                        }
+                        return (
+                            <OptionButton 
+                                key={option} 
+                                onClick={() => handleOptionClick(option)}
+                                disabled={!!selectedOption}
+                                $state={getButtonState(option)}
+                            >
+                                {wordObject && (
+                                    <EmojiOption>
+                                        {wordObject.emoji.startsWith('http') ? <img src={wordObject.emoji} alt="" /> : wordObject.emoji}
+                                    </EmojiOption>
+                                )}
+                                <span>{option}</span>
+                            </OptionButton>
+                        )
+                    })}
+                </OptionsGrid>
+            </GameContent>
         </GameCard>
     );
 };
@@ -362,21 +363,35 @@ const GameCard = styled.div`
     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
     border-radius: 24px;
     width: 100%;
-    max-width: 700px;
+    max-width: 900px;
     margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+`;
+
+const GameContent = styled.div`
     padding: 2.5rem;
     display: flex;
     flex-direction: column;
     align-items: center;
-    position: relative;
-    overflow: hidden;
+    justify-content: center;
     min-height: 450px;
+
+    @media (min-width: 769px) {
+        display: grid;
+        grid-template-columns: minmax(0, 4fr) minmax(0, 6fr);
+        align-items: center;
+        gap: 2rem;
+        min-height: 400px;
+        padding: 3rem;
+    }
 
     @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
         padding: 1.5rem;
         min-height: 400px;
     }
 `;
+
 
 const ProgressBarContainer = styled.div`
     position: absolute;
@@ -410,13 +425,11 @@ const EmojiPrompt = styled.div`
 
 const QuestionPrompt = styled.div`
     width: 100%;
-    min-height: 200px;
     display: flex;
     flex-direction: column;
     gap: 1rem;
     align-items: center;
     justify-content: center;
-    margin-bottom: 2rem;
     font-size: 2rem;
     font-weight: bold;
     color: ${({ theme }) => theme.colors.header};
@@ -425,16 +438,20 @@ const QuestionPrompt = styled.div`
      @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
         font-size: 1.5rem;
         min-height: 150px;
+        margin-bottom: 2rem;
     }
 `;
 
 const ListenPromptContainer = styled.div`
     width: 100%;
-    height: 200px;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 2rem;
+
+    @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+        height: 200px;
+        margin-bottom: 2rem;
+    }
 `;
 
 const ListenButton = styled.button`
@@ -461,7 +478,6 @@ const OptionsGrid = styled.div<{ $isLongText?: boolean }>`
     grid-template-columns: repeat(2, 1fr);
     gap: 1rem;
     width: 100%;
-    max-width: ${({ $isLongText }) => $isLongText ? '100%' : '500px'};
     
     @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
         grid-template-columns: 1fr;
