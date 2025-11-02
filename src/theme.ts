@@ -1,7 +1,6 @@
-// FIX: Resolved module augmentation error by removing a redundant import. The named import of `createGlobalStyle` is sufficient.
+// FIX: Removed a redundant side-effect import for 'styled-components'.
+// The named import of `createGlobalStyle` is sufficient for module augmentation to work.
 import { createGlobalStyle } from 'styled-components';
-// FIX: Added import for 'styled-components' to enable module augmentation.
-import 'styled-components';
 
 export const theme = {
     colors: {

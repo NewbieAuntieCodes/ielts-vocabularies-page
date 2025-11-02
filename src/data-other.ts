@@ -11,7 +11,6 @@ const degree: SubTopic = {
       { word: 'incredibly', phonetic: '/ɪnˈkredəbli/', definition: '难以置信地', example: 'The view was incredibly beautiful.', emoji: 'https://em-content.zobj.net/source/apple/391/star-struck_1f929.png' },
       { word: 'particularly', phonetic: '/pərˈtɪkjələrli/', definition: '特别；尤其', example: 'I particularly enjoyed the dessert.', emoji: 'https://em-content.zobj.net/source/apple/391/shortcake_1f370.png' },
       { word: 'fairly', phonetic: '/ˈferli/', definition: '相当地', example: 'The exam was fairly difficult, but manageable.', emoji: 'https://em-content.zobj.net/source/apple/391/slightly-smiling-face_1f642.png' },
-      { word: 'very', phonetic: '/ˈveri/', definition: '很；非常', example: 'This is a very good book.', emoji: 'https://em-content.zobj.net/source/apple/391/thumbs-up_1f44d.png' },
       { word: 'really', phonetic: '/ˈriːəli/', definition: '真正地；非常', example: 'I really like this song.', emoji: 'https://em-content.zobj.net/source/apple/391/musical-note_1f3b5.png' },
       { word: 'quite', phonetic: '/kwaɪt/', definition: '相当；很', example: 'The movie was quite interesting.', emoji: 'https://em-content.zobj.net/source/apple/391/thinking-face_1f914.png' },
     ],
