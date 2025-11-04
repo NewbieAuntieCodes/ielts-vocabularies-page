@@ -1,4 +1,7 @@
 import { createGlobalStyle } from 'styled-components';
+// FIX: Import 'styled-components' to make the module available for augmentation.
+// This resolves the "module 'styled-components' cannot be found" error.
+import 'styled-components';
 
 export const theme = {
     colors: {
