@@ -45,7 +45,6 @@ export const theme = {
 
         // Compatibility colors from old theme
         highlightBg: '#e9f2ff',
-        // FIX: Added missing '#' to the hex color value.
         highlightBorder: '#c7dfff',
     },
     fonts: {
@@ -90,6 +89,7 @@ export const GlobalStyles = createGlobalStyle`
         to { opacity: 1; }
     }
 
+    // FIX: Added missing 'transform' property to the 'to' state of the animation.
     @keyframes slideIn {
         from { transform: translateY(-30px); opacity: 0; }
         to { transform: translateY(0); opacity: 1; }
