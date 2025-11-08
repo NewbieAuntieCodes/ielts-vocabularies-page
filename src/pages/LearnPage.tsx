@@ -14,7 +14,9 @@ const LearnStep: React.FC<{
     topic: SubTopic, 
     onComplete: () => void,
     currentIndex: number,
-    setCurrentIndex: (index: number) => void
+    // FIX: The type of `setCurrentIndex` should be `React.Dispatch<React.SetStateAction<number>>`
+    // to allow passing updater functions.
+    setCurrentIndex: React.Dispatch<React.SetStateAction<number>>
 }> = ({ topic, onComplete, currentIndex, setCurrentIndex }) => {
 
     // Handle case where words array is empty
