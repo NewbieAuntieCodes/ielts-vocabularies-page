@@ -1,6 +1,6 @@
-// FIX: To augment the 'styled-components' module, it must be imported. This makes TypeScript aware of the module.
-import 'styled-components';
 import { createGlobalStyle } from 'styled-components';
+// FIX: Add this import to help TypeScript resolve the module for augmentation.
+import 'styled-components';
 
 export const theme = {
     colors: {
@@ -88,7 +88,6 @@ export const GlobalStyles = createGlobalStyle`
         to { opacity: 1; }
     }
 
-    // FIX: Added missing 'transform' property to the 'to' state of the animation.
     @keyframes slideIn {
         from { transform: translateY(-30px); opacity: 0; }
         to { transform: translateY(0); opacity: 1; }

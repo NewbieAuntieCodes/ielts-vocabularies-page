@@ -305,7 +305,7 @@ const NavButton = styled.button`
     display: flex;
     align-items: center;
     justify-content: center;
-    color: ${({ theme }) => theme.colors.header};
+    color: ${({ theme }) => theme.colors.text};
     cursor: pointer;
     transition: all 0.2s ease;
 
