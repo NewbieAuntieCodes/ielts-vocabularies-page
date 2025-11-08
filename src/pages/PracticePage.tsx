@@ -26,10 +26,7 @@ interface Question {
 }
 
 const createGameQuestions = (topic: SubTopic, mode: GameMode): Question[] => {
-    // Need at least 4 words to generate 3 incorrect options.
-    if (topic.words.length < 4 && (mode === 'en-to-zh' || mode === 'zh-to-en')) {
-        return [];
-    }
+    // Gracefully handle small word lists by providing fewer options.
     const shuffledWords = shuffleArray([...topic.words]);
     
     return shuffledWords.map(correctWord => {
@@ -146,9 +143,6 @@ const Game: React.FC<GameProps> = ({ topic, gameMode, onGameChange }) => {
 
     if (topic.words.length === 0) {
         return <GameCard><GameContent><p>请至少选择一个单词开始练习！</p></GameContent></GameCard>
-    }
-    if (totalQuestions === 0 && (gameMode === 'en-to-zh' || gameMode === 'zh-to-en')) {
-         return <GameCard><GameContent><p>当前模式至少需要4个单词才能开始练习！</p></GameContent></GameCard>
     }
 
     if (!currentQuestion) {

@@ -109,14 +109,16 @@ const WordSelectionPage: React.FC<WordSelectionPageProps> = ({ topicId, navigate
                 <WordList>
                     {topic.words.map(word => (
                         <WordItem key={word.word} onClick={() => handleWordToggle(word)} $isSelected={selectedWords.some(w => w.word === word.word)}>
-                            <Checkbox $checked={selectedWords.some(w => w.word === word.word)}>
-                                {selectedWords.some(w => w.word === word.word) && <CheckIcon />}
-                            </Checkbox>
                             <Emoji>
                                 {word.emoji.startsWith('http') ? <img src={word.emoji} alt="" /> : word.emoji}
                             </Emoji>
-                            <WordText>{word.word}</WordText>
-                            <DefinitionText>{word.definition}</DefinitionText>
+                             <WordInfo>
+                                <WordText>{word.word}</WordText>
+                                <DefinitionText>{word.definition}</DefinitionText>
+                            </WordInfo>
+                            <Checkbox $checked={selectedWords.some(w => w.word === word.word)}>
+                                {selectedWords.some(w => w.word === word.word) && <CheckIcon />}
+                            </Checkbox>
                         </WordItem>
                     ))}
                 </WordList>
@@ -258,23 +260,17 @@ const CopyStatus = styled.span`
 const WordList = styled.div`
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-    gap: 1rem;
+    gap: 0.75rem;
     max-height: 60vh;
     overflow-y: auto;
     padding: 0.5rem;
 `;
 
 const WordItem = styled.div<{$isSelected: boolean}>`
-    position: relative;
-    display: grid;
-    grid-template-columns: 32px 1fr;
-    grid-template-rows: auto auto;
-    grid-template-areas:
-        "emoji word"
-        "emoji definition";
+    display: flex;
     align-items: center;
-    gap: 0 0.75rem;
-    padding: 0.75rem 1rem;
+    gap: 0.75rem;
+    padding: 0.6rem 0.75rem;
     border-radius: 12px;
     cursor: pointer;
     border: 2px solid ${({ theme, $isSelected }) => $isSelected ? theme.colors.primary : theme.colors.border};
@@ -290,13 +286,14 @@ const WordItem = styled.div<{$isSelected: boolean}>`
 `;
 
 const Emoji = styled.div`
-    grid-area: emoji;
-    font-size: 1.8rem;
+    font-size: 1.5rem;
     line-height: 1;
+    width: 1.8rem;
     height: 1.8rem;
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-shrink: 0;
 
     img {
       height: 100%;
@@ -305,10 +302,16 @@ const Emoji = styled.div`
     }
 `;
 
+const WordInfo = styled.div`
+    flex-grow: 1;
+    min-width: 0;
+    display: flex;
+    align-items: baseline;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+`;
+
 const Checkbox = styled.div<{$checked: boolean}>`
-    position: absolute;
-    top: 0.75rem;
-    right: 0.75rem;
     width: 22px;
     height: 22px;
     border-radius: 50%;
@@ -323,17 +326,14 @@ const Checkbox = styled.div<{$checked: boolean}>`
 `;
 
 const WordText = styled.span`
-    grid-area: word;
     font-weight: 600;
     color: ${({ theme }) => theme.colors.text};
-    font-size: 1rem;
+    font-size: 0.95rem;
 `;
 
 const DefinitionText = styled.span`
-    grid-area: definition;
     color: ${({ theme }) => theme.colors.label};
-    font-size: 0.85rem;
-    white-space: normal;
+    font-size: 0.8rem;
 `;
 
 const Footer = styled.footer`

@@ -1,7 +1,4 @@
-// FIX: Resolve module augmentation error for 'styled-components' by adding an
-// import for its side effects. This ensures TypeScript can find the module's
-// type definitions and apply the augmentation correctly.
-import 'styled-components';
+// FIX: A single named import is sufficient for module augmentation. The bare import was causing a module resolution error.
 import { createGlobalStyle } from 'styled-components';
 
 export const theme = {
