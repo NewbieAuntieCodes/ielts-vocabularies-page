@@ -8,6 +8,7 @@ import { chatting } from './data-activities/chatting';
 import { breakTopic } from './data-activities/break';
 import { gardening } from './data-activities/gardening';
 import { goodService } from './data-activities/good-service';
+import { unusualMeal } from './data-activities/unusual-meal';
 
 export const activitiesTopic: IeltsTopic = {
     title: '话题: 活动与爱好',
@@ -21,5 +22,6 @@ export const activitiesTopic: IeltsTopic = {
       breakTopic,
       gardening,
       goodService,
+      unusualMeal,
     ],
 };
