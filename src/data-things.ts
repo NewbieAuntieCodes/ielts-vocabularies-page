@@ -32,6 +32,16 @@ const rules: SubTopic = {
       { word: 'policy', phonetic: '/ˈpɑːləsi/', definition: '政策', example: 'The company has a no-smoking policy.', emoji: 'https://em-content.zobj.net/source/apple/391/page-facing-up_1f4c4.png' },
       { word: 'comply with', phonetic: '/kəmˈplaɪ wɪθ/', definition: '遵守', example: 'You must comply with the rules.', emoji: 'https://em-content.zobj.net/source/apple/391/check-mark-button_2705.png' },
       { word: 'enforce', phonetic: '/ɪnˈfɔːrs/', definition: '执行', example: 'The police are there to enforce the law.', emoji: 'https://em-content.zobj.net/source/apple/391/police-officer_1f46e.png' },
+      { word: 'benefit', phonetic: '/ˈbenɪfɪt/', definition: '益处；好处', example: 'Following the rules has many benefits for society.', emoji: 'https://em-content.zobj.net/source/apple/391/thumbs-up_1f44d.png' },
+      { word: 'dedicated', phonetic: '/ˈdedɪkeɪtɪd/', definition: '专注的；献身的', example: 'He is dedicated to upholding the rules.', emoji: 'https://em-content.zobj.net/source/apple/391/direct-hit_1f3af.png' },
+      { word: 'follow the rules', phonetic: '/ˈfɒloʊ ðə ruːlz/', definition: '遵守规则', example: 'It\'s important to follow the rules in a game.', emoji: 'https://em-content.zobj.net/source/apple/391/check-mark-button_2705.png' },
+      { word: 'break the rules', phonetic: '/breɪk ðə ruːlz/', definition: '违反规则', example: 'You will be punished if you break the rules.', emoji: 'https://em-content.zobj.net/source/apple/391/prohibited_1f6ab.png' },
+      { word: 'respect', phonetic: '/rɪˈspekt/', definition: '尊重', example: 'We should respect the school rules.', emoji: 'https://em-content.zobj.net/source/apple/391/folded-hands_1f64f.png' },
+      { word: 'traffic rules', phonetic: '/ˈtræfɪk ruːlz/', definition: '交通规则', example: 'Following traffic rules can prevent accidents.', emoji: 'https://em-content.zobj.net/source/apple/391/vertical-traffic-light_1f6a6.png' },
+      { word: 'public rules', phonetic: '/ˈpʌblɪk ruːlz/', definition: '公共规则', example: 'In public places, we should follow public rules like keeping quiet.', emoji: 'https://em-content.zobj.net/source/apple/391/shushing-face_1f92b.png' },
+      { word: 'no littering', phonetic: '/noʊ ˈlɪtərɪŋ/', definition: '禁止乱扔垃圾', example: 'The sign says "no littering" in the park.', emoji: 'https://em-content.zobj.net/source/apple/391/litter-in-bin-sign_1f6ae.png' },
+      { word: 'reasonable', phonetic: '/ˈriːznəbl/', definition: '合理的', example: 'The school rules are quite reasonable.', emoji: 'https://em-content.zobj.net/source/apple/391/thinking-face_1f914.png' },
+      { word: 'annoying', phonetic: '/əˈnɔɪɪŋ/', definition: '烦人的', example: 'Some rules can be really annoying and unnecessary.', emoji: 'https://em-content.zobj.net/source/apple/391/angry-face_1f620.png' },
     ],
 };
 
