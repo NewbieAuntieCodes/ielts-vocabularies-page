@@ -1,5 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
-// FIX: Add this import to help TypeScript resolve the module for augmentation.
+// Add this import to help TypeScript resolve the module for augmentation.
 import 'styled-components';
 
 export const theme = {
