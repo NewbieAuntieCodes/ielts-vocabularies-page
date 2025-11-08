@@ -1,10 +1,8 @@
-// FIX: An import from 'styled-components' is required for module augmentation.
-// The `createGlobalStyle` import below is sufficient for this purpose, so the
-// redundant side-effect import has been removed to resolve the error.
-import { createGlobalStyle } from 'styled-components';
-// To augment the 'styled-components' module, it must be imported. This side-effect
-// import makes the module declaration valid and resolves the error.
+// FIX: To resolve the module augmentation error, a side-effect import for
+// 'styled-components' has been added. This ensures that TypeScript can find
+// the module for augmentation.
 import 'styled-components';
+import { createGlobalStyle } from 'styled-components';
 
 export const theme = {
     colors: {
