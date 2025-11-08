@@ -67,5 +67,9 @@ export const goodService: SubTopic = {
       { word: 'over-consumption', phonetic: '/ˌoʊvər kənˈsʌmpʃn/', definition: '过度消费', example: 'Over-consumption of resources is a major environmental concern.', emoji: '🗑️' },
       { word: 'debt', phonetic: '/det/', definition: '债务', example: 'Impulsive buying can lead to credit card debt.', emoji: '💳' },
       { word: 'circulation', phonetic: '/ˌsɜːrkjəˈleɪʃn/', definition: '流通', example: 'The circulation of money is essential for a healthy economy.', emoji: '🔄' },
+      { word: 'produce', phonetic: '/prəˈduːs/', definition: '产品；农产品', example: 'The supermarket sells fresh local produce.', emoji: '🍎' },
+      { word: 'profits', phonetic: '/ˈprɒfɪts/', definition: '利润', example: 'The company made huge profits last year.', emoji: '💰' },
+      { word: 'goods', phonetic: '/ɡʊdz/', definition: '商品；货物', example: 'The store sells a variety of household goods.', emoji: '📦' },
+      { word: 'products', phonetic: '/ˈprɒdʌkts/', definition: '产品', example: 'They launched a new line of skin care products.', emoji: '🧴' },
     ],
 };
