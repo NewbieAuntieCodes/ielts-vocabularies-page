@@ -1,4 +1,5 @@
-// FIX: A single named import is sufficient for module augmentation. The bare import was causing a module resolution error.
+// FIX: To augment the 'styled-components' module, it must be imported. This makes TypeScript aware of the module.
+import 'styled-components';
 import { createGlobalStyle } from 'styled-components';
 
 export const theme = {

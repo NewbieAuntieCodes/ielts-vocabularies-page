@@ -92,29 +92,11 @@ const shoes: SubTopic = {
     ],
 };
 
-const plants: SubTopic = {
-    id: 'plants',
-    title: 'Plants',
-    type: '事物题',
-    color: 'purple',
-    words: [
-      { word: 'blossom', phonetic: '/ˈblɑːsəm/', definition: '花', example: 'The cherry trees are in full blossom.', emoji: 'https://em-content.zobj.net/source/apple/391/cherry-blossom_1f338.png' },
-      { word: 'botany', phonetic: '/ˈbɑːtəni/', definition: '植物学', example: 'Botany is the scientific study of plants.', emoji: 'https://em-content.zobj.net/source/apple/391/microscope_1f52c.png' },
-      { word: 'seed', phonetic: '/siːd/', definition: '种子', example: 'Plant a seed and watch it grow.', emoji: 'https://em-content.zobj.net/source/apple/391/seedling_1f331.png' },
-      { word: 'root', phonetic: '/ruːt/', definition: '根', example: 'The roots of the tree go deep into the ground.', emoji: 'https://em-content.zobj.net/source/apple/391/potted-plant_1fab4.png' },
-      { word: 'stem', phonetic: '/stem/', definition: '茎', example: 'The stem supports the leaves and flowers.', emoji: 'https://em-content.zobj.net/source/apple/391/herb_1f33f.png' },
-      { word: 'petal', phonetic: '/ˈpetl/', definition: '花瓣', example: 'The rose has beautiful red petals.', emoji: 'https://em-content.zobj.net/source/apple/391/rose_1f940.png' },
-      { word: 'fragrance', phonetic: '/ˈfreɪɡrəns/', definition: '香味', example: 'I love the fragrance of fresh flowers.', emoji: 'https://em-content.zobj.net/source/apple/391/nose_1f443.png' },
-      { word: 'bloom', phonetic: '/bluːm/', definition: '开花', example: 'The flowers will bloom in the spring.', emoji: 'https://em-content.zobj.net/source/apple/391/blossom_1f33c.png' },
-    ],
-};
-
 export const thingsTopic: IeltsTopic = {
     title: '话题: 事物',
     subTopics: [
       advertisement,
       rules,
       shoes,
-      plants,
     ],
 };
