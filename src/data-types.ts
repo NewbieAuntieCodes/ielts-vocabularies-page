@@ -12,6 +12,8 @@ export interface SubTopic {
   type: string;
   color: 'yellow' | 'blue' | 'green' | 'purple';
   words: Word[];
+  badge?: string;
+  // FIX: Add optional 'isNew' property to allow its usage in SubTopic objects.
   isNew?: boolean;
 }
 

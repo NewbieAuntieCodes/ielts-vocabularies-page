@@ -5,7 +5,7 @@ export const dailyRoutineChange: SubTopic = {
     title: 'Daily routine & Change',
     type: '事件题',
     color: 'blue',
-    isNew: true,
+    badge: 'Part 2',
     words: [
       { word: 'frequently', phonetic: '/ˈfriːkwəntli/', definition: '频繁地', example: 'I frequently change my hairstyle.', emoji: 'https://em-content.zobj.net/source/apple/391/repeat-button_1f501.png' },
       { word: 'regret', phonetic: '/rɪˈɡret/', definition: '后悔', example: 'She doesn\'t regret the changes she has made in her life.', emoji: 'https://em-content.zobj.net/source/apple/391/woman-facepalming_1f926-200d-2640-fe0f.png' },

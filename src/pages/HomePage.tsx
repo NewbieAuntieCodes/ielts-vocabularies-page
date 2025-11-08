@@ -29,7 +29,7 @@ const HomePage: React.FC<HomePageProps> = ({ navigateToWordSelection }) => {
                                         <Tag $color={subTopic.color}>{subTopic.type}</Tag>
                                         <CardTitle>{subTopic.title}</CardTitle>
                                     </CardBody>
-                                    {subTopic.isNew && <NewBadge>New</NewBadge>}
+                                    {subTopic.badge && <NewBadge>{subTopic.badge}</NewBadge>}
                                 </SubTopicCard>
                             ))}
                         </SubTopicList>

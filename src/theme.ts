@@ -1,5 +1,8 @@
+// FIX: The side-effect import of 'styled-components' is redundant because `createGlobalStyle`
+// is already being imported from the same module. This redundant import was removed
+// to resolve the module augmentation error.
 import { createGlobalStyle } from 'styled-components';
-// FIX: To augment the 'styled-components' module, it must be imported. This side-effect
+// To augment the 'styled-components' module, it must be imported. This side-effect
 // import makes the module declaration valid and resolves the error.
 import 'styled-components';
 

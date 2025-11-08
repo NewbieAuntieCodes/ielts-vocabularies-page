@@ -63,7 +63,6 @@ const city: SubTopic = {
     title: 'City',
     type: '地点题',
     color: 'green',
-    isNew: false,
     words: [
       { word: 'skyscraper', phonetic: '/ˈskaɪˌskreɪpər/', definition: '摩天大楼', example: 'The skyline of New York is dominated by skyscrapers.', emoji: 'https://em-content.zobj.net/source/apple/391/cityscape_1f3d9-fe0f.png' },
       { word: 'infrastructure', phonetic: '/ˈɪnfrəˌstrʌktʃər/', definition: '基础设施', example: 'The city needs to invest more in its public infrastructure.', emoji: 'https://em-content.zobj.net/source/apple/391/building-construction_1f3d7-fe0f.png' },
