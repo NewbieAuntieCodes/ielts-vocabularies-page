@@ -27,6 +27,10 @@ const friends: SubTopic = {
       { word: 'lend', phonetic: '/lend/', definition: '借出', example: 'Could you lend me your pen for a moment?', emoji: 'https://em-content.zobj.net/source/apple/391/right-arrow_27a1-fe0f.png' },
       { word: 'borrow', phonetic: '/ˈbɔːroʊ/', definition: '借入', example: 'I need to borrow a book from the library.', emoji: 'https://em-content.zobj.net/source/apple/391/left-arrow_2b05-fe0f.png' },
       { word: 'thoughtful', phonetic: '/ˈθɔːtfl/', definition: '体贴的', example: 'It was very thoughtful of you to bring flowers.', emoji: 'https://em-content.zobj.net/source/apple/391/bouquet_1f490.png' },
+      { word: 'personal', phonetic: '/ˈpɜːrsənl/', definition: '个人的', example: 'It\'s important to protect your personal information.', emoji: 'https://em-content.zobj.net/source/apple/391/locked-with-key_1f510.png' },
+      { word: 'information', phonetic: '/ˌɪnfərˈmeɪʃn/', definition: '信息', example: 'Never share your personal information with strangers.', emoji: 'https://em-content.zobj.net/source/apple/391/page-facing-up_1f4c4.png' },
+      { word: 'ID card', phonetic: '/aɪˈdiː kɑːrd/', definition: '身份证', example: 'You need to show your ID card to get a library card.', emoji: 'https://em-content.zobj.net/source/apple/391/id-button_1f194.png' },
+      { word: 'bank account', phonetic: '/bæŋk əˈkaʊnt/', definition: '银行账户', example: 'You need to open a bank account to manage your money.', emoji: 'https://em-content.zobj.net/source/apple/391/bank_1f3e6.png' },
     ],
 };
 
