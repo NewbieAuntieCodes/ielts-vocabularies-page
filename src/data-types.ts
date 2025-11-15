@@ -6,12 +6,18 @@ export interface Word {
   emoji: string;
 }
 
+export interface WordSection {
+  title: string;
+  words: Word[];
+}
+
 export interface SubTopic {
   id: string;
   title: string;
   type: string;
   color: 'yellow' | 'blue' | 'green' | 'purple';
-  words: Word[];
+  words?: Word[];
+  wordSections?: WordSection[];
   badge?: string;
   // FIX: Add optional 'isNew' property to allow its usage in SubTopic objects.
   isNew?: boolean;

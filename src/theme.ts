@@ -1,6 +1,8 @@
 import { createGlobalStyle } from 'styled-components';
-// By declaring this module, we are augmenting the 'styled-components' module
-// to make it aware of our custom theme structure.
+
+// FIX: The module augmentation for styled-components was causing an error.
+// This is often a project configuration issue, but adding an explicit
+// side-effect import can help TypeScript resolve the module before augmentation.
 import 'styled-components';
 
 export const theme = {
@@ -61,10 +63,8 @@ export const theme = {
 
 type ThemeType = typeof theme;
 
-// FIX: Removed redundant 'styled-components' import. The 'import { createGlobalStyle }...'
-// already makes this file a module and allows for augmentation.
-// By declaring this module, we are augmenting the 'styled-components' module
-// to make it aware of our custom theme structure.
+// This declaration augments the 'styled-components' module to make
+// it aware of our custom theme structure, providing type safety.
 declare module 'styled-components' {
   export interface DefaultTheme extends ThemeType {}
 }

@@ -106,7 +106,7 @@ const Game: React.FC<GameProps> = ({ topic, gameMode, onGameChange }) => {
     const currentQuestion = questionQueue[0];
     
     useEffect(() => {
-        if (gameMode === 'listening' && currentQuestion) {
+        if ((gameMode === 'listening' || gameMode === 'en-to-zh') && currentQuestion) {
             speak(currentQuestion.prompt);
         }
     }, [currentQuestion, gameMode]);

@@ -36,14 +36,23 @@ const getEmojiCharacter = (emoji: string): string => {
 
 const WordSelectionPage: React.FC<WordSelectionPageProps> = ({ topicId, navigateTo, onStartActivity }) => {
     const topic = useMemo(() => allSubTopics.find(list => list.id === topicId), [topicId]);
+    
+    const allWordsInTopic = useMemo(() => {
+        if (!topic) return [];
+        if (topic.wordSections && topic.wordSections.length > 0) {
+            return topic.wordSections.flatMap(section => section.words);
+        }
+        return topic.words || [];
+    }, [topic]);
+    
     const [selectedWords, setSelectedWords] = useState<Word[]>([]);
     const [copyStatus, setCopyStatus] = useState('');
 
     useEffect(() => {
         if (topic) {
-            setSelectedWords(topic.words);
+            setSelectedWords(allWordsInTopic);
         }
-    }, [topic]);
+    }, [topic, allWordsInTopic]);
 
     if (!topic) {
         return (
@@ -62,7 +71,7 @@ const WordSelectionPage: React.FC<WordSelectionPageProps> = ({ topicId, navigate
         );
     };
 
-    const handleSelectAll = () => setSelectedWords(topic.words);
+    const handleSelectAll = () => setSelectedWords(allWordsInTopic);
     const handleDeselectAll = () => setSelectedWords([]);
 
     const handleCopy = () => {
@@ -85,7 +94,7 @@ const WordSelectionPage: React.FC<WordSelectionPageProps> = ({ topicId, navigate
         });
     };
 
-    const isAllSelected = selectedWords.length === topic.words.length;
+    const isAllSelected = selectedWords.length === allWordsInTopic.length;
     const isNoneSelected = selectedWords.length === 0;
 
     return (
@@ -98,7 +107,7 @@ const WordSelectionPage: React.FC<WordSelectionPageProps> = ({ topicId, navigate
             </PageHeader>
             <ContentContainer>
                 <Controls>
-                    <p>{selectedWords.length} / {topic.words.length} 已选择</p>
+                    <p>{selectedWords.length} / {allWordsInTopic.length} 已选择</p>
                     <div>
                         {copyStatus && <CopyStatus>{copyStatus}</CopyStatus>}
                         <ControlButton onClick={handleCopy} disabled={isNoneSelected}>复制笔记</ControlButton>
@@ -106,22 +115,48 @@ const WordSelectionPage: React.FC<WordSelectionPageProps> = ({ topicId, navigate
                         <ControlButton onClick={handleDeselectAll} disabled={isNoneSelected}>全部取消</ControlButton>
                     </div>
                 </Controls>
-                <WordList>
-                    {topic.words.map(word => (
-                        <WordItem key={word.word} onClick={() => handleWordToggle(word)} $isSelected={selectedWords.some(w => w.word === word.word)}>
-                            <Emoji>
-                                {word.emoji.startsWith('http') ? <img src={word.emoji} alt="" /> : word.emoji}
-                            </Emoji>
-                             <WordInfo>
-                                <WordText>{word.word}</WordText>
-                                <DefinitionText>{word.definition}</DefinitionText>
-                            </WordInfo>
-                            <Checkbox $checked={selectedWords.some(w => w.word === word.word)}>
-                                {selectedWords.some(w => w.word === word.word) && <CheckIcon />}
-                            </Checkbox>
-                        </WordItem>
-                    ))}
-                </WordList>
+                <WordListContainer>
+                    {topic.wordSections && topic.wordSections.length > 0 ? (
+                        topic.wordSections.map(section => (
+                            <WordSection key={section.title}>
+                                <SectionTitle>{section.title}</SectionTitle>
+                                <WordGrid>
+                                    {section.words.map(word => (
+                                        <WordItem key={word.word} onClick={() => handleWordToggle(word)} $isSelected={selectedWords.some(w => w.word === word.word)}>
+                                            <Emoji>
+                                                {word.emoji.startsWith('http') ? <img src={word.emoji} alt="" /> : word.emoji}
+                                            </Emoji>
+                                             <WordInfo>
+                                                <WordText>{word.word}</WordText>
+                                                <DefinitionText>{word.definition}</DefinitionText>
+                                            </WordInfo>
+                                            <Checkbox $checked={selectedWords.some(w => w.word === word.word)}>
+                                                {selectedWords.some(w => w.word === word.word) && <CheckIcon />}
+                                            </Checkbox>
+                                        </WordItem>
+                                    ))}
+                                </WordGrid>
+                            </WordSection>
+                        ))
+                    ) : (
+                       <WordGrid>
+                            {allWordsInTopic.map(word => (
+                                <WordItem key={word.word} onClick={() => handleWordToggle(word)} $isSelected={selectedWords.some(w => w.word === word.word)}>
+                                    <Emoji>
+                                        {word.emoji.startsWith('http') ? <img src={word.emoji} alt="" /> : word.emoji}
+                                    </Emoji>
+                                     <WordInfo>
+                                        <WordText>{word.word}</WordText>
+                                        <DefinitionText>{word.definition}</DefinitionText>
+                                    </WordInfo>
+                                    <Checkbox $checked={selectedWords.some(w => w.word === word.word)}>
+                                        {selectedWords.some(w => w.word === word.word) && <CheckIcon />}
+                                    </Checkbox>
+                                </WordItem>
+                            ))}
+                        </WordGrid>
+                    )}
+                </WordListContainer>
             </ContentContainer>
             <Footer>
                 <ActionButton 
@@ -257,13 +292,31 @@ const CopyStatus = styled.span`
     font-weight: 600;
 `;
 
-const WordList = styled.div`
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-    gap: 0.75rem;
+const WordListContainer = styled.div`
     max-height: 60vh;
     overflow-y: auto;
     padding: 0.5rem;
+`;
+
+const WordSection = styled.section`
+    &:not(:first-child) {
+        margin-top: 1rem;
+        padding-top: 1rem;
+        border-top: 1px solid ${({ theme }) => theme.colors.border};
+    }
+`;
+
+const SectionTitle = styled.h3`
+    color: ${({ theme }) => theme.colors.label};
+    font-size: 1rem;
+    font-weight: 600;
+    margin: 0 0.5rem 0.75rem;
+`;
+
+const WordGrid = styled.div`
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 0.75rem;
 `;
 
 const WordItem = styled.div<{$isSelected: boolean}>`
