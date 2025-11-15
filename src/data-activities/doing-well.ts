@@ -27,5 +27,7 @@ export const doingWell: SubTopic = {
       { word: 'hard-working', phonetic: '/ˌhɑːrdˈwɜːrkɪŋ/', definition: '勤奋的', example: 'A successful student needs to be hard-working.', emoji: 'https://em-content.zobj.net/source/apple/391/flexed-biceps_1f4aa.png' },
       { word: 'smart', phonetic: '/smɑːrt/', definition: '聪明的', example: 'She is a smart student who always gets good grades.', emoji: 'https://em-content.zobj.net/source/apple/391/light-bulb_1f4a1.png' },
       { word: 'clever', phonetic: '/ˈklevər/', definition: '聪明的', example: 'That was a clever solution to a difficult problem.', emoji: 'https://em-content.zobj.net/source/apple/391/brain_1f9e0.png' },
+      { word: 'experience', phonetic: '/ɪkˈspɪəriəns/', definition: '经验', example: 'Practice is the best way to gain experience.', emoji: 'https://em-content.zobj.net/source/apple/391/graduation-cap_1f393.png' },
+      { word: 'learn', phonetic: '/lɜːrn/', definition: '学习', example: 'You are never too old to learn.', emoji: 'https://em-content.zobj.net/source/apple/391/books_1f4da.png' },
     ],
 };

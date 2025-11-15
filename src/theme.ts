@@ -1,5 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
-// Add this import to help TypeScript resolve the module for augmentation.
+// By declaring this module, we are augmenting the 'styled-components' module
+// to make it aware of our custom theme structure.
 import 'styled-components';
 
 export const theme = {
@@ -60,6 +61,8 @@ export const theme = {
 
 type ThemeType = typeof theme;
 
+// FIX: Removed redundant 'styled-components' import. The 'import { createGlobalStyle }...'
+// already makes this file a module and allows for augmentation.
 // By declaring this module, we are augmenting the 'styled-components' module
 // to make it aware of our custom theme structure.
 declare module 'styled-components' {
