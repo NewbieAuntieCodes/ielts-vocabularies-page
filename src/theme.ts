@@ -1,9 +1,8 @@
-import { createGlobalStyle } from 'styled-components';
-
-// FIX: The module augmentation for styled-components was causing an error.
-// This is often a project configuration issue, but adding an explicit
-// side-effect import can help TypeScript resolve the module before augmentation.
+// FIX: Added a side-effect import for 'styled-components' to resolve a module
+// augmentation error. This ensures TypeScript correctly recognizes the module
+// when extending the DefaultTheme interface.
 import 'styled-components';
+import { createGlobalStyle } from 'styled-components';
 
 export const theme = {
     colors: {

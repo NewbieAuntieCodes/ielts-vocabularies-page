@@ -11,14 +11,14 @@ import { theme, GlobalStyles } from './theme';
 import { useVocabulary } from './hooks/useVocabulary';
 
 const AppWrapper = styled.div`
-    max-width: 1200px;
+    max-width: 1400px;
     margin: 0 auto;
-    padding: 2rem;
+    padding: 1rem 2rem;
     background-color: transparent;
     min-height: 100vh;
 
     @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
-        padding: 1.5rem;
+        padding: 1rem;
     }
 `;
 

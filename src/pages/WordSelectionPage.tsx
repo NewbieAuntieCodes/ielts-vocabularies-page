@@ -181,8 +181,6 @@ const WordSelectionPage: React.FC<WordSelectionPageProps> = ({ topicId, navigate
 const fadeIn = keyframes`from { opacity: 0; } to { opacity: 1; }`;
 
 const PageContainer = styled.div`
-    max-width: 900px;
-    margin: 0 auto;
     animation: ${fadeIn} 0.5s ease;
     padding-bottom: 100px; /* Space for footer */
 `;
@@ -190,7 +188,7 @@ const PageContainer = styled.div`
 const PageHeader = styled.header`
     position: relative;
     text-align: center;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -237,7 +235,7 @@ const ContentContainer = styled.div`
     background: ${({ theme }) => theme.colors.cardBg};
     border-radius: 24px;
     border: 1px solid ${({ theme }) => theme.colors.border};
-    padding: 2rem;
+    padding: 1.5rem;
     box-shadow: ${({ theme }) => theme.shadows.main};
     @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
         padding: 1.5rem;
@@ -248,8 +246,8 @@ const Controls = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 1.5rem;
-    padding-bottom: 1.5rem;
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
     border-bottom: 1px solid ${({ theme }) => theme.colors.border};
     flex-wrap: wrap;
     gap: 1rem;
@@ -315,7 +313,7 @@ const SectionTitle = styled.h3`
 
 const WordGrid = styled.div`
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     gap: 0.75rem;
 `;
 
