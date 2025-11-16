@@ -1,7 +1,6 @@
-// FIX: Added a side-effect import for 'styled-components' to resolve a module
-// augmentation error. This ensures TypeScript correctly recognizes the module
-// when extending the DefaultTheme interface.
-import 'styled-components';
+// FIX: Removed a redundant side-effect import for 'styled-components'.
+// The existing named import for `createGlobalStyle` is sufficient for TypeScript
+// to resolve the module and apply the augmentation for `DefaultTheme`.
 import { createGlobalStyle } from 'styled-components';
 
 export const theme = {
