@@ -1,6 +1,4 @@
-// FIX: Removed a redundant side-effect import for 'styled-components'.
-// The existing named import for `createGlobalStyle` is sufficient for TypeScript
-// to resolve the module and apply the augmentation for `DefaultTheme`.
+import 'styled-components';
 import { createGlobalStyle } from 'styled-components';
 
 export const theme = {

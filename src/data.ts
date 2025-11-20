@@ -5,11 +5,13 @@ import { activitiesTopic } from './data-activities';
 import { thingsTopic } from './data-things';
 import { otherTopic } from './data-other';
 import { workStudyTopic } from './data-work-study';
+import { interviewTopic } from './data-interview';
 
 // Re-export types so they can be imported from this file, maintaining the original API
 export * from './data-types';
 
 export const ieltsTopics: IeltsTopic[] = [
+    interviewTopic,
     peopleTopic,
     placesTopic,
     workStudyTopic,
