@@ -1,4 +1,3 @@
-import 'styled-components';
 import { createGlobalStyle } from 'styled-components';
 
 export const theme = {
