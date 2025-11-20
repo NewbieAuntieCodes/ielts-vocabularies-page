@@ -12,6 +12,8 @@ export const universityInterview: SubTopic = {
             words: [
                 { word: 'apply for', phonetic: '/əˈplaɪ fɔːr/', definition: '申请', example: 'I decided to apply for this program because of its excellent reputation.', emoji: '📝' },
                 { word: 'Bachelor', phonetic: '/ˈbætʃələr/', definition: '学士学位', example: 'I am currently studying for my Bachelor\'s degree.', emoji: '🎓' },
+                { word: 'undergraduate', phonetic: '/ˌʌndərˈɡrædʒuət/', definition: '本科生', example: 'I am applying for an undergraduate program in engineering.', emoji: '🎓' },
+                { word: 'campus', phonetic: '/ˈkæmpəs/', definition: '校园', example: 'The university campus is beautiful and has great facilities.', emoji: '🏫' },
                 { word: 'analyze', phonetic: '/ˈænəlaɪz/', definition: '分析', example: 'We need to analyze the results of the experiment.', emoji: '📊' },
                 { word: 'practical', phonetic: '/ˈpræktɪkl/', definition: '实用的', example: 'This course provides practical skills for future employment.', emoji: '🛠️' },
                 { word: 'materials', phonetic: '/məˈtɪriəlz/', definition: '材料', example: 'I am interested in researching new sustainable materials.', emoji: '🧱' },
@@ -24,6 +26,10 @@ export const universityInterview: SubTopic = {
                 { word: 'methods', phonetic: '/ˈmeθədz/', definition: '方法', example: 'I enjoy learning about different research methods.', emoji: '📝' },
                 { word: 'track', phonetic: '/træk/', definition: '追踪；轨迹', example: 'I track my learning progress every week.', emoji: '👣' },
                 { word: 'eager', phonetic: '/ˈiːɡər/', definition: '渴望的', example: 'I am eager to join your academic community.', emoji: '🙋‍♂️' },
+                { word: 'hire', phonetic: '/haɪər/', definition: '雇用', example: 'Many companies come to campus to hire graduates.', emoji: '🤝' },
+                { word: 'industry', phonetic: '/ˈɪndəstri/', definition: '行业', example: 'I want to gain experience in the technology industry.', emoji: '🏭' },
+                { word: 'events', phonetic: '/ɪˈvents/', definition: '活动', example: 'I plan to participate in various social and academic events.', emoji: '🎉' },
+                { word: 'links', phonetic: '/lɪŋks/', definition: '联系；纽带', example: 'The university has strong links with the local community.', emoji: '🔗' },
             ]
         },
         {
@@ -42,6 +48,12 @@ export const universityInterview: SubTopic = {
                 { word: 'optimize', phonetic: '/ˈɑːptɪmaɪz/', definition: '优化', example: 'We can optimize the process to save time and resources.', emoji: '🚀' },
                 { word: 'master', phonetic: '/ˈmæstər/', definition: '精通；掌握', example: 'My goal is to master the skills needed for this profession.', emoji: '🥋' },
                 { word: 'contribute', phonetic: '/kənˈtrɪbjuːt/', definition: '贡献', example: 'I want to contribute to the university\'s research team.', emoji: '🤝' },
+                { word: 'internship', phonetic: '/ˈɪntɜːrnʃɪp/', definition: '实习', example: 'I hope to complete an internship to gain practical experience.', emoji: '💼' },
+                { word: 'partnerships', phonetic: '/ˈpɑːrtnərʃɪps/', definition: '伙伴关系', example: 'The program offers partnerships with leading global companies.', emoji: '🤝' },
+                { word: 'connection', phonetic: '/kəˈnekʃn/', definition: '人脉；联系', example: 'Building a professional connection is vital for career growth.', emoji: '🌐' },
+                { word: 'diverse', phonetic: '/daɪˈvɜːrs/', definition: '多元的', example: 'I look forward to studying in a diverse and multicultural environment.', emoji: '🌈' },
+                { word: 'inclusive', phonetic: '/ɪnˈkluːsɪv/', definition: '包容的', example: 'It is important to create an inclusive campus for all students.', emoji: '🤗' },
+                { word: 'off-campus', phonetic: '/ɔːf ˈkæmpəs/', definition: '校外的', example: 'I also plan to explore off-campus opportunities in the city.', emoji: '🏙️' },
             ]
         }
     ]

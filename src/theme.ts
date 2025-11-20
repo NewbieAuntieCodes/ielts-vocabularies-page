@@ -56,13 +56,10 @@ export const theme = {
     }
 };
 
-type ThemeType = typeof theme;
+export type ThemeType = typeof theme;
 
-// This declaration augments the 'styled-components' module to make
-// it aware of our custom theme structure, providing type safety.
-declare module 'styled-components' {
-  export interface DefaultTheme extends ThemeType {}
-}
+// Removed module augmentation to avoid "module 'styled-components' cannot be found" error.
+// Using explicit type or casting in components is recommended if types are not automatically resolved.
 
 export const GlobalStyles = createGlobalStyle`
     body {
@@ -70,7 +67,7 @@ export const GlobalStyles = createGlobalStyle`
         background-attachment: fixed;
         color: #94a3b8;
         margin: 0;
-        font-family: ${({ theme }) => theme.fonts.body};
+        font-family: ${({ theme }: { theme: any }) => theme.fonts.body};
         font-size: 16px;
         line-height: 1.6;
         -webkit-font-smoothing: antialiased;
