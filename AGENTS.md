@@ -9,7 +9,7 @@
   - `src/context/`: cross-app state (e.g., `VocabularyContext.tsx` uses localStorage key `ielts-vocabulary`).
   - `src/data/`: speaking question bank + seasons (`part1/`, `part2/`, `seasons/`).
   - `src/vocab-app/`: shared vocabulary app (Learn/Practice), `data-sources/`, and deduped word `pool/`.
-- `dist/`: production build output (generated). `ielts-listening/`: legacy standalone listening app.
+- `dist/`: production build output (generated).
 
 ## Build, Test, and Development Commands
 
@@ -17,7 +17,7 @@
 - `npm run dev`: start dev server (defaults to `http://localhost:53127`).
 - `npm run build`: typecheck + production build to `dist/`.
 - `npm run preview`: serve `dist/` locally for a production-like check.
-- `npm run deploy`: publish `dist/` to GitHub Pages (align `vite.config.ts` `base` with the repo path).
+- GitHub Pages: deployed by GitHub Actions on push to `main` (see `.github/workflows/deploy.yml`).
 
 ## Coding Style & Naming Conventions
 

@@ -37,3 +37,9 @@
 2. Run the app: `npm run dev`
 
 > 如果你要使用“AI 练习评测”，在 `.env.local` 里设置 `VITE_GEMINI_API_KEY`，并重启 `npm run dev`。
+
+## Deploy（GitHub Pages）
+
+本仓库使用 GitHub Actions 自动构建并部署到 GitHub Pages：每次 push 到 `main` 会运行 `.github/workflows/deploy.yml`，把 `dist/` 发布到 Pages。
+
+首次启用需要在 GitHub 仓库 `Settings -> Pages` 里把 `Source` 选择为 `GitHub Actions`。
