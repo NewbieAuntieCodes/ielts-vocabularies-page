@@ -1,0 +1,55 @@
+import { SubTopic } from './data-types';
+import { getManyFromPool } from './pool/utils';
+
+export const rules: SubTopic = {
+    id: 'rules',
+    title: 'Rules',
+    type: '事物题',
+    color: 'purple',
+    wordSections: [
+        {
+            title: '基础词汇',
+            words: getManyFromPool([
+                'allowed',
+                'benefit',
+                'follow the rules',
+                'break the rules',
+                'respect',
+                'fewer',
+                'enough',
+                'traffic rules',
+                'public rules',
+                'no littering',
+                'reasonable',
+                'annoying',
+                'strict',
+                'school discipline',
+                'behave well',
+                'misbehave',
+                'wear school uniform',
+                'no phones in class',
+                'warning',
+                'punishment',
+                'get into trouble',
+                'fair',
+                'unfair',
+            ], 'basic'),
+        },
+        {
+            title: '进阶词汇',
+            words: getManyFromPool([
+                'focus',
+                'practice',
+                'required',
+                'rule-free',
+                'self-discipline',
+                'regulation',
+                'policy',
+                'comply with',
+                'enforce',
+                'dedicated',
+                'detention',
+            ], 'advanced'),
+        },
+    ],
+};
