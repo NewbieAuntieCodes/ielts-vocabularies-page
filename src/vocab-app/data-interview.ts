@@ -117,6 +117,27 @@ export const interviewPersonality: SubTopic = {
     section: 'Part 2 & 3',
     wordSections: [
         {
+            title: '题目词汇 (Question Words)',
+            words: [
+                w('talkative', '/ˈtɔːkətɪv/', '健谈的', 'Would you describe yourself as talkative?', '🗣️', 'basic'),
+                w('adjectives', '/ˈædʒɪktɪvz/', '形容词', 'Which adjectives best describe your personality?', '🏷️', 'basic'),
+                w('personality', '/ˌpɜːrsəˈnæləti/', '性格；个性', 'How would you describe your personality?', '🎭', 'basic'),
+                w('describe', '/dɪˈskraɪb/', '描述', 'Can you describe yourself in a few words?', '🗣️', 'basic'),
+                w('handwriting', '/ˈhændˌraɪtɪŋ/', '字迹；笔迹', 'How would you describe your handwriting?', '✍️', 'basic'),
+                w('unique', '/juːˈniːk/', '独特的', 'What makes you unique?', '✨', 'basic'),
+                w('greatest', '/ˈɡreɪtɪst/', '最大的；最棒的', 'What is your greatest strength?', '🏆', 'basic'),
+                w('strength', '/streŋkθ/', '优势；长处', 'One strength of mine is that I learn fast.', '💪', 'basic'),
+                w('weakness', '/ˈwiːknəs/', '弱点；不足', 'My weakness is that I can be nervous at first.', '🪫', 'basic'),
+                w('role model', '/roʊl ˈmɑːdl/', '榜样；模范', 'Who is your role model?', '🌟', 'basic'),
+                w('public figure', '/ˈpʌblɪk ˈfɪɡjər/', '公众人物', 'Is there a public figure you admire?', '🎙️', 'basic'),
+                w('admire', '/ədˈmaɪər/', '钦佩；欣赏', 'I admire her for her perseverance.', '👏', 'basic'),
+                w('inspire', '/ɪnˈspaɪər/', '启发；鼓舞', 'My teacher inspires me to work hard.', '✨', 'basic'),
+                w('influence', '/ˈɪnfluəns/', '影响', 'My parents have a big influence on me.', '🌊', 'basic'),
+                w('good luck', '/ɡʊd lʌk/', '好运', 'Do you believe good luck plays a role in success?', '🍀', 'basic'),
+                w('bad luck', '/bæd lʌk/', '坏运气', 'Sometimes bad luck happens, but I try to stay positive.', '😓', 'basic'),
+            ],
+        },
+        {
             title: '基础词汇',
             words: getManyFromPool([
                 'friendly',
