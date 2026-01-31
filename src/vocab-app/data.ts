@@ -17,6 +17,15 @@ import { p2Places } from './data-part2-places';
 import { p2People } from './data-part2-people';
 import { p2Objects } from './data-part2-objects';
 import { p2Events } from './data-part2-events';
+import {
+    highFreqExpressingAnger,
+    highFreqExpressingDislikes,
+    highFreqExpressingHappiness,
+    highFreqExpressingLikes,
+    highFreqExpressingMaybeProbability,
+    highFreqExpressingSadness,
+    highFreqGeneral,
+} from './data-high-freq';
 
 export * from './data-types';
 
@@ -101,6 +110,19 @@ export const ieltsTopics: IeltsTopic[] = [
             p2Objects,
             p2People,
             p2Places,
+        ]
+    },
+    {
+        title: '高频词',
+        section: 'High Frequency',
+        subTopics: [
+            highFreqExpressingLikes,
+            highFreqExpressingDislikes,
+            highFreqExpressingMaybeProbability,
+            highFreqExpressingHappiness,
+            highFreqExpressingSadness,
+            highFreqExpressingAnger,
+            highFreqGeneral,
         ]
     }
 ];
