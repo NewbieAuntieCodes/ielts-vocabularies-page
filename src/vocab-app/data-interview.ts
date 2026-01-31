@@ -282,9 +282,32 @@ export const interviewExperiences: SubTopic = {
     section: 'Part 2 & 3',
     wordSections: [
         {
+            title: '题目词汇 (Question Words)',
+            words: [
+                w('happiest moment', '/ˈhæpiɪst ˈmoʊmənt/', '最幸福的时刻', 'What was the happiest moment in your life?', '😊', 'basic'),
+                w('saddest moment', '/ˈsædəst ˈmoʊmənt/', '最难过的时刻', 'What was the saddest moment in your life?', '😢', 'basic'),
+                w('fail to do', '/feɪl tə duː/', '没能做成…', 'Have you ever failed to do something important?', '❌', 'basic'),
+                w('treasured', '/ˈtreʒərd/', '珍贵的；被珍视的', 'Is there a treasured memory you often think about?', '💎', 'basic'),
+                w('achievement', '/əˈtʃiːvmənt/', '成就', 'What is your biggest achievement so far?', '🏅', 'basic'),
+                w('unlimited money', '/ʌnˈlɪmɪtɪd ˈmʌni/', '无限的钱', 'If you had unlimited money, what would you do?', '💰', 'basic'),
+                w('local community', '/ˈloʊkl kəˈmjuːnəti/', '当地社区', 'Do you do anything for your local community?', '🏘️', 'basic'),
+                w('events', '/ɪˈvents/', '活动', 'Do you often take part in events at school?', '🎉', 'basic'),
+                w('impact', '/ˈɪmpækt/', '影响', 'What impact did that experience have on you?', '🌊', 'basic'),
+                w('catch attention', '/kætʃ əˈtenʃn/', '吸引注意', 'How can you catch attention in a short answer?', '👀', 'basic'),
+                w('immoral behavior', '/ɪˈmɔːrəl bɪˈheɪvjər/', '不道德行为', 'What do you think about immoral behavior online?', '🚫', 'basic'),
+                w('focus', '/ˈfoʊkəs/', '集中；专注', 'How do you stay focused when you feel distracted?', '🎯', 'basic'),
+                w('distract', '/dɪˈstrækt/', '使分心', 'Noise can distract me when I study.', '🙃', 'basic'),
+                w('stay focused', '/steɪ ˈfoʊkəst/', '保持专注', 'I try to stay focused by turning off notifications.', '🎯', 'basic'),
+                w('concentrate', '/ˈkɑːnsntreɪt/', '集中注意力', 'It is hard to concentrate in a noisy place.', '🧠', 'basic'),
+                w('in a hurry', '/ɪn ə ˈhɜːri/', '匆忙', 'Have you ever been in a hurry and forgotten something?', '🏃', 'basic'),
+                w('go on a picnic', '/ɡoʊ ɑːn ə ˈpɪknɪk/', '去野餐', 'We sometimes go on a picnic in spring.', '🧺', 'basic'),
+                w('stay up late', '/steɪ ʌp leɪt/', '熬夜', 'Do you often stay up late?', '🌙', 'basic'),
+                w('get up early', '/ɡet ʌp ˈɜːrli/', '早起', 'I get up early to study.', '🌅', 'basic'),
+            ],
+        },
+        {
             title: '基础词汇',
             words: [
-                w('events', '/ɪˈvents/', '活动', 'I plan to participate in various social and academic events.', '🎉', 'basic'),
                 w('hire', '/haɪər/', '雇用', 'Many companies come to campus to hire graduates.', '🤝', 'basic'),
                 w('industry', '/ˈɪndəstri/', '行业', 'I want to gain experience in the technology industry.', '🏭', 'basic'),
                 w('links', '/lɪŋks/', '联系；纽带', 'The university has strong links with the local community.', '🔗', 'basic'),
