@@ -6,14 +6,14 @@ import { BackArrowIcon } from '../components/shared/Icons';
 import SampleAnswerViewer from '../components/shared/SampleAnswerViewer';
 import AIEvaluator from '../components/shared/AIEvaluator';
 import { getSeasonById, loadSeason, QuestionSeason } from '../data/seasons';
-import { useStudentContext } from '../context/StudentContext';
+import { useBandContext } from '../context/BandContext';
 import { CueCardData } from '../types';
 
 const AnalysisPage: React.FC = () => {
     const { seasonId, cardId } = useParams<{ seasonId?: string; cardId: string }>();
     const navigate = useNavigate();
     const location = useLocation();
-    const { bandToShow, getSampleAnswersForCard } = useStudentContext();
+    const { bandToShow, getSampleAnswersForCard } = useBandContext();
     const season = getSeasonById(seasonId);
     const [seasonData, setSeasonData] = useState<QuestionSeason | null>(null);
     const [card, setCard] = useState<CueCardData | null>(null);

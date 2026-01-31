@@ -119,5 +119,124 @@ export const wordsG: Record<string, Word> = {
     definition: '口香糖',
     example: 'Chewing gum can help some people focus.',
     emoji: '🍬'
+  },
+  'graduate school': {
+    word: 'graduate school',
+    phonetic: '/ˈɡrædʒuət skuːl/',
+    definition: '研究生院',
+    example: 'I am considering applying to graduate school next year.',
+    emoji: '🎓'
+  },
+  'give me a decent salary': {
+    word: 'give me a decent salary',
+    phonetic: '/ɡɪv mi ə ˈdiːsnt ˈsæləri/',
+    definition: '给我一份体面的薪水',
+    example: 'I hope this job can give me a decent salary.',
+    emoji: '💰'
+  },
+  'get close to the nature': {
+    word: 'get close to the nature',
+    phonetic: '/ɡet kloʊs tə ðə ˈneɪtʃər/',
+    definition: '亲近自然',
+    example: 'I go camping to get close to the nature.',
+    emoji: '🌿'
+  },
+  'guidebook': {
+    word: 'guidebook',
+    phonetic: '/ˈɡaɪdbʊk/',
+    definition: '旅行指南',
+    example: 'The guidebook lists the main places of interest.',
+    emoji: '📖'
+  },
+  'gym': {
+    word: 'gym',
+    phonetic: '/dʒɪm/',
+    definition: '健身房',
+    example: 'I go to the gym after work.',
+    emoji: '🏋️'
+  },
+  'glamour': {
+    word: 'glamour',
+    phonetic: '/ˈɡlæmər/',
+    definition: '魅力；光鲜感',
+    example: 'Many people are drawn to the glamour of the entertainment industry.',
+    emoji: '✨'
+  },
+  'genuine': {
+    word: 'genuine',
+    phonetic: '/ˈdʒenjuɪn/',
+    definition: '真诚的；真挚的',
+    example: 'He is a genuine person and never pretends to be someone else.',
+    emoji: '🤍'
+  },
+  'good-tempered': {
+    word: 'good-tempered',
+    phonetic: '/ˌɡʊd ˈtempərd/',
+    definition: '脾气好的；温和的',
+    example: "She is good-tempered, so it's easy to work with her.",
+    emoji: '😌'
+  },
+  'gentle and graceful': {
+    word: 'gentle and graceful',
+    phonetic: '/ˈdʒentl ænd ˈɡreɪsfl/',
+    definition: '温柔而优雅的',
+    example: 'She is gentle and graceful, so people feel relaxed around her.',
+    emoji: '🕊️'
+  },
+  'good taste': {
+    word: 'good taste',
+    phonetic: '/ɡʊd teɪst/',
+    definition: '好品味',
+    example: 'He has good taste in clothes and always looks stylish.',
+    emoji: '👔'
+  },
+  'gray hair': {
+    word: 'gray hair',
+    phonetic: '/ɡreɪ her/',
+    definition: '白发；灰发',
+    example: 'My dad has some gray hair now.',
+    emoji: '🧓'
+  },
+  'glove': {
+    word: 'glove',
+    phonetic: '/ɡlʌv/',
+    definition: '手套',
+    example: 'I wear gloves when it gets really cold.',
+    emoji: '🧤'
+  },
+  'glue': {
+    word: 'glue',
+    phonetic: '/ɡluː/',
+    definition: '胶水',
+    example: 'You can use glue to fix the broken model.',
+    emoji: '🧴'
+  },
+  'games console': {
+    word: 'games console',
+    phonetic: '/ɡeɪmz ˈkɑːnsoʊl/',
+    definition: '游戏机',
+    example: 'He plays on a games console at weekends.',
+    emoji: '🎮'
+  },
+  'guide': {
+    word: 'guide',
+    phonetic: '/ɡaɪd/',
+    definition: '导游；指南',
+    example: 'Our guide showed us around the old town.',
+    emoji: '🧭'
+  },
+  'graduate': {
+    word: 'graduate',
+    phonetic: '/ˈɡrædʒueɪt/',
+    definition: '毕业',
+    example: 'He will graduate next summer.',
+    emoji: '🎓'
+  },
+  'get together': {
+    word: 'get together',
+    phonetic: '/ɡet təˈɡeðər/',
+    definition: '聚会；相聚',
+    example: 'We usually get together on weekends to catch up.',
+    emoji: '🫂'
   }
 };

@@ -4,7 +4,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import { CueCardData } from '../../types';
 import { BackArrowIcon, HelmIcon, NextIcon, PrevIcon } from '../shared/Icons';
 import SampleAnswerViewer from '../shared/SampleAnswerViewer';
-import { useStudentContext } from '../../context/StudentContext';
+import { useBandContext } from '../../context/BandContext';
 import { DEFAULT_SEASON_ID, SeasonId } from '../../data/seasons';
 import { getBuildKitById } from '../../part2-builder/kits';
 
@@ -18,18 +18,19 @@ interface Part2ModalProps {
 const Part2Modal: React.FC<Part2ModalProps> = ({ card, onClose, seasonId, seasonTag }) => {
     const navigate = useNavigate();
     const location = useLocation();
-    const { bandToShow, getSampleAnswersForCard } = useStudentContext();
+    const { bandToShow, getSampleAnswersForCard, speakingMode } = useBandContext();
     const sampleAnswers = getSampleAnswersForCard(card);
     const resolvedSeasonId: SeasonId = seasonId || (card.seasonId as SeasonId) || DEFAULT_SEASON_ID;
     const resolvedSeasonTag = seasonTag || '【题库】';
     const buildKit = getBuildKitById(card.id);
+    const isTeacherMode = speakingMode === 'teacher';
     const [currentView, setCurrentView] = useState<'part2' | 'part3'>('part2');
     const [showP2Answer, setShowP2Answer] = useState(false);
 
     useEffect(() => {
         setCurrentView('part2');
         setShowP2Answer(false);
-    }, [card.id]);
+    }, [card.id, speakingMode]);
 
     const handleModalContentClick = (e: React.MouseEvent) => {
         e.stopPropagation();
@@ -67,16 +68,16 @@ const Part2Modal: React.FC<Part2ModalProps> = ({ card, onClose, seasonId, season
     
     return (
          <ModalContainerP2 onClick={handleModalContentClick}>
-             <HeaderP2>
-                <BackButtonP2 
-                    onClick={currentView === 'part2' ? onClose : () => setCurrentView('part2')} 
-                    aria-label={currentView === 'part2' ? "返回" : "返回 Part 2"}
-                >
-                    <BackArrowIcon />
-                </BackButtonP2>
-                <h3>{currentView === 'part2' ? 'P2 题卡' : 'P3 题卡'}</h3>
-                <RefreshButtonP2 aria-label="刷新"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M23 4v6h-6" /><path d="M1 20v-6h6" /><path d="M3.51 9a9 9 0 0 1 14.85-3.36L20.5 10a5 5 0 0 0-7.82 5.42L11 17.5" /></svg></RefreshButtonP2>
-             </HeaderP2>
+	             <HeaderP2>
+	                <BackButtonP2 
+	                    onClick={isTeacherMode ? onClose : (currentView === 'part2' ? onClose : () => setCurrentView('part2'))}
+	                    aria-label={isTeacherMode ? '返回' : (currentView === 'part2' ? '返回' : '返回 Part 2')}
+	                >
+	                    <BackArrowIcon />
+	                </BackButtonP2>
+	                <h3>{isTeacherMode ? 'P2+P3 题卡' : (currentView === 'part2' ? 'P2 题卡' : 'P3 题卡')}</h3>
+	                <RefreshButtonP2 aria-label="刷新"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M23 4v6h-6" /><path d="M1 20v-6h6" /><path d="M3.51 9a9 9 0 0 1 14.85-3.36L20.5 10a5 5 0 0 0-7.82 5.42L11 17.5" /></svg></RefreshButtonP2>
+	             </HeaderP2>
              <ContentP2>
                 <CardWrapper>
                      <Sidebar>
@@ -86,7 +87,7 @@ const Part2Modal: React.FC<Part2ModalProps> = ({ card, onClose, seasonId, season
                      <MainContent>
                         {card.status === 'New' && <NewTag>新题</NewTag>}
                         <CardTitle id="modal-title-p2">{card.title}</CardTitle>
-                        {currentView === 'part2' && (
+	                        {(isTeacherMode || currentView === 'part2') && (
                             <PartSection>
                                 <PartLabel>Part 2</PartLabel>
                                 <Part2Title>{card.part2Title}</Part2Title>
@@ -115,7 +116,7 @@ const Part2Modal: React.FC<Part2ModalProps> = ({ card, onClose, seasonId, season
                                 )}
                             </PartSection>
                         )}
-                        {currentView === 'part3' && (
+	                        {(isTeacherMode || currentView === 'part3') && (
                             <PartSection>
                                 <PartLabel>Part 3</PartLabel>
                                 <Part3Questions>
@@ -131,17 +132,24 @@ const Part2Modal: React.FC<Part2ModalProps> = ({ card, onClose, seasonId, season
                      <button disabled><PrevIcon /> 上一题</button>
                      <button disabled>下一题 <NextIcon /></button>
                 </PrevNextNav>
-                 <MainActions>
-                     <ActionButtonOrange onClick={() => setShowP2Answer(true)}>Part 2 范文</ActionButtonOrange>
-                     {currentView === 'part2' ? (
-                        <ActionButtonBlue onClick={() => setCurrentView('part3')}>查看 Part 3 问题</ActionButtonBlue>
-                     ) : (
-                        <ActionButtonBlue onClick={() => {
-                            onClose();
-                            navigate({ pathname: `/speaking/analysis/${resolvedSeasonId}/${card.id}`, search: location.search });
-                        }}>查看 Part 3 解析</ActionButtonBlue>
-                     )}
-                 </MainActions>
+	                 <MainActions>
+	                     <ActionButtonOrange onClick={() => setShowP2Answer(true)}>Part 2 范文</ActionButtonOrange>
+	                     {isTeacherMode ? (
+	                        <ActionButtonBlue onClick={() => {
+	                            onClose();
+	                            navigate({ pathname: `/speaking/analysis/${resolvedSeasonId}/${card.id}`, search: location.search });
+	                        }}>查看 Part 3 解析</ActionButtonBlue>
+	                     ) : (
+	                        (currentView === 'part2' ? (
+	                            <ActionButtonBlue onClick={() => setCurrentView('part3')}>查看 Part 3 问题</ActionButtonBlue>
+	                        ) : (
+	                            <ActionButtonBlue onClick={() => {
+	                                onClose();
+	                                navigate({ pathname: `/speaking/analysis/${resolvedSeasonId}/${card.id}`, search: location.search });
+	                            }}>查看 Part 3 解析</ActionButtonBlue>
+	                        ))
+	                     )}
+	                 </MainActions>
                  <SupplementaryAction>我要补充</SupplementaryAction>
              </FooterP2>
          </ModalContainerP2>

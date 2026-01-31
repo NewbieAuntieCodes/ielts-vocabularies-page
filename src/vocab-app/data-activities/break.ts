@@ -6,19 +6,29 @@ export const breakTopic: SubTopic = {
     title: 'Having a break',
     type: '事件题',
     color: 'blue',
-    words: getManyFromPool([
-      'unwind',
-      'recharge',
-      'leisure',
-      'have a rest',
-      'take it easy',
-      'chill',
-      'refresh',
-      'take a nap',
-      'peaceful',
-      'relax',
-      'rest',
-      'calm',
-      'hobby'
-    ]),
+    wordSections: [
+        {
+            title: '基础词汇',
+            words: getManyFromPool([
+                'have a rest',
+                'take it easy',
+                'take a nap',
+                'relax',
+                'rest',
+                'calm',
+                'hobby',
+            ], 'basic'),
+        },
+        {
+            title: '进阶词汇',
+            words: getManyFromPool([
+                'unwind',
+                'recharge',
+                'leisure',
+                'chill',
+                'refresh',
+                'peaceful',
+            ], 'advanced'),
+        },
+    ],
 };

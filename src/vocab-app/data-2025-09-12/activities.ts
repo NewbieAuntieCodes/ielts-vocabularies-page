@@ -9,7 +9,12 @@ export const sharing: SubTopic = {
     type: '事件题',
     color: 'blue',
     seasons: [SEASON],
-    words: getManyFromPool(['generous', 'mutual', 'contribute', 'cooperate']),
+    wordSections: [
+        {
+            title: '进阶词汇',
+            words: getManyFromPool(['generous', 'mutual', 'contribute', 'cooperate'], 'advanced'),
+        },
+    ],
 };
 
 export const breakTopic: SubTopic = {
@@ -18,11 +23,31 @@ export const breakTopic: SubTopic = {
     type: '事件题',
     color: 'blue',
     seasons: [SEASON],
-    words: getManyFromPool([
-      'unwind', 'recharge', 'leisure', 'have a rest', 'take it easy',
-      'chill', 'refresh', 'take a nap', 'peaceful', 'relax', 'rest',
-      'calm', 'hobby'
-    ]),
+    wordSections: [
+        {
+            title: '基础词汇',
+            words: getManyFromPool([
+                'have a rest',
+                'take it easy',
+                'take a nap',
+                'relax',
+                'rest',
+                'calm',
+                'hobby',
+            ], 'basic'),
+        },
+        {
+            title: '进阶词汇',
+            words: getManyFromPool([
+                'unwind',
+                'recharge',
+                'leisure',
+                'chill',
+                'refresh',
+                'peaceful',
+            ], 'advanced'),
+        },
+    ],
 };
 
 export const borrowing: SubTopic = {
@@ -98,10 +123,36 @@ export const doingWell: SubTopic = {
     color: 'blue',
     seasons: [SEASON],
     isNew: true,
-    words: getManyFromPool([
-      'champion', 'praise', 'accomplishment', 'excel', 'outstanding',
-      'proficient', 'skillful', 'expert', 'achieve', 'succeed',
-      'practice', 'proud', 'improve', 'good at', 'talented',
-      'hard-working', 'smart', 'clever', 'experience', 'learn',
-    ]),
+    wordSections: [
+        {
+            title: '基础词汇',
+            words: getManyFromPool([
+                'champion',
+                'praise',
+                'excel',
+                'expert',
+                'achieve',
+                'succeed',
+                'practice',
+                'proud',
+                'improve',
+                'good at',
+                'talented',
+                'hard-working',
+                'smart',
+                'clever',
+                'learn',
+            ], 'basic'),
+        },
+        {
+            title: '进阶词汇',
+            words: getManyFromPool([
+                'accomplishment',
+                'outstanding',
+                'proficient',
+                'skillful',
+                'experience',
+            ], 'advanced'),
+        },
+    ],
 };

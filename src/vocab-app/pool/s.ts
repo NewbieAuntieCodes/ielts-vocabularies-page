@@ -308,5 +308,551 @@ export const wordsS: Record<string, Word> = {
     definition: '无糖的',
     example: 'I prefer sugar-free gum to protect my teeth.',
     emoji: '🚫'
+  },
+  'salary': {
+    word: 'salary',
+    phonetic: '/ˈsæləri/',
+    definition: '薪水；薪资',
+    example: 'The salary is competitive for this role.',
+    emoji: '💰'
+  },
+  'score': {
+    word: 'score',
+    phonetic: '/skɔːr/',
+    definition: '分数',
+    example: 'I got a high score in the final exam.',
+    emoji: '📊'
+  },
+  'secondary school': {
+    word: 'secondary school',
+    phonetic: '/ˈsekənderi skuːl/',
+    definition: '中学',
+    example: 'In secondary school, I joined the basketball team.',
+    emoji: '🏫'
+  },
+  'senior': {
+    word: 'senior',
+    phonetic: '/ˈsiːniər/',
+    definition: '大学四年级学生；资深的',
+    example: 'As a senior, I am preparing for graduation.',
+    emoji: '🎓'
+  },
+  'sophomore': {
+    word: 'sophomore',
+    phonetic: '/ˈsɑːfəmɔːr/',
+    definition: '大学二年级学生',
+    example: 'In my sophomore year, I started doing internships.',
+    emoji: '🧑‍🎓'
+  },
+  'straight-a student': {
+    word: 'straight-A student',
+    phonetic: '/ˌstreɪt ˈeɪ ˈstuːdnt/',
+    definition: '全优学生；成绩全A',
+    example: 'He was a straight-A student in high school.',
+    emoji: '🏅'
+  },
+  'subject': {
+    word: 'subject',
+    phonetic: '/ˈsʌbdʒekt/',
+    definition: '科目',
+    example: 'Maths was my favourite subject at school.',
+    emoji: '📘'
+  },
+  'scenic spot': {
+    word: 'scenic spot',
+    phonetic: '/ˈsiːnɪk spɑːt/',
+    definition: '景区；景点',
+    example: 'That lake is a famous scenic spot.',
+    emoji: '📸'
+  },
+  'seaside': {
+    word: 'seaside',
+    phonetic: '/ˈsiːsaɪd/',
+    definition: '海边；海滨',
+    example: 'We spent a weekend at the seaside.',
+    emoji: '🌊'
+  },
+  'shabby': {
+    word: 'shabby',
+    phonetic: '/ˈʃæbi/',
+    definition: '破旧的；寒酸的',
+    example: 'The hotel looked shabby and needed renovation.',
+    emoji: '🧵'
+  },
+  'shopping centre': {
+    word: 'shopping centre',
+    phonetic: '/ˈʃɑːpɪŋ ˈsentər/',
+    definition: '购物中心',
+    example: 'The shopping centre is always busy on Saturdays.',
+    emoji: '🛍️'
+  },
+  'snack bar': {
+    word: 'snack bar',
+    phonetic: '/snæk bɑːr/',
+    definition: '小吃店',
+    example: 'We grabbed some fries at a snack bar.',
+    emoji: '🍟'
+  },
+  'soothing': {
+    word: 'soothing',
+    phonetic: '/ˈsuːðɪŋ/',
+    definition: '舒缓的；令人放松的',
+    example: 'The sound of waves is very soothing.',
+    emoji: '😌'
+  },
+  'souvenir shop': {
+    word: 'souvenir shop',
+    phonetic: '/ˌsuːvəˈnɪr ʃɑːp/',
+    definition: '纪念品店',
+    example: 'I bought postcards in a souvenir shop.',
+    emoji: '🎁'
+  },
+  'spacious': {
+    word: 'spacious',
+    phonetic: '/ˈspeɪʃəs/',
+    definition: '宽敞的',
+    example: 'The apartment is bright and spacious.',
+    emoji: '↔️'
+  },
+  'spectacular': {
+    word: 'spectacular',
+    phonetic: '/spekˈtækjələr/',
+    definition: '壮观的',
+    example: 'We saw a spectacular sunset by the sea.',
+    emoji: '🌟'
+  },
+  'spectacular view': {
+    word: 'spectacular view',
+    phonetic: '/spekˈtækjələr vjuː/',
+    definition: '壮观的景色',
+    example: 'The rooftop offers a spectacular view of the skyline.',
+    emoji: '🌆'
+  },
+  'splendid': {
+    word: 'splendid',
+    phonetic: '/ˈsplendɪd/',
+    definition: '极好的；壮丽的',
+    example: 'The palace looks splendid at night.',
+    emoji: '✨'
+  },
+  'sports stadium': {
+    word: 'sports stadium',
+    phonetic: '/spɔːrts ˈsteɪdiəm/',
+    definition: '体育场',
+    example: 'The sports stadium can hold thousands of fans.',
+    emoji: '🏟️'
+  },
+  'stunning view': {
+    word: 'stunning view',
+    phonetic: '/ˈstʌnɪŋ vjuː/',
+    definition: '惊艳的景色',
+    example: 'We woke up to a stunning view of the mountains.',
+    emoji: '🌄'
+  },
+  'superb': {
+    word: 'superb',
+    phonetic: '/suːˈpɜːrb/',
+    definition: '极好的；一流的',
+    example: 'The location is superb for sightseeing.',
+    emoji: '👌'
+  },
+  'supermarket': {
+    word: 'supermarket',
+    phonetic: '/ˈsuːpərmɑːrkɪt/',
+    definition: '超市',
+    example: 'I bought some fruit at the supermarket.',
+    emoji: '🛒'
+  },
+  'selflessness': {
+    word: 'selflessness',
+    phonetic: '/ˈselfləsnəs/',
+    definition: '无私；忘我',
+    example: 'Her selflessness inspires people around her to help others.',
+    emoji: '🤍'
+  },
+  'scruffy': {
+    word: 'scruffy',
+    phonetic: '/ˈskrʌfi/',
+    definition: '邋遢的；不修边幅的',
+    example: 'He looked scruffy, so he changed into a clean shirt.',
+    emoji: '🧥'
+  },
+  'self-centred': {
+    word: 'self-centred',
+    phonetic: '/ˌself ˈsentərd/',
+    definition: '以自我为中心的',
+    example: 'He is self-centred and rarely listens to others.',
+    emoji: '🪞'
+  },
+  'self-disciplined': {
+    word: 'self-disciplined',
+    phonetic: '/ˌself ˈdɪsəplɪnd/',
+    definition: '自律的',
+    example: 'She is self-disciplined, so she studies a little every day.',
+    emoji: '⏱️'
+  },
+  'selfish': {
+    word: 'selfish',
+    phonetic: '/ˈselfɪʃ/',
+    definition: '自私的',
+    example: 'It is selfish to only think about yourself all the time.',
+    emoji: '🙄'
+  },
+  'self-made': {
+    word: 'self-made',
+    phonetic: '/ˌself ˈmeɪd/',
+    definition: '白手起家的',
+    example: 'He is a self-made entrepreneur who started with nothing.',
+    emoji: '🏗️'
+  },
+  'self-reliant': {
+    word: 'self-reliant',
+    phonetic: '/ˌself rɪˈlaɪənt/',
+    definition: '自立的；独立自主的',
+    example: 'Being self-reliant is an important life skill.',
+    emoji: '🧍'
+  },
+  'self-sustaining': {
+    word: 'self-sustaining',
+    phonetic: '/ˌself səˈsteɪnɪŋ/',
+    definition: '自给自足的',
+    example: 'He lives a self-sustaining lifestyle in the countryside.',
+    emoji: '🌱'
+  },
+  'sensible': {
+    word: 'sensible',
+    phonetic: '/ˈsensəbl/',
+    definition: '明智的；理智的',
+    example: 'It is sensible to save money for emergencies.',
+    emoji: '✅'
+  },
+  'sequacious': {
+    word: 'sequacious',
+    phonetic: '/sɪˈkweɪʃəs/',
+    definition: '盲从的；随声附和的',
+    example: 'He is sequacious and always agrees with the loudest person in the room.',
+    emoji: '🐑'
+  },
+  'shocked': {
+    word: 'shocked',
+    phonetic: '/ʃɑːkt/',
+    definition: '震惊的',
+    example: 'I was shocked when I heard the news.',
+    emoji: '😱'
+  },
+  'sincere': {
+    word: 'sincere',
+    phonetic: '/sɪnˈsɪr/',
+    definition: '真诚的；诚恳的',
+    example: 'She gave me a sincere apology.',
+    emoji: '🤍'
+  },
+  'slim': {
+    word: 'slim',
+    phonetic: '/slɪm/',
+    definition: '苗条的',
+    example: 'He is slim because he exercises regularly.',
+    emoji: '🏃'
+  },
+  'sloppy': {
+    word: 'sloppy',
+    phonetic: '/ˈslɑːpi/',
+    definition: '邋遢的；马虎的',
+    example: 'He is sloppy with details, so he often makes small mistakes.',
+    emoji: '🧹'
+  },
+  'spoilt': {
+    word: 'spoilt',
+    phonetic: '/spɔɪlt/',
+    definition: '被宠坏的',
+    example: 'The spoilt child always wants the newest toys.',
+    emoji: '👑'
+  },
+  'straightforward': {
+    word: 'straightforward',
+    phonetic: '/ˌstreɪtˈfɔːrwərd/',
+    definition: '直率的；简单明了的',
+    example: 'He is straightforward and says what he thinks.',
+    emoji: '➡️'
+  },
+  'strong-willed': {
+    word: 'strong-willed',
+    phonetic: '/ˌstrɔːŋ ˈwɪld/',
+    definition: '意志坚强的',
+    example: 'She is strong-willed, so she never quits halfway.',
+    emoji: '🛡️'
+  },
+  'senior citizen': {
+    word: 'senior citizen',
+    phonetic: '/ˈsiːniər ˈsɪtɪzn/',
+    definition: '老年人；老人',
+    example: 'The park is popular among senior citizens in the morning.',
+    emoji: '🧓'
+  },
+  'slight figure': {
+    word: 'slight figure',
+    phonetic: '/slaɪt ˈfɪɡjər/',
+    definition: '纤细的身材',
+    example: 'She has a slight figure and looks elegant.',
+    emoji: '🧍‍♀️'
+  },
+  'smartly dressed': {
+    word: 'smartly dressed',
+    phonetic: '/ˈsmɑːrtli drest/',
+    definition: '穿着得体的；衣着讲究的',
+    example: 'He was smartly dressed for the interview.',
+    emoji: '👔'
+  },
+  'social anxiety disorder': {
+    word: 'social anxiety disorder',
+    phonetic: '/ˈsoʊʃl æŋˈzaɪəti dɪsˈɔːrdər/',
+    definition: '社交焦虑障碍',
+    example: 'Social anxiety disorder can make public speaking very stressful.',
+    emoji: '😰'
+  },
+  'social status': {
+    word: 'social status',
+    phonetic: '/ˈsoʊʃl ˈsteɪtəs/',
+    definition: '社会地位',
+    example: 'Some people care too much about social status.',
+    emoji: '🏷️'
+  },
+  'square face': {
+    word: 'square face',
+    phonetic: '/skwer feɪs/',
+    definition: '方脸',
+    example: 'He has a square face and a strong jawline.',
+    emoji: '🙂'
+  },
+  'standard of living': {
+    word: 'standard of living',
+    phonetic: '/ˈstændərd əv ˈlɪvɪŋ/',
+    definition: '生活水平',
+    example: 'A higher salary can improve your standard of living.',
+    emoji: '📈'
+  },
+  'straight hair': {
+    word: 'straight hair',
+    phonetic: '/streɪt her/',
+    definition: '直发',
+    example: 'She has straight hair and rarely uses a hair curler.',
+    emoji: '💇'
+  },
+  'striking feature': {
+    word: 'striking feature',
+    phonetic: '/ˈstraɪkɪŋ ˈfiːtʃər/',
+    definition: '显著特征；突出特点',
+    example: 'Her most striking feature is her bright smile.',
+    emoji: '✨'
+  },
+  'supportive family': {
+    word: 'supportive family',
+    phonetic: '/səˈpɔːrtɪv ˈfæməli/',
+    definition: '支持的家庭',
+    example: 'A supportive family can boost your confidence.',
+    emoji: '🏠'
+  },
+  'scarf': {
+    word: 'scarf',
+    phonetic: '/skɑːrf/',
+    definition: '围巾',
+    example: 'She wrapped a scarf around her neck.',
+    emoji: '🧣'
+  },
+  'scissors': {
+    word: 'scissors',
+    phonetic: '/ˈsɪzərz/',
+    definition: '剪刀',
+    example: 'Be careful with those scissors.',
+    emoji: '✂️'
+  },
+  'shirt': {
+    word: 'shirt',
+    phonetic: '/ʃɜːrt/',
+    definition: '衬衫',
+    example: 'I usually wear a white shirt for formal occasions.',
+    emoji: '👔'
+  },
+  'silver': {
+    word: 'silver',
+    phonetic: '/ˈsɪlvər/',
+    definition: '银；银色的',
+    example: 'She wears silver earrings.',
+    emoji: '🥈'
+  },
+  'skirt': {
+    word: 'skirt',
+    phonetic: '/skɜːrt/',
+    definition: '裙子',
+    example: 'She bought a new skirt yesterday.',
+    emoji: '👗'
+  },
+  'smartphone': {
+    word: 'smartphone',
+    phonetic: '/ˈsmɑːrtfoʊn/',
+    definition: '智能手机',
+    example: 'I use my smartphone to check emails and messages.',
+    emoji: '📱'
+  },
+  'smartwatch': {
+    word: 'smartwatch',
+    phonetic: '/ˈsmɑːrtwɑːtʃ/',
+    definition: '智能手表',
+    example: 'My smartwatch tracks my heart rate.',
+    emoji: '⌚'
+  },
+  'sneaker': {
+    word: 'sneaker',
+    phonetic: '/ˈsniːkər/',
+    definition: '运动鞋',
+    example: 'Sneakers are comfortable for walking.',
+    emoji: '👟'
+  },
+  'sock': {
+    word: 'sock',
+    phonetic: '/sɑːk/',
+    definition: '袜子',
+    example: 'I lost one sock in the laundry.',
+    emoji: '🧦'
+  },
+  'sofa': {
+    word: 'sofa',
+    phonetic: '/ˈsoʊfə/',
+    definition: '沙发',
+    example: 'We sat on the sofa and chatted for hours.',
+    emoji: '🛋️'
+  },
+  'stapler': {
+    word: 'stapler',
+    phonetic: '/ˈsteɪplər/',
+    definition: '订书机',
+    example: 'Use a stapler to keep the papers together.',
+    emoji: '📎'
+  },
+  'stationery': {
+    word: 'stationery',
+    phonetic: '/ˈsteɪʃəneri/',
+    definition: '文具',
+    example: 'I bought some stationery for school.',
+    emoji: '🗂️'
+  },
+  'sticky note': {
+    word: 'sticky note',
+    phonetic: '/ˈstɪki noʊt/',
+    definition: '便利贴',
+    example: 'I leave a sticky note on my desk as a reminder.',
+    emoji: '📝'
+  },
+  'suit': {
+    word: 'suit',
+    phonetic: '/suːt/',
+    definition: '西装；套装',
+    example: 'He wore a suit for the job interview.',
+    emoji: '🤵'
+  },
+  'sweater': {
+    word: 'sweater',
+    phonetic: '/ˈswetər/',
+    definition: '毛衣',
+    example: 'This sweater keeps me warm in winter.',
+    emoji: '🧶'
+  },
+  'smart home device': {
+    word: 'smart home device',
+    phonetic: '/smɑːrt hoʊm dɪˈvaɪs/',
+    definition: '智能家居设备',
+    example: 'A smart home device can control the lights by voice.',
+    emoji: '🏠'
+  },
+  'solar energy': {
+    word: 'solar energy',
+    phonetic: '/ˈsoʊlər ˈenərdʒi/',
+    definition: '太阳能',
+    example: 'Solar energy is clean and renewable.',
+    emoji: '☀️'
+  },
+  'sightseeing': {
+    word: 'sightseeing',
+    phonetic: '/ˈsaɪtˌsiːɪŋ/',
+    definition: '观光',
+    example: 'We went sightseeing in the old town.',
+    emoji: '📸'
+  },
+  'souvenir': {
+    word: 'souvenir',
+    phonetic: '/ˌsuːvəˈnɪr/',
+    definition: '纪念品',
+    example: 'I bought a souvenir for my friend.',
+    emoji: '🎁'
+  },
+  'specialty': {
+    word: 'specialty',
+    phonetic: '/ˈspeʃəlti/',
+    definition: '特产；特色菜',
+    example: 'Seafood is the specialty of this city.',
+    emoji: '🦐'
+  },
+  'some comfort hotel (two-star hotel)': {
+    word: 'some comfort hotel (two-star hotel)',
+    phonetic: '/sʌm ˈkʌmfərt hoʊˈtel/',
+    definition: '舒适型酒店（二星级酒店）',
+    example: 'A two-star hotel offers basic comfort for travelers.',
+    emoji: '🏨'
+  },
+  'standard room (sr)': {
+    word: 'standard room (SR)',
+    phonetic: '/ˈstændərd ruːm/',
+    definition: '标准间（SR）',
+    example: 'A standard room (SR) is usually enough for a short stay.',
+    emoji: '🛏️'
+  },
+  'standard suite (ss)': {
+    word: 'standard suite (SS)',
+    phonetic: '/ˈstændərd swiːt/',
+    definition: '标准套房（SS）',
+    example: 'We upgraded to a standard suite (SS) for more space.',
+    emoji: '🛋️'
+  },
+  'superior room (ur)': {
+    word: 'superior room (UR)',
+    phonetic: '/suːˈpɪriər ruːm/',
+    definition: '高级房（UR）',
+    example: 'The superior room (UR) comes with a better view.',
+    emoji: '🌆'
+  },
+  'self-driving tour': {
+    word: 'self-driving tour',
+    phonetic: '/ˌselfˈdraɪvɪŋ tʊr/',
+    definition: '自驾游',
+    example: 'We went on a self-driving tour along the coast.',
+    emoji: '🚙'
+  },
+  'self-guided tour': {
+    word: 'self-guided tour',
+    phonetic: '/ˌselfˈɡaɪdɪd tʊr/',
+    definition: '自助游；自导游览',
+    example: 'A self-guided tour lets you explore at your own pace.',
+    emoji: '🗺️'
+  },
+  'single room': {
+    word: 'single room',
+    phonetic: '/ˈsɪŋɡl ruːm/',
+    definition: '单人间',
+    example: 'I booked a single room for my business trip.',
+    emoji: '🛏️'
+  },
+  'social gathering': {
+    word: 'social gathering',
+    phonetic: '/ˈsoʊʃl ˈɡæðərɪŋ/',
+    definition: '社交聚会',
+    example: 'Small social gatherings are a good way to meet new people.',
+    emoji: '👥'
+  },
+  'stag party': {
+    word: 'stag party',
+    phonetic: '/stæɡ ˈpɑːrti/',
+    definition: '单身派对（男士）',
+    example: 'His friends organized a stag party before the wedding.',
+    emoji: '🎉'
   }
 };

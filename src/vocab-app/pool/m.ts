@@ -119,5 +119,145 @@ export const wordsM: Record<string, Word> = {
     definition: '保持体重',
     example: 'Healthy snacking can help you maintain weight.',
     emoji: '⚖️'
+  },
+  'major': {
+    word: 'major',
+    phonetic: '/ˈmeɪdʒər/',
+    definition: '专业',
+    example: 'My major is computer science.',
+    emoji: '🎓'
+  },
+  'major in': {
+    word: 'major in',
+    phonetic: '/ˈmeɪdʒər ɪn/',
+    definition: '主修',
+    example: 'I major in computer science at university.',
+    emoji: '🎓'
+  },
+  'make one\'s bread': {
+    word: 'make one\'s bread',
+    phonetic: '/meɪk wʌnz bred/',
+    definition: '谋生；糊口',
+    example: 'He works overtime to make his bread.',
+    emoji: '🍞'
+  },
+  'multinational corporation': {
+    word: 'multinational corporation',
+    phonetic: '/ˌmʌltiˈnæʃənl ˌkɔːrpəˈreɪʃn/',
+    definition: '跨国公司',
+    example: 'She works for a multinational corporation.',
+    emoji: '🌐'
+  },
+  'magnificent': {
+    word: 'magnificent',
+    phonetic: '/mæɡˈnɪfɪsnt/',
+    definition: '壮丽的；宏伟的',
+    example: 'The temple looks magnificent at sunset.',
+    emoji: '🏛️'
+  },
+  'metropolitan': {
+    word: 'metropolitan',
+    phonetic: '/ˌmetrəˈpɒlɪtən/',
+    definition: '大都市的',
+    example: 'It has a metropolitan vibe with lots of museums and cafes.',
+    emoji: '🏙️'
+  },
+  'multi-storey block': {
+    word: 'multi-storey block',
+    phonetic: '/ˌmʌlti ˈstɔːri blɑːk/',
+    definition: '多层楼房；楼房',
+    example: 'She lives in a multi-storey block near the station.',
+    emoji: '🏢'
+  },
+  'museum': {
+    word: 'museum',
+    phonetic: '/mjuːˈziːəm/',
+    definition: '博物馆',
+    example: 'The museum displays artifacts from ancient civilizations.',
+    emoji: '🏺'
+  },
+  'mole': {
+    word: 'mole',
+    phonetic: '/moʊl/',
+    definition: '痣',
+    example: 'She has a tiny mole near her eye.',
+    emoji: '⚫'
+  },
+  'mean': {
+    word: 'mean',
+    phonetic: '/miːn/',
+    definition: '刻薄的；坏心眼的',
+    example: 'He can be mean sometimes, so he should learn to be more polite.',
+    emoji: '😠'
+  },
+  'modest': {
+    word: 'modest',
+    phonetic: '/ˈmɑːdɪst/',
+    definition: '谦虚的；不张扬的',
+    example: 'She is modest about her achievements.',
+    emoji: '🙇‍♂️'
+  },
+  'marble': {
+    word: 'marble',
+    phonetic: '/ˈmɑːrbl/',
+    definition: '大理石',
+    example: 'The floor is made of marble and looks elegant.',
+    emoji: '🪨'
+  },
+  'marker': {
+    word: 'marker',
+    phonetic: '/ˈmɑːrkər/',
+    definition: '记号笔；马克笔',
+    example: 'I wrote the label with a permanent marker.',
+    emoji: '🖊️'
+  },
+  'metal': {
+    word: 'metal',
+    phonetic: '/ˈmetl/',
+    definition: '金属',
+    example: 'Metal is stronger than plastic in many cases.',
+    emoji: '🔩'
+  },
+  'microwave': {
+    word: 'microwave',
+    phonetic: '/ˈmaɪkroʊweɪv/',
+    definition: '微波炉',
+    example: 'I heat up leftovers in the microwave.',
+    emoji: '📡'
+  },
+  'milestone': {
+    word: 'milestone',
+    phonetic: '/ˈmaɪlstoʊn/',
+    definition: '里程碑；重大节点',
+    example: 'Graduation is an important milestone in my life.',
+    emoji: '🏁'
+  },
+  'memorable': {
+    word: 'memorable',
+    phonetic: '/ˈmemərəbəl/',
+    definition: '难忘的',
+    example: 'It was a memorable trip for me.',
+    emoji: '🌟'
+  },
+  'move': {
+    word: 'move',
+    phonetic: '/muːv/',
+    definition: '搬家；移动',
+    example: 'I moved to a new city for work.',
+    emoji: '📦'
+  },
+  'motel (=motor hotel)': {
+    word: 'motel (=motor hotel)',
+    phonetic: '/moʊˈtel/',
+    definition: '汽车旅馆（motor hotel）',
+    example: 'We stayed at a motel near the highway.',
+    emoji: '🛣️'
+  },
+  'municipal tourism administration': {
+    word: 'Municipal Tourism Administration',
+    phonetic: '/mjuːˈnɪsɪpl ˈtʊrɪzəm ədˌmɪnɪˈstreɪʃn/',
+    definition: '市旅游管理局',
+    example: 'The Municipal Tourism Administration published a new guide.',
+    emoji: '🏛️'
   }
 };

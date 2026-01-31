@@ -6,5 +6,10 @@ export const sharing: SubTopic = {
     title: 'Sharing',
     type: '事件题',
     color: 'blue',
-    words: getManyFromPool(['generous', 'mutual', 'contribute', 'cooperate']),
+    wordSections: [
+        {
+            title: '进阶词汇',
+            words: getManyFromPool(['generous', 'mutual', 'contribute', 'cooperate'], 'advanced'),
+        },
+    ],
 };

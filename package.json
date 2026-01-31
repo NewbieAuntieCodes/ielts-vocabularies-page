@@ -7,6 +7,7 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
+    "vocab:import": "node scripts/vocab-import.js",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist"
   },

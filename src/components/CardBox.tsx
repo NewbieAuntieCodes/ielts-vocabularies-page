@@ -121,7 +121,7 @@ const CardBox: React.FC<CardBoxProps> = ({ topic, onCardMove, onTopicUpdate, onA
             <CardBoxHeader>{renderHeader()}</CardBoxHeader>
             <CardBoxContent>
                 {topic.cards.map(card => {
-                    const vocabTopicId = getVocabTopicIdForSpeakingCardTitle(card.title);
+                    const vocabTopicId = getVocabTopicIdForSpeakingCardTitle(card.title, card.id);
                     const vocabCount = vocabTopicId ? getVocabCountForTopicId(vocabTopicId) : 0;
                     return (
                         <CueCard

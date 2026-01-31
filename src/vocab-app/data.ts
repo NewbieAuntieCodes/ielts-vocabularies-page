@@ -13,6 +13,10 @@ import * as c0508 from './data-2025-05-08/common';
 import { snacks as fullSnacks } from './data-snacks';
 import { socialMedia as fullSocialMedia } from './data-social-media';
 import { chocolate as fullChocolate } from './data-chocolate';
+import { p2Places } from './data-part2-places';
+import { p2People } from './data-part2-people';
+import { p2Objects } from './data-part2-objects';
+import { p2Events } from './data-part2-events';
 
 export * from './data-types';
 
@@ -50,10 +54,10 @@ const part1SubTopics_5_8: SubTopic[] = [
     c0508.accommodation,
     c0508.areaYouLiveIn,
     
-    // 补全后的高容量数据话题
-    { ...fullSnacks, seasons: [SEASON_5_8] },
-    { ...fullSocialMedia, id: 'social-media-58', seasons: [SEASON_5_8] },
-    { ...fullChocolate, seasons: [SEASON_5_8] },
+	    // 补全后的高容量数据话题
+	    { ...fullSnacks, seasons: [SEASON_5_8] },
+	    { ...fullSocialMedia, seasons: [SEASON_5_8] },
+	    { ...fullChocolate, seasons: [SEASON_5_8] },
 
     // 占位话题
     { id: 'flowers', title: 'Flowers', type: '事物题', color: 'green', seasons: [SEASON_5_8], words: [] },
@@ -93,10 +97,10 @@ export const ieltsTopics: IeltsTopic[] = [
         title: 'Part 2 & 3 核心词库',
         section: 'Part 2 & 3',
         subTopics: [
-            { id: 'p2-events', title: 'Events 事件类', type: '四大题型', color: 'blue', section: 'Part 2 & 3', words: [] },
-            { id: 'p2-objects', title: 'Objects 物品类', type: '四大题型', color: 'purple', section: 'Part 2 & 3', words: [] },
-            { id: 'p2-people', title: 'People 人物类', type: '四大题型', color: 'yellow', section: 'Part 2 & 3', words: [] },
-            { id: 'p2-places', title: 'Places 地点类', type: '四大题型', color: 'green', section: 'Part 2 & 3', words: [] },
+            p2Events,
+            p2Objects,
+            p2People,
+            p2Places,
         ]
     }
 ];

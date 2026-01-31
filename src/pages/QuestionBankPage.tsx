@@ -83,7 +83,16 @@ const QuestionBankPage: React.FC = () => {
     return (
         <>
             <Header>
-                <HeaderBackButton onClick={() => navigate({ pathname: '/speaking', search: location.search })} aria-label="返回口语主页">
+                <HeaderBackButton
+                    onClick={() => {
+                        const next = new URLSearchParams(location.search);
+                        next.delete('from');
+                        next.delete('topicId');
+                        const search = next.toString();
+                        navigate({ pathname: '/speaking', search: search ? `?${search}` : '' });
+                    }}
+                    aria-label="返回口语主页"
+                >
                     <BackArrowIcon />
                     <span>返回</span>
                 </HeaderBackButton>

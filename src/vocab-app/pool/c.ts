@@ -301,5 +301,460 @@ export const wordsC: Record<string, Word> = {
     definition: '玉米片',
     example: 'Corn chips are delicious with salsa dip.',
     emoji: '🌽'
+  },
+  'colleague': {
+    word: 'colleague',
+    phonetic: '/ˈkɑːliːɡ/',
+    definition: '同事',
+    example: 'I get along very well with my colleagues.',
+    emoji: '🤝'
+  },
+  'company culture': {
+    word: 'company culture',
+    phonetic: '/ˈkʌmpəni ˈkʌltʃər/',
+    definition: '公司文化',
+    example: 'A healthy company culture makes employees feel valued.',
+    emoji: '🏢'
+  },
+  'compulsory course': {
+    word: 'compulsory course',
+    phonetic: '/kəmˈpʌlsəri kɔːrs/',
+    definition: '必修课',
+    example: 'English is a compulsory course in many schools.',
+    emoji: '✅'
+  },
+  'college entrance exam': {
+    word: 'college entrance exam',
+    phonetic: '/ˈkɑːlɪdʒ ˈentrəns ɪɡˈzæm/',
+    definition: '大学入学考试（高考）',
+    example: 'The college entrance exam is a turning point for many students.',
+    emoji: '📝'
+  },
+  'commute': {
+    word: 'commute',
+    phonetic: '/kəˈmjuːt/',
+    definition: '通勤',
+    example: 'My daily commute takes about 40 minutes.',
+    emoji: '🚆'
+  },
+  'course': {
+    word: 'course',
+    phonetic: '/kɔːrs/',
+    definition: '课程',
+    example: 'I am taking a course in marketing this semester.',
+    emoji: '📚'
+  },
+  'coworker': {
+    word: 'coworker',
+    phonetic: '/ˈkoʊwɜːrkər/',
+    definition: '同事',
+    example: 'My coworkers are friendly and supportive.',
+    emoji: '👥'
+  },
+  'curriculum': {
+    word: 'curriculum',
+    phonetic: '/kəˈrɪkjələm/',
+    definition: '课程',
+    example: 'The school is introducing a new curriculum next year.',
+    emoji: '📖'
+  },
+  'cafe': {
+    word: 'cafe',
+    phonetic: '/kæˈfeɪ/',
+    definition: '咖啡馆',
+    example: 'I like studying in a quiet cafe.',
+    emoji: '☕'
+  },
+  'capital': {
+    word: 'capital',
+    phonetic: '/ˈkæpɪtl/',
+    definition: '首都',
+    example: 'Beijing is the capital of China.',
+    emoji: '🏛️'
+  },
+  'chain store': {
+    word: 'chain store',
+    phonetic: '/tʃeɪn stɔːr/',
+    definition: '连锁店',
+    example: 'You can find the same chain store in most malls.',
+    emoji: '🏬'
+  },
+  'cinema': {
+    word: 'cinema',
+    phonetic: '/ˈsɪnəmə/',
+    definition: '电影院',
+    example: 'We went to the cinema after dinner.',
+    emoji: '🎬'
+  },
+  'civilization': {
+    word: 'civilization',
+    phonetic: '/ˌsɪvələˈzeɪʃn/',
+    definition: '文明',
+    example: 'Ancient civilizations left behind amazing architecture.',
+    emoji: '🏺'
+  },
+  'classy': {
+    word: 'classy',
+    phonetic: '/ˈklæsi/',
+    definition: '高雅的；上档次的',
+    example: 'It is a classy neighbourhood with wide streets.',
+    emoji: '✨'
+  },
+  'clean': {
+    word: 'clean',
+    phonetic: '/kliːn/',
+    definition: '干净的',
+    example: 'The city is clean and well-organised.',
+    emoji: '🧼'
+  },
+  'coffee shop': {
+    word: 'coffee shop',
+    phonetic: '/ˈkɔːfi ʃɑːp/',
+    definition: '咖啡店',
+    example: 'There is a coffee shop right next to the station.',
+    emoji: '☕'
+  },
+  'commercial centre': {
+    word: 'commercial centre',
+    phonetic: '/kəˈmɜːrʃl ˈsentər/',
+    definition: '商业中心',
+    example: 'The commercial centre gets crowded on weekends.',
+    emoji: '🏙️'
+  },
+  'concert hall': {
+    word: 'concert hall',
+    phonetic: '/ˈkɑːnsərt hɔːl/',
+    definition: '音乐厅',
+    example: 'The concert hall has excellent acoustics.',
+    emoji: '🎼'
+  },
+  'concrete jungle': {
+    word: 'concrete jungle',
+    phonetic: '/ˈkɑːnkriːt ˈdʒʌŋɡl/',
+    definition: '钢筋水泥丛林（形容大城市）',
+    example: 'Living in a concrete jungle can be exhausting.',
+    emoji: '🏙️'
+  },
+  'cosmetic shop': {
+    word: 'cosmetic shop',
+    phonetic: '/kɑːzˈmetɪk ʃɑːp/',
+    definition: '化妆品店',
+    example: 'She bought a new lipstick at a cosmetic shop.',
+    emoji: '💄'
+  },
+  'countryside': {
+    word: 'countryside',
+    phonetic: '/ˈkʌntrisaɪd/',
+    definition: '乡村；农村',
+    example: 'I love the fresh air in the countryside.',
+    emoji: '🌾'
+  },
+  'cramped': {
+    word: 'cramped',
+    phonetic: '/kræmpt/',
+    definition: '狭小的；拥挤的',
+    example: 'The room feels cramped when too many people are inside.',
+    emoji: '📦'
+  },
+  'crystal clear water': {
+    word: 'crystal clear water',
+    phonetic: '/ˈkrɪstl klɪr ˈwɔːtər/',
+    definition: '清澈见底的水',
+    example: 'The island is famous for its crystal clear water.',
+    emoji: '💧'
+  },
+  'cultural exchange': {
+    word: 'cultural exchange',
+    phonetic: '/ˈkʌltʃərəl ɪksˈtʃeɪndʒ/',
+    definition: '文化交流',
+    example: 'Traveling is a great way to experience cultural exchange.',
+    emoji: '🤝'
+  },
+  'culture diversity': {
+    word: 'culture diversity',
+    phonetic: '/ˈkʌltʃər daɪˈvɜːrsəti/',
+    definition: '文化多样性',
+    example: 'This city is known for its culture diversity.',
+    emoji: '🌍'
+  },
+  'celebrity': {
+    word: 'celebrity',
+    phonetic: '/səˈlebrəti/',
+    definition: '名人；明星',
+    example: 'He became a celebrity after appearing on a popular TV show.',
+    emoji: '🌟'
+  },
+  'character': {
+    word: 'character',
+    phonetic: '/ˈkærəktər/',
+    definition: '性格；人物角色',
+    example: 'She has a cheerful character and gets along with everyone.',
+    emoji: '🎭'
+  },
+  'console': {
+    word: 'console',
+    phonetic: '/kənˈsoʊl/',
+    definition: '安慰',
+    example: 'I tried to console my friend after he failed the exam.',
+    emoji: '🤗'
+  },
+  'camera-shy': {
+    word: 'camera-shy',
+    phonetic: '/ˈkæmrə ʃaɪ/',
+    definition: '不爱上镜的；镜头前害羞的',
+    example: 'She is camera-shy, so she avoids taking selfies.',
+    emoji: '📷'
+  },
+  'candid': {
+    word: 'candid',
+    phonetic: '/ˈkændɪd/',
+    definition: '坦率的；直言不讳的',
+    example: 'He gave a candid answer when I asked for advice.',
+    emoji: '🗣️'
+  },
+  'capable': {
+    word: 'capable',
+    phonetic: '/ˈkeɪpəbl/',
+    definition: '有能力的；能胜任的',
+    example: 'She is capable of leading the team under pressure.',
+    emoji: '💼'
+  },
+  'carefree': {
+    word: 'carefree',
+    phonetic: '/ˈkerfriː/',
+    definition: '无忧无虑的',
+    example: 'I sometimes miss the carefree days of my childhood.',
+    emoji: '🌈'
+  },
+  'careful': {
+    word: 'careful',
+    phonetic: '/ˈkerfl/',
+    definition: '细心的；谨慎的',
+    example: 'He is careful with his words, so he rarely offends people.',
+    emoji: '🧐'
+  },
+  'charitable': {
+    word: 'charitable',
+    phonetic: '/ˈtʃærɪtəbl/',
+    definition: '乐善好施的；慈善的',
+    example: 'She is charitable and often volunteers at a local shelter.',
+    emoji: '🤲'
+  },
+  'chatty': {
+    word: 'chatty',
+    phonetic: '/ˈtʃæti/',
+    definition: '爱聊天的；健谈的',
+    example: 'My roommate is quite chatty, so the room is never quiet.',
+    emoji: '💬'
+  },
+  'cheerful': {
+    word: 'cheerful',
+    phonetic: '/ˈtʃɪrfl/',
+    definition: '快乐的；开朗的',
+    example: 'He stays cheerful even when he has a heavy workload.',
+    emoji: '😄'
+  },
+  'cogent': {
+    word: 'cogent',
+    phonetic: '/ˈkoʊdʒənt/',
+    definition: '有说服力的；令人信服的',
+    example: 'She made a cogent argument and changed my mind.',
+    emoji: '📌'
+  },
+  'confident': {
+    word: 'confident',
+    phonetic: '/ˈkɑːnfɪdənt/',
+    definition: '自信的',
+    example: 'He is confident when speaking in public.',
+    emoji: '😌'
+  },
+  'considerate': {
+    word: 'considerate',
+    phonetic: '/kənˈsɪdərət/',
+    definition: '体贴的；考虑周到的',
+    example: "She is considerate and always thinks about other people's feelings.",
+    emoji: '🤝'
+  },
+  'creative': {
+    word: 'creative',
+    phonetic: '/kriˈeɪtɪv/',
+    definition: '有创造力的',
+    example: 'She is creative and often comes up with new ideas.',
+    emoji: '🎨'
+  },
+  'critical': {
+    word: 'critical',
+    phonetic: '/ˈkrɪtɪkl/',
+    definition: '批判性的；挑剔的',
+    example: 'He is critical of his own work and always tries to improve.',
+    emoji: '🧐'
+  },
+  'curious': {
+    word: 'curious',
+    phonetic: '/ˈkjʊriəs/',
+    definition: '好奇的',
+    example: 'She is curious about different cultures and traditions.',
+    emoji: '🤔'
+  },
+  'close-knit community': {
+    word: 'close-knit community',
+    phonetic: '/ˌkloʊs ˈnɪt kəˈmjuːnəti/',
+    definition: '关系紧密的社区',
+    example: 'In a close-knit community, neighbours often help each other.',
+    emoji: '🏘️'
+  },
+  'comfort zone': {
+    word: 'comfort zone',
+    phonetic: '/ˈkʌmfərt zoʊn/',
+    definition: '舒适区',
+    example: 'Trying new things helps you step out of your comfort zone.',
+    emoji: '🛋️'
+  },
+  'common interest': {
+    word: 'common interest',
+    phonetic: '/ˈkɑːmən ˈɪntrəst/',
+    definition: '共同兴趣',
+    example: 'We became friends because we have a common interest in music.',
+    emoji: '🎵'
+  },
+  'communication skill': {
+    word: 'communication skill',
+    phonetic: '/kəˌmjuːnɪˈkeɪʃn skɪl/',
+    definition: '沟通能力',
+    example: 'Good communication skills are essential in teamwork.',
+    emoji: '🗣️'
+  },
+  'cost of living': {
+    word: 'cost of living',
+    phonetic: '/kɔːst əv ˈlɪvɪŋ/',
+    definition: '生活成本',
+    example: 'The cost of living is much higher in big cities.',
+    emoji: '💸'
+  },
+  'critical thinking': {
+    word: 'critical thinking',
+    phonetic: '/ˌkrɪtɪkl ˈθɪŋkɪŋ/',
+    definition: '批判性思维',
+    example: 'Critical thinking helps you make better decisions.',
+    emoji: '🧠'
+  },
+  'curly hair': {
+    word: 'curly hair',
+    phonetic: '/ˈkɜːrli her/',
+    definition: '卷发',
+    example: 'She has curly hair and often ties it up.',
+    emoji: '💇'
+  },
+  'cabinet': {
+    word: 'cabinet',
+    phonetic: '/ˈkæbɪnət/',
+    definition: '柜子；橱柜',
+    example: 'I keep my documents in a cabinet at home.',
+    emoji: '🗄️'
+  },
+  'camera': {
+    word: 'camera',
+    phonetic: '/ˈkæmərə/',
+    definition: '相机',
+    example: 'I brought my camera to capture the sunset.',
+    emoji: '📷'
+  },
+  'chair': {
+    word: 'chair',
+    phonetic: '/tʃer/',
+    definition: '椅子',
+    example: 'This chair is comfortable enough for long study sessions.',
+    emoji: '🪑'
+  },
+  'clothing': {
+    word: 'clothing',
+    phonetic: '/ˈkloʊðɪŋ/',
+    definition: '衣物；服装',
+    example: 'I prefer comfortable clothing when I am at home.',
+    emoji: '👕'
+  },
+  'coat': {
+    word: 'coat',
+    phonetic: '/koʊt/',
+    definition: '外套；大衣',
+    example: 'I always carry a coat in winter.',
+    emoji: '🧥'
+  },
+  'cooker': {
+    word: 'cooker',
+    phonetic: '/ˈkʊkər/',
+    definition: '炉灶；厨灶',
+    example: 'The cooker in my apartment is electric.',
+    emoji: '🍳'
+  },
+  'copper': {
+    word: 'copper',
+    phonetic: '/ˈkɑːpər/',
+    definition: '铜',
+    example: 'Copper is often used in electrical wires.',
+    emoji: '🪙'
+  },
+  'cotton': {
+    word: 'cotton',
+    phonetic: '/ˈkɑːtən/',
+    definition: '棉；棉质的',
+    example: 'This T-shirt is made of cotton, so it feels soft.',
+    emoji: '🧵'
+  },
+  'couch': {
+    word: 'couch',
+    phonetic: '/kaʊtʃ/',
+    definition: '沙发',
+    example: 'We usually sit on the couch and watch TV after dinner.',
+    emoji: '🛋️'
+  },
+  'compact': {
+    word: 'compact',
+    phonetic: '/kəmˈpækt/',
+    definition: '小巧的；紧凑的',
+    example: 'I prefer a compact camera that fits in my bag.',
+    emoji: '📦'
+  },
+  'convenient': {
+    word: 'convenient',
+    phonetic: '/kənˈviːniənt/',
+    definition: '方便的',
+    example: 'Online shopping is convenient for busy people.',
+    emoji: '✅'
+  },
+  'cost-effective': {
+    word: 'cost-effective',
+    phonetic: '/ˌkɔːst ɪˈfektɪv/',
+    definition: '性价比高的',
+    example: 'Buying in bulk can be more cost-effective.',
+    emoji: '💸'
+  },
+  'cultural relic': {
+    word: 'cultural relic',
+    phonetic: '/ˈkʌltʃərəl ˈrelɪk/',
+    definition: '文物',
+    example: 'The museum displays cultural relics from ancient times.',
+    emoji: '🏺'
+  },
+  'cutting edge': {
+    word: 'cutting edge',
+    phonetic: '/ˌkʌtɪŋ ˈedʒ/',
+    definition: '尖端的；最先进的',
+    example: 'It is a cutting-edge piece of technology.',
+    emoji: '⚡'
+  },
+  'caravansary': {
+    word: 'caravansary',
+    phonetic: '/ˈkærəvænsəri/',
+    definition: '驿站；古代商队旅店',
+    example: 'In the past, caravansaries offered shelter to travelers.',
+    emoji: '🐪'
+  },
+  'county tourism administration': {
+    word: 'County Tourism Administration',
+    phonetic: '/ˈkaʊnti ˈtʊrɪzəm ədˌmɪnɪˈstreɪʃn/',
+    definition: '县旅游管理局',
+    example: 'The County Tourism Administration promoted local attractions.',
+    emoji: '🏛️'
   }
 };

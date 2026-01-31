@@ -3,8 +3,8 @@ import { CueCardData, SampleAnswerData } from '../../types';
 import { BackArrowIcon, CopyIcon, CheckIcon } from '../shared/Icons';
 import AnalyzedText from '../shared/AnalyzedText';
 import AnalysisDetailCard from '../shared/AnalysisDetailCard';
-import { useStudentContext } from '../../context/StudentContext';
-import { filterAllowedBands } from '../../utils/scoreBands';
+import { useBandContext } from '../../context/BandContext';
+import { filterAllowedBands, formatBandLabel } from '../../utils/scoreBands';
 import { DEFAULT_SEASON_ID, SeasonId } from '../../data/seasons';
 import {
     ModalContainerP1,
@@ -46,7 +46,7 @@ interface Part1ModalProps {
 }
 
 const Part1Modal: React.FC<Part1ModalProps> = ({ card, onClose, seasonId, seasonTag }) => {
-    const { bandToShow, getSampleAnswersForCard } = useStudentContext();
+    const { bandToShow, getSampleAnswersForCard } = useBandContext();
     const sampleAnswers = getSampleAnswersForCard(card);
     const hasSampleAnswers = sampleAnswers && sampleAnswers.length > 0;
     const resolvedSeasonTag =
@@ -177,14 +177,14 @@ const Part1Modal: React.FC<Part1ModalProps> = ({ card, onClose, seasonId, season
 
                     {hasSampleAnswers && availableScores.length > 0 && (
                         <ScoreNavContainer>
-                            <h4>范文分段：{selectedScore}分</h4>
+                            <h4>范文分段：{formatBandLabel(selectedScore)}分</h4>
                             <ScoreNavButtons>
                                 <ScoreNavButton onClick={() => handleShowAnswers(selectedScore)}>
-                                    查看{selectedScore}分范文
+                                    查看{formatBandLabel(selectedScore)}分范文
                                 </ScoreNavButton>
                             </ScoreNavButtons>
                             {usingFallback && (
-                                <ScoreHint>未找到 {bandToShow} 分范文，已展示 {selectedScore} 分版本。</ScoreHint>
+                                <ScoreHint>未找到 {formatBandLabel(bandToShow)} 分范文，已展示 {formatBandLabel(selectedScore)} 分版本。</ScoreHint>
                             )}
                         </ScoreNavContainer>
                     )}
@@ -217,11 +217,11 @@ const Part1Modal: React.FC<Part1ModalProps> = ({ card, onClose, seasonId, season
                     <ScoreButtonsWrapper>
                         <ScoreBadge $warn={usingFallback}>
                             <span>范文分段</span>
-                            <strong>{selectedScore} 分</strong>
+                            <strong>{formatBandLabel(selectedScore)} 分</strong>
                             {usingFallback ? (
-                                <small>原配置 {bandToShow} 无范文，已展示 {selectedScore} 分。</small>
+                                <small>原配置 {formatBandLabel(bandToShow)} 无范文，已展示 {formatBandLabel(selectedScore)} 分。</small>
                             ) : (
-                                <small>分段来自学生配置。</small>
+                                <small>分段来自顶部选择。</small>
                             )}
                         </ScoreBadge>
                     </ScoreButtonsWrapper>

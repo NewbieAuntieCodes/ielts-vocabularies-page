@@ -82,9 +82,76 @@ const WordSelectionPage: React.FC<WordSelectionPageProps> = ({
 
     const handleCopy = () => {
         if (selectedWords.length === 0) return;
-        const textToCopy = selectedWords
-            .map(word => `${word.word} ${word.phonetic} ${getEmojiCharacter(word.emoji)} ${word.definition}`)
-            .join('\n');
+        const selectedWordSet = new Set(selectedWords.map((word) => word.word));
+
+        const formatWordLine = (word: Word): string => (
+            `${word.word} ${word.phonetic} ${getEmojiCharacter(word.emoji)} ${word.definition}`
+        );
+
+        const splitByLevel = (words: Word[]): { basic: Word[]; advanced: Word[] } => {
+            const basic: Word[] = [];
+            const advanced: Word[] = [];
+
+            for (const word of words) {
+                if (word.level === 'advanced') {
+                    advanced.push(word);
+                    continue;
+                }
+                basic.push(word);
+            }
+
+            return { basic, advanced };
+        };
+
+        const outputLines: string[] = [topic.title, ''];
+
+        const appendWordLines = (label: string, words: Word[]) => {
+            if (words.length === 0) return;
+            outputLines.push(label);
+            outputLines.push(...words.map(formatWordLine));
+            outputLines.push('');
+        };
+
+        const appendSection = (sectionTitle: string | null, words: Word[]) => {
+            if (words.length === 0) return;
+
+            const isBasicSection = sectionTitle?.includes('基础') && !sectionTitle?.includes('进阶');
+            const isAdvancedSection = sectionTitle?.includes('进阶');
+
+            if (isBasicSection) {
+                appendWordLines('基础词汇：', words);
+                return;
+            }
+
+            if (isAdvancedSection) {
+                appendWordLines('进阶词汇：', words);
+                return;
+            }
+
+            if (sectionTitle) {
+                outputLines.push(sectionTitle);
+            }
+
+            const { basic, advanced } = splitByLevel(words);
+            appendWordLines('基础词汇：', basic);
+            appendWordLines('进阶词汇：', advanced);
+        };
+
+        if (topic.wordSections && topic.wordSections.length > 0) {
+            for (const section of topic.wordSections) {
+                const sectionWords = section.words.filter((word) => selectedWordSet.has(word.word));
+                appendSection(section.title, sectionWords);
+            }
+        } else {
+            const orderedSelectedWords = allWordsInTopic.filter((word) => selectedWordSet.has(word.word));
+            appendSection(null, orderedSelectedWords);
+        }
+
+        while (outputLines.length > 0 && outputLines[outputLines.length - 1] === '') {
+            outputLines.pop();
+        }
+
+        const textToCopy = outputLines.join('\n');
 
         navigator.clipboard.writeText(textToCopy).then(() => {
             setCopyStatus('已复制！');

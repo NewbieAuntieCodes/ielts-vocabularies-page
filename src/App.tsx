@@ -10,17 +10,18 @@ import TipsPage from './pages/TipsPage';
 import AnalysisPage from './pages/AnalysisPage';
 import ScoringPage from './pages/ScoringPage';
 import VocabAppHostPage from './pages/VocabAppHostPage';
+import InterviewVocabPage from './pages/InterviewVocabPage';
 import Part2BuilderPage from './pages/Part2BuilderPage';
 import ComingSoonPage from './pages/ComingSoonPage';
 import ListeningVocabPage from './pages/ListeningVocabPage';
 
 import { VocabularyProvider, useVocabulary } from './context/VocabularyContext';
-import { StudentProvider } from './context/StudentContext';
+import { BandProvider } from './context/BandContext';
 import Toast from './components/Toast';
 import VocabularyFab from './components/VocabularyFab';
 import VocabularyModal from './components/VocabularyModal';
 import SelectionAddButton from './components/SelectionAddButton';
-import StudentBar from './components/StudentBar';
+import BandBar from './components/BandBar';
 
 import { theme, GlobalStyles } from './theme';
 
@@ -71,7 +72,7 @@ const VocabularyFeature: React.FC = () => {
 const MainShell: React.FC = () => (
     <>
         <AppWrapper>
-            <StudentBar />
+            <BandBar />
             <Outlet />
         </AppWrapper>
         <VocabularyFeature />
@@ -82,7 +83,7 @@ const App: React.FC = () => {
     return (
         <ThemeProvider theme={theme}>
             <GlobalStyles />
-            <StudentProvider>
+            <BandProvider>
                 <VocabularyProvider>
                     <Routes>
                         {/* Hub */}
@@ -95,6 +96,7 @@ const App: React.FC = () => {
 
                         {/* Speaking vocab app */}
                         <Route path="/speaking/vocab" element={<VocabAppHostPage />} />
+                        <Route path="/speaking/vocab/interview" element={<InterviewVocabPage />} />
                         <Route path="/vocab" element={<Navigate to="/speaking/vocab" replace />} />
                         <Route element={<MainShell />}>
                             {/* Speaking */}
@@ -116,7 +118,7 @@ const App: React.FC = () => {
                         </Route>
                     </Routes>
                 </VocabularyProvider>
-            </StudentProvider>
+            </BandProvider>
         </ThemeProvider>
     );
 };

@@ -84,5 +84,96 @@ export const wordsL: Record<string, Word> = {
     definition: '降低胆固醇',
     example: 'A diet rich in fiber can help lower cholesterol.',
     emoji: '❤️'
+  },
+  'layout': {
+    word: 'layout',
+    phonetic: '/ˈleɪaʊt/',
+    definition: '布局；格局',
+    example: 'I like the layout of this apartment.',
+    emoji: '🧩'
+  },
+  'light and airy': {
+    word: 'light and airy',
+    phonetic: '/laɪt ænd ˈeri/',
+    definition: '明亮通透的',
+    example: 'The room is light and airy thanks to the big windows.',
+    emoji: '🌤️'
+  },
+  'lush and green': {
+    word: 'lush and green',
+    phonetic: '/lʌʃ ænd ɡriːn/',
+    definition: '郁郁葱葱的',
+    example: 'The campus is lush and green in spring.',
+    emoji: '🌿'
+  },
+  'lush forest': {
+    word: 'lush forest',
+    phonetic: '/lʌʃ ˈfɔːrɪst/',
+    definition: '茂密的森林',
+    example: 'We hiked through a lush forest.',
+    emoji: '🌲'
+  },
+  'leadership': {
+    word: 'leadership',
+    phonetic: '/ˈliːdərʃɪp/',
+    definition: '领导力',
+    example: 'She showed strong leadership when the team faced difficulties.',
+    emoji: '🧭'
+  },
+  'long eyelashes': {
+    word: 'long eyelashes',
+    phonetic: '/lɔːŋ ˈaɪlæʃɪz/',
+    definition: '长睫毛',
+    example: 'She has long eyelashes, so her eyes stand out.',
+    emoji: '👁️'
+  },
+  'look up to': {
+    word: 'look up to',
+    phonetic: '/lʊk ʌp tuː/',
+    definition: '敬仰；尊敬',
+    example: 'I really look up to my English teacher.',
+    emoji: '🙌'
+  },
+  'lamp': {
+    word: 'lamp',
+    phonetic: '/læmp/',
+    definition: '灯',
+    example: 'I use a desk lamp when I study at night.',
+    emoji: '💡'
+  },
+  'laptop': {
+    word: 'laptop',
+    phonetic: '/ˈlæptɑːp/',
+    definition: '笔记本电脑',
+    example: 'My laptop is essential for my work and study.',
+    emoji: '💻'
+  },
+  'life-size': {
+    word: 'life-size',
+    phonetic: '/ˌlaɪf ˈsaɪz/',
+    definition: '与真人/实物等大的',
+    example: 'They displayed a life-size model in the museum.',
+    emoji: '🧍'
+  },
+  'law on heritage protection': {
+    word: 'law on heritage protection',
+    phonetic: '/lɔː ɑːn ˈherɪtɪdʒ prəˈtekʃn/',
+    definition: '遗产保护相关法律；文物保护法',
+    example: 'The law on heritage protection helps preserve historical sites.',
+    emoji: '⚖️'
+  },
+  'lodge': {
+    word: 'lodge',
+    phonetic: '/lɑːdʒ/',
+    definition: '旅舍；度假小屋；山林旅馆',
+    example: 'We stayed in a mountain lodge for two nights.',
+    emoji: '🏔️'
+  },
+  'leisure activity': {
+    word: 'leisure activity',
+    phonetic: '/ˈliːʒər ækˈtɪvəti/',
+    definition: '休闲活动',
+    example: 'Swimming is one of my favourite leisure activities.',
+    emoji: '🎯'
   }
 };

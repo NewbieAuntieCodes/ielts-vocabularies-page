@@ -3,7 +3,7 @@ import { SampleAnswerData } from '../../types';
 import { CheckIcon, CopyIcon } from './Icons';
 import AnalyzedText from './AnalyzedText';
 import AnalysisDetailCard from './AnalysisDetailCard';
-import { filterAllowedBands } from '../../utils/scoreBands';
+import { filterAllowedBands, formatBandLabel } from '../../utils/scoreBands';
 import {
     AnswersList,
     QAWrapper,
@@ -202,16 +202,16 @@ const SampleAnswerViewer: React.FC<SampleAnswerViewerProps> = ({
                     {lockedScore ? (
                         <PinnedScore $warn={isUsingFallback}>
                             <div>范文分段</div>
-                            <strong>{currentScore} 分</strong>
+                            <strong>{formatBandLabel(currentScore)} 分</strong>
                             {isUsingFallback && (
-                                <small>原配置 {lockedScore} 无对应范文，已使用可用分段。</small>
+                                <small>原配置 {formatBandLabel(lockedScore)} 无对应范文，已使用可用分段。</small>
                             )}
-                            {!isUsingFallback && <small>如需切换，请在顶部学生栏修改分段。</small>}
+                            {!isUsingFallback && <small>如需切换，请在顶部「范文分段」修改。</small>}
                         </PinnedScore>
                     ) : (
                         availableScores.map(score => (
                             <ScoreButton key={score} $active={score === currentScore} onClick={() => setSelectedScore(score)}>
-                                {score}分
+                                {formatBandLabel(score)}分
                             </ScoreButton>
                         ))
                     )}

@@ -34,11 +34,31 @@ export const oldPeople: SubTopic = {
     type: '事件题',
     color: 'blue',
     seasons: [SEASON],
-    words: getManyFromPool([
-      'respectful', 'patient', 'generation gap', 'wisdom', 'companionship',
-      'caretakers', 'caregivers', 'gentle', 'thoughtful', 'wise',
-      'rewarding', 'keep them company', 'accompany'
-    ]),
+    wordSections: [
+        {
+            title: '基础词汇',
+            words: getManyFromPool([
+                'respectful',
+                'patient',
+                'wisdom',
+                'gentle',
+                'thoughtful',
+                'wise',
+                'keep them company',
+            ], 'basic'),
+        },
+        {
+            title: '进阶词汇',
+            words: getManyFromPool([
+                'generation gap',
+                'companionship',
+                'caretakers',
+                'caregivers',
+                'rewarding',
+                'accompany',
+            ], 'advanced'),
+        },
+    ],
 };
 
 export const chatting: SubTopic = {

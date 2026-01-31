@@ -41,6 +41,22 @@ const HomePage: React.FC = () => {
     const navigate = useNavigate();
     const location = useLocation();
 
+    const handleOpenVocab = () => {
+        const next = new URLSearchParams(location.search);
+        next.delete('from');
+        next.delete('topicId');
+        const search = next.toString();
+        navigate({ pathname: '/speaking/vocab', search: search ? `?${search}` : '' });
+    };
+
+    const handleOpenInterviewVocab = () => {
+        const next = new URLSearchParams(location.search);
+        next.delete('from');
+        next.delete('topicId');
+        const search = next.toString();
+        navigate({ pathname: '/speaking/vocab/interview', search: search ? `?${search}` : '' });
+    };
+
     return (
         <HomeContainer>
             <HomeHeader>
@@ -71,14 +87,26 @@ const HomePage: React.FC = () => {
 
                 <NavCard
                     className="full-width-card"
-                    onClick={() => navigate({ pathname: '/speaking/vocab', search: location.search })}
+                    onClick={handleOpenVocab}
                     role="button"
                     tabIndex={0}
-                    onKeyDown={(e) => (e.key === 'Enter' || e.key === ' ') && navigate({ pathname: '/speaking/vocab', search: location.search })}
+                    onKeyDown={(e) => (e.key === 'Enter' || e.key === ' ') && handleOpenVocab()}
                 >
                     <NavCardIcon><VocabularyIcon /></NavCardIcon>
                     <h2>口语单词汇总</h2>
                     <p>按季筛选口语话题词汇，进入学习/练习。</p>
+                </NavCard>
+
+                <NavCard
+                    className="full-width-card"
+                    onClick={handleOpenInterviewVocab}
+                    role="button"
+                    tabIndex={0}
+                    onKeyDown={(e) => (e.key === 'Enter' || e.key === ' ') && handleOpenInterviewVocab()}
+                >
+                    <NavCardIcon><VocabularyIcon /></NavCardIcon>
+                    <h2>面试口语词汇</h2>
+                    <p>大学面试等场景的口语高频表达，直接进入学习/练习。</p>
                 </NavCard>
             </CardsGrid>
         </HomeContainer>

@@ -12,7 +12,11 @@ const VocabAppHostPage: React.FC = () => {
   const from = searchParams.get('from');
 
   const handleExitToQuestionBank = () => {
-    navigate({ pathname: '/speaking/bank', search: location.search }, { replace: true });
+    const next = new URLSearchParams(location.search);
+    next.delete('from');
+    next.delete('topicId');
+    const search = next.toString();
+    navigate({ pathname: '/speaking/bank', search: search ? `?${search}` : '' }, { replace: true });
   };
 
   const shouldReturnToQuestionBank = from === 'bank';
