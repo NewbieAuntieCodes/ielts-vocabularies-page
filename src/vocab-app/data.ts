@@ -22,7 +22,10 @@ import {
     highFreqExpressingDislikes,
     highFreqExpressingHappiness,
     highFreqExpressingLikes,
+    highFreqExpressingManyALot,
     highFreqExpressingMaybeProbability,
+    highFreqExpressingFatigueTiredness,
+    highFreqExpressingHighStressPressure,
     highFreqExpressingSadness,
     highFreqGeneral,
 } from './data-high-freq';
@@ -122,6 +125,9 @@ export const ieltsTopics: IeltsTopic[] = [
             highFreqExpressingHappiness,
             highFreqExpressingSadness,
             highFreqExpressingAnger,
+            highFreqExpressingManyALot,
+            highFreqExpressingFatigueTiredness,
+            highFreqExpressingHighStressPressure,
             highFreqGeneral,
         ]
     }
