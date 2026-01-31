@@ -19,7 +19,11 @@ import { p2Objects } from './data-part2-objects';
 import { p2Events } from './data-part2-events';
 import {
     highFreqExpressingAnger,
+    highFreqExpressingBeautifulPretty,
+    highFreqExpressingDeliciousTasty,
     highFreqExpressingDislikes,
+    highFreqExpressingDifficultHard,
+    highFreqExpressingEasy,
     highFreqExpressingHappiness,
     highFreqExpressingLikes,
     highFreqExpressingManyALot,
@@ -134,6 +138,10 @@ export const ieltsTopics: IeltsTopic[] = [
             highFreqExpressingVeryBusy,
             highFreqExpressingStressReliefRelaxation,
             highFreqExpressingImportant,
+            highFreqExpressingDeliciousTasty,
+            highFreqExpressingBeautifulPretty,
+            highFreqExpressingDifficultHard,
+            highFreqExpressingEasy,
             highFreqGeneral,
         ]
     }
