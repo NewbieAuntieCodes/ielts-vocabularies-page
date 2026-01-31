@@ -24,6 +24,11 @@ import {
     highFreqExpressingDislikes,
     highFreqExpressingDifficultHard,
     highFreqExpressingEasy,
+    highFreqExpressingFocusConcentration,
+    highFreqExpressingGoodQualityCharacteristics,
+    highFreqExpressingGoodResults,
+    highFreqExpressingGoodStateFeeling,
+    highFreqExpressingHardWorkingEffort,
     highFreqExpressingHappiness,
     highFreqExpressingLikes,
     highFreqExpressingManyALot,
@@ -142,6 +147,11 @@ export const ieltsTopics: IeltsTopic[] = [
             highFreqExpressingBeautifulPretty,
             highFreqExpressingDifficultHard,
             highFreqExpressingEasy,
+            highFreqExpressingFocusConcentration,
+            highFreqExpressingHardWorkingEffort,
+            highFreqExpressingGoodStateFeeling,
+            highFreqExpressingGoodQualityCharacteristics,
+            highFreqExpressingGoodResults,
             highFreqGeneral,
         ]
     }

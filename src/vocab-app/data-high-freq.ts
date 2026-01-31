@@ -473,4 +473,115 @@ export const highFreqExpressingEasy: SubTopic = {
     ],
 };
 
+export const highFreqExpressingFocusConcentration: SubTopic = {
+    id: 'hf-expressing-focus-concentration',
+    title: '表示专注 (Expressing Focus/Concentration)',
+    type: '高频词',
+    color: 'blue',
+    section: 'High Frequency',
+    words: [
+        { word: 'be absorbed in', level: 'advanced', phonetic: '', definition: '全神贯注于/沉浸在……', example: 'I was completely absorbed in the book.', emoji: '📚' },
+        { word: 'apply oneself to', level: 'advanced', phonetic: '', definition: '专心致志投入……', example: 'I try to apply myself to my studies.', emoji: '🧠' },
+        { word: 'be immersed in', level: 'advanced', phonetic: '', definition: '沉浸在……之中', example: 'I was immersed in the conversation.', emoji: '💬' },
+        { word: 'be wrapped up in', level: 'advanced', phonetic: '', definition: '全神贯注于/忙于……', example: 'I was wrapped up in work all morning.', emoji: '🧑‍💻' },
+        { word: 'bury oneself in sth.', level: 'advanced', phonetic: '', definition: '埋头于……', example: 'She buried herself in revision before the exam.', emoji: '📝' },
+        { word: 'concentrate on', level: 'basic', phonetic: '/ˈkɑːnsntreɪt/', definition: '专注于', example: 'I concentrate on one task at a time.', emoji: '🎯' },
+        { word: 'devote oneself to', level: 'advanced', phonetic: '', definition: '献身/投入于……', example: 'He devoted himself to learning English.', emoji: '❤️' },
+        { word: 'be engrossed in', level: 'advanced', phonetic: '', definition: '全神贯注于/沉迷于……', example: 'I was engrossed in a TV series.', emoji: '🎬' },
+        { word: 'focus on', level: 'basic', phonetic: '/ˈfoʊkəs/', definition: '专注于', example: 'I focus on the main points first.', emoji: '🔍' },
+        { word: 'focus one\'s attention on', level: 'advanced', phonetic: '', definition: '把注意力集中在……上', example: 'I try to focus my attention on what the examiner asks.', emoji: '👀' },
+        { word: 'get one\'s head down', level: 'advanced', phonetic: '', definition: '低头专心干/埋头苦干（口语）', example: 'I need to get my head down and finish this.', emoji: '🧱' },
+        { word: 'get one\'s teeth into sth.', level: 'advanced', phonetic: '', definition: '认真投入/开始深入做某事（口语）', example: 'Once I got my teeth into it, I really enjoyed it.', emoji: '🦷' },
+        { word: 'be involved in', level: 'advanced', phonetic: '', definition: '投入参与到……中', example: 'I was deeply involved in the project.', emoji: '🧩' },
+        { word: 'keep one\'s mind on', level: 'advanced', phonetic: '', definition: '把心思放在……上', example: 'I try to keep my mind on the task.', emoji: '🧠' },
+        { word: 'pay attention to', level: 'basic', phonetic: '', definition: '注意；留意', example: 'Pay attention to pronunciation and intonation.', emoji: '⚠️' },
+        { word: 'put one\'s heart and soul into', level: 'advanced', phonetic: '', definition: '全身心投入……', example: 'I put my heart and soul into preparing for the interview.', emoji: '❤️‍🔥' },
+        { word: 'settle down to', level: 'advanced', phonetic: '', definition: '静下心开始做……', example: 'I settled down to study after dinner.', emoji: '🪑' },
+        { word: 'soak oneself in', level: 'advanced', phonetic: '', definition: '沉浸于……（环境/语言/文化）', example: 'I tried to soak myself in an English environment.', emoji: '🌊' },
+        { word: 'stay focused', level: 'basic', phonetic: '', definition: '保持专注', example: 'It\'s hard to stay focused when I\'m tired.', emoji: '🧘' },
+        { word: 'stay on track', level: 'advanced', phonetic: '', definition: '保持在正轨/不跑题', example: 'I use notes to stay on track while speaking.', emoji: '🛤️' },
+    ],
+};
+
+export const highFreqExpressingHardWorkingEffort: SubTopic = {
+    id: 'hf-expressing-hard-working-effort',
+    title: '表示努力的 (Expressing Hard-working/Effort)',
+    type: '高频词',
+    color: 'purple',
+    section: 'High Frequency',
+    words: [
+        { word: 'assiduous', level: 'advanced', phonetic: '/əˈsɪdʒuəs/', definition: '刻苦的；勤勉的', example: 'She is an assiduous student.', emoji: '📚' },
+        { word: 'diligent', level: 'advanced', phonetic: '/ˈdɪlɪdʒənt/', definition: '勤奋的；用功的', example: 'He\'s diligent and reliable.', emoji: '🛠️' },
+        { word: 'hard-working', level: 'basic', phonetic: '', definition: '勤奋的', example: 'I think I\'m quite hard-working.', emoji: '💪' },
+        { word: 'industrious', level: 'advanced', phonetic: '/ɪnˈdʌstriəs/', definition: '勤勉的；勤劳的', example: 'My parents are very industrious.', emoji: '🏗️' },
+        { word: 'persistent', level: 'advanced', phonetic: '/pərˈsɪstənt/', definition: '坚持不懈的', example: 'You need to be persistent to make progress.', emoji: '🏃' },
+        { word: 'studious', level: 'advanced', phonetic: '/ˈstuːdiəs/', definition: '好学的；用功的', example: 'She has a studious attitude.', emoji: '🧠' },
+        { word: 'bend over backwards', level: 'advanced', phonetic: '', definition: '竭尽全力/非常努力（常含“太拼”）', example: 'I bent over backwards to meet the deadline.', emoji: '🤸' },
+        { word: 'break one\'s neck', level: 'advanced', phonetic: '', definition: '拼命赶/非常努力（口语）', example: 'I was breaking my neck to finish everything on time.', emoji: '⏱️' },
+        { word: 'fight tooth and nail', level: 'advanced', phonetic: '', definition: '拼尽全力/奋力争取', example: 'I fought tooth and nail for that opportunity.', emoji: '🦷' },
+        { word: 'give it one\'s best shot', level: 'advanced', phonetic: '', definition: '尽全力一试', example: 'I\'ll give it my best shot.', emoji: '🎯' },
+        { word: 'spare no effort to do sth.', level: 'advanced', phonetic: '', definition: '不遗余力去做……', example: 'I spare no effort to improve my speaking.', emoji: '🚀' },
+        { word: 'strive for sth.', level: 'advanced', phonetic: '', definition: '努力争取……', example: 'I strive for a better work-life balance.', emoji: '🏆' },
+        { word: 'sweat over sth.', level: 'advanced', phonetic: '', definition: '为……费尽心思/苦苦钻研', example: 'I\'ve been sweating over this presentation.', emoji: '💧' },
+        { word: 'work one\'s tail off', level: 'advanced', phonetic: '', definition: '拼命工作/干到爆（口语）', example: 'I worked my tail off during the final week.', emoji: '🐾' },
+    ],
+};
+
+export const highFreqExpressingGoodStateFeeling: SubTopic = {
+    id: 'hf-expressing-good-state-feeling',
+    title: '表示好状态、好感受 (Expressing Good State/Feeling)',
+    type: '高频词',
+    color: 'green',
+    section: 'High Frequency',
+    words: [
+        { word: 'amazing', level: 'basic', phonetic: '/əˈmeɪzɪŋ/', definition: '令人惊叹的；很棒的', example: 'It was an amazing experience.', emoji: '🤩' },
+        { word: 'astonishing', level: 'advanced', phonetic: '/əˈstɑːnɪʃɪŋ/', definition: '令人震惊的；惊人的', example: 'The progress was astonishing.', emoji: '😲' },
+        { word: 'brilliant', level: 'advanced', phonetic: '/ˈbrɪliənt/', definition: '极好的；出色的', example: 'That\'s a brilliant idea.', emoji: '💡' },
+        { word: 'excellent', level: 'basic', phonetic: '/ˈeksələnt/', definition: '极好的；优秀的', example: 'The service was excellent.', emoji: '⭐️' },
+        { word: 'fantastic', level: 'basic', phonetic: '/fænˈtæstɪk/', definition: '极好的；棒极了', example: 'I feel fantastic today.', emoji: '✨' },
+        { word: 'incredible', level: 'advanced', phonetic: '/ɪnˈkredəbl/', definition: '难以置信的；惊人的', example: 'The view was incredible.', emoji: '🌄' },
+        { word: 'splendid', level: 'advanced', phonetic: '/ˈsplendɪd/', definition: '极好的；壮观的', example: 'We had a splendid time.', emoji: '🎉' },
+        { word: 'superb', level: 'advanced', phonetic: '/suːˈpɜːrb/', definition: '极佳的；一流的', example: 'The food was superb.', emoji: '🏅' },
+        { word: 'wonderful', level: 'basic', phonetic: '/ˈwʌndərfl/', definition: '精彩的；极好的', example: 'It was a wonderful day.', emoji: '☀️' },
+    ],
+};
+
+export const highFreqExpressingGoodQualityCharacteristics: SubTopic = {
+    id: 'hf-expressing-good-quality-characteristics',
+    title: '表示好品质、好特点 (Expressing Good Quality/Characteristics)',
+    type: '高频词',
+    color: 'yellow',
+    section: 'High Frequency',
+    words: [
+        { word: 'elite', level: 'advanced', phonetic: '/eɪˈliːt/', definition: '精英的；顶尖的', example: 'It\'s an elite university.', emoji: '🥇' },
+        { word: 'excellent', level: 'basic', phonetic: '/ˈeksələnt/', definition: '优秀的；极好的', example: 'He has excellent communication skills.', emoji: '⭐️' },
+        { word: 'exceptional', level: 'advanced', phonetic: '/ɪkˈsepʃənl/', definition: '卓越的；出众的', example: 'She has exceptional talent.', emoji: '🏆' },
+        { word: 'first-rate', level: 'advanced', phonetic: '', definition: '一流的', example: 'They provide first-rate service.', emoji: '🥇' },
+        { word: 'impressive', level: 'basic', phonetic: '/ɪmˈpresɪv/', definition: '令人印象深刻的', example: 'That\'s an impressive achievement.', emoji: '👏' },
+        { word: 'outstanding', level: 'advanced', phonetic: '/aʊtˈstændɪŋ/', definition: '杰出的；突出的', example: 'She is an outstanding student.', emoji: '🌟' },
+        { word: 'premium', level: 'advanced', phonetic: '/ˈpriːmiəm/', definition: '高端的；优质的', example: 'It\'s a premium product.', emoji: '💎' },
+        { word: 'splendid', level: 'advanced', phonetic: '/ˈsplendɪd/', definition: '极好的；出色的', example: 'It\'s a splendid design.', emoji: '🎨' },
+        { word: 'superior', level: 'advanced', phonetic: '/suːˈpɪriər/', definition: '更优的；上乘的', example: 'This model has superior performance.', emoji: '🚀' },
+    ],
+};
+
+export const highFreqExpressingGoodResults: SubTopic = {
+    id: 'hf-expressing-good-results',
+    title: '表示好结果 (Expressing Good Results)',
+    type: '高频词',
+    color: 'green',
+    section: 'High Frequency',
+    words: [
+        { word: 'beneficial', level: 'advanced', phonetic: '/ˌbenɪˈfɪʃl/', definition: '有益的', example: 'Reading is beneficial for my vocabulary.', emoji: '✅' },
+        { word: 'effective', level: 'basic', phonetic: '/ɪˈfektɪv/', definition: '有效的', example: 'Spaced repetition is effective.', emoji: '🎯' },
+        { word: 'favourable', level: 'advanced', phonetic: '/ˈfeɪvərəbl/', definition: '有利的', example: 'The policy created favourable conditions.', emoji: '📈' },
+        { word: 'lucrative', level: 'advanced', phonetic: '/ˈluːkrətɪv/', definition: '利润丰厚的', example: 'It can be a lucrative career in the long run.', emoji: '💰' },
+        { word: 'optimistic', level: 'basic', phonetic: '/ˌɑːptɪˈmɪstɪk/', definition: '乐观的', example: 'I\'m optimistic about the outcome.', emoji: '🌈' },
+        { word: 'positive', level: 'basic', phonetic: '/ˈpɑːzətɪv/', definition: '积极的；正面的', example: 'It had a positive impact on my life.', emoji: '➕' },
+        { word: 'productive', level: 'basic', phonetic: '/prəˈdʌktɪv/', definition: '高效的；有成果的', example: 'It was a productive day.', emoji: '🧑‍💻' },
+        { word: 'profitable', level: 'advanced', phonetic: '/ˈprɑːfɪtəbl/', definition: '有利润的；赚钱的', example: 'It\'s not always profitable to expand too fast.', emoji: '📊' },
+        { word: 'successful', level: 'basic', phonetic: '/səkˈsesfl/', definition: '成功的', example: 'It was a successful project.', emoji: '🏆' },
+    ],
+};
+
 // 后续可以继续在此处 export const 其他高频词类别
