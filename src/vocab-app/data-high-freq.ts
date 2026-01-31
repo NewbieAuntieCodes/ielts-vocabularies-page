@@ -666,4 +666,71 @@ export const highFreqExpressingSequenceFirstSecondlyThen: SubTopic = {
     ],
 };
 
+export const highFreqExpressingNervousAnxious: SubTopic = {
+    id: 'hf-expressing-nervous-anxious',
+    title: '表示紧张的 (Expressing Nervous/Anxious)',
+    type: '高频词',
+    color: 'purple',
+    section: 'High Frequency',
+    words: [
+        { word: 'anxious', level: 'basic', phonetic: '/ˈæŋkʃəs/', definition: '焦虑的；紧张的', example: 'I feel anxious before interviews.', emoji: '😰' },
+        { word: 'edgy', level: 'advanced', phonetic: '/ˈedʒi/', definition: '紧张不安的；烦躁的', example: 'I get a bit edgy when I\'m under pressure.', emoji: '⚡️' },
+        { word: 'fraught', level: 'advanced', phonetic: '/frɔːt/', definition: '充满紧张/焦虑的', example: 'The atmosphere was fraught with tension.', emoji: '🌩️' },
+        { word: 'intense', level: 'basic', phonetic: '/ɪnˈtens/', definition: '紧张的；强烈的', example: 'It was an intense moment in the exam.', emoji: '🔥' },
+        { word: 'jumpy', level: 'advanced', phonetic: '/ˈdʒʌmpi/', definition: '神经质的；一惊一乍的', example: 'I was so jumpy that every sound startled me.', emoji: '😳' },
+        { word: 'nervous', level: 'basic', phonetic: '/ˈnɜːrvəs/', definition: '紧张的', example: 'I always feel nervous before speaking tests.', emoji: '😬' },
+        { word: 'strained', level: 'advanced', phonetic: '/streɪnd/', definition: '紧绷的；紧张的', example: 'His voice sounded strained and uneasy.', emoji: '🧊' },
+        { word: 'tempestuous', level: 'advanced', phonetic: '/temˈpes.tʃu.əs/', definition: '动荡的；紧张激烈的', example: 'It was a tempestuous period for the team.', emoji: '🌪️' },
+        { word: 'tense', level: 'basic', phonetic: '/tens/', definition: '紧张的', example: 'I get tense when everyone is watching me.', emoji: '🧊' },
+        { word: 'thrilling', level: 'advanced', phonetic: '/ˈθrɪlɪŋ/', definition: '紧张刺激的', example: 'It was a thrilling experience, but I was nervous too.', emoji: '🎢' },
+        { word: 'uptight', level: 'advanced', phonetic: '/ʌpˈtaɪt/', definition: '紧张的；放不开的（口语）', example: 'I feel uptight in formal situations.', emoji: '😖' },
+        { word: 'worried', level: 'basic', phonetic: '/ˈwɜːrid/', definition: '担心的；焦虑的', example: 'I was worried about making mistakes.', emoji: '😟' },
+        { word: 'a bundle of nerves', level: 'advanced', phonetic: '', definition: '紧张得不行/高度紧张的人', example: 'I was a bundle of nerves before the test.', emoji: '🧠' },
+        { word: 'get butterflies in one\'s stomach', level: 'advanced', phonetic: '', definition: '紧张得“胃里有蝴蝶”', example: 'I get butterflies in my stomach before presentations.', emoji: '🦋' },
+        { word: 'on edge', level: 'advanced', phonetic: '', definition: '紧张不安/神经紧绷', example: 'I was on edge waiting for the result.', emoji: '⚡️' },
+        { word: 'on the edge of one\'s seat', level: 'advanced', phonetic: '', definition: '紧张到坐不住/屏息期待', example: 'The final match had me on the edge of my seat.', emoji: '🪑' },
+    ],
+};
+
+export const highFreqExpressingFamousWellKnown: SubTopic = {
+    id: 'hf-expressing-famous-well-known',
+    title: '表示著名的 (Expressing Famous/Well-known)',
+    type: '高频词',
+    color: 'yellow',
+    section: 'High Frequency',
+    words: [
+        { word: 'celebrated', level: 'advanced', phonetic: '/ˈseləbreɪtɪd/', definition: '著名的；有名望的', example: 'It\'s a celebrated university.', emoji: '🏛️' },
+        { word: 'distinguished', level: 'advanced', phonetic: '/dɪˈstɪŋɡwɪʃt/', definition: '卓越的；著名的', example: 'He is a distinguished professor.', emoji: '🎓' },
+        { word: 'eminent', level: 'advanced', phonetic: '/ˈemɪnənt/', definition: '杰出的；著名的', example: 'She is an eminent scientist.', emoji: '🔬' },
+        { word: 'famous', level: 'basic', phonetic: '/ˈfeɪməs/', definition: '著名的', example: 'The city is famous for its food.', emoji: '⭐️' },
+        { word: 'a household name', level: 'advanced', phonetic: '', definition: '家喻户晓的人/品牌', example: 'That brand is a household name in my country.', emoji: '🏠' },
+        { word: 'outstanding', level: 'advanced', phonetic: '/aʊtˈstændɪŋ/', definition: '杰出的；非常出色的', example: 'He is an outstanding athlete.', emoji: '🏅' },
+        { word: 'prominent', level: 'advanced', phonetic: '/ˈprɑːmɪnənt/', definition: '著名的；重要的', example: 'It\'s a prominent landmark.', emoji: '🏙️' },
+        { word: 'renowned', level: 'advanced', phonetic: '/rɪˈnaʊnd/', definition: '著名的；享有盛名的', example: 'The restaurant is renowned for seafood.', emoji: '🦐' },
+        { word: 'well-known', level: 'basic', phonetic: '', definition: '众所周知的；著名的', example: 'He\'s well-known for his kindness.', emoji: '📣' },
+    ],
+};
+
+export const highFreqExpressingOpinionsViewpoints: SubTopic = {
+    id: 'hf-expressing-opinions-viewpoints',
+    title: '表示观点 (Expressing Opinions/Viewpoints)',
+    type: '高频词',
+    color: 'green',
+    section: 'High Frequency',
+    words: [
+        { word: 'in my opinion', level: 'basic', phonetic: '', definition: '在我看来', example: 'In my opinion, practice matters more than talent.', emoji: '💭' },
+        { word: 'I feel that ...', level: 'basic', phonetic: '', definition: '我觉得……', example: 'I feel that speaking every day is helpful.', emoji: '💬' },
+        { word: 'I would say that ...', level: 'advanced', phonetic: '', definition: '我会说/我认为……', example: 'I would say that it depends on the situation.', emoji: '🗣️' },
+        { word: 'It seems to me that ...', level: 'advanced', phonetic: '', definition: '在我看来似乎……', example: 'It seems to me that people are busier nowadays.', emoji: '🔍' },
+        { word: 'speaking personally', level: 'advanced', phonetic: '', definition: '就我个人而言', example: 'Speaking personally, I prefer quiet places.', emoji: '🙋' },
+        { word: 'as I see it', level: 'advanced', phonetic: '', definition: '在我看来', example: 'As I see it, consistency is the key.', emoji: '👀' },
+        { word: 'in my view', level: 'advanced', phonetic: '', definition: '依我看', example: 'In my view, public transport should be improved.', emoji: '🚌' },
+        { word: 'from my perspective', level: 'advanced', phonetic: '', definition: '从我的角度来看', example: 'From my perspective, it\'s a good opportunity.', emoji: '📍' },
+        { word: 'as far as I am concerned', level: 'advanced', phonetic: '', definition: '就我而言', example: 'As far as I am concerned, health comes first.', emoji: '❤️' },
+        { word: 'from my point of view', level: 'advanced', phonetic: '', definition: '在我看来/从我的观点出发', example: 'From my point of view, the plan is realistic.', emoji: '🧭' },
+        { word: 'as for me', level: 'basic', phonetic: '', definition: '至于我/对我来说', example: 'As for me, I enjoy studying at night.', emoji: '🌙' },
+        { word: 'in my eyes', level: 'advanced', phonetic: '', definition: '在我眼里', example: 'In my eyes, honesty is priceless.', emoji: '👁️' },
+    ],
+};
+
 // 后续可以继续在此处 export const 其他高频词类别

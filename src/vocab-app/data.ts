@@ -35,6 +35,9 @@ import {
     highFreqExpressingLikes,
     highFreqExpressingManyALot,
     highFreqExpressingMaybeProbability,
+    highFreqExpressingNervousAnxious,
+    highFreqExpressingOpinionsViewpoints,
+    highFreqExpressingFamousWellKnown,
     highFreqExpressingSequenceFirstSecondlyThen,
     highFreqExpressingFatigueTiredness,
     highFreqExpressingHighStressPressure,
@@ -158,6 +161,9 @@ export const ieltsTopics: IeltsTopic[] = [
             highFreqExpressingGoodBehavior,
             highFreqExpressingGoodSituationEnvironment,
             highFreqExpressingSequenceFirstSecondlyThen,
+            highFreqExpressingNervousAnxious,
+            highFreqExpressingFamousWellKnown,
+            highFreqExpressingOpinionsViewpoints,
             highFreqGeneral,
         ]
     }
