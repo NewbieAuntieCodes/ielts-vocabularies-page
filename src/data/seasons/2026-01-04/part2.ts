@@ -178,7 +178,18 @@ export const initialPart2Data_2026_01_04: TopicData[] = [
           'Why are some people keen on shopping?',
           'What kind of people like shopping?',
         ],
-        sampleAnswers: [],
+        sampleAnswers: [
+          {
+            question: 'Part 2: Describe a shopping mall',
+            versions: [
+              {
+                score: '5.0',
+                answer:
+                  "The shopping mall I want to describe is Zhengjia Shopping Mall. It is located in the center of Guangzhou, on Tianhe Road, and it is very easy to get there by subway.<br/><br/>I visit this mall quite often, usually once or twice a month. Sometimes I go there with my friends, and sometimes I go with my family. When I don’t know where to go on weekends, this mall is always a good choice.<br/><br/>Zhengjia Shopping Mall is very big and modern. It has many floors and a lot of shops inside. You can find clothing stores, shoe shops, and electronics stores. There are also many restaurants and cafés, so it’s very convenient to eat there. One special thing about this mall is that it has an indoor museum-like area and some fun places for children, which makes it more interesting than other malls.<br/><br/>When I go to the mall, I usually buy clothes, snacks, or daily things. Sometimes I just walk around, look at the shops, and enjoy the air-conditioned environment. If I feel tired, I like to sit in a café and have a drink. I also often eat with my friends there, because there are many different kinds of food.<br/><br/>I like this shopping mall because it is convenient, comfortable, and fun. It is not only a place to shop, but also a place to relax and spend time with others. That’s why Zhengjia Shopping Mall is my favorite shopping mall in Guangzhou.",
+              },
+            ],
+          },
+        ],
       },
       {
         id: '2026-01-04-p2-relax-place-at-home',
@@ -200,7 +211,19 @@ export const initialPart2Data_2026_01_04: TopicData[] = [
           'How do people usually relax at home in your country?',
           'Do you prefer relaxing at home or going out? Why?',
         ],
-        sampleAnswers: [],
+        sampleAnswers: [
+          {
+            question:
+              'Part 2: Describe your favorite place in your house where you can relax',
+            versions: [
+              {
+                score: '5.0',
+                answer:
+                  'My favorite place in my house where I can relax is my bedroom. It is on the second floor of my home, and it is not very big, but it is very comfortable and quiet.<br/><br/>My bedroom is simple and clean. There is a bed, a desk, a chair, and a bookshelf. The walls are light-colored, so the room looks bright. There is also a window next to my bed, and I can see the sky and some trees outside. When the weather is good, I like to open the window and let fresh air come in.<br/><br/>In my bedroom, I enjoy doing many things. I often listen to music, watch videos, or play games on my phone. Sometimes I sit at my desk to do homework or read a book. When I feel tired after school, I like to lie on my bed and rest for a while.<br/><br/>I feel relaxed in this place because it is very quiet and private. No one disturbs me there, and I can do whatever I like. It is my own space, so I feel safe and comfortable. That is why my bedroom is my favorite place to relax in my house.',
+              },
+            ],
+          },
+        ],
       },
     ],
   },
