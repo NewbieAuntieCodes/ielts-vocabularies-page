@@ -225,6 +225,33 @@ export const initialPart2Data_2026_01_04: TopicData[] = [
           },
         ],
       },
+      {
+        id: '2026-01-04-p2-interesting-building',
+        title: '有趣的建筑',
+        category: '地点题',
+        categoryClass: 'place-card',
+        status: 'New',
+        part2Title: 'Describe an interesting building',
+        part2Description: 'You should say:',
+        part2Prompts: [
+          'Where it is',
+          'What it looks like',
+          'What function it has',
+          'And explain why you think it is interesting',
+        ],
+        sampleAnswers: [
+          {
+            question: 'Part 2: Describe an interesting building',
+            versions: [
+              {
+                score: '5.0',
+                answer:
+                  'An interesting building I would like to describe is the Canton Tower. It is located in Guangzhou, near the Pearl River, and it is one of the most famous landmarks in the city.<br/><br/>The Canton Tower looks very tall and modern. It has a very special shape, like a twisted tube. At night, it is covered with colorful lights, so it looks beautiful and eye-catching. From far away, it looks like a shining line in the sky. Many people like to take photos of it, especially in the evening.<br/><br/>The main function of the Canton Tower is for tourism and sightseeing. Visitors can go up to the top to enjoy the city view. There are observation decks, a rotating restaurant, and even some exciting activities like the sky drop and outdoor walking platform. It is also used for broadcasting and communication.<br/><br/>I think the Canton Tower is very interesting because of its unique design and its amazing night view. It is not just a tall building, but also a symbol of Guangzhou. Every time I see it, I feel proud of my city, and it always leaves a strong impression on me.',
+              },
+            ],
+          },
+        ],
+      },
     ],
   },
   {

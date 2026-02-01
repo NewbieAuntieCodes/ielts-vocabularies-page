@@ -266,8 +266,8 @@ const PracticePage: React.FC<{
         <PageContainer>
             <PageHeader>
                  <BackButton
-                    onClick={() => (onExitToQuestionBank ? onExitToQuestionBank() : navigateTo('home'))}
-                    aria-label="返回题库"
+                    onClick={() => (onExitToQuestionBank ? onExitToQuestionBank() : navigateTo('word-selection'))}
+                    aria-label="返回选词"
                 >
                     <BackArrowIcon />
                 </BackButton>
