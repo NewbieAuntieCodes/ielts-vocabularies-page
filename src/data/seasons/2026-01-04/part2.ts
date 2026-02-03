@@ -511,19 +511,24 @@ export const initialPart2Data_2026_01_04: TopicData[] = [
           'Do you think it’s reasonable to charge an entry fee for visiting interesting buildings?',
           'Is it better to live in a new building or an old one?',
         ],
-        sampleAnswers: [
-          {
-            question: 'Part 2: Describe an interesting building',
-            versions: [
-              {
-                score: '5.0',
-                answer:
-                  'An interesting building I would like to describe is the Canton Tower. It is located in Guangzhou, near the Pearl River, and it is one of the most famous landmarks in the city.<br/><br/>The Canton Tower looks very tall and modern. It has a very special shape, like a twisted tube. At night, it is covered with colorful lights, so it looks beautiful and eye-catching. From far away, it looks like a shining line in the sky. Many people like to take photos of it, especially in the evening.<br/><br/>The main function of the Canton Tower is for tourism and sightseeing. Visitors can go up to the top to enjoy the city view. There are observation decks, a rotating restaurant, and even some exciting activities like the sky drop and outdoor walking platform. It is also used for broadcasting and communication.<br/><br/>I think the Canton Tower is very interesting because of its unique design and its amazing night view. It is not just a tall building, but also a symbol of Guangzhou. Every time I see it, I feel proud of my city, and it always leaves a strong impression on me.',
-              },
-            ],
-          },
-        ],
-      },
+	        sampleAnswers: [
+	          {
+	            question: 'Part 2: Describe an interesting building',
+	            versions: [
+	              {
+	                score: '6.0',
+	                answer:
+	                  'An interesting building I’d like to describe is the Canton Tower, which is also known as the Guangzhou Tower. It’s located in Guangzhou, right by the Pearl River, and it’s one of the most iconic landmarks in the city.<br/><br/>What makes it stand out is its modern design. The tower is extremely tall, and the structure looks like it twists in the middle, which gives it a really unique silhouette. At night, it’s lit up with colourful LED lights, so it almost looks like a huge light show in the sky. From far away, you can still spot it easily, and it’s a popular place for people to take photos, especially during sunset.<br/><br/>In terms of function, it’s mainly a sightseeing and tourism attraction. Visitors can take an elevator to the observation decks to get a panoramic view of Guangzhou, including the river, bridges and the skyline. There are also restaurants and some entertainment facilities. For example, there’s a rotating restaurant, and there are some thrilling activities like the sky drop and an outdoor platform for people who enjoy a bit of adventure. On top of that, the tower also has a practical purpose, because it’s used for broadcasting and communication.<br/><br/>I find it interesting not only because it looks impressive, but also because it represents the city. To me, it’s more than a tall tower—it’s a symbol of Guangzhou’s modern development, and it always leaves a strong impression on me.',
+	              },
+	              {
+	                score: '5.0',
+	                answer:
+	                  'An interesting building I’d like to talk about is the Canton Tower, also called the Guangzhou Tower. It is in Guangzhou, near the Pearl River, and you can see it from many places in the city.<br/><br/>The Canton Tower is very tall and looks modern. It has a special shape, because it looks a little bit twisted in the middle. At night, it lights up in different colours, and it looks very beautiful. Many people like to take photos there, especially in the evening.<br/><br/>The main function of the tower is for tourism and sightseeing. People can buy tickets and take an elevator to the top. From there, you can see the river, the bridges and many tall buildings. There are also some restaurants and small shops inside. Some visitors also try exciting activities, like standing on an outdoor platform and enjoying the view from a high place. Besides that, the tower is also used for broadcasting and communication.<br/><br/>I think the Canton Tower is interesting because it is a famous symbol of Guangzhou. I visited it once with my friend, and we took many photos and enjoyed the night view. The city looked amazing from the top, and I felt very relaxed. That’s why I think it is a really interesting building.',
+	              },
+	            ],
+	          },
+	        ],
+	      },
     ],
   },
   {
