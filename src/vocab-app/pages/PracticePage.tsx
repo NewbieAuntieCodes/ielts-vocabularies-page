@@ -201,6 +201,32 @@ const Game: React.FC<GameProps> = ({ topic, gameMode, onGameChange, distractorWo
     
     const progress = totalQuestions > 0 ? ((totalQuestions - questionQueue.length) / totalQuestions) * 100 : 0;
 
+    const optionWordByOption = useMemo(() => {
+        if (gameMode !== 'en-to-zh') return new Map<string, Word>();
+
+        const map = new Map<string, Word>();
+        const combinedWords = [
+            ...extractWordsFromSubTopic(topic),
+            ...distractorWords,
+        ];
+        for (const word of combinedWords) {
+            const key = word.definition;
+            if (!key) continue;
+            if (map.has(key)) continue;
+            map.set(key, word);
+        }
+        return map;
+    }, [distractorWords, gameMode, topic]);
+
+    const shouldShowOptionEmoji = useMemo(() => {
+        if (gameMode !== 'en-to-zh') return false;
+        if (!currentQuestion?.options?.length) return false;
+        return currentQuestion.options.every((option) => {
+            const found = optionWordByOption.get(option);
+            return !!found?.emoji;
+        });
+    }, [currentQuestion, gameMode, optionWordByOption]);
+
     return (
         <GameCard>
              <ProgressBarContainer>
@@ -226,10 +252,10 @@ const Game: React.FC<GameProps> = ({ topic, gameMode, onGameChange, distractorWo
 
                 <OptionsGrid $isLongText={gameMode === 'en-to-zh'}>
                     {currentQuestion.options.map(option => {
-                        let wordObject: Word | undefined;
-                        if (gameMode === 'en-to-zh') {
-                            wordObject = (topic.words || []).find(w => w.definition === option);
-                        }
+                        const wordObject =
+                            shouldShowOptionEmoji && gameMode === 'en-to-zh'
+                                ? optionWordByOption.get(option)
+                                : undefined;
                         return (
                             <OptionButton 
                                 key={option} 
