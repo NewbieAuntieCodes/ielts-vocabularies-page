@@ -11,6 +11,7 @@ import * as c0508 from './data-2025-05-08/common';
 
 // 导入 2026年 1-4月 补充词库
 import { views as views_2026_01_04 } from './data-2026-01-04/views';
+import { celebrity as celebrity_2026_01_04 } from './data-2026-01-04/celebrity';
 
 // 导入最新补全的话题（解决 Snacks 只有 8 个词的问题）
 import { snacks as fullSnacks } from './data-snacks';
@@ -128,6 +129,10 @@ const part1SubTopics_1_4_2026: SubTopic[] = [
     views_2026_01_04,
 ];
 
+const part2SubTopics_1_4_2026: SubTopic[] = [
+    celebrity_2026_01_04,
+];
+
 export const ieltsTopics: IeltsTopic[] = [
     {
         title: '2025年 考题季 Part 1',
@@ -142,6 +147,7 @@ export const ieltsTopics: IeltsTopic[] = [
             p2Objects,
             p2People,
             p2Places,
+            ...part2SubTopics_1_4_2026,
         ]
     },
     {
