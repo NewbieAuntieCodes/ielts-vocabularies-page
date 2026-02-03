@@ -13,6 +13,7 @@ import * as c0508 from './data-2025-05-08/common';
 import { snacks as fullSnacks } from './data-snacks';
 import { socialMedia as fullSocialMedia } from './data-social-media';
 import { chocolate as fullChocolate } from './data-chocolate';
+import { jewellery as fullJewellery } from './data-jewellery';
 import { p2Places } from './data-part2-places';
 import { p2People } from './data-part2-people';
 import { p2Objects } from './data-part2-objects';
@@ -88,6 +89,7 @@ const part1SubTopics_5_8: SubTopic[] = [
 	    { ...fullSnacks, seasons: [SEASON_5_8] },
 	    { ...fullSocialMedia, seasons: [SEASON_5_8] },
 	    { ...fullChocolate, seasons: [SEASON_5_8] },
+	    { ...fullJewellery, seasons: [SEASON_5_8] },
 
     // 占位话题
     { id: 'flowers', title: 'Flowers', type: '事物题', color: 'green', seasons: [SEASON_5_8], words: [] },
@@ -95,7 +97,6 @@ const part1SubTopics_5_8: SubTopic[] = [
     { id: 'public-transport', title: 'Public transport', type: '地点题', color: 'blue', seasons: [SEASON_5_8], words: [] },
     { id: 'names', title: 'Names', type: '人物题', color: 'yellow', seasons: [SEASON_5_8], words: [] },
     { id: 'geography', title: 'Geography', type: '事物题', color: 'green', seasons: [SEASON_5_8], words: [] },
-    { id: 'jewellery', title: 'Jewellery', type: '事物题', color: 'purple', seasons: [SEASON_5_8], words: [] },
     { id: 'birthday', title: 'Birthday', type: '时间题', color: 'yellow', seasons: [SEASON_5_8], words: [] },
     { id: 'staying-up-late', title: 'Staying up late', type: '习惯题', color: 'blue', seasons: [SEASON_5_8], words: [] },
     { id: 'plans', title: 'Plans', type: '习惯题', color: 'blue', seasons: [SEASON_5_8], words: [] },
