@@ -18,7 +18,7 @@ interface Part2ModalProps {
 const Part2Modal: React.FC<Part2ModalProps> = ({ card, onClose, seasonId, seasonTag }) => {
     const navigate = useNavigate();
     const location = useLocation();
-    const { bandToShow, getSampleAnswersForCard, speakingMode } = useBandContext();
+    const { tierToShow, getSampleAnswersForCard, speakingMode } = useBandContext();
     const sampleAnswers = getSampleAnswersForCard(card);
     const resolvedSeasonId: SeasonId = seasonId || (card.seasonId as SeasonId) || DEFAULT_SEASON_ID;
     const resolvedSeasonTag = seasonTag || '【题库】';
@@ -51,7 +51,7 @@ const Part2Modal: React.FC<Part2ModalProps> = ({ card, onClose, seasonId, season
                         sampleAnswers={sampleAnswers.length ? [sampleAnswers[0]] : []}
                         totalQuestions={1}
                         questionNumbering={(_, question) => question}
-                        lockedScore={bandToShow}
+                        lockedTier={tierToShow}
                     />
                </ContentP2>
                <FooterP2>

@@ -1,12 +1,12 @@
 import React from 'react';
 import { styled } from 'styled-components';
 import { useBandContext } from '../context/BandContext';
-import { ALLOWED_BANDS, formatBandLabel } from '../utils/scoreBands';
+import { ALLOWED_TIERS, AnswerTier, formatTierLabel } from '../utils/answerTiers';
 
 const BandBar: React.FC = () => {
     const {
-        bandToShow,
-        setBandToShow,
+        tierToShow,
+        setTierToShow,
         speakingMode,
         setSpeakingMode,
     } = useBandContext();
@@ -35,15 +35,15 @@ const BandBar: React.FC = () => {
             </Field>
 
             <Field>
-                <Label htmlFor="band-select">范文分段</Label>
+                <Label htmlFor="tier-select">范文档位</Label>
                 <Select
-                    id="band-select"
-                    value={bandToShow}
-                    onChange={(e) => setBandToShow(e.target.value)}
+                    id="tier-select"
+                    value={tierToShow}
+                    onChange={(e) => setTierToShow(e.target.value as AnswerTier)}
                 >
-                    {ALLOWED_BANDS.map((band) => (
-                        <option key={band} value={band}>
-                            {formatBandLabel(band)}
+                    {ALLOWED_TIERS.map((tier) => (
+                        <option key={tier} value={tier}>
+                            {formatTierLabel(tier)}
                         </option>
                     ))}
                 </Select>

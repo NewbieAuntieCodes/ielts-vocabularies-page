@@ -3,7 +3,7 @@ import { SampleAnswerData } from '../../types';
 import { CheckIcon, CopyIcon } from './Icons';
 import AnalyzedText from './AnalyzedText';
 import AnalysisDetailCard from './AnalysisDetailCard';
-import { filterAllowedBands, formatBandLabel } from '../../utils/scoreBands';
+import { AnswerTier, compareTier, filterAllowedTiers, formatTierLabel, tierFromScore } from '../../utils/answerTiers';
 import {
     AnswersList,
     QAWrapper,
@@ -27,53 +27,83 @@ import {
 interface SampleAnswerViewerProps {
     sampleAnswers: SampleAnswerData[];
     totalQuestions: number; // This prop is no longer used but kept for compatibility
-    initialScore?: string;
-    lockedScore?: string;
+    initialTier?: AnswerTier;
+    lockedTier?: AnswerTier;
     questionNumbering?: (index: number, question: string) => string;
 }
 
 const SampleAnswerViewer: React.FC<SampleAnswerViewerProps> = ({
     sampleAnswers,
-    initialScore = '6.5',
-    lockedScore,
+    initialTier = '3',
+    lockedTier,
     questionNumbering
 }) => {
-    const [selectedScore, setSelectedScore] = useState(lockedScore || initialScore);
+    const [selectedTier, setSelectedTier] = useState<AnswerTier>(lockedTier || initialTier);
     const [copyStatus, setCopyStatus] = useState<{ [key: number]: 'idle' | 'copied' }>({});
     const [copyAllStatus, setCopyAllStatus] = useState<'idle' | 'copied'>('idle');
     const [wordPanelOpen, setWordPanelOpen] = useState<Record<number, boolean>>({});
 
     const hasSampleAnswers = sampleAnswers && sampleAnswers.length > 0;
 
-    const availableScores: string[] = useMemo(() => {
+    const availableTiers: AnswerTier[] = useMemo(() => {
         if (!hasSampleAnswers) return [];
-        const all = sampleAnswers.flatMap(qa => qa.versions.map(v => v.score));
-        return filterAllowedBands(all);
+        const all = sampleAnswers.flatMap((qa) => qa.versions.map((v) => tierFromScore(v.score)));
+        return filterAllowedTiers(all);
     }, [hasSampleAnswers, sampleAnswers]);
 
-    const availableScoresKey = availableScores.join('|');
+    const availableTiersKey = availableTiers.join('|');
 
     useEffect(() => {
-        const preferred = lockedScore || initialScore;
-        const nextScore = availableScores.includes(preferred)
+        const preferred = lockedTier || initialTier;
+        const nextTier = availableTiers.includes(preferred)
             ? preferred
-            : (availableScores[0] || preferred);
-        setSelectedScore(nextScore);
-    }, [lockedScore, initialScore, availableScoresKey]);
+            : (availableTiers[availableTiers.length - 1] || preferred);
+        setSelectedTier(nextTier);
+    }, [lockedTier, initialTier, availableTiersKey]);
     
     useEffect(() => {
         setCopyStatus({});
         setWordPanelOpen({});
         setCopyAllStatus('idle');
-    }, [selectedScore]);
+    }, [selectedTier]);
 
-    const currentScore = lockedScore
-        ? (availableScores.includes(lockedScore) ? lockedScore : selectedScore)
-        : selectedScore;
-    const isUsingFallback = !!lockedScore && !availableScores.includes(lockedScore);
+    const currentTier = lockedTier
+        ? (availableTiers.includes(lockedTier) ? lockedTier : selectedTier)
+        : selectedTier;
+    const isUsingFallback = !!lockedTier && !availableTiers.includes(lockedTier);
+
+    const hasPerQuestionFallback = useMemo(() => {
+        return sampleAnswers.some((qa) => !qa.versions.some((v) => tierFromScore(v.score) === currentTier));
+    }, [currentTier, sampleAnswers]);
+
+    const pickVersionForQA = (qa: SampleAnswerData) => {
+        if (!qa.versions?.length) return null;
+
+        const versionsByTier = qa.versions.map((v) => ({
+            ...v,
+            _tier: tierFromScore(v.score),
+            _scoreValue: Number.parseFloat(v.score),
+        }));
+
+        const sortedTiers = [...new Set(versionsByTier.map((v) => v._tier))].sort(compareTier);
+        const desiredIndex = sortedTiers.indexOf(currentTier);
+
+        let chosenTier: AnswerTier | null = null;
+        if (desiredIndex >= 0) {
+            chosenTier = sortedTiers[desiredIndex];
+        } else {
+            // Prefer the closest lower tier; if none, pick the lowest available.
+            const lower = sortedTiers.filter((t) => compareTier(t, currentTier) < 0).sort(compareTier);
+            chosenTier = lower.length ? lower[lower.length - 1] : sortedTiers[0];
+        }
+
+        const candidates = versionsByTier.filter((v) => v._tier === chosenTier);
+        candidates.sort((a, b) => (Number.isFinite(b._scoreValue) ? b._scoreValue : 0) - (Number.isFinite(a._scoreValue) ? a._scoreValue : 0));
+        return candidates[0] || null;
+    };
 
     const handleCopy = (qa: SampleAnswerData, index: number) => {
-        const version = qa.versions.find(v => v.score === currentScore);
+        const version = pickVersionForQA(qa);
         if (!version || !version.answer) return;
     
         const questionText = questionNumbering
@@ -129,7 +159,7 @@ const SampleAnswerViewer: React.FC<SampleAnswerViewerProps> = ({
 
         const allText = sampleAnswers
             .map((qa, index) => {
-                const version = qa.versions.find((v) => v.score === currentScore);
+                const version = pickVersionForQA(qa);
                 if (!version || !version.answer) return '';
 
                 const questionText = questionNumbering
@@ -195,23 +225,26 @@ const SampleAnswerViewer: React.FC<SampleAnswerViewerProps> = ({
         return <p style={{ marginTop: '1rem', color: '#8899a6' }}>暂无范文解析。</p>;
     }
 
-    return (
+        return (
         <>
             <ViewerTopBar>
                 <ScoreSelector>
-                    {lockedScore ? (
+                    {lockedTier ? (
                         <PinnedScore $warn={isUsingFallback}>
-                            <div>范文分段</div>
-                            <strong>{formatBandLabel(currentScore)} 分</strong>
+                            <div>范文档位</div>
+                            <strong>{formatTierLabel(currentTier)}</strong>
                             {isUsingFallback && (
-                                <small>原配置 {formatBandLabel(lockedScore)} 无对应范文，已使用可用分段。</small>
+                                <small>原配置 {formatTierLabel(lockedTier)} 无对应范文，已使用可用档位。</small>
                             )}
-                            {!isUsingFallback && <small>如需切换，请在顶部「范文分段」修改。</small>}
+                            {hasPerQuestionFallback && (
+                                <small>部分小问无该档位范文，已自动使用更接近的版本。</small>
+                            )}
+                            {!isUsingFallback && !hasPerQuestionFallback && <small>如需切换，请在顶部「范文档位」修改。</small>}
                         </PinnedScore>
                     ) : (
-                        availableScores.map(score => (
-                            <ScoreButton key={score} $active={score === currentScore} onClick={() => setSelectedScore(score)}>
-                                {formatBandLabel(score)}分
+                        availableTiers.map((tier) => (
+                            <ScoreButton key={tier} $active={tier === currentTier} onClick={() => setSelectedTier(tier)}>
+                                {formatTierLabel(tier)}
                             </ScoreButton>
                         ))
                     )}
@@ -234,7 +267,19 @@ const SampleAnswerViewer: React.FC<SampleAnswerViewerProps> = ({
 
             <AnswersList>
                 {sampleAnswers.map((qa, index) => {
-                    const version = qa.versions.find(v => v.score === currentScore);
+                    const version = pickVersionForQA(qa);
+                    if (!version) {
+                        return (
+                            <QAWrapper key={index}>
+                                <AnswerHeader>
+                                    <AnswerQuestion>
+                                        {questionNumbering ? questionNumbering(index, qa.question) : `${index + 1}. ${qa.question}`}
+                                    </AnswerQuestion>
+                                </AnswerHeader>
+                                <NoAnswerMessage>暂无范文解析。</NoAnswerMessage>
+                            </QAWrapper>
+                        );
+                    }
                     const wordCards = version?.analysis
                         ? version.analysis.filter((item) => item.type === 'vocab' || item.type === 'phrase')
                         : [];

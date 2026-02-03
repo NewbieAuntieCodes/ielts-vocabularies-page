@@ -137,6 +137,33 @@ const Game: React.FC<GameProps> = ({ topic, gameMode, onGameChange, distractorWo
         const timeoutId = setTimeout(() => onGameChange(nextMode), 900);
         return () => clearTimeout(timeoutId);
     }, [autoAdvanceEnabled, currentQuestion, nextMode, onGameChange]);
+
+    // Hooks must not be conditionally skipped (avoid React #310).
+    const optionWordByOption = useMemo(() => {
+        if (gameMode !== 'en-to-zh') return new Map<string, Word>();
+
+        const map = new Map<string, Word>();
+        const combinedWords = [
+            ...extractWordsFromSubTopic(topic),
+            ...distractorWords,
+        ];
+        for (const word of combinedWords) {
+            const key = word.definition;
+            if (!key) continue;
+            if (map.has(key)) continue;
+            map.set(key, word);
+        }
+        return map;
+    }, [distractorWords, gameMode, topic]);
+
+    const shouldShowOptionEmoji = useMemo(() => {
+        if (gameMode !== 'en-to-zh') return false;
+        if (!currentQuestion?.options?.length) return false;
+        return currentQuestion.options.every((option) => {
+            const found = optionWordByOption.get(option);
+            return !!found?.emoji;
+        });
+    }, [currentQuestion, gameMode, optionWordByOption]);
     
     const handleOptionClick = (option: string) => {
         if (selectedOption) return;
@@ -200,32 +227,6 @@ const Game: React.FC<GameProps> = ({ topic, gameMode, onGameChange, distractorWo
     };
     
     const progress = totalQuestions > 0 ? ((totalQuestions - questionQueue.length) / totalQuestions) * 100 : 0;
-
-    const optionWordByOption = useMemo(() => {
-        if (gameMode !== 'en-to-zh') return new Map<string, Word>();
-
-        const map = new Map<string, Word>();
-        const combinedWords = [
-            ...extractWordsFromSubTopic(topic),
-            ...distractorWords,
-        ];
-        for (const word of combinedWords) {
-            const key = word.definition;
-            if (!key) continue;
-            if (map.has(key)) continue;
-            map.set(key, word);
-        }
-        return map;
-    }, [distractorWords, gameMode, topic]);
-
-    const shouldShowOptionEmoji = useMemo(() => {
-        if (gameMode !== 'en-to-zh') return false;
-        if (!currentQuestion?.options?.length) return false;
-        return currentQuestion.options.every((option) => {
-            const found = optionWordByOption.get(option);
-            return !!found?.emoji;
-        });
-    }, [currentQuestion, gameMode, optionWordByOption]);
 
     return (
         <GameCard>

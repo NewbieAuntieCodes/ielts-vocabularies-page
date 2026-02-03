@@ -7,13 +7,14 @@ import SampleAnswerViewer from '../components/shared/SampleAnswerViewer';
 import AIEvaluator from '../components/shared/AIEvaluator';
 import { getSeasonById, loadSeason, QuestionSeason } from '../data/seasons';
 import { useBandContext } from '../context/BandContext';
+import { tierToTargetBand } from '../utils/answerTiers';
 import { CueCardData } from '../types';
 
 const AnalysisPage: React.FC = () => {
     const { seasonId, cardId } = useParams<{ seasonId?: string; cardId: string }>();
     const navigate = useNavigate();
     const location = useLocation();
-    const { bandToShow, getSampleAnswersForCard } = useBandContext();
+    const { tierToShow, getSampleAnswersForCard } = useBandContext();
     const season = getSeasonById(seasonId);
     const [seasonData, setSeasonData] = useState<QuestionSeason | null>(null);
     const [card, setCard] = useState<CueCardData | null>(null);
@@ -156,7 +157,7 @@ const AnalysisPage: React.FC = () => {
                                 sampleAnswers={sampleAnswers}
                                 totalQuestions={totalQuestions}
                                 questionNumbering={getQuestionNumbering}
-                                lockedScore={bandToShow}
+                                lockedTier={tierToShow}
                             />
                         ) : (
                             <p>暂无范文解析。</p>
@@ -170,7 +171,7 @@ const AnalysisPage: React.FC = () => {
                         </AnswerContentHeader>
                         <AIEvaluator 
                             question={isPart2Card ? (card.part2Title || card.title) : (card.part1Questions?.[0] || card.title)} 
-                            targetBand={bandToShow}
+                            targetBand={tierToTargetBand(tierToShow)}
                         />
                     </AIContent>
                 )}

@@ -1,25 +1,19 @@
 import React, { createContext, useContext, useMemo, useState } from 'react';
 import { CueCardData, SampleAnswerData } from '../types';
-import { ALLOWED_BANDS } from '../utils/scoreBands';
+import { ALLOWED_TIERS, AnswerTier, normalizeTier } from '../utils/answerTiers';
 
 export type SpeakingMode = 'teacher' | 'student';
 
 interface BandContextValue {
-    bandToShow: string;
-    setBandToShow: (band: string) => void;
+    tierToShow: AnswerTier;
+    setTierToShow: (tier: AnswerTier) => void;
     speakingMode: SpeakingMode;
     setSpeakingMode: (mode: SpeakingMode) => void;
     getSampleAnswersForCard: (card: CueCardData) => SampleAnswerData[];
 }
 
-const BAND_STORAGE_KEY = 'ielts-speaking-band';
+const TIER_STORAGE_KEY = 'ielts-speaking-tier';
 const MODE_STORAGE_KEY = 'ielts-speaking-mode';
-
-const normalizeBand = (band?: string | null): string | null => {
-    if (!band) return null;
-    const normalized = band === '5' ? '5.0' : (band === '6' ? '6.0' : band);
-    return ALLOWED_BANDS.includes(normalized) ? normalized : null;
-};
 
 const normalizeMode = (mode?: string | null): SpeakingMode | null => {
     if (!mode) return null;
@@ -29,18 +23,18 @@ const normalizeMode = (mode?: string | null): SpeakingMode | null => {
 const BandContext = createContext<BandContextValue | null>(null);
 
 export const BandProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-    const [bandToShow, setBandToShowState] = useState<string>(() => {
-        const stored = normalizeBand(localStorage.getItem(BAND_STORAGE_KEY));
-        return stored || ALLOWED_BANDS[ALLOWED_BANDS.length - 1];
+    const [tierToShow, setTierToShowState] = useState<AnswerTier>(() => {
+        const stored = normalizeTier(localStorage.getItem(TIER_STORAGE_KEY));
+        return stored || ALLOWED_TIERS[ALLOWED_TIERS.length - 1];
     });
     const [speakingMode, setSpeakingModeState] = useState<SpeakingMode>(() => {
         return normalizeMode(localStorage.getItem(MODE_STORAGE_KEY)) || 'teacher';
     });
 
-    const setBandToShow = (band: string) => {
-        const normalized = normalizeBand(band) || ALLOWED_BANDS[ALLOWED_BANDS.length - 1];
-        setBandToShowState(normalized);
-        localStorage.setItem(BAND_STORAGE_KEY, normalized);
+    const setTierToShow = (tier: AnswerTier) => {
+        const normalized = normalizeTier(tier) || ALLOWED_TIERS[ALLOWED_TIERS.length - 1];
+        setTierToShowState(normalized);
+        localStorage.setItem(TIER_STORAGE_KEY, normalized);
     };
 
     const setSpeakingMode = (mode: SpeakingMode) => {
@@ -54,12 +48,12 @@ export const BandProvider: React.FC<{ children: React.ReactNode }> = ({ children
     };
 
     const value = useMemo<BandContextValue>(() => ({
-        bandToShow,
-        setBandToShow,
+        tierToShow,
+        setTierToShow,
         speakingMode,
         setSpeakingMode,
         getSampleAnswersForCard,
-    }), [bandToShow, speakingMode]);
+    }), [tierToShow, speakingMode]);
 
     return (
         <BandContext.Provider value={value}>
