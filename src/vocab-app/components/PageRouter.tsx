@@ -36,6 +36,9 @@ const PageRouter: React.FC<PageRouterProps> = ({
 }) => {
     switch (page) {
         case 'word-selection':
+            if (!activeTopicId) {
+                return <HomePage navigateToWordSelection={navigateToWordSelection} />;
+            }
             return <WordSelectionPage
                         topicId={activeTopicId!}
                         navigateTo={navigateTo}
@@ -43,6 +46,17 @@ const PageRouter: React.FC<PageRouterProps> = ({
                         onExitToQuestionBank={onExitToQuestionBank}
                     />;
         case 'learn':
+            if (!activeTopicId) {
+                return <HomePage navigateToWordSelection={navigateToWordSelection} />;
+            }
+            if (!activityWords) {
+                return <WordSelectionPage
+                            topicId={activeTopicId}
+                            navigateTo={navigateTo}
+                            onStartActivity={onStartActivity}
+                            onExitToQuestionBank={onExitToQuestionBank}
+                        />;
+            }
             return <LearnPage 
                         topicId={activeTopicId!} 
                         words={activityWords!}
@@ -50,6 +64,17 @@ const PageRouter: React.FC<PageRouterProps> = ({
                         onExitToQuestionBank={onExitToQuestionBank}
                     />;
         case 'practice':
+            if (!activeTopicId) {
+                return <HomePage navigateToWordSelection={navigateToWordSelection} />;
+            }
+            if (!activityWords) {
+                return <WordSelectionPage
+                            topicId={activeTopicId}
+                            navigateTo={navigateTo}
+                            onStartActivity={onStartActivity}
+                            onExitToQuestionBank={onExitToQuestionBank}
+                        />;
+            }
             return <PracticePage
                         topicId={activeTopicId!}
                         words={activityWords!}

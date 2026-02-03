@@ -288,6 +288,7 @@ const PracticePage: React.FC<{
     const [gameMode, setGameMode] = useState<GameMode>('en-to-zh');
     const { allSubTopics } = useVocabData();
     const originalTopic = allSubTopics.find((list) => list.id === topicId);
+    const safeWords = Array.isArray(words) ? words : [];
     const distractorWords = useMemo(() => {
         const wordMap = new Map<string, Word>();
         for (const subTopic of allSubTopics) {
@@ -308,7 +309,7 @@ const PracticePage: React.FC<{
         );
     }
     
-    const activityTopic: SubTopic = { ...originalTopic, words };
+    const activityTopic: SubTopic = { ...originalTopic, words: safeWords };
 
     return (
         <PageContainer>
@@ -335,7 +336,7 @@ const PracticePage: React.FC<{
                 </GameTabs>
 
                 <Game
-                    key={`${gameMode}-${topicId}-${words.map(w => w.word).join('')}`}
+                    key={`${gameMode}-${topicId}-${safeWords.map(w => w.word).join('')}`}
                     topic={activityTopic}
                     gameMode={gameMode}
                     onGameChange={setGameMode}
