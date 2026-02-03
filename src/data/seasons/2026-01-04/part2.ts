@@ -265,11 +265,86 @@ export const initialPart2Data_2026_01_04: TopicData[] = [
 	                score: '5.5',
 	                answer:
 	                  'I’d like to talk about a famous person I really want to meet. He is Jay Chou, a very popular singer and musician in China.<br/><br/>I first knew him when I was very young. Many of his songs were played on the radio, on TV, and on the Internet. My parents also like his music, so I often heard his songs at home. Little by little, I became very familiar with him.<br/><br/>If I had a chance, I would like to meet him at a concert or a music event. I think that would be the best place because music is the most important part of his life. If possible, I’d love to say hello to him after the concert and thank him for his music.<br/><br/>I want to meet Jay Chou because his music is very special and creative. His songs mix different styles, such as pop, classical music, and traditional Chinese elements. His music has accompanied many people’s lives, including mine. When I feel stressed or tired, listening to his songs makes me feel relaxed.<br/><br/>To me, he is not only a singer, but also a talented artist. That’s why I really hope I can meet him one day.',
-	              },
-	            ],
-	          },
-	        ],
-	      },
+		              },
+		            ],
+		          },
+          {
+            question: 'What are the advantages and disadvantages of being a famous child?',
+            versions: [
+              {
+                score: '5.0',
+                answer:
+                  "I think being a famous child has both advantages and disadvantages.<br/><br/>One advantage is that they may get more opportunities than other children, such as better training, better schools, and even earning money early. They can also build confidence because many people support them.<br/><br/>However, the disadvantage is that they have a lot of pressure. They may lose privacy, and people may judge everything they do. Also, they might not have a normal childhood, because they always need to behave well in public.",
+              },
+            ],
+          },
+          {
+            question: "What can today's children do to become famous?",
+            versions: [
+              {
+                score: '5.0',
+                answer:
+                  "I think there are more ways for children to become famous today.<br/><br/>Firstly, they can develop a skill, like singing, dancing, drawing, or playing sports, and then join competitions or shows. Secondly, they can use social media to share short videos, such as singing covers or funny daily life clips.<br/><br/>But I also think they should focus on study and stay safe online, because being famous is not the most important thing for a child.",
+              },
+            ],
+          },
+          {
+            question: 'What can children do with their fame?',
+            versions: [
+              {
+                score: '5.0',
+                answer:
+                  "Children can use their fame in a good way if adults guide them well.<br/><br/>For example, they can encourage other kids to work hard, or share positive messages. They can also join charity activities to help people in need. In addition, they can use their fame to get better learning resources and improve their skills.<br/><br/>However, they should be careful, because fame can also bring risks, like online bullying or too much attention.",
+              },
+            ],
+          },
+          {
+            question: 'Do people become famous because of their talent?',
+            versions: [
+              {
+                score: '5.0',
+                answer:
+                  "Yes, I think talent is one important reason. If someone is really good at singing, acting, or playing sports, people will notice them because their performance is amazing. For example, a talented singer can attract many fans through concerts and songs.",
+              },
+              {
+                score: '5.0',
+                answer:
+                  "No, not always. Some people become famous because of luck, social media, or strong marketing, not only talent. For example, a person may post a video online and go viral, even if the content is simple. Sometimes people are also famous because of scandals.",
+              },
+            ],
+          },
+          {
+            question: 'Is it easy to become famous in your country?',
+            versions: [
+              {
+                score: '5.0',
+                answer:
+                  "Yes, in some ways it is easier than before. Many people can use short-video apps and social media, so if you have an interesting idea, you might become famous quickly. For example, some young people become popular by sharing daily life or funny videos.",
+              },
+              {
+                score: '5.0',
+                answer:
+                  "No, I don't think it's easy. There are too many people trying to be famous, so the competition is strong. Also, to stay famous, you need to keep creating good content, and that is difficult. For example, many people become popular for a short time and then disappear.",
+              },
+            ],
+          },
+          {
+            question: 'Do you want to be a famous person?',
+            versions: [
+              {
+                score: '5.0',
+                answer:
+                  "Yes, in a small way. I think being famous can give you more influence, so you can share positive energy and help others. For example, if I was famous, I could join charity work and encourage young people to study hard.",
+              },
+              {
+                score: '5.0',
+                answer:
+                  "No, I don't want to be famous. I prefer a peaceful life, and I don't like being watched by strangers. For example, famous people often have no privacy, and they may feel stressed all the time. I think a normal life is happier for me.",
+              },
+            ],
+          },
+		        ],
+		      },
       {
         id: '2026-01-04-p2-child-loves-drawing',
         title: '喜欢画画的孩子',
