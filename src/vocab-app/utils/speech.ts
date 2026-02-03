@@ -25,15 +25,18 @@ if ('speechSynthesis' in window) {
  * It prioritizes high-quality voices common on iOS, Android, and desktop.
  * @param {string} text The text to be spoken.
  */
-export const speak = (text: string) => {
+export const speak = (text: string, options?: { onEnd?: () => void; onError?: () => void }) => {
     if (!('speechSynthesis' in window) || !text) {
         console.warn('Speech synthesis not supported or no text provided.');
+        options?.onEnd?.();
         return;
     }
     // Cancel any ongoing speech to prevent overlap
     window.speechSynthesis.cancel();
 
     const utterance = new SpeechSynthesisUtterance(text);
+    if (options?.onEnd) utterance.onend = options.onEnd;
+    if (options?.onError) utterance.onerror = options.onError;
 
     // If voices are not loaded yet, try loading them again.
     // This is a fallback for browsers that load voices lazily.

@@ -1,5 +1,5 @@
 
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback, useMemo } from 'react';
 import { styled, keyframes, css } from 'styled-components';
 import { Page } from '../types';
 import { SubTopic, Word } from '../data-types';
@@ -27,14 +27,34 @@ interface Question {
     isRetry?: boolean;
 }
 
-const createGameQuestions = (topic: SubTopic, mode: GameMode): Question[] => {
+const extractWordsFromSubTopic = (subTopic: SubTopic): Word[] => {
+    if (subTopic.words && subTopic.words.length > 0) return subTopic.words;
+    if (subTopic.wordSections && subTopic.wordSections.length > 0) {
+        return subTopic.wordSections.flatMap((section) => section.words || []);
+    }
+    return [];
+};
+
+const createGameQuestions = (topic: SubTopic, mode: GameMode, distractorWords: Word[]): Question[] => {
     const topicWords = topic.words || [];
     const shuffledWords = shuffleArray([...topicWords]);
     
     return shuffledWords.map(correctWord => {
-        const otherWords = topicWords.filter(w => w.word !== correctWord.word);
-        const numOptions = Math.min(3, otherWords.length);
-        const incorrectOptionsPool = shuffleArray(otherWords).slice(0, numOptions);
+        const desiredOptionCount = 4;
+        const correctOption = mode === 'en-to-zh' ? correctWord.definition : correctWord.word;
+        const optionsSet = new Set<string>([correctOption]);
+
+        const candidateWords = shuffleArray(
+            (distractorWords.length > 0 ? distractorWords : topicWords).filter((w) => w.word !== correctWord.word)
+        );
+
+        for (const candidate of candidateWords) {
+            const optionValue = mode === 'en-to-zh' ? candidate.definition : candidate.word;
+            if (!optionValue) continue;
+            if (optionValue === correctOption) continue;
+            optionsSet.add(optionValue);
+            if (optionsSet.size >= desiredOptionCount) break;
+        }
 
         let options: string[] = [];
         let prompt: string = '';
@@ -44,28 +64,19 @@ const createGameQuestions = (topic: SubTopic, mode: GameMode): Question[] => {
             case 'zh-to-en':
                 prompt = correctWord.definition;
                 answer = correctWord.word;
-                options = shuffleArray([
-                    correctWord.word, 
-                    ...incorrectOptionsPool.map(w => w.word)
-                ]);
+                options = shuffleArray(Array.from(optionsSet));
                 break;
             
             case 'en-to-zh':
                 prompt = correctWord.word;
                 answer = correctWord.definition;
-                options = shuffleArray([
-                    correctWord.definition,
-                    ...incorrectOptionsPool.map(w => w.definition)
-                ]);
+                options = shuffleArray(Array.from(optionsSet));
                 break;
 
             case 'listening':
                 prompt = correctWord.word;
                 answer = correctWord.word;
-                options = shuffleArray([
-                    correctWord.word,
-                    ...incorrectOptionsPool.map(w => w.word)
-                ]);
+                options = shuffleArray(Array.from(optionsSet));
                 break;
         }
 
@@ -83,9 +94,10 @@ interface GameProps {
     topic: SubTopic;
     gameMode: GameMode;
     onGameChange: (mode: GameMode) => void;
+    distractorWords: Word[];
 }
 
-const Game: React.FC<GameProps> = ({ topic, gameMode, onGameChange }) => {
+const Game: React.FC<GameProps> = ({ topic, gameMode, onGameChange, distractorWords }) => {
     const [questionQueue, setQuestionQueue] = useState<Question[]>([]);
     const [totalQuestions, setTotalQuestions] = useState(0);
     const [selectedOption, setSelectedOption] = useState<string | null>(null);
@@ -93,12 +105,12 @@ const Game: React.FC<GameProps> = ({ topic, gameMode, onGameChange }) => {
     const [autoAdvanceEnabled, setAutoAdvanceEnabled] = useState(true);
 
     const resetGame = useCallback(() => {
-        const newQuestions = createGameQuestions(topic, gameMode);
+        const newQuestions = createGameQuestions(topic, gameMode, distractorWords);
         setQuestionQueue(newQuestions);
         setTotalQuestions(newQuestions.length);
         setSelectedOption(null);
         setIsCorrect(null);
-    }, [topic, gameMode]);
+    }, [topic, gameMode, distractorWords]);
 
     useEffect(() => {
         setAutoAdvanceEnabled(true);
@@ -250,6 +262,16 @@ const PracticePage: React.FC<{
     const [gameMode, setGameMode] = useState<GameMode>('en-to-zh');
     const { allSubTopics } = useVocabData();
     const originalTopic = allSubTopics.find((list) => list.id === topicId);
+    const distractorWords = useMemo(() => {
+        const wordMap = new Map<string, Word>();
+        for (const subTopic of allSubTopics) {
+            for (const word of extractWordsFromSubTopic(subTopic)) {
+                const key = `${word.word}__${word.definition}`;
+                if (!wordMap.has(key)) wordMap.set(key, word);
+            }
+        }
+        return Array.from(wordMap.values());
+    }, [allSubTopics]);
 
     if (!originalTopic) {
         return (
@@ -286,7 +308,13 @@ const PracticePage: React.FC<{
                     </TabButton>
                 </GameTabs>
 
-                <Game key={`${gameMode}-${topicId}-${words.map(w => w.word).join('')}`} topic={activityTopic} gameMode={gameMode} onGameChange={setGameMode} />
+                <Game
+                    key={`${gameMode}-${topicId}-${words.map(w => w.word).join('')}`}
+                    topic={activityTopic}
+                    gameMode={gameMode}
+                    onGameChange={setGameMode}
+                    distractorWords={distractorWords}
+                />
             </main>
         </PageContainer>
     );

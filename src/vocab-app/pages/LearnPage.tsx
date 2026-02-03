@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { styled, keyframes } from 'styled-components';
 import { Page } from '../types';
 import { SubTopic, Word } from '../data-types';
@@ -19,6 +19,10 @@ const LearnStep: React.FC<{
     // to allow passing updater functions.
     setCurrentIndex: React.Dispatch<React.SetStateAction<number>>
 }> = ({ topic, onComplete, currentIndex, setCurrentIndex }) => {
+    const prevIndexRef = useRef(currentIndex);
+    const reachedLastViaNextRef = useRef(false);
+    const currentIndexRef = useRef(currentIndex);
+    const autoAdvanceIdRef = useRef(0);
 
     // Handle case where words array is empty
     if (topic.words.length === 0) {
@@ -31,19 +35,54 @@ const LearnStep: React.FC<{
     }
     
     const currentWord = topic.words[currentIndex];
+    const lastIndex = topic.words.length - 1;
 
     useEffect(() => {
+        currentIndexRef.current = currentIndex;
+    }, [currentIndex]);
+
+    useEffect(() => {
+        const prevIndex = prevIndexRef.current;
+        reachedLastViaNextRef.current = topic.words.length > 1 && currentIndex === lastIndex && prevIndex === lastIndex - 1;
+        prevIndexRef.current = currentIndex;
+    }, [currentIndex, lastIndex, topic.words.length]);
+
+    useEffect(() => {
+        const shouldAutoAdvanceAfterSpeech = currentIndex === lastIndex && reachedLastViaNextRef.current;
+        const autoAdvanceId = shouldAutoAdvanceAfterSpeech ? ++autoAdvanceIdRef.current : autoAdvanceIdRef.current;
+
         // A small delay for UI transition and voice readiness
-        const timeoutId = setTimeout(() => speak(currentWord.word), 100);
+        const timeoutId = setTimeout(() => {
+            speak(
+                currentWord.word,
+                shouldAutoAdvanceAfterSpeech
+                    ? {
+                        onEnd: () => {
+                            if (autoAdvanceIdRef.current !== autoAdvanceId) return;
+                            if (currentIndexRef.current !== lastIndex) return;
+                            onComplete();
+                        },
+                    }
+                    : undefined
+            );
+        }, 100);
+        if (shouldAutoAdvanceAfterSpeech) {
+            // Ensure this auto-advance only triggers once per "next to last card" action.
+            reachedLastViaNextRef.current = false;
+        }
         
         return () => {
             clearTimeout(timeoutId);
+            if (shouldAutoAdvanceAfterSpeech) {
+                // Invalidate the pending auto-advance if the user navigates away mid-speech.
+                autoAdvanceIdRef.current += 1;
+            }
             // Stop any speech when the component unmounts or the word changes
             if ('speechSynthesis' in window) {
                 window.speechSynthesis.cancel();
             }
         };
-    }, [currentWord]);
+    }, [currentWord.word, currentIndex, lastIndex, onComplete]);
 
 
     const handleNext = () => setCurrentIndex(i => Math.min(i + 1, topic.words.length - 1));
@@ -72,9 +111,6 @@ const LearnStep: React.FC<{
                 <ProgressText>{currentIndex + 1} / {topic.words.length}</ProgressText>
                 <NavButton onClick={handleNext} disabled={currentIndex === topic.words.length - 1}><NextIcon/></NavButton>
             </FlashcardNav>
-             <CompleteButton onClick={onComplete}>
-                我学完了
-            </CompleteButton>
         </StepContainer>
     );
 };
@@ -118,6 +154,9 @@ const LearnPage: React.FC<{
                 >
                     <BackArrowIcon />
                 </BackButton>
+                <FinishButton onClick={handleComplete}>
+                    我学完了
+                </FinishButton>
                 <h1>{activityTopic.title}</h1>
             </PageHeader>
              <LearnLayout>
@@ -151,6 +190,7 @@ const PageHeader = styled.header`
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: 0 5.5rem;
 
     h1 {
         margin: 0;
@@ -161,6 +201,7 @@ const PageHeader = styled.header`
     
     @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
         h1 { font-size: 1.75rem; }
+        padding: 0 4.25rem;
     }
 `;
 
@@ -187,6 +228,36 @@ const BackButton = styled.button`
         color: ${({ theme }) => theme.colors.primary};
         transform: translateY(-50%) scale(1.05);
         box-shadow: ${({ theme }) => theme.shadows.main};
+    }
+`;
+
+const FinishButton = styled.button`
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    font-family: inherit;
+    font-size: 0.95rem;
+    font-weight: 700;
+    padding: 0.5rem 1rem;
+    min-height: 44px;
+    border-radius: 9999px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: 2px solid ${({ theme }) => theme.colors.border};
+    background-color: ${({ theme }) => theme.colors.cardBg};
+    color: ${({ theme }) => theme.colors.text};
+    box-shadow: ${({ theme }) => theme.shadows.subtle};
+    
+    &:hover {
+        border-color: ${({ theme }) => theme.colors.learn};
+        color: ${({ theme }) => theme.colors.learn};
+        transform: translateY(-50%) scale(1.03);
+        box-shadow: ${({ theme }) => theme.shadows.main};
+    }
+
+    &:active {
+        transform: translateY(-50%) scale(0.99);
     }
 `;
 
