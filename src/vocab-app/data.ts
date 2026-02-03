@@ -9,6 +9,9 @@ import * as o0912 from './data-2025-09-12/objects';
 // 导入 5-8 月核心基础题
 import * as c0508 from './data-2025-05-08/common';
 
+// 导入 2026年 1-4月 补充词库
+import { views as views_2026_01_04 } from './data-2026-01-04/views';
+
 // 导入最新补全的话题（解决 Snacks 只有 8 个词的问题）
 import { snacks as fullSnacks } from './data-snacks';
 import { socialMedia as fullSocialMedia } from './data-social-media';
@@ -118,11 +121,18 @@ const part1SubTopics_5_8: SubTopic[] = [
     { id: 'being-busy', title: 'Being busy', type: '习惯题', color: 'blue', seasons: [SEASON_5_8], words: [] },
 ];
 
+/**
+ * 2026年 1-4月 话题汇总（持续补全）
+ */
+const part1SubTopics_1_4_2026: SubTopic[] = [
+    views_2026_01_04,
+];
+
 export const ieltsTopics: IeltsTopic[] = [
     {
         title: '2025年 考题季 Part 1',
         section: 'Part 1',
-        subTopics: [...part1SubTopics_9_12, ...part1SubTopics_5_8]
+        subTopics: [...part1SubTopics_9_12, ...part1SubTopics_5_8, ...part1SubTopics_1_4_2026]
     },
     {
         title: 'Part 2 & 3 核心词库',
