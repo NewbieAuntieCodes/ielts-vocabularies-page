@@ -252,7 +252,18 @@ export const initialPart2Data_2026_01_04: TopicData[] = [
           'Is it easy to become famous in your country?',
           'Do you want to be a famous person?',
         ],
-        sampleAnswers: [],
+        sampleAnswers: [
+          {
+            question: 'Part 2: Describe a famous person you would like to meet',
+            versions: [
+              {
+                score: '5.0',
+                answer:
+                  'I’d like to talk about a famous person I really want to meet. He is Jay Chou, a very popular singer and musician in China.<br/><br/>I first knew him when I was very young. Many of his songs were played on the radio, on TV, and on the Internet. My parents also like his music, so I often heard his songs at home. Little by little, I became very familiar with him.<br/><br/>If I had a chance, I would like to meet him at a concert or a music event. I think that would be the best place because music is the most important part of his life. If possible, I’d love to say hello to him after the concert and thank him for his music.<br/><br/>I want to meet Jay Chou because his music is very special and creative. His songs mix different styles, such as pop, classical music, and traditional Chinese elements. His music has accompanied many people’s lives, including mine. When I feel stressed or tired, listening to his songs makes me feel relaxed.<br/><br/>To me, he is not only a singer, but also a talented artist. That’s why I really hope I can meet him one day.',
+              },
+            ],
+          },
+        ],
       },
       {
         id: '2026-01-04-p2-child-loves-drawing',
@@ -311,7 +322,19 @@ export const initialPart2Data_2026_01_04: TopicData[] = [
           'Is making study plans popular among young people?',
           "Do you think choosing a major is closely related to a person's future career?",
         ],
-        sampleAnswers: [],
+        sampleAnswers: [
+          {
+            question:
+              'Part 2: Describe a person who makes plans a lot and is good at planning',
+            versions: [
+              {
+                score: '5.0',
+                answer:
+                  'I’d like to describe a person who is very good at making plans. She is my mom.<br/><br/>I’ve known her all my life because we live together, and I can see how she plans things every day. She likes to make plans not only for her work, but also for our family.<br/><br/>She makes many kinds of plans. For example, she plans her daily schedule very carefully, such as when to work, when to cook, and when to rest. She also plans family activities, like trips, shopping, and important family events. Before a holiday, she always makes a clear plan so everything can go smoothly.<br/><br/>I think she is good at planning because she always writes things down and thinks ahead. She doesn’t like to do things at the last minute. Because of her plans, our family life is more organized and less stressful.<br/><br/>I really admire her and feel grateful to her. She makes our life easier and more comfortable. I also hope I can learn from her and become better at planning in the future.',
+              },
+            ],
+          },
+        ],
       },
     ],
   },
