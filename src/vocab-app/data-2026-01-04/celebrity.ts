@@ -10,6 +10,31 @@ export const celebrity: SubTopic = {
     seasons: ['2026年 1-4月', '2026年1-4月'],
     words: [
         ...getManyFromPool(['atmosphere', 'calm', 'personality', 'admire', 'peaceful'], 'basic'),
+        ...getManyFromPool(['fame', 'talent'], 'basic'),
+        {
+            word: 'advantage',
+            phonetic: '/ədˈvæntɪdʒ/',
+            definition: 'n. 优点；优势',
+            example: 'One advantage of being famous is having more opportunities.',
+            emoji: '✅',
+            level: 'basic',
+        },
+        {
+            word: 'disadvantage',
+            phonetic: '/ˌdɪsədˈvæntɪdʒ/',
+            definition: 'n. 缺点；不利因素',
+            example: 'A big disadvantage is losing privacy.',
+            emoji: '⚠️',
+            level: 'basic',
+        },
+        {
+            word: 'adult',
+            phonetic: '/əˈdʌlt/',
+            definition: 'n. 成年人；adj. 成年的',
+            example: 'Adults should guide children to use fame in a good way.',
+            emoji: '🧑',
+            level: 'basic',
+        },
         {
             word: 'concert',
             phonetic: '/ˈkɑːnsərt/',
@@ -68,4 +93,3 @@ export const celebrity: SubTopic = {
         },
     ],
 };
-
