@@ -28,19 +28,24 @@ export const initialPart2Data_2026_01_04: TopicData[] = [
         sampleAnswers: [
           {
             question: 'Part 2: Describe a time when you felt proud of a family member',
-            versions: [
-              {
-                score: '5.0',
-                answer:
-                  "I want to talk about my mom. I felt proud of her many times, but the most special time was last year.<br/><br/>My mom is a very hardworking person. She has a busy job, and she needs to work every day. Even when she is tired, she never complains. She always tries her best to do her work well and support our family.<br/><br/>At the same time, she takes very good care of me. She cooks for me, reminds me to eat well, and makes sure I get enough rest. When I feel stressed or unhappy, she always listens to me and encourages me. Sometimes she is tired after work, but she still asks about my day and helps me.<br/><br/>What made me feel really proud was that she could balance both her job and her family. It is not easy to do well in work and still have time and energy for family, but she does both. She is strong and responsible.<br/><br/>I felt proud of her because she showed me what real love and responsibility mean. She works hard not only for herself, but also for our family. She is my role model, and I hope I can become someone like her in the future.",
-              },
-              {
-                score: '6.0',
-                answer:
-                  "I'd like to talk about my older sister. The time I felt most proud of her was about four years ago.<br/><br/>Before that, her studies weren't very good, and she often disappointed my parents. She preferred having fun and didn't really take school seriously. She also didn't have a clear plan for her future. But one day, she suddenly realised that this was a serious problem and that she needed to change.<br/><br/>After that, she started to study really hard. Every day after she came home, she had dinner quickly and then went to her room to study. She spent a lot of time reviewing and preparing for exams. Step by step, her results improved a lot.<br/><br/>In the end, she was accepted into her dream university, which is also a very famous one. Now she has already graduated from that university.<br/><br/>My whole family is very proud of her, and I'm especially proud because she proved that people can change if they truly make up their minds. Her story really inspires me, and it makes me admire her a lot.",
-              },
-            ],
-          },
+	            versions: [
+	              {
+	                score: '5.0',
+	                answer:
+	                  "I want to talk about my mom. I felt proud of her many times, but the most special time was last year.<br/><br/>My mom is a very hardworking person. She has a busy job, and she needs to work every day. Even when she is tired, she never complains. She always tries her best to do her work well and support our family.<br/><br/>At the same time, she takes very good care of me. She cooks for me, reminds me to eat well, and makes sure I get enough rest. When I feel stressed or unhappy, she always listens to me and encourages me. Sometimes she is tired after work, but she still asks about my day and helps me.<br/><br/>What made me feel really proud was that she could balance both her job and her family. It is not easy to do well in work and still have time and energy for family, but she does both. She is strong and responsible.<br/><br/>I felt proud of her because she showed me what real love and responsibility mean. She works hard not only for herself, but also for our family. She is my role model, and I hope I can become someone like her in the future.",
+	              },
+	              {
+	                score: '5.5',
+	                answer:
+	                  'I’d like to talk about a time when I felt proud of my mom. It happened about a year ago.<br/><br/>My mom is a very ordinary person, but she is always responsible and caring. At that time, she was very busy with her job, and she also needed to take care of our family.<br/><br/>I remember one period when my grandmother was not feeling well. My mom worked during the day, and after work, she went to the hospital to look after her. Even though she was very tired, she never complained. She cooked for the family, helped my grandmother, and still tried her best to support me with my study.<br/><br/>What made me feel proud was not something big, but her attitude. She stayed calm, patient, and kind, even under a lot of pressure. She always put her family first.<br/><br/>Because of this experience, I really felt proud of my mom. She showed me what responsibility and love mean. I learned that being strong doesn’t mean being loud, but being willing to take care of others quietly. That’s why she is someone I truly admire.',
+	              },
+	              {
+	                score: '6.0',
+	                answer:
+	                  "I'd like to talk about my older sister. The time I felt most proud of her was about four years ago.<br/><br/>Before that, her studies weren't very good, and she often disappointed my parents. She preferred having fun and didn't really take school seriously. She also didn't have a clear plan for her future. But one day, she suddenly realised that this was a serious problem and that she needed to change.<br/><br/>After that, she started to study really hard. Every day after she came home, she had dinner quickly and then went to her room to study. She spent a lot of time reviewing and preparing for exams. Step by step, her results improved a lot.<br/><br/>In the end, she was accepted into her dream university, which is also a very famous one. Now she has already graduated from that university.<br/><br/>My whole family is very proud of her, and I'm especially proud because she proved that people can change if they truly make up their minds. Her story really inspires me, and it makes me admire her a lot.",
+	              },
+	            ],
+	          },
           {
             question: 'When would parents feel proud of their children?',
             versions: [
