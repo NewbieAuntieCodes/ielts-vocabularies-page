@@ -252,19 +252,24 @@ export const initialPart2Data_2026_01_04: TopicData[] = [
           'Is it easy to become famous in your country?',
           'Do you want to be a famous person?',
         ],
-        sampleAnswers: [
-          {
-            question: 'Part 2: Describe a famous person you would like to meet',
-            versions: [
-              {
-                score: '5.0',
-                answer:
-                  'I’d like to talk about a famous person I really want to meet. He is Jay Chou, a very popular singer and musician in China.<br/><br/>I first knew him when I was very young. Many of his songs were played on the radio, on TV, and on the Internet. My parents also like his music, so I often heard his songs at home. Little by little, I became very familiar with him.<br/><br/>If I had a chance, I would like to meet him at a concert or a music event. I think that would be the best place because music is the most important part of his life. If possible, I’d love to say hello to him after the concert and thank him for his music.<br/><br/>I want to meet Jay Chou because his music is very special and creative. His songs mix different styles, such as pop, classical music, and traditional Chinese elements. His music has accompanied many people’s lives, including mine. When I feel stressed or tired, listening to his songs makes me feel relaxed.<br/><br/>To me, he is not only a singer, but also a talented artist. That’s why I really hope I can meet him one day.',
-              },
-            ],
-          },
-        ],
-      },
+	        sampleAnswers: [
+	          {
+	            question: 'Part 2: Describe a famous person you would like to meet',
+	            versions: [
+	              {
+	                score: '5.0',
+	                answer:
+	                  'I’d like to talk about a famous person I really want to meet. He is Wang Junkai, a very popular singer and actor in China.<br/><br/>I first knew him when I was about 13 years old. At that time, many of his songs were played on the radio, on TV, on mobile phones, and on the Internet. My friends also liked his music, so we often listened to his songs together.<br/><br/>Many years ago, I went to his concert once. However, I still really want to see him again at a concert or a music event, because I think that would be the best place to meet him. Music is the most important part of his life, so meeting him in a music-related place would be very meaningful.<br/><br/>If possible, I would like to give him a handwritten letter and thank him for his music.<br/><br/>I want to meet Wang Junkai because I think his music is very creative and warm. His songs mix different styles, such as pop and classical music. His music has accompanied many people’s lives, including mine. When I feel upset or unhappy, I listen to his music to relax myself.<br/><br/>To me, he is not only a singer, but also a talented artist. That’s why I really want to meet him again one day.',
+	              },
+	              {
+	                score: '5.5',
+	                answer:
+	                  'I’d like to talk about a famous person I really want to meet. He is Jay Chou, a very popular singer and musician in China.<br/><br/>I first knew him when I was very young. Many of his songs were played on the radio, on TV, and on the Internet. My parents also like his music, so I often heard his songs at home. Little by little, I became very familiar with him.<br/><br/>If I had a chance, I would like to meet him at a concert or a music event. I think that would be the best place because music is the most important part of his life. If possible, I’d love to say hello to him after the concert and thank him for his music.<br/><br/>I want to meet Jay Chou because his music is very special and creative. His songs mix different styles, such as pop, classical music, and traditional Chinese elements. His music has accompanied many people’s lives, including mine. When I feel stressed or tired, listening to his songs makes me feel relaxed.<br/><br/>To me, he is not only a singer, but also a talented artist. That’s why I really hope I can meet him one day.',
+	              },
+	            ],
+	          },
+	        ],
+	      },
       {
         id: '2026-01-04-p2-child-loves-drawing',
         title: '喜欢画画的孩子',
