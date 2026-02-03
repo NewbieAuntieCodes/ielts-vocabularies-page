@@ -503,6 +503,14 @@ export const initialPart2Data_2026_01_04: TopicData[] = [
           'What function it has',
           'And explain why you think it is interesting',
         ],
+        part3Questions: [
+          'What types of buildings are popular in your country?',
+          'Is it worth spending a lot of money on the exterior appearance of a building?',
+          'Is it more important for a building to look good on the outside or on the inside?',
+          'Why do people like to visit historical sites?',
+          'Do you think it’s reasonable to charge an entry fee for visiting interesting buildings?',
+          'Is it better to live in a new building or an old one?',
+        ],
         sampleAnswers: [
           {
             question: 'Part 2: Describe an interesting building',
