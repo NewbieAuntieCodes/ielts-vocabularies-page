@@ -410,6 +410,7 @@ export const initialPart1Data_2026_01_04: TopicData[] = [
           'Do you like taking pictures of different views?',
           'Do you prefer views in urban areas or rural areas?',
           'Do you prefer views in your own country or in other countries?',
+          'Have you seen an unforgettable and beautiful view or scenery?',
         ],
         sampleAnswers: [
           {
@@ -451,12 +452,14 @@ export const initialPart1Data_2026_01_04: TopicData[] = [
         categoryClass: 'event-card',
         status: 'New',
         part1Questions: [
-          'What were your favorite activities when you were a child?',
+          'What are your favourite activities?',
+          'What were your favourite activities when you were a child?',
           'Did you prefer to do activities alone or with a group of people when you were a child?',
+          'Are there any differences between the activities you liked when you were a child and those you like now?',
         ],
         sampleAnswers: [
           {
-            question: 'What were your favorite activities when you were a child?',
+            question: 'What were your favourite activities when you were a child?',
             versions: [
               {
                 score: '6.5',
@@ -477,6 +480,36 @@ export const initialPart1Data_2026_01_04: TopicData[] = [
             ],
           },
         ],
+      },
+      {
+        id: '2026-01-04-p1-scenery',
+        title: 'Scenery',
+        category: '事物题',
+        categoryClass: 'object-card',
+        status: 'New',
+        part1Questions: [
+          'Do you look out the window at the scenery when travelling by bus or car?',
+          'Do you prefer the mountains or the sea?',
+          'Do you like to take scenery pictures?',
+          'What are the most beautiful sights you have seen while travelling?',
+        ],
+        sampleAnswers: [],
+      },
+      {
+        id: '2026-01-04-p1-life-stages',
+        title: 'Life stages',
+        category: '事件题',
+        categoryClass: 'event-card',
+        status: 'New',
+        part1Questions: [
+          'What did you often do with your friends in your childhood?',
+          'What do you think is the most important at the moment?',
+          'Do you have any plans for the next five years?',
+          'How do people remember each stage of their lives?',
+          'Do you enjoy being the age you are now?',
+          'At what age do you think people are the happiest?',
+        ],
+        sampleAnswers: [],
       },
       {
         id: '2026-01-04-p1-building',
