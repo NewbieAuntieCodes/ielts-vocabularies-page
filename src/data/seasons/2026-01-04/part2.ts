@@ -276,7 +276,18 @@ export const initialPart2Data_2026_01_04: TopicData[] = [
           'How do artworks inspire people?',
           'What are the differences between reading a book and visiting a museum?',
         ],
-        sampleAnswers: [],
+        sampleAnswers: [
+          {
+            question: 'Part 2: Describe a child who loves drawing/painting',
+            versions: [
+              {
+                score: '5.0',
+                answer:
+                  'I’d like to describe a child who really loves drawing. He is my cousin, and he is about eight years old.<br/><br/>I first got to know him when he was very young, because our families often spend time together. I see him quite often, especially on weekends or during holidays, so I know him very well.<br/><br/>He draws almost every day. When he finishes his homework, the first thing he wants to do is take out his paper and pencils. Sometimes he draws for half an hour, and sometimes he can draw for a very long time without getting bored. He likes drawing animals, cartoons, and things he sees in daily life, such as houses, trees, and people.<br/><br/>I think he loves drawing because it makes him feel happy and relaxed. When he is drawing, he becomes very quiet and focused. He doesn’t like to stop, even when adults ask him to take a break. Also, his parents always encourage him and praise his drawings, which makes him more confident.<br/><br/>In my opinion, drawing is a good habit for a child. It helps him express his ideas and improves his imagination. That’s why I believe he truly loves drawing and will keep doing it in the future.',
+              },
+            ],
+          },
+        ],
       },
       {
         id: '2026-01-04-p2-person-good-at-planning',
