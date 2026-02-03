@@ -583,6 +583,96 @@ export const initialPart1Data_2026_01_04: TopicData[] = [
       },
     ],
   },
+  {
+    id: 'box-2026-01-04-part1-topic-study-tech',
+    title: '话题: 学习与科技',
+    cards: [
+      {
+        id: '2026-01-04-p1-typing',
+        title: 'Typing',
+        category: '事件题',
+        categoryClass: 'event-card',
+        status: 'New',
+        part1Questions: [
+          'Do you prefer typing or handwriting?',
+          'Do you type on a desktop or laptop keyboard every day?',
+          'When did you learn how to type on a keyboard?',
+          'How do you improve your typing?',
+        ],
+        sampleAnswers: [],
+      },
+      {
+        id: '2026-01-04-p1-reading',
+        title: 'Reading',
+        category: '事件题',
+        categoryClass: 'event-card',
+        status: 'New',
+        part1Questions: [
+          'Do you like reading?',
+          'Do you prefer to read on paper or on a screen?',
+          'When do you need to read carefully, and when not?',
+          'Do you prefer scanning or detailed reading?',
+        ],
+        sampleAnswers: [],
+      },
+    ],
+  },
+  {
+    id: 'box-2026-01-04-part1-topic-sports-health',
+    title: '话题: 运动与健康',
+    cards: [
+      {
+        id: '2026-01-04-p1-walking',
+        title: 'Walking',
+        category: '事件题',
+        categoryClass: 'event-card',
+        status: 'New',
+        part1Questions: [
+          'Do you walk a lot?',
+          'Did you often go outside to have a walk when you were a child?',
+          'Why do people like to walk in parks?',
+          'Where would you like to take a long walk if you had the chance?',
+          'Where did you go for a walk lately?',
+        ],
+        sampleAnswers: [],
+      },
+      {
+        id: '2026-01-04-p1-sports-team',
+        title: 'Sports team',
+        category: '事件题',
+        categoryClass: 'event-card',
+        status: 'New',
+        part1Questions: [
+          'Have you ever been part of a sports team?',
+          'Are team sports popular in your culture?',
+          'Do you like watching team games? Why?',
+          'What are the differences between team sports and individual sports?',
+        ],
+        sampleAnswers: [],
+      },
+    ],
+  },
+  {
+    id: 'box-2026-01-04-part1-topic-gifts',
+    title: '话题: 礼物与人际',
+    cards: [
+      {
+        id: '2026-01-04-p1-gifts',
+        title: 'Gifts',
+        category: '事物题',
+        categoryClass: 'object-card',
+        status: 'New',
+        part1Questions: [
+          'Have you ever sent handmade gifts to others?',
+          'Have you ever received a great gift?',
+          'What do you consider when choosing a gift?',
+          'Do you think you are good at choosing gifts?',
+          'What gift have you received recently?',
+        ],
+        sampleAnswers: [],
+      },
+    ],
+  },
 ];
 
 export default initialPart1Data_2026_01_04;
