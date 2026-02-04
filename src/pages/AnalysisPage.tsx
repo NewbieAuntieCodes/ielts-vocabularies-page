@@ -9,6 +9,7 @@ import { getSeasonById, loadSeason, QuestionSeason } from '../data/seasons';
 import { useBandContext } from '../context/BandContext';
 import { tierToTargetBand } from '../utils/answerTiers';
 import { CueCardData } from '../types';
+import { getVocabTopicIdForSpeakingCardTitle } from '../utils/vocabAppBridge';
 
 const AnalysisPage: React.FC = () => {
     const { seasonId, cardId } = useParams<{ seasonId?: string; cardId: string }>();
@@ -120,6 +121,7 @@ const AnalysisPage: React.FC = () => {
     const isPart2Card = !!card?.part2Title;
     const sampleAnswers = isPart2Card ? sampleAnswersAll.slice(1) : sampleAnswersAll;
     const totalQuestions = sampleAnswers.length;
+    const vocabTopicId = card ? getVocabTopicIdForSpeakingCardTitle(card.title, card.id) : null;
 
     const getQuestionNumbering = (index: number, question: string) => {
         if (isPart2Card) {
@@ -157,6 +159,7 @@ const AnalysisPage: React.FC = () => {
                                 sampleAnswers={sampleAnswers}
                                 totalQuestions={totalQuestions}
                                 questionNumbering={getQuestionNumbering}
+                                vocabTopicId={vocabTopicId}
                                 lockedTier={tierToShow}
                             />
                         ) : (

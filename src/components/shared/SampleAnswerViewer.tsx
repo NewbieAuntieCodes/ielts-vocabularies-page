@@ -1,8 +1,9 @@
 import React, { useState, useEffect, useMemo } from 'react';
-import { SampleAnswerData } from '../../types';
+import { AnalysisData, SampleAnswerData } from '../../types';
 import { CheckIcon, CopyIcon, PrevIcon, NextIcon } from './Icons';
 import AnalyzedText from './AnalyzedText';
 import { AnswerTier, compareTier, filterAllowedTiers, formatTierLabel, tierFromScore } from '../../utils/answerTiers';
+import { getVocabWordsForTopicId } from '../../utils/vocabAppBridge';
 import {
     AnswersList,
     QAWrapper,
@@ -24,6 +25,7 @@ import {
 interface SampleAnswerViewerProps {
     sampleAnswers: SampleAnswerData[];
     totalQuestions: number; // This prop is no longer used but kept for compatibility
+    vocabTopicId?: string | null;
     initialTier?: AnswerTier;
     lockedTier?: AnswerTier;
     questionNumbering?: (index: number, question: string) => string;
@@ -32,6 +34,7 @@ interface SampleAnswerViewerProps {
 const SampleAnswerViewer: React.FC<SampleAnswerViewerProps> = ({
     sampleAnswers,
     initialTier = '3',
+    vocabTopicId,
     lockedTier,
     questionNumbering
 }) => {
@@ -72,6 +75,18 @@ const SampleAnswerViewer: React.FC<SampleAnswerViewerProps> = ({
     const hasPerQuestionFallback = useMemo(() => {
         return sampleAnswers.some((qa) => !qa.versions.some((v) => tierFromScore(v.score) === currentTier));
     }, [currentTier, sampleAnswers]);
+
+    const vocabHighlights: AnalysisData[] = useMemo(() => {
+        if (!vocabTopicId) return [];
+        const words = getVocabWordsForTopicId(vocabTopicId);
+        return words
+            .filter((w) => w?.word && typeof w.word === 'string')
+            .map((w) => ({
+                type: w.level === 'advanced' ? 'vocab' : 'phrase',
+                text: w.word,
+                explanation: w.definition || '',
+            }));
+    }, [vocabTopicId]);
 
     const pickVersionForQA = (qa: SampleAnswerData, qaIndex: number) => {
         if (!qa.versions?.length) return null;
@@ -366,7 +381,10 @@ const SampleAnswerViewer: React.FC<SampleAnswerViewerProps> = ({
                             </AnswerHeader>
                             {version ? (
                                <>
-                                   <AnalyzedText answer={version.answer} analysis={version.analysis || []} />
+                                   <AnalyzedText
+                                       answer={version.answer}
+                                       analysis={vocabHighlights.length ? vocabHighlights : (version.analysis || [])}
+                                   />
                                </>
                             ) : (
                                <NoAnswerMessage>暂无此分数段范文。</NoAnswerMessage>

@@ -7,6 +7,7 @@ import SampleAnswerViewer from '../shared/SampleAnswerViewer';
 import { useBandContext } from '../../context/BandContext';
 import { DEFAULT_SEASON_ID, SeasonId } from '../../data/seasons';
 import { getBuildKitById } from '../../part2-builder/kits';
+import { getVocabTopicIdForSpeakingCardTitle } from '../../utils/vocabAppBridge';
 
 interface Part2ModalProps {
     card: CueCardData;
@@ -23,6 +24,7 @@ const Part2Modal: React.FC<Part2ModalProps> = ({ card, onClose, seasonId, season
     const resolvedSeasonId: SeasonId = seasonId || (card.seasonId as SeasonId) || DEFAULT_SEASON_ID;
     const resolvedSeasonTag = seasonTag || '【题库】';
     const buildKit = getBuildKitById(card.id);
+    const vocabTopicId = getVocabTopicIdForSpeakingCardTitle(card.title, card.id);
     const isTeacherMode = speakingMode === 'teacher';
     const [currentView, setCurrentView] = useState<'part2' | 'part3'>('part2');
     const [showP2Answer, setShowP2Answer] = useState(false);
@@ -51,6 +53,7 @@ const Part2Modal: React.FC<Part2ModalProps> = ({ card, onClose, seasonId, season
                         sampleAnswers={sampleAnswers.length ? [sampleAnswers[0]] : []}
                         totalQuestions={1}
                         questionNumbering={(_, question) => question}
+                        vocabTopicId={vocabTopicId}
                         lockedTier={tierToShow}
                     />
                </ContentP2>

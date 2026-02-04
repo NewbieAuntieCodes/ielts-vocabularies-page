@@ -1,10 +1,18 @@
 import { allSubTopics } from '../vocab-app/data';
 
+export type VocabWordLevel = 'basic' | 'advanced';
+
+export type VocabWordLite = {
+  word: string;
+  level?: VocabWordLevel;
+  definition?: string;
+};
+
 type VocabSubTopic = {
   id: string;
   title: string;
-  words?: Array<unknown>;
-  wordSections?: Array<{ words: Array<unknown> }>;
+  words?: VocabWordLite[];
+  wordSections?: Array<{ words: VocabWordLite[] }>;
 };
 
 const countTopicWords = (topic: VocabSubTopic) => {
@@ -15,6 +23,14 @@ const countTopicWords = (topic: VocabSubTopic) => {
     );
   }
   return topic.words?.length || 0;
+};
+
+const flattenTopicWords = (topic?: VocabSubTopic | null): VocabWordLite[] => {
+  if (!topic) return [];
+  if (topic.wordSections && topic.wordSections.length > 0) {
+    return topic.wordSections.flatMap((section) => section.words || []);
+  }
+  return topic.words || [];
 };
 
 const vocabTopicsById = new Map<string, VocabSubTopic>(
@@ -104,3 +120,8 @@ export const getVocabTopicIdForSpeakingCardTitle = (
 
 export const getVocabCountForTopicId = (topicId: string): number =>
   vocabCountByTopicId.get(topicId) || 0;
+
+export const getVocabWordsForTopicId = (topicId: string): VocabWordLite[] => {
+  const topic = vocabTopicsById.get((topicId || '').trim());
+  return flattenTopicWords(topic);
+};

@@ -6,10 +6,12 @@ function escapeRegExp(string: string) {
   return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 }
 
+const isWordish = (text: string) => /^[a-z0-9][a-z0-9\s'-]*[a-z0-9]$/i.test(text.trim());
+
 const AnalyzedText: React.FC<{ answer: string | string[]; analysis: AnalysisData[] }> = ({ answer, analysis }) => {
     const analysisMap = new Map<string, AnalysisData>();
     if (analysis && analysis.length > 0) {
-        analysis.forEach(item => analysisMap.set(item.text, item));
+        analysis.forEach(item => analysisMap.set(item.text.toLowerCase(), item));
     }
 
     const renderParagraphContent = (paragraph: string) => {
@@ -17,11 +19,28 @@ const AnalyzedText: React.FC<{ answer: string | string[]; analysis: AnalysisData
             return <>{paragraph}</>;
         }
         
-        const regex = new RegExp(`(${analysis.map(item => escapeRegExp(item.text)).join('|')})`, 'g');
+        const sorted = [...analysis]
+            .filter((item) => item?.text)
+            .sort((a, b) => b.text.length - a.text.length);
+
+        const patterns = sorted.map((item) => {
+            const raw = item.text.trim();
+            const escaped = escapeRegExp(raw);
+            if (isWordish(raw)) {
+                return `\\b${escaped}\\b`;
+            }
+            return escaped;
+        });
+
+        if (patterns.length === 0) {
+            return <>{paragraph}</>;
+        }
+
+        const regex = new RegExp(`(${patterns.join('|')})`, 'gi');
         const parts = paragraph.split(regex).filter(part => part);
         
         return parts.map((part, index) => {
-            const analysisItem = analysisMap.get(part);
+            const analysisItem = analysisMap.get(part.toLowerCase());
             if (analysisItem) {
                 return <Highlight key={index} type={analysisItem.type}>{part}</Highlight>;
             }
