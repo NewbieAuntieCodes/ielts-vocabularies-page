@@ -306,7 +306,6 @@ const SampleAnswerViewer: React.FC<SampleAnswerViewerProps> = ({
                             </AnswerHeader>
                             {version ? (
                                <>
-                                   <AnalyzedText answer={version.answer} analysis={version.analysis || []} />
                                    {wordCards.length > 0 && (
                                        <WordPanel aria-label="单词卡">
                                            <WordPanelHeader>
@@ -334,6 +333,7 @@ const SampleAnswerViewer: React.FC<SampleAnswerViewerProps> = ({
                                            )}
                                        </WordPanel>
                                    )}
+                                   <AnalyzedText answer={version.answer} analysis={version.analysis || []} />
                                </>
                             ) : (
                                <NoAnswerMessage>暂无此分数段范文。</NoAnswerMessage>

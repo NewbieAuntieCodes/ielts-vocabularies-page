@@ -519,11 +519,29 @@ export const initialPart2Data_2026_01_04: TopicData[] = [
 	                score: '6.0',
 	                answer:
 	                  'An interesting building I’d like to describe is the Canton Tower, which is also known as the Guangzhou Tower. It’s located in Guangzhou, right by the Pearl River, and it’s one of the most iconic landmarks in the city.<br/><br/>What makes it stand out is its modern design. The tower is extremely tall, and the structure looks like it twists in the middle, which gives it a really unique silhouette. At night, it’s lit up with colourful LED lights, so it almost looks like a huge light show in the sky. From far away, you can still spot it easily, and it’s a popular place for people to take photos, especially during sunset.<br/><br/>In terms of function, it’s mainly a sightseeing and tourism attraction. Visitors can take an elevator to the observation decks to get a panoramic view of Guangzhou, including the river, bridges and the skyline. There are also restaurants and some entertainment facilities. For example, there’s a rotating restaurant, and there are some thrilling activities like the sky drop and an outdoor platform for people who enjoy a bit of adventure. On top of that, the tower also has a practical purpose, because it’s used for broadcasting and communication.<br/><br/>I find it interesting not only because it looks impressive, but also because it represents the city. To me, it’s more than a tall tower—it’s a symbol of Guangzhou’s modern development, and it always leaves a strong impression on me.',
+	                analysis: [
+	                  { type: 'phrase', text: 'be located in', explanation: 'phr. 位于……' },
+	                  { type: 'phrase', text: 'whole city', explanation: 'phr. 整个城市' },
+	                  { type: 'vocab', text: 'lively', explanation: 'adj. 热闹的；充满活力的' },
+	                  { type: 'vocab', text: 'landmark', explanation: 'n. 地标；标志性建筑' },
+	                  { type: 'vocab', text: 'tourism', explanation: 'n. 旅游业；旅游' },
+	                  { type: 'vocab', text: 'entertainment', explanation: 'n. 娱乐' },
+	                  { type: 'vocab', text: 'relaxation', explanation: 'n. 放松' },
+	                ],
 	              },
 	              {
 	                score: '5.0',
 	                answer:
 	                  'An interesting building I’d like to talk about is the Canton Tower, also called the Guangzhou Tower. It is in Guangzhou, near the Pearl River, and you can see it from many places in the city.<br/><br/>The Canton Tower is very tall and looks modern. It has a special shape, because it looks a little bit twisted in the middle. At night, it lights up in different colours, and it looks very beautiful. Many people like to take photos there, especially in the evening.<br/><br/>The main function of the tower is for tourism and sightseeing. People can buy tickets and take an elevator to the top. From there, you can see the river, the bridges and many tall buildings. There are also some restaurants and small shops inside. Some visitors also try exciting activities, like standing on an outdoor platform and enjoying the view from a high place. Besides that, the tower is also used for broadcasting and communication.<br/><br/>I think the Canton Tower is interesting because it is a famous symbol of Guangzhou. I visited it once with my friend, and we took many photos and enjoyed the night view. The city looked amazing from the top, and I felt very relaxed. That’s why I think it is a really interesting building.',
+	                analysis: [
+	                  { type: 'phrase', text: 'be located in', explanation: 'phr. 位于……' },
+	                  { type: 'phrase', text: 'whole city', explanation: 'phr. 整个城市' },
+	                  { type: 'vocab', text: 'lively', explanation: 'adj. 热闹的；充满活力的' },
+	                  { type: 'vocab', text: 'landmark', explanation: 'n. 地标；标志性建筑' },
+	                  { type: 'vocab', text: 'tourism', explanation: 'n. 旅游业；旅游' },
+	                  { type: 'vocab', text: 'entertainment', explanation: 'n. 娱乐' },
+	                  { type: 'vocab', text: 'relaxation', explanation: 'n. 放松' },
+	                ],
 	              },
 	            ],
 	          },
@@ -558,7 +576,28 @@ export const initialPart2Data_2026_01_04: TopicData[] = [
           'Why do many people like listening to music while doing sports?',
           'What are the differences between listening to music at home and at a live concert?',
         ],
-        sampleAnswers: [],
+        sampleAnswers: [
+          {
+            question:
+              "Part 2: Describe an event you attended in which you didn't enjoy the music played",
+            versions: [
+              {
+                score: '5.0',
+                answer:
+                  "Well, I’d like to talk about an event I attended where I didn’t enjoy the music. It was a wedding party of one of my old classmates. The wedding was held in a big hotel ballroom, and there was live music during the dinner.<br/><br/>I went there with my cousin, because she also knew the bride. We decided to go mainly because it was an important day for my classmate, and I wanted to show my support. Also, I hadn’t seen many of our old friends for a long time, so I thought it would be a good chance to meet people and chat.<br/><br/>However, I didn’t enjoy the music played there at all. The first reason was the volume. It was extremely loud, especially near the stage, and my ears felt uncomfortable after a while. When my cousin and I tried to talk, we had to shout, and it was really tiring. The second reason is that the songs were not my type. They played lots of noisy pop songs and some old-fashioned wedding songs. To be honest, I prefer softer music, like acoustic songs or light English pop.<br/><br/>Also, the singer wasn’t very professional. Sometimes he sang off key, and the sound system had an echo, so it didn’t sound clear. So even though the wedding itself was meaningful, the music made the atmosphere stressful, and I couldn’t really relax and enjoy the event.",
+                analysis: [
+                  { type: 'vocab', text: 'performance', explanation: 'n. 表演；演出' },
+                  { type: 'vocab', text: 'unfortunately', explanation: 'adv. 不幸的是' },
+                  { type: 'vocab', text: 'taste', explanation: 'n. 品味；喜好' },
+                  { type: 'phrase', text: 'heavy metal', explanation: 'n. 重金属（音乐）' },
+                  { type: 'vocab', text: 'atmosphere', explanation: 'n. 氛围' },
+                  { type: 'vocab', text: 'experience', explanation: 'n. 经历；体验' },
+                  { type: 'vocab', text: 'enjoyable', explanation: 'adj. 令人愉快的' },
+                ],
+              },
+            ],
+          },
+        ],
       },
       {
         id: '2026-01-04-p2-use-imagination',
@@ -807,7 +846,32 @@ export const initialPart2Data_2026_01_04: TopicData[] = [
           'Why do all children like toys?',
           'Do you think it is good for a child to always take his or her favourite toy with them all the time?',
         ],
-        sampleAnswers: [],
+        sampleAnswers: [
+          {
+            question:
+              "Part 2: Describe something that you can't live without (not a computer/phone)",
+            versions: [
+              {
+                score: '5.0',
+                answer:
+                  "I want to describe something I really can’t live without, and it’s my thermos bottle, like a vacuum flask. It sounds very simple, but it’s quite important in my daily life.<br/><br/>I use it every day. In the morning, I usually fill it with warm water before I go out. Sometimes I also make tea in it, especially when I feel sleepy or stressed. If I go to work or study outside, I just put it in my bag. When I travel, I also bring it with me because I don’t want to buy drinks all the time.<br/><br/>It helps me in several ways. First, it reminds me to drink more water. Before I had it, I often forgot to drink water, and then I got a dry throat and felt low energy. With my thermos, water is always there, so I drink more naturally. Second, it keeps water warm for a long time. In winter, warm water makes me feel comfortable, and it’s also better for my stomach. Third, it helps me save money and stay healthier, because I don’t need to buy sugary drinks or coffee every day. It’s also better for the environment, because I can use one bottle again and again.<br/><br/>I can’t live without it because it supports my health and my routine. If I forget it, I honestly feel my day is not complete.",
+                analysis: [
+                  { type: 'vocab', text: 'thermos bottle', explanation: 'n. 保温杯；保温瓶' },
+                  { type: 'vocab', text: 'vacuum flask', explanation: 'n. 保温瓶（英式表达）' },
+                  { type: 'phrase', text: 'fill ... with ...', explanation: 'phr. 用……装满……' },
+                  { type: 'phrase', text: 'remind me to', explanation: 'phr. 提醒我去做……' },
+                  { type: 'phrase', text: 'dry throat', explanation: 'phr. 喉咙干' },
+                  { type: 'phrase', text: 'low energy', explanation: 'phr. 没精神；精力低' },
+                  { type: 'phrase', text: 'keep ... warm', explanation: 'phr. 保持……温暖/保温' },
+                  { type: 'phrase', text: 'save money', explanation: 'phr. 省钱' },
+                  { type: 'phrase', text: 'sugary drinks', explanation: 'phr. 含糖饮料' },
+                  { type: 'phrase', text: 'better for the environment', explanation: 'phr. 更环保' },
+                  { type: 'vocab', text: 'routine', explanation: 'n. 日常；作息；习惯' },
+                ],
+              },
+            ],
+          },
+        ],
       },
       {
         id: '2026-01-04-p2-program-or-app',
