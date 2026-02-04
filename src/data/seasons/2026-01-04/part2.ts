@@ -262,6 +262,11 @@ export const initialPart2Data_2026_01_04: TopicData[] = [
 	                  'I’d like to talk about a famous person I really want to meet. He is Wang Junkai, a very popular singer and actor in China.<br/><br/>I first knew him when I was about 13 years old. At that time, many of his songs were played on the radio, on TV, on mobile phones, and on the Internet. My friends also liked his music, so we often listened to his songs together.<br/><br/>Many years ago, I went to his concert once. However, I still really want to see him again at a concert or a music event, because I think that would be the best place to meet him. Music is the most important part of his life, so meeting him in a music-related place would be very meaningful.<br/><br/>If possible, I would like to give him a handwritten letter and thank him for his music.<br/><br/>I want to meet Wang Junkai because I think his music is very creative and warm. His songs mix different styles, such as pop and classical music. His music has accompanied many people’s lives, including mine. When I feel upset or unhappy, I listen to his music to relax myself.<br/><br/>To me, he is not only a singer, but also a talented artist. That’s why I really want to meet him again one day.',
 	              },
 	              {
+	                score: '5.0',
+	                answer:
+	                  'I’d like to talk about a famous person I really want to meet. He is Yonezu Kenshi, a very famous Japanese singer and musician.<br/><br/>I first listened to his song when I was in junior high school. I remember it was during a music lesson, and my teacher told us his name and said he was very popular. That was the first time I heard his music, and I was immediately attracted to it. His songs are very unique, and they sound really different from other singers’ music.<br/><br/>I would like to meet him at a concert in the future. I know it is not easy for him to come to China, so maybe I will need to go to Japan one day. But if he comes to China, especially to Guangzhou, I will definitely go to his concert.<br/><br/>I want to meet him because he is a very talented person. He is not only a singer, but also a composer, a lyric writer, and even a designer. Many parts of his music are done by himself. Some other singers’ songs are also written by him, which I think is very impressive.<br/><br/>In my opinion, he is a real superstar and famous all over the world. That’s why I really hope I can meet him at a concert one day.',
+	              },
+	              {
 	                score: '5.5',
 	                answer:
 	                  'I’d like to talk about a famous person I really want to meet. He is Jay Chou, a very popular singer and musician in China.<br/><br/>I first knew him when I was very young. Many of his songs were played on the radio, on TV, and on the Internet. My parents also like his music, so I often heard his songs at home. Little by little, I became very familiar with him.<br/><br/>If I had a chance, I would like to meet him at a concert or a music event. I think that would be the best place because music is the most important part of his life. If possible, I’d love to say hello to him after the concert and thank him for his music.<br/><br/>I want to meet Jay Chou because his music is very special and creative. His songs mix different styles, such as pop, classical music, and traditional Chinese elements. His music has accompanied many people’s lives, including mine. When I feel stressed or tired, listening to his songs makes me feel relaxed.<br/><br/>To me, he is not only a singer, but also a talented artist. That’s why I really hope I can meet him one day.',
@@ -543,6 +548,11 @@ export const initialPart2Data_2026_01_04: TopicData[] = [
 	                  { type: 'vocab', text: 'relaxation', explanation: 'n. 放松' },
 	                ],
 	              },
+	              {
+	                score: '5.0',
+	                answer:
+	                  'I’d like to describe an interesting building, which is the Guangzhou Tower.<br/><br/>It is located in Guangzhou City, and it is very close to the Pearl River, which is also called Zhujiang. It is in the city center, so it is very easy to see and visit.<br/><br/>The Guangzhou Tower looks very special. It has a slim waist shape, so local people like to call it “Xiaomanyao”. The design is very different from other buildings. At night, the tower becomes even more beautiful because it has many colorful lighting shows. In the evening, the lights change all the time, and many people stop to watch them.<br/><br/>The tower has many functions. People can buy a ticket and go up to the top of the tower. From there, they can enjoy the view of the whole city. Inside the tower, there are also many restaurants with a variety of food, so people can have meals there while enjoying the view.<br/><br/>Around the Guangzhou Tower, the area feels very lively, especially at night or during festivals. Many people like to take a walk under the tower, enjoy the river view, and spend time with friends or family.<br/><br/>I think the Guangzhou Tower is very interesting because it is not only a landmark building, but also a place for tourism, entertainment, and relaxation. That’s why it is one of my favorite buildings in Guangzhou.',
+	              },
 	            ],
 	          },
 	        ],
@@ -585,6 +595,20 @@ export const initialPart2Data_2026_01_04: TopicData[] = [
                 score: '5.0',
                 answer:
                   "Well, I’d like to talk about an event I attended where I didn’t enjoy the music. It was a wedding party of one of my old classmates. The wedding was held in a big hotel ballroom, and there was live music during the dinner.<br/><br/>I went there with my cousin, because she also knew the bride. We decided to go mainly because it was an important day for my classmate, and I wanted to show my support. Also, I hadn’t seen many of our old friends for a long time, so I thought it would be a good chance to meet people and chat.<br/><br/>However, I didn’t enjoy the music played there at all. The first reason was the volume. It was extremely loud, especially near the stage, and my ears felt uncomfortable after a while. When my cousin and I tried to talk, we had to shout, and it was really tiring. The second reason is that the songs were not my type. They played lots of noisy pop songs and some old-fashioned wedding songs. To be honest, I prefer softer music, like acoustic songs or light English pop.<br/><br/>Also, the singer wasn’t very professional. Sometimes he sang off key, and the sound system had an echo, so it didn’t sound clear. So even though the wedding itself was meaningful, the music made the atmosphere stressful, and I couldn’t really relax and enjoy the event.",
+                analysis: [
+                  { type: 'vocab', text: 'performance', explanation: 'n. 表演；演出' },
+                  { type: 'vocab', text: 'unfortunately', explanation: 'adv. 不幸的是' },
+                  { type: 'vocab', text: 'taste', explanation: 'n. 品味；喜好' },
+                  { type: 'phrase', text: 'heavy metal', explanation: 'n. 重金属（音乐）' },
+                  { type: 'vocab', text: 'atmosphere', explanation: 'n. 氛围' },
+                  { type: 'vocab', text: 'experience', explanation: 'n. 经历；体验' },
+                  { type: 'vocab', text: 'enjoyable', explanation: 'adj. 令人愉快的' },
+                ],
+              },
+              {
+                score: '5.0',
+                answer:
+                  "I’d like to describe a music festival that I didn’t enjoy.<br/><br/>I remember one day I went to a music festival with my friend. We found this event on the Internet and decided to go there because we both liked the same singer. That was the most important reason why we wanted to attend the festival.<br/><br/>However, when we arrived, the singer had already left, so he was not there anymore. We could only watch other singers’ performances. Unfortunately, their music was not our taste.<br/><br/>Most of the music at the festival was heavy metal. It was very loud and noisy for me. I couldn’t really enjoy it because the sound was too strong, and it even made me feel a little uncomfortable.<br/><br/>After we left the festival, we searched online to find out what type of music it was. Then I learned that it was called heavy metal. I realized that this kind of music is really not for me. I prefer softer and more relaxing music.<br/><br/>Although the festival had different kinds of music and many people seemed excited, I just felt bad and couldn’t enjoy the atmosphere. The most important reason was that the heavy metal music was too loud and sounded like noise to me.<br/><br/>So overall, it was an interesting experience, but it was not enjoyable for me.",
                 analysis: [
                   { type: 'vocab', text: 'performance', explanation: 'n. 表演；演出' },
                   { type: 'vocab', text: 'unfortunately', explanation: 'adv. 不幸的是' },
@@ -868,6 +892,11 @@ export const initialPart2Data_2026_01_04: TopicData[] = [
                   { type: 'phrase', text: 'better for the environment', explanation: 'phr. 更环保' },
                   { type: 'vocab', text: 'routine', explanation: 'n. 日常；作息；习惯' },
                 ],
+              },
+              {
+                score: '5.0',
+                answer:
+                  "I want to talk about something important in my life that I can’t live without. It is my bag.<br/><br/>This is a black bag that my brother gave me as a birthday gift, so it is very special to me. I use it almost every day.<br/><br/>The most important function of my bag is that it can contain many items. For example, I always put tissues, emergency items, and some daily necessities inside. My bag can also protect my important things like my identity card, notebook, and keys.<br/><br/>When I go to school or attend lectures, I always bring my bag with me. I usually carry my textbooks and iPad in it, which makes my study more convenient. Without my bag, it would be very difficult for me to organize my things.<br/><br/>I also take my bag when I go to restaurants or go out with friends. It is very useful because I can bring paper tissues and other small things, so I feel more prepared. Besides that, my bag is very helpful when I travel. I can put some clothes and personal items in it, and it saves me a lot of trouble. Because it is quite big, I don’t need to worry about not having enough space.<br/><br/>The reason why I can’t live without this bag is that it makes my life more organized and convenient. Also, every time I use it, it reminds me of my brother, so it has special meaning to me.<br/><br/>Overall, this bag is not just a daily necessity, but also an important part of my life.",
               },
             ],
           },

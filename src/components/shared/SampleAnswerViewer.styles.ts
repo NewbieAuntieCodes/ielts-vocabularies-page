@@ -33,6 +33,15 @@ export const AnswerHeader = styled.div`
     margin-bottom: 1rem;
 `;
 
+export const AnswerActions = styled.div`
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-shrink: 0;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+`;
+
 export const CopyButton = styled.button`
     display: flex;
     align-items: center;
@@ -161,59 +170,43 @@ export const AnswerQuestion = styled.p`
     flex-grow: 1;
 `;
 
-export const WordPanel = styled.section`
-    margin-top: 1rem;
-    border-radius: 16px;
-    border: 1px solid ${({ theme }) => theme.colors.border};
-    background-color: ${({ theme }) => theme.colors.bg};
-    box-shadow: 0 4px 12px ${({ theme }) => theme.colors.shadow};
-    overflow: hidden;
-`;
-
-export const WordPanelHeader = styled.header`
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 0.75rem;
-    padding: 0.85rem 1rem;
-    background-color: ${({ theme }) => theme.colors.cardBg};
-    border-bottom: 1px solid ${({ theme }) => theme.colors.border};
-`;
-
-export const WordPanelTitle = styled.h4`
-    margin: 0;
-    font-size: 1rem;
-    font-weight: 800;
-    color: ${({ theme }) => theme.colors.header};
-`;
-
-export const WordPanelToggle = styled.button`
+export const VersionNav = styled.div`
     display: inline-flex;
     align-items: center;
-    gap: 0.4rem;
+    gap: 0.35rem;
     background-color: ${({ theme }) => theme.colors.boxBg};
     border: 1px solid ${({ theme }) => theme.colors.border};
     border-radius: 9999px;
-    padding: 0.35rem 0.75rem;
-    font-size: 0.85rem;
-    font-weight: 700;
+    padding: 0.25rem 0.4rem;
     color: ${({ theme }) => theme.colors.label};
-    cursor: pointer;
-    transition: all 0.2s ease;
-    white-space: nowrap;
+`;
 
-    &:hover {
+export const VersionNavButton = styled.button`
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0.2rem;
+    border-radius: 9999px;
+    color: inherit;
+    transition: background-color 0.2s ease, color 0.2s ease;
+
+    &:hover:not(:disabled) {
         background-color: ${({ theme }) => theme.colors.border};
         color: ${({ theme }) => theme.colors.header};
     }
+
+    &:disabled {
+        cursor: default;
+        opacity: 0.5;
+    }
 `;
 
-export const WordPanelBody = styled.div`
-    padding: 1rem;
-`;
-
-export const WordCardsList = styled.div`
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
+export const VersionNavLabel = styled.span`
+    font-size: 0.8rem;
+    font-weight: 700;
+    white-space: nowrap;
+    padding: 0 0.2rem;
 `;

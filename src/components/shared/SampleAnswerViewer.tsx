@@ -1,14 +1,14 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { SampleAnswerData } from '../../types';
-import { CheckIcon, CopyIcon } from './Icons';
+import { CheckIcon, CopyIcon, PrevIcon, NextIcon } from './Icons';
 import AnalyzedText from './AnalyzedText';
-import AnalysisDetailCard from './AnalysisDetailCard';
 import { AnswerTier, compareTier, filterAllowedTiers, formatTierLabel, tierFromScore } from '../../utils/answerTiers';
 import {
     AnswersList,
     QAWrapper,
     NoAnswerMessage,
     AnswerHeader,
+    AnswerActions,
     CopyButton,
     ScoreSelector,
     ScoreButton,
@@ -16,12 +16,9 @@ import {
     AnswerQuestion,
     ViewerTopBar,
     CopyAllButton,
-    WordPanel,
-    WordPanelHeader,
-    WordPanelTitle,
-    WordPanelToggle,
-    WordPanelBody,
-    WordCardsList,
+    VersionNav,
+    VersionNavButton,
+    VersionNavLabel,
 } from './SampleAnswerViewer.styles';
 
 interface SampleAnswerViewerProps {
@@ -41,7 +38,7 @@ const SampleAnswerViewer: React.FC<SampleAnswerViewerProps> = ({
     const [selectedTier, setSelectedTier] = useState<AnswerTier>(lockedTier || initialTier);
     const [copyStatus, setCopyStatus] = useState<{ [key: number]: 'idle' | 'copied' }>({});
     const [copyAllStatus, setCopyAllStatus] = useState<'idle' | 'copied'>('idle');
-    const [wordPanelOpen, setWordPanelOpen] = useState<Record<number, boolean>>({});
+    const [variantIndexByQuestion, setVariantIndexByQuestion] = useState<Record<number, number>>({});
 
     const hasSampleAnswers = sampleAnswers && sampleAnswers.length > 0;
 
@@ -63,8 +60,8 @@ const SampleAnswerViewer: React.FC<SampleAnswerViewerProps> = ({
     
     useEffect(() => {
         setCopyStatus({});
-        setWordPanelOpen({});
         setCopyAllStatus('idle');
+        setVariantIndexByQuestion({});
     }, [selectedTier]);
 
     const currentTier = lockedTier
@@ -76,13 +73,14 @@ const SampleAnswerViewer: React.FC<SampleAnswerViewerProps> = ({
         return sampleAnswers.some((qa) => !qa.versions.some((v) => tierFromScore(v.score) === currentTier));
     }, [currentTier, sampleAnswers]);
 
-    const pickVersionForQA = (qa: SampleAnswerData) => {
+    const pickVersionForQA = (qa: SampleAnswerData, qaIndex: number) => {
         if (!qa.versions?.length) return null;
 
-        const versionsByTier = qa.versions.map((v) => ({
+        const versionsByTier = qa.versions.map((v, originalIndex) => ({
             ...v,
             _tier: tierFromScore(v.score),
             _scoreValue: Number.parseFloat(v.score),
+            _originalIndex: originalIndex,
         }));
 
         const sortedTiers = [...new Set(versionsByTier.map((v) => v._tier))].sort(compareTier);
@@ -97,13 +95,25 @@ const SampleAnswerViewer: React.FC<SampleAnswerViewerProps> = ({
             chosenTier = lower.length ? lower[lower.length - 1] : sortedTiers[0];
         }
 
-        const candidates = versionsByTier.filter((v) => v._tier === chosenTier);
-        candidates.sort((a, b) => (Number.isFinite(b._scoreValue) ? b._scoreValue : 0) - (Number.isFinite(a._scoreValue) ? a._scoreValue : 0));
-        return candidates[0] || null;
+        const candidates = versionsByTier
+            .filter((v) => v._tier === chosenTier)
+            .slice()
+            .sort((a, b) => {
+                const aScore = Number.isFinite(a._scoreValue) ? a._scoreValue : 0;
+                const bScore = Number.isFinite(b._scoreValue) ? b._scoreValue : 0;
+                if (bScore !== aScore) return bScore - aScore;
+                return a._originalIndex - b._originalIndex;
+            });
+
+        if (!candidates.length) return null;
+
+        const desiredVariantIndex = variantIndexByQuestion[qaIndex] || 0;
+        const safeIndex = ((desiredVariantIndex % candidates.length) + candidates.length) % candidates.length;
+        return candidates[safeIndex] || candidates[0] || null;
     };
 
     const handleCopy = (qa: SampleAnswerData, index: number) => {
-        const version = pickVersionForQA(qa);
+        const version = pickVersionForQA(qa, index);
         if (!version || !version.answer) return;
     
         const questionText = questionNumbering
@@ -159,7 +169,7 @@ const SampleAnswerViewer: React.FC<SampleAnswerViewerProps> = ({
 
         const allText = sampleAnswers
             .map((qa, index) => {
-                const version = pickVersionForQA(qa);
+                const version = pickVersionForQA(qa, index);
                 if (!version || !version.answer) return '';
 
                 const questionText = questionNumbering
@@ -267,7 +277,7 @@ const SampleAnswerViewer: React.FC<SampleAnswerViewerProps> = ({
 
             <AnswersList>
                 {sampleAnswers.map((qa, index) => {
-                    const version = pickVersionForQA(qa);
+                    const version = pickVersionForQA(qa, index);
                     if (!version) {
                         return (
                             <QAWrapper key={index}>
@@ -280,59 +290,82 @@ const SampleAnswerViewer: React.FC<SampleAnswerViewerProps> = ({
                             </QAWrapper>
                         );
                     }
-                    const wordCards = version?.analysis
-                        ? version.analysis.filter((item) => item.type === 'vocab' || item.type === 'phrase')
-                        : [];
-                    const isWordPanelOpen = !!wordPanelOpen[index];
+
+                    const candidatesForTier = qa.versions
+                        .map((v, originalIndex) => ({
+                            ...v,
+                            _tier: tierFromScore(v.score),
+                            _scoreValue: Number.parseFloat(v.score),
+                            _originalIndex: originalIndex,
+                        }))
+                        .filter((v) => v._tier === tierFromScore(version.score))
+                        .sort((a, b) => {
+                            const aScore = Number.isFinite(a._scoreValue) ? a._scoreValue : 0;
+                            const bScore = Number.isFinite(b._scoreValue) ? b._scoreValue : 0;
+                            if (bScore !== aScore) return bScore - aScore;
+                            return a._originalIndex - b._originalIndex;
+                        });
+
+                    const variantCount = candidatesForTier.length;
+                    const activeVariantIndex = variantCount
+                        ? ((variantIndexByQuestion[index] || 0) % variantCount + variantCount) % variantCount
+                        : 0;
+
                     return (
                         <QAWrapper key={index}>
                             <AnswerHeader>
                                 <AnswerQuestion>
                                     {questionNumbering ? questionNumbering(index, qa.question) : `${index + 1}. ${qa.question}`}
                                 </AnswerQuestion>
-                                <CopyButton onClick={() => handleCopy(qa, index)} disabled={copyStatus[index] === 'copied'} aria-label="复制范文">
-                                    {copyStatus[index] === 'copied' ? (
-                                        <>
-                                            <CheckIcon />
-                                            <span>已复制</span>
-                                        </>
-                                    ) : (
-                                        <>
-                                            <CopyIcon />
-                                            <span>复制</span>
-                                        </>
+                                <AnswerActions>
+                                    {variantCount > 1 && (
+                                        <VersionNav aria-label="范文版本切换">
+                                            <VersionNavButton
+                                                type="button"
+                                                onClick={() =>
+                                                    setVariantIndexByQuestion((prev) => ({
+                                                        ...prev,
+                                                        [index]: activeVariantIndex - 1,
+                                                    }))
+                                                }
+                                                aria-label="上一版本"
+                                            >
+                                                <PrevIcon />
+                                            </VersionNavButton>
+                                            <VersionNavLabel>
+                                                版本 {activeVariantIndex + 1}/{variantCount}
+                                            </VersionNavLabel>
+                                            <VersionNavButton
+                                                type="button"
+                                                onClick={() =>
+                                                    setVariantIndexByQuestion((prev) => ({
+                                                        ...prev,
+                                                        [index]: activeVariantIndex + 1,
+                                                    }))
+                                                }
+                                                aria-label="下一版本"
+                                            >
+                                                <NextIcon />
+                                            </VersionNavButton>
+                                        </VersionNav>
                                     )}
-                                </CopyButton>
+                                    <CopyButton onClick={() => handleCopy(qa, index)} disabled={copyStatus[index] === 'copied'} aria-label="复制范文">
+                                        {copyStatus[index] === 'copied' ? (
+                                            <>
+                                                <CheckIcon />
+                                                <span>已复制</span>
+                                            </>
+                                        ) : (
+                                            <>
+                                                <CopyIcon />
+                                                <span>复制</span>
+                                            </>
+                                        )}
+                                    </CopyButton>
+                                </AnswerActions>
                             </AnswerHeader>
                             {version ? (
                                <>
-                                   {wordCards.length > 0 && (
-                                       <WordPanel aria-label="单词卡">
-                                           <WordPanelHeader>
-                                               <WordPanelTitle>单词卡</WordPanelTitle>
-                                               <WordPanelToggle
-                                                   type="button"
-                                                   onClick={() =>
-                                                       setWordPanelOpen((prev) => ({
-                                                           ...prev,
-                                                           [index]: !prev[index],
-                                                       }))
-                                                   }
-                                               >
-                                                   {isWordPanelOpen ? '收起' : `展开（${wordCards.length}）`}
-                                               </WordPanelToggle>
-                                           </WordPanelHeader>
-                                           {isWordPanelOpen && (
-                                               <WordPanelBody>
-                                                   <WordCardsList>
-                                                       {wordCards.map((item, idx) => (
-                                                           <AnalysisDetailCard key={idx} item={item} />
-                                                       ))}
-                                                   </WordCardsList>
-                                               </WordPanelBody>
-                                           )}
-                                       </WordPanel>
-                                   )}
                                    <AnalyzedText answer={version.answer} analysis={version.analysis || []} />
                                </>
                             ) : (
