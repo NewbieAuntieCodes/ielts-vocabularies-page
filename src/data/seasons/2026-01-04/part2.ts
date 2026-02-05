@@ -949,7 +949,18 @@ export const initialPart2Data_2026_01_04: TopicData[] = [
           'Do you think successful movies should have well-known actors or actresses in leading roles?',
           'Why do people prefer to watch movies in the cinema?',
         ],
-        sampleAnswers: [],
+        sampleAnswers: [
+          {
+            question: 'Part 2: Describe a movie you watched and enjoyed recently',
+            versions: [
+              {
+                score: '5.0',
+                answer:
+                  "I’d like to talk about a movie I watched recently and really enjoyed. The movie is Avatar 3. I watched it about two weeks ago at a large cinema near my home. The cinema was very modern, and the screen was huge, so the visual effects looked very impressive.<br/><br/>I watched this movie with one of my close friends because we both like science fiction films. We bought some popcorn and drinks, and it felt like a relaxing weekend activity after a busy week of studying.<br/><br/>The movie is about the world of Pandora and the people who live there. In this new story, the main characters meet a new tribe, and they face different challenges. There are many exciting scenes, such as flying creatures, beautiful oceans, and some battles. The movie also shows the importance of protecting nature and working together with others.<br/><br/>I decided to watch this movie because I had already seen the previous Avatar films, and I was very curious about the new story. Also, many people were talking about it online, so I wanted to see if it was really that good.<br/><br/>I enjoyed this movie mainly because the pictures were amazing and very colorful. It felt like I was traveling to another world. The sound effects were also great, which made the movie more exciting. Even though the movie was quite long, I didn’t feel bored at all.<br/><br/>Overall, it was a very enjoyable experience, and I would definitely recommend it to my friends if they like action and science fiction movies.",
+              },
+            ],
+          },
+        ],
       },
       {
         id: '2026-01-04-p2-movie-disappointed',
