@@ -1,13 +1,11 @@
 
 import React, { useEffect, useState } from 'react';
-import { styled, css } from 'styled-components';
+import { styled } from 'styled-components';
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import { BackArrowIcon } from '../components/shared/Icons';
 import SampleAnswerViewer from '../components/shared/SampleAnswerViewer';
-import AIEvaluator from '../components/shared/AIEvaluator';
 import { getSeasonById, loadSeason, QuestionSeason } from '../data/seasons';
 import { useBandContext } from '../context/BandContext';
-import { tierToTargetBand } from '../utils/answerTiers';
 import { CueCardData } from '../types';
 import { getVocabTopicIdForSpeakingCardTitle } from '../utils/vocabAppBridge';
 
@@ -20,7 +18,6 @@ const AnalysisPage: React.FC = () => {
     const [seasonData, setSeasonData] = useState<QuestionSeason | null>(null);
     const [card, setCard] = useState<CueCardData | null>(null);
     const [isLoading, setIsLoading] = useState(false);
-    const [activeTab, setActiveTab] = useState<'sample' | 'ai'>('sample');
 
     useEffect(() => {
         if (!cardId) {
@@ -143,41 +140,23 @@ const AnalysisPage: React.FC = () => {
                 <h1>{card.title}{isPart2Card ? ' - Part 3 精讲' : ''}</h1>
             </PageHeader>
 
-            <TabNav>
-                <TabButton $active={activeTab === 'sample'} onClick={() => setActiveTab('sample')}>范文解析</TabButton>
-                <TabButton $active={activeTab === 'ai'} onClick={() => setActiveTab('ai')}>AI 练习评测</TabButton>
-            </TabNav>
-
             <main>
-                {activeTab === 'sample' ? (
-                    <AnswerContent>
-                         <AnswerContentHeader>
-                            <h4>{isPart2Card ? 'Part 3 范文精讲' : '范文精讲'}</h4>
-                        </AnswerContentHeader>
-                        {sampleAnswers.length > 0 ? (
-                            <SampleAnswerViewer 
-                                sampleAnswers={sampleAnswers}
-                                totalQuestions={totalQuestions}
-                                questionNumbering={getQuestionNumbering}
-                                vocabTopicId={vocabTopicId}
-                                lockedTier={tierToShow}
-                            />
-                        ) : (
-                            <p>暂无范文解析。</p>
-                        )}
-                    </AnswerContent>
-                ) : (
-                    <AIContent>
-                        <AnswerContentHeader>
-                            <h4>AI 模拟对话评测</h4>
-                            <small>基于 Google Gemini 高级模型提供个性化反馈</small>
-                        </AnswerContentHeader>
-                        <AIEvaluator 
-                            question={isPart2Card ? (card.part2Title || card.title) : (card.part1Questions?.[0] || card.title)} 
-                            targetBand={tierToTargetBand(tierToShow)}
+                <AnswerContent>
+                    <AnswerContentHeader>
+                        <h4>{isPart2Card ? 'Part 3 范文精讲' : '范文精讲'}</h4>
+                    </AnswerContentHeader>
+                    {sampleAnswers.length > 0 ? (
+                        <SampleAnswerViewer
+                            sampleAnswers={sampleAnswers}
+                            totalQuestions={totalQuestions}
+                            questionNumbering={getQuestionNumbering}
+                            vocabTopicId={vocabTopicId}
+                            lockedTier={tierToShow}
                         />
-                    </AIContent>
-                )}
+                    ) : (
+                        <p>暂无范文解析。</p>
+                    )}
+                </AnswerContent>
             </main>
         </PageContainer>
     );
@@ -210,29 +189,6 @@ const PageHeader = styled.header`
             font-size: 1.5rem;
             margin: 0 3.5rem;
         }
-    }
-`;
-
-const TabNav = styled.div`
-    display: flex;
-    gap: 1rem;
-    margin-bottom: 1.5rem;
-    border-bottom: 1px solid ${({ theme }) => theme.colors.border};
-`;
-
-const TabButton = styled.button<{ $active: boolean }>`
-    padding: 0.75rem 1.5rem;
-    background: none;
-    border: none;
-    border-bottom: 3px solid ${({ $active, theme }) => $active ? theme.colors.primaryBlue : 'transparent'};
-    color: ${({ $active, theme }) => $active ? theme.colors.header : theme.colors.label};
-    font-weight: 700;
-    cursor: pointer;
-    transition: all 0.2s;
-    font-size: 1rem;
-
-    &:hover {
-        color: ${({ theme }) => theme.colors.header};
     }
 `;
 
@@ -282,11 +238,6 @@ const AnswerContent = styled.div`
     @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
         padding: 1rem;
     }
-`;
-
-const AIContent = styled(AnswerContent)`
-    border-color: ${({ theme }) => theme.colors.primaryBlue};
-    background: linear-gradient(to bottom, #ffffff, #f9faff);
 `;
 
 const AnswerContentHeader = styled.div`
