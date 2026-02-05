@@ -965,6 +965,70 @@ export const initialPart2Data_2026_01_04: TopicData[] = [
               },
             ],
           },
+          {
+            question:
+              'What kinds of movies do you think are successful in your country?',
+            versions: [
+              {
+                score: '5.0',
+                answer:
+                  'I think action movies and comedy movies are very successful in my country. Many people like movies that are exciting and funny because they can help people relax after work or study. Also, movies with good stories and beautiful pictures often become popular. For example, some science fiction movies attract a lot of young people.',
+              },
+            ],
+          },
+          {
+            question: 'What are the factors that make a successful movie?',
+            versions: [
+              {
+                score: '5.0',
+                answer:
+                  'I believe there are several important factors. First, the story should be interesting so people will not feel bored. Second, the actors should perform well. Good acting can make the movie more real. Finally, special effects and music are also important because they can improve the watching experience.',
+              },
+            ],
+          },
+          {
+            question:
+              'Do Chinese people prefer to watch domestic movies or foreign movies?',
+            versions: [
+              {
+                score: '5.0',
+                answer:
+                  'I think Chinese people watch both, but in recent years, more people prefer domestic movies. Chinese movies are improving and becoming more professional. Also, domestic movies are easier to understand because they are closer to our culture. However, foreign movies, especially Hollywood films, are still popular because of their amazing special effects.',
+              },
+            ],
+          },
+          {
+            question:
+              'Do you think only well-known directors can create the best movies?',
+            versions: [
+              {
+                score: '5.0',
+                answer:
+                  'No, I don’t think so. Famous directors usually have more experience, so their movies are often high quality. But some young directors also have creative ideas and can make great movies. Sometimes new directors bring fresh styles that surprise the audience.',
+              },
+            ],
+          },
+          {
+            question:
+              'Do you think successful movies should have well-known actors or actresses in leading roles?',
+            versions: [
+              {
+                score: '5.0',
+                answer:
+                  'Well-known actors can help a movie become popular because they already have many fans. People may watch the movie just because of them. However, I think the story is more important. Even if the actors are not famous, a good movie can still be successful.',
+              },
+            ],
+          },
+          {
+            question: 'Why do people prefer to watch movies in the cinema?',
+            versions: [
+              {
+                score: '5.0',
+                answer:
+                  'I think the biggest reason is the atmosphere. The screen is much bigger, and the sound is much better than at home. Also, watching movies with other people makes it more exciting. For many people, going to the cinema is also a way to relax and spend time with friends or family.',
+              },
+            ],
+          },
         ],
       },
       {
