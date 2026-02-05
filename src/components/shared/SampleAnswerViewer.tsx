@@ -76,16 +76,78 @@ const SampleAnswerViewer: React.FC<SampleAnswerViewerProps> = ({
         return sampleAnswers.some((qa) => !qa.versions.some((v) => tierFromScore(v.score) === currentTier));
     }, [currentTier, sampleAnswers]);
 
+    const deriveHighlightVariants = (raw: string): string[] => {
+        const trimmed = (raw || '').trim();
+        if (!trimmed) return [];
+
+        const variants = new Set<string>([trimmed]);
+        const hasLetters = /[a-z]/i.test(trimmed);
+        if (!hasLetters) return [...variants];
+
+        const addPlural = (base: string) => {
+            const lower = base.toLowerCase();
+            if (!/^[a-z][a-z'-]*$/i.test(base)) return;
+            if (base[0] !== base[0].toLowerCase()) return;
+            if (lower.endsWith('ly')) return;
+            if (lower.endsWith('s')) return;
+            if (lower.endsWith('y') && !/[aeiou]y$/.test(lower)) {
+                variants.add(`${base.slice(0, -1)}ies`);
+                return;
+            }
+            if (/(s|x|z|ch|sh)$/i.test(lower)) {
+                variants.add(`${base}es`);
+                return;
+            }
+            variants.add(`${base}s`);
+        };
+
+        const parts = trimmed.split(/\s+/).filter(Boolean);
+        if (parts.length === 1) {
+            addPlural(parts[0]);
+        } else {
+            const last = parts[parts.length - 1];
+            const prefix = parts.slice(0, -1).join(' ');
+            const beforeCount = variants.size;
+            addPlural(last);
+            if (variants.size > beforeCount) {
+                // Replace the single-word plural we just added with the full-phrase plural.
+                // Example: "special effect" -> "special effects"
+                const lastPluralCandidates = Array.from(variants).filter((v) => v.toLowerCase() !== trimmed.toLowerCase());
+                for (const candidate of lastPluralCandidates) {
+                    if (candidate.toLowerCase() === last.toLowerCase() || candidate.toLowerCase() === `${last.toLowerCase()}s` || candidate.toLowerCase() === `${last.toLowerCase()}es` || candidate.toLowerCase().endsWith('ies')) {
+                        variants.delete(candidate);
+                        variants.add(`${prefix} ${candidate}`);
+                    }
+                }
+            }
+        }
+
+        return [...variants];
+    };
+
     const vocabHighlights: AnalysisData[] = useMemo(() => {
         if (!vocabTopicId) return [];
         const words = getVocabWordsForTopicId(vocabTopicId);
-        return words
-            .filter((w) => w?.word && typeof w.word === 'string')
-            .map((w) => ({
-                type: w.level === 'advanced' ? 'vocab' : 'phrase',
-                text: w.word,
-                explanation: w.definition || '',
-            }));
+        const seen = new Set<string>();
+        const results: AnalysisData[] = [];
+
+        for (const word of words) {
+            if (!word?.word || typeof word.word !== 'string') continue;
+            const type: AnalysisData['type'] = word.level === 'advanced' ? 'vocab' : 'phrase';
+            const variants = deriveHighlightVariants(word.word);
+            for (const v of variants) {
+                const key = v.trim().toLowerCase();
+                if (!key || seen.has(key)) continue;
+                seen.add(key);
+                results.push({
+                    type,
+                    text: v,
+                    explanation: word.definition || '',
+                });
+            }
+        }
+
+        return results;
     }, [vocabTopicId]);
 
     const pickVersionForQA = (qa: SampleAnswerData, qaIndex: number) => {
