@@ -599,7 +599,48 @@ export const initialPart1Data_2026_01_04: TopicData[] = [
           'When did you learn how to type on a keyboard?',
           'How do you improve your typing?',
         ],
-        sampleAnswers: [],
+        sampleAnswers: [
+          {
+            question: 'Do you prefer typing or handwriting?',
+            versions: [
+              {
+                score: '5.0',
+                answer:
+                  'I prefer typing because nowadays, most people are used to typing on screens. It’s more efficient and convenient.',
+              },
+            ],
+          },
+          {
+            question: 'Do you type on a desktop or laptop keyboard every day?',
+            versions: [
+              {
+                score: '5.0',
+                answer:
+                  'It depends. When I’m at work, I have to type on a laptop because I use my MacBook for work. But when I’m at home, I usually type on a desktop because I find it more convenient, especially since I have two screens.',
+              },
+            ],
+          },
+          {
+            question: 'When did you learn how to type on a keyboard?',
+            versions: [
+              {
+                score: '5.0',
+                answer:
+                  'I learned how to type in primary school, during computer science class. Back then, most families didn’t have computers, so I first learned to type at school where they had some computers available.',
+              },
+            ],
+          },
+          {
+            question: 'How do you improve your typing?',
+            versions: [
+              {
+                score: '5.0',
+                answer:
+                  'To improve my typing, I practice more. For example, chatting with friends on WeChat or QQ helps me type faster. Practice really does make perfect!',
+              },
+            ],
+          },
+        ],
       },
       {
         id: '2026-01-04-p1-reading',
