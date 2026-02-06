@@ -645,7 +645,18 @@ export const initialPart2Data_2026_01_04: TopicData[] = [
           "What games help develop children's imagination?",
           'How important is imagination to children?',
         ],
-        sampleAnswers: [],
+        sampleAnswers: [
+          {
+            question: 'Part 2: Describe a time you needed to use your imagination',
+            versions: [
+              {
+                score: '5.0',
+                answer:
+                  'I would like to talk about a time when I needed to use my imagination for a school project.<br/><br/>It happened about one year ago when my teacher asked us to design a “dream classroom.” We could not just copy a normal classroom, so we had to think of something creative and different.<br/><br/>I needed to use my imagination because I wanted my design to be special. I imagined a classroom with comfortable chairs, large windows, and smart boards on every wall. I also added a small relaxing area where students could read books or take a short break. In my design, the classroom had plants to make the air fresh and help students feel calm.<br/><br/>At first, it was a little difficult because I didn’t know where to start. I am not a very creative person, so I spent a lot of time thinking and searching for ideas online. But after that, it became easier and even fun. Once I started drawing, more ideas came into my mind.<br/><br/>In the end, my teacher liked my project and said it was practical and interesting. I felt very happy and proud of myself because I learned that imagination is important, not only for schoolwork but also for solving problems in daily life.<br/><br/>Since then, I have tried to think more creatively whenever I face challenges.',
+              },
+            ],
+          },
+        ],
       },
       {
         id: '2026-01-04-p2-give-advice',
@@ -669,7 +680,18 @@ export const initialPart2Data_2026_01_04: TopicData[] = [
           'Why do some people think it is better to ask for advice from friends than from parents?',
           'When would old people ask young people for advice?',
         ],
-        sampleAnswers: [],
+        sampleAnswers: [
+          {
+            question: 'Part 2: Describe a time when you gave advice to others',
+            versions: [
+              {
+                score: '5.0',
+                answer:
+                  'I would like to talk about a time when I gave advice to my best friend.<br/><br/>This happened about six months ago. My friend was having trouble with her studies because she spent too much time playing mobile games. As a result, her grades started to drop, and she felt very stressed before exams.<br/><br/>One day, she told me that she didn’t know how to improve her situation, so I decided to give her some advice. I suggested that she make a simple study plan and manage her time better. For example, I told her to finish her homework first and only play games after studying. I also advised her to turn off her phone while studying so she could stay focused.<br/><br/>I gave her this advice because I care about her and didn’t want to see her fall behind in school. Also, I had a similar problem before, and making a plan really helped me, so I wanted to share my experience with her.<br/><br/>Luckily, she listened to my advice. After a few weeks, she became more disciplined and her grades improved. She even thanked me for helping her.<br/><br/>I felt very happy and proud because my advice made a positive difference in her life. This experience also taught me that giving helpful advice can strengthen friendships.',
+              },
+            ],
+          },
+        ],
       },
       {
         id: '2026-01-04-p2-trip-by-bike-motorcycle-car',
