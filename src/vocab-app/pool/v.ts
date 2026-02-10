@@ -50,6 +50,13 @@ export const wordsV: Record<string, Word> = {
     example: 'She is versatile and can handle different kinds of tasks.',
     emoji: '🧰'
   },
+  'views': {
+    word: 'views',
+    phonetic: '/vjuːz/',
+    definition: '风景；景色；视野',
+    example: 'The room has great views of the city.',
+    emoji: '👀'
+  },
   'vacuum cleaner': {
     word: 'vacuum cleaner',
     phonetic: '/ˈvækjuːm ˈkliːnər/',

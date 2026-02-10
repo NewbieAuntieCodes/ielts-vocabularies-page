@@ -155,6 +155,13 @@ export const wordsR: Record<string, Word> = {
     example: 'Students are required to finish their homework on time.',
     emoji: '📋'
   },
+  'rule-free': {
+    word: 'rule-free',
+    phonetic: '/ˈruːl friː/',
+    definition: '没有规则的；不受规则约束的',
+    example: 'A totally rule-free classroom would be hard to manage.',
+    emoji: '🆓'
+  },
   'regulation': {
     word: 'regulation',
     phonetic: '/ˌreɡjuˈleɪʃn/',
@@ -210,6 +217,13 @@ export const wordsR: Record<string, Word> = {
     definition: '餐馆',
     example: 'We had dinner at a restaurant near the river.',
     emoji: '🍽️'
+  },
+  'reservation': {
+    word: 'reservation',
+    phonetic: '/ˌrezərˈveɪʃn/',
+    definition: '预定',
+    example: 'We made a reservation for a table for two at 7 PM.',
+    emoji: '📅'
   },
   'run-down': {
     word: 'run-down',

@@ -57,6 +57,20 @@ export const wordsM: Record<string, Word> = {
     example: 'There was a misunderstanding, but we cleared it up.', 
     emoji: '😕' 
   },
+  'misbehave': {
+    word: 'misbehave',
+    phonetic: '/ˌmɪsbɪˈheɪv/',
+    definition: '行为不端；捣乱',
+    example: 'Some kids misbehave when the teacher is not around.',
+    emoji: '😈'
+  },
+  'misleading': {
+    word: 'misleading',
+    phonetic: '/ˌmɪsˈliːdɪŋ/',
+    definition: '误导性的',
+    example: 'Some ads can be misleading, so I always read reviews first.',
+    emoji: '🎭'
+  },
   'make up': { 
     word: 'make up', 
     phonetic: '/meɪk ʌp/', 
@@ -84,6 +98,13 @@ export const wordsM: Record<string, Word> = {
     definition: '有意义的礼物',
     example: "A plant you've grown yourself can be a very meaningful gift.",
     emoji: '💝'
+  },
+  'memory': {
+    word: 'memory',
+    phonetic: '/ˈmeməri/',
+    definition: '记忆；记忆力',
+    example: 'Reading in English every day can improve your memory.',
+    emoji: '🧠'
   },
   'make the room feel alive': {
     word: 'make the room feel alive',
@@ -119,6 +140,27 @@ export const wordsM: Record<string, Word> = {
     definition: '保持体重',
     example: 'Healthy snacking can help you maintain weight.',
     emoji: '⚖️'
+  },
+  'marketing strategy': {
+    word: 'marketing strategy',
+    phonetic: '/ˈmɑːrkɪtɪŋ ˈstrætədʒi/',
+    definition: '营销策略',
+    example: 'A good marketing strategy can help a brand stand out.',
+    emoji: '📣'
+  },
+  'mid heel': {
+    word: 'mid heel',
+    phonetic: '/mɪd hiːl/',
+    definition: '中跟（鞋跟）',
+    example: 'Mid heels look elegant and are not too hard to walk in.',
+    emoji: '👠'
+  },
+  'mint': {
+    word: 'mint',
+    phonetic: '/mɪnt/',
+    definition: '薄荷；薄荷糖',
+    example: 'I like mint flavour because it feels refreshing.',
+    emoji: '🍃'
   },
   'major': {
     word: 'major',

@@ -120,6 +120,27 @@ export const wordsO: Record<string, Word> = {
     example: 'He is open-minded and enjoys learning from different cultures.',
     emoji: '🧠'
   },
+  'on sale': {
+    word: 'on sale',
+    phonetic: '/ɑːn seɪl/',
+    definition: '打折；促销中',
+    example: 'I bought these shoes because they were on sale.',
+    emoji: '🏷️'
+  },
+  'open-toed': {
+    word: 'open-toed',
+    phonetic: '/ˌoʊpən ˈtoʊd/',
+    definition: '露趾的（鞋）',
+    example: 'Open-toed sandals are popular in summer.',
+    emoji: '👡'
+  },
+  'oatmeal': {
+    word: 'oatmeal',
+    phonetic: '/ˈoʊtmiːl/',
+    definition: '燕麦粥；燕麦片（粥）',
+    example: 'I often have oatmeal for breakfast because it keeps me full.',
+    emoji: '🥣'
+  },
   'optimistic': {
     word: 'optimistic',
     phonetic: '/ˌɑːptɪˈmɪstɪk/',

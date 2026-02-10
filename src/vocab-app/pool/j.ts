@@ -49,5 +49,12 @@ export const wordsJ: Record<string, Word> = {
     definition: '果汁',
     example: 'I like fresh orange juice in the morning.',
     emoji: '🧃'
+  },
+  'jelly bean': {
+    word: 'jelly bean',
+    phonetic: '/ˈdʒeli biːn/',
+    definition: '果冻豆（糖果）',
+    example: 'I like jelly beans because they come in many flavours.',
+    emoji: '🍬'
   }
 };

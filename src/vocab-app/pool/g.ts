@@ -8,6 +8,13 @@ export const wordsG: Record<string, Word> = {
     example: 'I get along with my colleagues very well.', 
     emoji: '😊' 
   },
+  'get into trouble': {
+    word: 'get into trouble',
+    phonetic: '/ɡet ˈɪntuː ˈtrʌbl/',
+    definition: '惹上麻烦；陷入困境',
+    example: 'Try not to get into trouble at school.',
+    emoji: '⚠️'
+  },
   'generous': { 
     word: 'generous', 
     phonetic: '/ˈdʒenərəs/', 

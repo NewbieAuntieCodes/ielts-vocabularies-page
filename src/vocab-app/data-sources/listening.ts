@@ -16,6 +16,7 @@ import { rules } from '../data-rules';
 import { chocolate } from '../data-chocolate';
 import { snacks } from '../data-snacks';
 import { socialMedia } from '../data-social-media';
+import { cambridgeC11T1S1, cambridgeC11T2S1 } from '../data-cambridge-listening-c11';
 
 import { studyWork } from '../data-part1-01-study';
 import { hometown } from '../data-part1-02-hometown';
@@ -58,6 +59,11 @@ export const listeningIeltsTopics: IeltsTopic[] = [
         section: 'Part 2 & 3',
         subTopics: academicScenarios,
     },
+    {
+        title: 'Cambridge 精听：原文配套词汇',
+        section: 'Common',
+        subTopics: [cambridgeC11T1S1, cambridgeC11T2S1],
+    },
 ];
 
 export const listeningAllSubTopics: VocabData['allSubTopics'] = listeningIeltsTopics.flatMap(
@@ -86,4 +92,3 @@ export const listeningVocabData: VocabData = {
     allSubTopics: listeningAllSubTopics,
     filters: LISTENING_FILTERS,
 };
-

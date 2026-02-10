@@ -22,7 +22,9 @@ import { wordsT } from './t';
 import { wordsU } from './u';
 import { wordsV } from './v';
 import { wordsW } from './w';
+import { wordsX } from './x';
 import { wordsY } from './y';
+import { wordsZ } from './z';
 
 // 动态聚合所有词汇到一个对象中
 export const wordPool: Record<string, Word> = {
@@ -49,5 +51,7 @@ export const wordPool: Record<string, Word> = {
   ...wordsU,
   ...wordsV,
   ...wordsW,
+  ...wordsX,
   ...wordsY,
+  ...wordsZ,
 };

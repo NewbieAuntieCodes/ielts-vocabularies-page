@@ -57,6 +57,13 @@ export const wordsL: Record<string, Word> = {
     example: 'The bank gave him a loan to buy a car.', 
     emoji: '🏦' 
   },
+  'look for': {
+    word: 'look for',
+    phonetic: '/lʊk fɔːr/',
+    definition: '寻找；寻求',
+    example: 'I’m looking for a quiet place to study.',
+    emoji: '🔎'
+  },
   'learn': {
     word: 'learn',
     phonetic: '/lɜːrn/',
@@ -91,6 +98,20 @@ export const wordsL: Record<string, Word> = {
     definition: '布局；格局',
     example: 'I like the layout of this apartment.',
     emoji: '🧩'
+  },
+  'latest trend': {
+    word: 'latest trend',
+    phonetic: '/ˈleɪtɪst trend/',
+    definition: '最新潮流',
+    example: 'Some people buy shoes just to follow the latest trend.',
+    emoji: '📈'
+  },
+  'low heel': {
+    word: 'low heel',
+    phonetic: '/loʊ hiːl/',
+    definition: '低跟（鞋跟）',
+    example: 'Low heels are more comfortable for walking.',
+    emoji: '👠'
   },
   'light and airy': {
     word: 'light and airy',

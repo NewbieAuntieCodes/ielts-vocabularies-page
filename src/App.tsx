@@ -14,6 +14,10 @@ import InterviewVocabPage from './pages/InterviewVocabPage';
 import Part2BuilderPage from './pages/Part2BuilderPage';
 import ComingSoonPage from './pages/ComingSoonPage';
 import ListeningVocabPage from './pages/ListeningVocabPage';
+import ListeningStudyPage from './pages/ListeningStudyPage';
+import ReadingHomePage from './pages/ReadingHomePage';
+import ReadingStudyPage from './pages/ReadingStudyPage';
+import SentencePracticePage from './pages/SentencePracticePage';
 
 import { VocabularyProvider, useVocabulary } from './context/VocabularyContext';
 import { BandProvider } from './context/BandContext';
@@ -91,7 +95,9 @@ const App: React.FC = () => {
 
                         {/* Listening / Reading / Writing */}
                         <Route path="/listening" element={<ListeningVocabPage />} />
-                        <Route path="/reading" element={<AppWrapper><ComingSoonPage title="阅读 Reading" /></AppWrapper>} />
+                        <Route path="/listening/study" element={<AppWrapper><ListeningStudyPage /></AppWrapper>} />
+                        <Route path="/reading" element={<AppWrapper><ReadingHomePage /></AppWrapper>} />
+                        <Route path="/reading/study" element={<AppWrapper><ReadingStudyPage /></AppWrapper>} />
                         <Route path="/writing" element={<AppWrapper><ComingSoonPage title="写作 Writing" /></AppWrapper>} />
 
                         {/* Speaking vocab app */}
@@ -103,6 +109,7 @@ const App: React.FC = () => {
                             <Route path="/speaking" element={<SpeakingHomePage />} />
                             <Route path="/speaking/bank" element={<QuestionBankPage />} />
                             <Route path="/speaking/tips" element={<TipsPage />} />
+                            <Route path="/speaking/sentences" element={<SentencePracticePage />} />
                             <Route path="/speaking/scoring" element={<ScoringPage />} />
                             <Route path="/speaking/builder/part2" element={<Part2BuilderPage />} />
                             <Route path="/speaking/analysis/:seasonId/:cardId" element={<AnalysisPage />} />

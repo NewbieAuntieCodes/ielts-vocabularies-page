@@ -50,6 +50,13 @@ export const wordsT: Record<string, Word> = {
     example: 'The traffic is always heavy during rush hour.', 
     emoji: '🚗' 
   },
+  'tiring': {
+    word: 'tiring',
+    phonetic: '/ˈtaɪərɪŋ/',
+    definition: '累人的；令人疲惫的',
+    example: 'Moving house can be quite tiring.',
+    emoji: '🥱'
+  },
   'teeming with': { 
     word: 'teeming with', 
     phonetic: '/ˈtiːmɪŋ wɪθ/', 

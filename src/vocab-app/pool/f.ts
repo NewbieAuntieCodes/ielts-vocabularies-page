@@ -15,12 +15,26 @@ export const wordsF: Record<string, Word> = {
     example: 'There is a fine for overdue books.', 
     emoji: '💰' 
   },
+  'flat': {
+    word: 'flat',
+    phonetic: '/flæt/',
+    definition: '公寓（英式用法）',
+    example: 'I rent a small flat near my workplace.',
+    emoji: '🏠'
+  },
   'farm': {
     word: 'farm',
     phonetic: '/fɑːrm/',
     definition: '农场',
     example: 'My grandparents live on a farm and grow their own vegetables.',
     emoji: '🚜'
+  },
+  'fresh': {
+    word: 'fresh',
+    phonetic: '/freʃ/',
+    definition: '新鲜的；清新的',
+    example: 'I like to open the window to get some fresh air.',
+    emoji: '🍃'
   },
   'fresh air': {
     word: 'fresh air',

@@ -106,6 +106,20 @@ export const wordsS: Record<string, Word> = {
     example: 'My phone helps me stay connected with friends and family.',
     emoji: '🔗'
   },
+  'seldom': {
+    word: 'seldom',
+    phonetic: '/ˈseldəm/',
+    definition: '很少；不常',
+    example: 'I seldom eat fast food because I want to stay healthy.',
+    emoji: '🕰️'
+  },
+  'self-discipline': {
+    word: 'self-discipline',
+    phonetic: '/ˌself ˈdɪsəplɪn/',
+    definition: '自律',
+    example: 'Self-discipline helps me stick to a study plan.',
+    emoji: '🎯'
+  },
   'soil': {
     word: 'soil',
     phonetic: '/sɔɪl/',

@@ -141,6 +141,20 @@ export const wordsH: Record<string, Word> = {
     example: 'High-rise buildings dominate the skyline.',
     emoji: '🏢'
   },
+  'high heels': {
+    word: 'high heels',
+    phonetic: '/haɪ hiːlz/',
+    definition: '高跟鞋',
+    example: 'She wears high heels on special occasions.',
+    emoji: '👠'
+  },
+  'high boots': {
+    word: 'high boots',
+    phonetic: '/haɪ buːts/',
+    definition: '高筒靴',
+    example: 'High boots look great with a long coat in winter.',
+    emoji: '🥾'
+  },
   'historic architecture': {
     word: 'historic architecture',
     phonetic: '/hɪˈstɔːrɪk ˈɑːrkɪtektʃər/',

@@ -85,6 +85,13 @@ export const wordsP: Record<string, Word> = {
     example: 'I enjoy a peaceful walk in the park.', 
     emoji: '🕊️' 
   },
+  'prefer': {
+    word: 'prefer',
+    phonetic: '/prɪˈfɜːr/',
+    definition: '更喜欢；宁愿',
+    example: 'I prefer studying in the morning because my mind is fresher.',
+    emoji: '👍'
+  },
   'pack some food': {
     word: 'pack some food',
     phonetic: '/pæk sʌm fuːd/',

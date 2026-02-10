@@ -50,6 +50,13 @@ export const wordsA: Record<string, Word> = {
     example: 'A crowd of people gathered to watch the street performance.', 
     emoji: '👥' 
   },
+  'a bit': {
+    word: 'a bit',
+    phonetic: '/ə bɪt/',
+    definition: '有点；一点点',
+    example: 'I feel a bit tired today, so I want to rest early.',
+    emoji: '🤏'
+  },
   'amenities': { 
     word: 'amenities', 
     phonetic: '/əˈmiːnətiz/', 

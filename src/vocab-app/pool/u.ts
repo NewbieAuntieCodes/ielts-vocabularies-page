@@ -57,6 +57,13 @@ export const wordsU: Record<string, Word> = {
     example: 'He works well under pressure.',
     emoji: '⏳'
   },
+  'unfair': {
+    word: 'unfair',
+    phonetic: '/ʌnˈfer/',
+    definition: '不公平的',
+    example: 'It feels unfair when some people break the rules without any punishment.',
+    emoji: '⚖️'
+  },
   'ups and downs': {
     word: 'ups and downs',
     phonetic: '/ʌps ænd daʊnz/',

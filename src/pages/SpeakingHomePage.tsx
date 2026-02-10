@@ -36,6 +36,17 @@ const VocabularyIcon = () => (
     </svg>
 );
 
+const SentenceIcon = () => (
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <line x1="8" y1="6" x2="21" y2="6" />
+        <line x1="8" y1="12" x2="21" y2="12" />
+        <line x1="8" y1="18" x2="21" y2="18" />
+        <line x1="3" y1="6" x2="3.01" y2="6" />
+        <line x1="3" y1="12" x2="3.01" y2="12" />
+        <line x1="3" y1="18" x2="3.01" y2="18" />
+    </svg>
+);
+
 
 const HomePage: React.FC = () => {
     const navigate = useNavigate();
@@ -83,6 +94,18 @@ const HomePage: React.FC = () => {
                     <NavCardIcon><QuestionBankIcon /></NavCardIcon>
                     <h2>口语题库</h2>
                     <p>覆盖 Part 1/2/3 最新题目，包含完整问题列表与高质量参考范文。</p>
+                </NavCard>
+
+                <NavCard
+                    className="full-width-card"
+                    onClick={() => navigate({ pathname: '/speaking/sentences', search: location.search })}
+                    role="button"
+                    tabIndex={0}
+                    onKeyDown={(e) => (e.key === 'Enter' || e.key === ' ') && navigate({ pathname: '/speaking/sentences', search: location.search })}
+                >
+                    <NavCardIcon><SentenceIcon /></NavCardIcon>
+                    <h2>句型练习（表达结构）</h2>
+                    <p>面向学生的“句子结构 + 替换槽位”训练：先练结构，再填内容（先从 Travel 开始）。</p>
                 </NavCard>
 
                 <NavCard

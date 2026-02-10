@@ -36,6 +36,27 @@ export const wordsB: Record<string, Word> = {
     example: 'We have a small vegetable garden in our backyard.',
     emoji: '🏡'
   },
+  'balcony': {
+    word: 'balcony',
+    phonetic: '/ˈbælkəni/',
+    definition: '阳台',
+    example: 'I enjoy sitting on the balcony and enjoying the view.',
+    emoji: '🌅'
+  },
+  'brain': {
+    word: 'brain',
+    phonetic: '/breɪn/',
+    definition: '大脑',
+    example: 'Sleep helps your brain recover and improves your concentration.',
+    emoji: '🧠'
+  },
+  'beef balls': {
+    word: 'beef balls',
+    phonetic: '/biːf bɔːlz/',
+    definition: '牛肉丸',
+    example: 'Beef balls are a popular street food in some cities.',
+    emoji: '🍲'
+  },
   'bottled water': {
     word: 'bottled water',
     phonetic: '/ˈbɒtld ˈwɔːtər/',
