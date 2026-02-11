@@ -493,7 +493,50 @@ export const initialPart1Data_2026_01_04: TopicData[] = [
           'Do you like to take scenery pictures?',
           'What are the most beautiful sights you have seen while travelling?',
         ],
-        sampleAnswers: [],
+        sampleAnswers: [
+          {
+            question:
+              'Do you look out the window at the scenery when travelling by bus or car?',
+            versions: [
+              {
+                score: '6.0',
+                answer:
+                  'Yes, I do. I like looking out the window because I can relax and enjoy the scenery. Sometimes it also helps me forget my stress.',
+              },
+            ],
+          },
+          {
+            question: 'Do you prefer the mountains or the sea?',
+            versions: [
+              {
+                score: '6.0',
+                answer:
+                  'I prefer the sea because it makes me feel calm and relaxed. I enjoy listening to the sound of the waves, and the fresh air is very comfortable.',
+              },
+            ],
+          },
+          {
+            question: 'Do you like to take scenery pictures?',
+            versions: [
+              {
+                score: '6.0',
+                answer:
+                  'Yes, I like taking scenery pictures because I want to keep beautiful memories. When I look at the photos later, I can remember those happy moments.',
+              },
+            ],
+          },
+          {
+            question:
+              'What are the most beautiful sights you have seen while travelling?',
+            versions: [
+              {
+                score: '6.0',
+                answer:
+                  'The most beautiful sights I have seen are the beaches. The sky was very blue, and the water was very clear. It was peaceful, and I really enjoyed the experience.',
+              },
+            ],
+          },
+        ],
       },
       {
         id: '2026-01-04-p1-life-stages',
@@ -509,7 +552,68 @@ export const initialPart1Data_2026_01_04: TopicData[] = [
           'Do you enjoy being the age you are now?',
           'At what age do you think people are the happiest?',
         ],
-        sampleAnswers: [],
+        sampleAnswers: [
+          {
+            question: 'What did you often do with your friends in your childhood?',
+            versions: [
+              {
+                score: '6.0',
+                answer:
+                  'I often played games with my friends when I was a child. We liked running outside and talking together. Sometimes we also shared snacks. It was very fun and relaxing.',
+              },
+            ],
+          },
+          {
+            question: 'What do you think is the most important at the moment?',
+            versions: [
+              {
+                score: '6.0',
+                answer:
+                  'I think the most important thing for me now is improving myself. For example, I want to study harder and learn more skills, because it can help me have a better future.',
+              },
+            ],
+          },
+          {
+            question: 'Do you have any plans for the next five years?',
+            versions: [
+              {
+                score: '6.0',
+                answer:
+                  'Yes, I do. In the next five years, I hope I can have a stable job and improve my abilities. I also want to save some money and live a comfortable life.',
+              },
+            ],
+          },
+          {
+            question: 'How do people remember each stage of their lives?',
+            versions: [
+              {
+                score: '6.0',
+                answer:
+                  'I think people remember each stage of their lives through photos and videos. When they look at them, they can think about their past and remember many happy moments.',
+              },
+            ],
+          },
+          {
+            question: 'Do you enjoy being the age you are now?',
+            versions: [
+              {
+                score: '6.0',
+                answer:
+                  'Yes, I do. I enjoy my current age because I am young and full of energy. I can try many new things and have more possibilities.',
+              },
+            ],
+          },
+          {
+            question: 'At what age do you think people are the happiest?',
+            versions: [
+              {
+                score: '6.0',
+                answer:
+                  'I think people are happiest when they are young adults, because they have freedom and energy. They can choose their own life and follow their dreams.',
+              },
+            ],
+          },
+        ],
       },
       {
         id: '2026-01-04-p1-building',
@@ -654,7 +758,48 @@ export const initialPart1Data_2026_01_04: TopicData[] = [
           'When do you need to read carefully, and when not?',
           'Do you prefer scanning or detailed reading?',
         ],
-        sampleAnswers: [],
+        sampleAnswers: [
+          {
+            question: 'Do you like reading?',
+            versions: [
+              {
+                score: '5.0',
+                answer:
+                  'Yes, I do. I like reading because it helps me relax and learn new things. It also opens my mind and lets me understand the world better.',
+              },
+            ],
+          },
+          {
+            question: 'Do you prefer to read on paper or on a screen?',
+            versions: [
+              {
+                score: '5.0',
+                answer:
+                  'I prefer reading on paper because it is better for my eyes. Also, it helps me focus more, and I am not easily distracted by my phone.',
+              },
+            ],
+          },
+          {
+            question: 'When do you need to read carefully, and when not?',
+            versions: [
+              {
+                score: '5.0',
+                answer:
+                  'I need to read carefully when I study or read textbooks because I don’t want to miss important information. But when I read for fun, I don’t read very carefully. I just relax and enjoy the story.',
+              },
+            ],
+          },
+          {
+            question: 'Do you prefer scanning or detailed reading?',
+            versions: [
+              {
+                score: '5.0',
+                answer:
+                  'It depends. If I just want to get the main idea, I prefer scanning because it saves time. But if the information is important, I prefer detailed reading so I can understand it better.',
+              },
+            ],
+          },
+        ],
       },
     ],
   },
@@ -675,7 +820,60 @@ export const initialPart1Data_2026_01_04: TopicData[] = [
           'Where would you like to take a long walk if you had the chance?',
           'Where did you go for a walk lately?',
         ],
-        sampleAnswers: [],
+        sampleAnswers: [
+          {
+            question: 'Do you walk a lot?',
+            versions: [
+              {
+                score: '5.0',
+                answer:
+                  'Yes, I try to walk a lot because it is good for my health. Walking also helps me relax and clear my mind.',
+              },
+            ],
+          },
+          {
+            question:
+              'Did you often go outside to have a walk when you were a child?',
+            versions: [
+              {
+                score: '5.0',
+                answer:
+                  'Yes, when I was a child, I often went outside with my family or friends. We walked in the neighborhood and sometimes played together. It was very fun.',
+              },
+            ],
+          },
+          {
+            question: 'Why do people like to walk in parks?',
+            versions: [
+              {
+                score: '5.0',
+                answer:
+                  'I think people like walking in parks because there is a lot of fresh air and it is very peaceful. It is a good way to relax and forget stress.',
+              },
+            ],
+          },
+          {
+            question:
+              'Where would you like to take a long walk if you had the chance?',
+            versions: [
+              {
+                score: '5.0',
+                answer:
+                  'If I had the chance, I would like to walk by the sea because the view is beautiful and it makes me feel calm. I think it would be a very enjoyable experience.',
+              },
+            ],
+          },
+          {
+            question: 'Where did you go for a walk lately?',
+            versions: [
+              {
+                score: '5.0',
+                answer:
+                  'Recently, I went for a walk in a park near my home. The weather was nice, and the air was fresh, so I really enjoyed it.',
+              },
+            ],
+          },
+        ],
       },
       {
         id: '2026-01-04-p1-sports-team',
@@ -689,7 +887,54 @@ export const initialPart1Data_2026_01_04: TopicData[] = [
           'Do you like watching team games? Why?',
           'What are the differences between team sports and individual sports?',
         ],
-        sampleAnswers: [],
+        sampleAnswers: [
+          {
+            question: 'Have you ever been part of a sports team?',
+            versions: [
+              {
+                score: '5.0',
+                answer:
+                  'Yes, I have. I was part of a badminton team in school. It was a great experience because we practiced together and supported each other.',
+              },
+              {
+                score: '5.0',
+                answer:
+                  'Yes, I have. When I was in school, I joined a sports team for a short time. It was fun and helped me learn teamwork.',
+              },
+            ],
+          },
+          {
+            question: 'Are team sports popular in your culture?',
+            versions: [
+              {
+                score: '5.0',
+                answer:
+                  'Yes, team sports are very popular in my culture. Many people enjoy sports like basketball and football because they are exciting and more fun to play with others.',
+              },
+            ],
+          },
+          {
+            question: 'Do you like watching team games? Why?',
+            versions: [
+              {
+                score: '5.0',
+                answer:
+                  'Yes, I do. I like watching team games because they are exciting, and the teamwork is very interesting to watch. It also makes me feel relaxed.',
+              },
+            ],
+          },
+          {
+            question:
+              'What are the differences between team sports and individual sports?',
+            versions: [
+              {
+                score: '5.0',
+                answer:
+                  'I think the biggest difference is teamwork. In team sports, people need to cooperate and support each other. But in individual sports, you mainly depend on yourself.',
+              },
+            ],
+          },
+        ],
       },
     ],
   },
@@ -710,7 +955,58 @@ export const initialPart1Data_2026_01_04: TopicData[] = [
           'Do you think you are good at choosing gifts?',
           'What gift have you received recently?',
         ],
-        sampleAnswers: [],
+        sampleAnswers: [
+          {
+            question: 'Have you ever sent handmade gifts to others?',
+            versions: [
+              {
+                score: '5.0',
+                answer:
+                  'Yes, I have. I once made a handmade card for my friend. She was very happy, and it made me feel proud.',
+              },
+            ],
+          },
+          {
+            question: 'Have you ever received a great gift?',
+            versions: [
+              {
+                score: '5.0',
+                answer:
+                  'Yes, I have. My friend once gave me a doll, and I really liked it because it was cute and meaningful. I still keep it in my bedroom.',
+              },
+            ],
+          },
+          {
+            question: 'What do you consider when choosing a gift?',
+            versions: [
+              {
+                score: '5.0',
+                answer:
+                  'When choosing a gift, I usually think about the person’s interests. I want to choose something useful or meaningful so they will like it.',
+              },
+            ],
+          },
+          {
+            question: 'Do you think you are good at choosing gifts?',
+            versions: [
+              {
+                score: '5.0',
+                answer:
+                  'Yes, I think I am quite good at choosing gifts because I always try to understand what others like. When they are happy, I feel happy too.',
+              },
+            ],
+          },
+          {
+            question: 'What gift have you received recently?',
+            versions: [
+              {
+                score: '5.0',
+                answer:
+                  'Recently, I received a book from my friend. It was a surprise, and I really enjoyed it because I love reading.',
+              },
+            ],
+          },
+        ],
       },
     ],
   },
