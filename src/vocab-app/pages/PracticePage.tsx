@@ -6,13 +6,14 @@ import { SubTopic, Word } from '../data-types';
 import { speak } from '../utils/speech';
 import { useVocabData } from '../context/VocabDataContext';
 
-type GameMode = 'zh-to-en' | 'en-to-zh' | 'listening';
+type GameMode = 'zh-to-en' | 'en-to-zh' | 'listening' | 'spelling';
 
 // --- ICONS ---
 const BackArrowIcon = () => <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><line x1="19" y1="12" x2="5" y2="12" /><polyline points="12 19 5 12 12 5" /></svg>;
 const SpeakerIcon = () => <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" /><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07" /></svg>;
 const TranslateIcon = () => <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/><path d="M12 5V3M5 5.5V3H3m18 18v-2.5m-3.5 2.5h2.5v-2.5M12 19v2m-1.5-11-5-5m0 5 5-5"/></svg>;
 const SoundIcon = () => <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" /><path d="M15.54 8.46a5 5 0 0 1 0 7.07" /></svg>;
+const KeyboardIcon = () => <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20 16V8a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2Z" /><path d="M6 10h.01" /><path d="M10 10h.01" /><path d="M14 10h.01" /><path d="M18 10h.01" /><path d="M8 14h.01" /><path d="M12 14h.01" /><path d="M16 14h.01" /><path d="M7 18h10" /></svg>;
 
 // --- HELPER FUNCTIONS ---
 const shuffleArray = <T,>(array: T[]): T[] => array.sort(() => Math.random() - 0.5);
@@ -41,7 +42,10 @@ const createGameQuestions = (topic: SubTopic, mode: GameMode, distractorWords: W
     
     return shuffledWords.map(correctWord => {
         const desiredOptionCount = 4;
-        const correctOption = mode === 'en-to-zh' ? correctWord.definition : correctWord.word;
+        const correctOption =
+            mode === 'en-to-zh' || mode === 'listening'
+                ? correctWord.definition
+                : correctWord.word;
         const optionsSet = new Set<string>([correctOption]);
 
         const candidateWords = shuffleArray(
@@ -49,7 +53,10 @@ const createGameQuestions = (topic: SubTopic, mode: GameMode, distractorWords: W
         );
 
         for (const candidate of candidateWords) {
-            const optionValue = mode === 'en-to-zh' ? candidate.definition : candidate.word;
+            const optionValue =
+                mode === 'en-to-zh' || mode === 'listening'
+                    ? candidate.definition
+                    : candidate.word;
             if (!optionValue) continue;
             if (optionValue === correctOption) continue;
             optionsSet.add(optionValue);
@@ -75,8 +82,14 @@ const createGameQuestions = (topic: SubTopic, mode: GameMode, distractorWords: W
 
             case 'listening':
                 prompt = correctWord.word;
-                answer = correctWord.word;
+                answer = correctWord.definition;
                 options = shuffleArray(Array.from(optionsSet));
+                break;
+
+            case 'spelling':
+                prompt = correctWord.word;
+                answer = correctWord.word;
+                options = [];
                 break;
         }
 
@@ -103,6 +116,9 @@ const Game: React.FC<GameProps> = ({ topic, gameMode, onGameChange, distractorWo
     const [selectedOption, setSelectedOption] = useState<string | null>(null);
     const [isCorrect, setIsCorrect] = useState<boolean | null>(null);
     const [autoAdvanceEnabled, setAutoAdvanceEnabled] = useState(true);
+    const [typedAnswer, setTypedAnswer] = useState('');
+    const [submittedAnswer, setSubmittedAnswer] = useState<string | null>(null);
+    const answerInputRef = React.useRef<HTMLInputElement | null>(null);
 
     const resetGame = useCallback(() => {
         const newQuestions = createGameQuestions(topic, gameMode, distractorWords);
@@ -110,6 +126,8 @@ const Game: React.FC<GameProps> = ({ topic, gameMode, onGameChange, distractorWo
         setTotalQuestions(newQuestions.length);
         setSelectedOption(null);
         setIsCorrect(null);
+        setTypedAnswer('');
+        setSubmittedAnswer(null);
     }, [topic, gameMode, distractorWords]);
 
     useEffect(() => {
@@ -121,12 +139,21 @@ const Game: React.FC<GameProps> = ({ topic, gameMode, onGameChange, distractorWo
     const nextMode: GameMode | null =
         gameMode === 'en-to-zh' ? 'zh-to-en' :
         gameMode === 'zh-to-en' ? 'listening' :
+        gameMode === 'listening' ? 'spelling' :
         null;
     
     useEffect(() => {
-        if ((gameMode === 'listening' || gameMode === 'en-to-zh') && currentQuestion) {
+        if ((gameMode === 'listening' || gameMode === 'en-to-zh' || gameMode === 'spelling') && currentQuestion) {
             speak(currentQuestion.prompt);
         }
+    }, [currentQuestion, gameMode]);
+
+    useEffect(() => {
+        if (gameMode !== 'spelling') return;
+        if (!currentQuestion) return;
+        setTypedAnswer('');
+        setSubmittedAnswer(null);
+        requestAnimationFrame(() => answerInputRef.current?.focus());
     }, [currentQuestion, gameMode]);
 
     useEffect(() => {
@@ -140,7 +167,7 @@ const Game: React.FC<GameProps> = ({ topic, gameMode, onGameChange, distractorWo
 
     // Hooks must not be conditionally skipped (avoid React #310).
     const optionWordByOption = useMemo(() => {
-        if (gameMode !== 'en-to-zh') return new Map<string, Word>();
+        if (gameMode !== 'en-to-zh' && gameMode !== 'listening') return new Map<string, Word>();
 
         const map = new Map<string, Word>();
         const combinedWords = [
@@ -157,7 +184,7 @@ const Game: React.FC<GameProps> = ({ topic, gameMode, onGameChange, distractorWo
     }, [distractorWords, gameMode, topic]);
 
     const shouldShowOptionEmoji = useMemo(() => {
-        if (gameMode !== 'en-to-zh') return false;
+        if (gameMode !== 'en-to-zh' && gameMode !== 'listening') return false;
         if (!currentQuestion?.options?.length) return false;
         return currentQuestion.options.every((option) => {
             const found = optionWordByOption.get(option);
@@ -167,6 +194,7 @@ const Game: React.FC<GameProps> = ({ topic, gameMode, onGameChange, distractorWo
     
     const handleOptionClick = (option: string) => {
         if (selectedOption) return;
+        if (gameMode === 'spelling') return;
 
         const correct = option === currentQuestion.answer;
         setSelectedOption(option);
@@ -190,6 +218,37 @@ const Game: React.FC<GameProps> = ({ topic, gameMode, onGameChange, distractorWo
         }, 300);
     };
 
+    const normalizeSpelling = (value: string) => value.trim().toLowerCase().replace(/\s+/g, ' ');
+
+    const submitSpelling = () => {
+        if (gameMode !== 'spelling') return;
+        if (!currentQuestion) return;
+        if (submittedAnswer) return;
+
+        const submitted = typedAnswer;
+        const correct = normalizeSpelling(submitted) === normalizeSpelling(currentQuestion.answer);
+        setSubmittedAnswer(submitted);
+        setIsCorrect(correct);
+
+        setTimeout(() => {
+            if (correct) {
+                setQuestionQueue((q) => q.slice(1));
+            } else {
+                setQuestionQueue((q) => {
+                    if (q.length <= 1) return [...q];
+                    const queue = [...q];
+                    const failedQuestion = queue.shift()!;
+                    failedQuestion.isRetry = true;
+                    queue.splice(1, 0, failedQuestion);
+                    return queue;
+                });
+            }
+            setTypedAnswer('');
+            setSubmittedAnswer(null);
+            setIsCorrect(null);
+        }, 1100);
+    };
+
     if ((topic.words || []).length === 0) {
         return <GameCard><GameContent><p>请至少选择一个单词开始练习！</p></GameContent></GameCard>
     }
@@ -200,7 +259,11 @@ const Game: React.FC<GameProps> = ({ topic, gameMode, onGameChange, distractorWo
                 <h2>练习完成!</h2>
                 {nextMode && (
                     <p>
-                        {gameMode === 'en-to-zh' ? '英选中完成，准备开始中选英…' : '中选英完成，准备开始听音辨词…'}
+                        {gameMode === 'en-to-zh'
+                            ? '英选中完成，准备开始中选英…'
+                            : gameMode === 'zh-to-en'
+                                ? '中选英完成，准备开始听音选中文…'
+                                : '听音选中文完成，准备开始听音拼写…'}
                     </p>
                 )}
                 <ResultsActions>
@@ -234,7 +297,7 @@ const Game: React.FC<GameProps> = ({ topic, gameMode, onGameChange, distractorWo
                 <ProgressBar style={{ width: `${progress}%` }} />
             </ProgressBarContainer>
             <GameContent>
-                {gameMode === 'listening' ? (
+                {gameMode === 'listening' || gameMode === 'spelling' ? (
                     <ListenPromptContainer>
                         <ListenButton onClick={() => speak(currentQuestion.prompt)} aria-label="Play sound">
                             <SpeakerIcon />
@@ -251,29 +314,68 @@ const Game: React.FC<GameProps> = ({ topic, gameMode, onGameChange, distractorWo
                     </QuestionPrompt>
                 )}
 
-                <OptionsGrid $isLongText={gameMode === 'en-to-zh'}>
-                    {currentQuestion.options.map(option => {
-                        const wordObject =
-                            shouldShowOptionEmoji && gameMode === 'en-to-zh'
-                                ? optionWordByOption.get(option)
-                                : undefined;
-                        return (
-                            <OptionButton 
-                                key={option} 
-                                onClick={() => handleOptionClick(option)}
-                                disabled={!!selectedOption}
-                                $state={getButtonState(option)}
+                {gameMode === 'spelling' ? (
+                    <SpellPanel>
+                        <SpellInput
+                            ref={answerInputRef}
+                            value={typedAnswer}
+                            onChange={(e) => setTypedAnswer(e.target.value)}
+                            onKeyDown={(e) => {
+                                if (e.key !== 'Enter') return;
+                                e.preventDefault();
+                                submitSpelling();
+                            }}
+                            disabled={!!submittedAnswer}
+                            placeholder="输入你听到的英文单词"
+                            autoComplete="off"
+                            spellCheck={false}
+                        />
+                        <SpellActions>
+                            <SpellButton
+                                onClick={submitSpelling}
+                                disabled={!typedAnswer.trim() || !!submittedAnswer}
                             >
-                                {wordObject && (
-                                    <EmojiOption>
-                                        {wordObject.emoji.startsWith('http') ? <img src={wordObject.emoji} alt="" /> : wordObject.emoji}
-                                    </EmojiOption>
-                                )}
-                                <span>{option}</span>
-                            </OptionButton>
-                        )
-                    })}
-                </OptionsGrid>
+                                提交
+                            </SpellButton>
+                            <SpellSecondaryButton
+                                onClick={() => speak(currentQuestion.prompt)}
+                                disabled={!!submittedAnswer}
+                            >
+                                再听一次
+                            </SpellSecondaryButton>
+                        </SpellActions>
+
+                        {submittedAnswer !== null && isCorrect !== null && (
+                            <SpellFeedback $correct={isCorrect}>
+                                {isCorrect ? '正确！' : `错误：正确答案是 “${currentQuestion.answer}”`}
+                            </SpellFeedback>
+                        )}
+                    </SpellPanel>
+                ) : (
+                    <OptionsGrid $isLongText={gameMode === 'en-to-zh' || gameMode === 'listening'}>
+                        {currentQuestion.options.map(option => {
+                            const wordObject =
+                                shouldShowOptionEmoji
+                                    ? optionWordByOption.get(option)
+                                    : undefined;
+                            return (
+                                <OptionButton 
+                                    key={option} 
+                                    onClick={() => handleOptionClick(option)}
+                                    disabled={!!selectedOption}
+                                    $state={getButtonState(option)}
+                                >
+                                    {wordObject && (
+                                        <EmojiOption>
+                                            {wordObject.emoji.startsWith('http') ? <img src={wordObject.emoji} alt="" /> : wordObject.emoji}
+                                        </EmojiOption>
+                                    )}
+                                    <span>{option}</span>
+                                </OptionButton>
+                            )
+                        })}
+                    </OptionsGrid>
+                )}
             </GameContent>
         </GameCard>
     );
@@ -332,7 +434,10 @@ const PracticePage: React.FC<{
                         <TranslateIcon /> 中选英
                     </TabButton>
                     <TabButton $active={gameMode === 'listening'} onClick={() => setGameMode('listening')}>
-                        <SoundIcon /> 听音辨词
+                        <SoundIcon /> 听音选中文
+                    </TabButton>
+                    <TabButton $active={gameMode === 'spelling'} onClick={() => setGameMode('spelling')}>
+                        <KeyboardIcon /> 听音拼写
                     </TabButton>
                 </GameTabs>
 
@@ -716,6 +821,102 @@ const OptionButton = styled.button<{ $state: 'default' | 'correct' | 'incorrect'
             flex-shrink: 0;
         }
     }
+`;
+
+const SpellPanel = styled.div`
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+`;
+
+const SpellInput = styled.input`
+    width: 100%;
+    font-family: inherit;
+    font-size: 1.35rem;
+    font-weight: 700;
+    padding: 1.1rem 1.25rem;
+    border-radius: 18px;
+    border: 2px solid ${({ theme }) => theme.colors.border};
+    background-color: ${({ theme }) => theme.colors.cardBg};
+    color: ${({ theme }) => theme.colors.header};
+    box-shadow: ${({ theme }) => theme.shadows.subtle};
+    outline: none;
+    transition: all 0.2s ease;
+
+    &:focus {
+        border-color: ${({ theme }) => theme.colors.practice};
+        box-shadow: ${({ theme }) => theme.shadows.main};
+    }
+
+    &:disabled {
+        opacity: 0.7;
+        cursor: not-allowed;
+    }
+`;
+
+const SpellActions = styled.div`
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+`;
+
+const SpellButton = styled.button`
+    font-family: inherit;
+    font-size: 1.05rem;
+    font-weight: 700;
+    padding: 0.85rem 1.5rem;
+    border-radius: 9999px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: 1px solid transparent;
+    background-color: ${({ theme }) => theme.colors.practice};
+    color: white;
+
+    &:hover:not(:disabled) {
+        transform: translateY(-1px);
+        box-shadow: ${({ theme }) => theme.shadows.main};
+    }
+
+    &:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+    }
+`;
+
+const SpellSecondaryButton = styled.button`
+    font-family: inherit;
+    font-size: 1.05rem;
+    font-weight: 700;
+    padding: 0.85rem 1.5rem;
+    border-radius: 9999px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: 2px solid ${({ theme }) => theme.colors.border};
+    background-color: ${({ theme }) => theme.colors.cardBg};
+    color: ${({ theme }) => theme.colors.text};
+
+    &:hover:not(:disabled) {
+        transform: translateY(-1px);
+        background-color: ${({ theme }) => theme.colors.boxBg};
+        box-shadow: ${({ theme }) => theme.shadows.subtle};
+    }
+
+    &:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+    }
+`;
+
+const SpellFeedback = styled.div<{ $correct: boolean }>`
+    font-size: 1.05rem;
+    font-weight: 700;
+    padding: 0.9rem 1.1rem;
+    border-radius: 16px;
+    border: 2px solid ${({ theme, $correct }) => $correct ? theme.colors.learn : theme.colors.games};
+    background-color: ${({ theme, $correct }) => $correct ? theme.colors.tagGreenBg : '#fff1f2'};
+    color: ${({ theme, $correct }) => $correct ? theme.colors.tagGreenText : theme.colors.games};
+    text-align: center;
 `;
 
 const ResultsContainer = styled.div`
