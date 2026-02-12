@@ -1017,7 +1017,23 @@ export const initialPart2Data_2026_01_04: TopicData[] = [
           "Do you think it is rich people's responsibility to donate money to people in need?",
           'What kind of things are people happy to pay a high price for?',
         ],
-        sampleAnswers: [],
+        sampleAnswers: [
+          {
+            question: 'Part 2: Describe an item on which you spent more than expected',
+            versions: [
+              {
+                score: '5.5',
+                answer:
+                  'I’d like to talk about my mobile phone, which is an iPhone that cost me around 8,000 yuan. It was definitely more expensive than I had planned.<br/><br/>The main reason I bought it was that my old phone could no longer be used properly. It often froze, the battery drained very quickly, and it even shut down by itself sometimes. So I felt it was time to replace it with a new one.<br/><br/>Another reason I chose this phone was its appearance. It looks very stylish and modern, and I was immediately attracted to its design. Besides that, it has many useful functions. The camera quality is excellent, so I can take very clear and beautiful photos. It also runs very smoothly when I play games, which greatly improves my overall experience.<br/><br/>I think I spent more than expected mainly because of the advertisements. The commercials made the phone look extremely impressive, highlighting its powerful features and fashionable design. After watching them, I was convinced that it was worth the price, even though it was slightly beyond my budget.<br/><br/>Looking back, although it was quite expensive, I still believe it was a good investment because I use my phone every day for communication, entertainment, and even study. So overall, I don’t regret buying it.',
+              },
+              {
+                score: '5.0',
+                answer:
+                  'The item I want to talk about is my phone. I bought it about one year ago, and it cost me around ￥8000. It was very expensive, and actually it was more than I expected to spend at that time.<br/><br/>I decided to buy it because my old phone could not work very well. But also, I saw its advertisement on TV and online. The advertisement made the phone look very attractive, and I really wanted it. Many of my friends also bought the same phone, so I thought it would be good to have one too.<br/><br/>The phone is very beautiful, and it has many useful functions. I like taking pictures in my daily life, and the camera is very strong, so I can take clear and nice photos. I also enjoy playing games on it because it works very smoothly. Sometimes I use it to chat with friends or listen to music, and it makes me feel happy.<br/><br/>However, now I feel a little regret because it was really expensive. Maybe it wasn’t completely necessary to spend so much money on myself. But at the same time, I do like using it every day, so I think it was still worth buying in some ways. Overall, this phone is useful and fun, even though I spent more than I expected.',
+              },
+            ],
+          },
+        ],
       },
       {
         id: '2026-01-04-p2-technology-product-not-phone',
