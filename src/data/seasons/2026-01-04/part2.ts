@@ -1033,6 +1033,67 @@ export const initialPart2Data_2026_01_04: TopicData[] = [
               },
             ],
           },
+          {
+            question: 'Do you often buy more than you expected?',
+            versions: [
+              {
+                score: '5.0',
+                answer:
+                  'No, I usually try to buy only what I need. I like to plan before shopping so I don’t waste money.',
+              },
+            ],
+          },
+          {
+            question: 'What do you think young people spend most of their money on?',
+            versions: [
+              {
+                score: '5.0',
+                answer:
+                  'I think young people usually spend money on things like clothes, electronics, and food.<br/><br/>Many also spend on entertainment, such as movies, games, or going out with friends.<br/><br/>Sometimes, they spend on travel or hobbies too.',
+              },
+            ],
+          },
+          {
+            question: 'Do you think it is important to save money? Why?',
+            versions: [
+              {
+                score: '5.0',
+                answer:
+                  'Yes, I think it is very important. Saving money helps people deal with emergencies or unexpected problems.<br/><br/>Also, saving money allows people to buy big things in the future, like a house or a car.',
+              },
+            ],
+          },
+          {
+            question: "Do people buy things they don't need?",
+            versions: [
+              {
+                score: '5.0',
+                answer:
+                  'Yes, sometimes they do. For example, ads and discounts can make people want to buy more.<br/><br/>Also, some people shop to feel happier or reduce stress, even if the things are not necessary.',
+              },
+            ],
+          },
+          {
+            question:
+              "Do you think it is rich people's responsibility to donate money to people in need?",
+            versions: [
+              {
+                score: '5.0',
+                answer:
+                  'I think rich people can help if they want to, but it is not their strict responsibility.<br/><br/>Of course, donating can improve society and help poor people, so it is a kind and positive thing to do.',
+              },
+            ],
+          },
+          {
+            question: 'What kind of things are people happy to pay a high price for?',
+            versions: [
+              {
+                score: '5.0',
+                answer:
+                  'People are usually happy to pay more for things that are high quality or useful.<br/><br/>For example, good clothes, electronic devices, or healthy food.<br/><br/>Also, people may pay more for experiences, like travel, concerts, or special events.',
+              },
+            ],
+          },
         ],
       },
       {
