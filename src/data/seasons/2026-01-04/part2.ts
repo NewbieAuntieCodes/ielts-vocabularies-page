@@ -858,7 +858,87 @@ export const initialPart2Data_2026_01_04: TopicData[] = [
           'Why do more people own and drive private cars now?',
           'What do you think of the future of electric cars?',
         ],
-        sampleAnswers: [],
+        sampleAnswers: [
+          {
+            question:
+              'Part 2: Describe a bicycle/motorcycle/car trip you would like to go',
+            versions: [
+              {
+                score: '5.5',
+                answer:
+                  'I’d like to talk about a bicycle trip that I really want to take with one of my close friends. We both enjoy outdoor activities, but recently we’ve been busy with our studies, so we haven’t had much time to relax. That’s why I think a cycling trip would be a perfect way for us to take a break and spend some quality time together.<br/><br/>The place I would like to go is a large park not far from the city. It has wide cycling paths, lots of trees, and a beautiful lake in the center. The environment is very peaceful, and the air is much fresher than in downtown areas. While riding our bikes, we could enjoy the natural scenery, listen to birds, and maybe even stop for a picnic.<br/><br/>I’d prefer to go in early autumn because the weather is cool and comfortable—not too hot and not too cold. It would make the whole trip much more enjoyable, especially since cycling can be tiring in extreme temperatures.<br/><br/>The main reason I want to go by bicycle is that it allows us to slow down and truly appreciate our surroundings. Unlike traveling by car, cycling gives us more freedom to stop whenever we want, take photos, or simply rest. It’s also a great form of exercise, so it benefits both our physical and mental health.<br/><br/>Overall, I think this bicycle trip would be relaxing, healthy, and memorable, and it would give us a great opportunity to strengthen our friendship.',
+              },
+              {
+                score: '5.0',
+                answer:
+                  'I want to describe a bicycle trip I had with my best friend, Jason. He is my classmate at school, and we both enjoy riding bikes, so it’s always nice to go cycling together.<br/><br/>We went to a park near our city during the summer holiday last year. The park was very quiet, with only a few people around, and the air was fresh, which made it very comfortable to breathe. The scenery there was also beautiful, so while riding, we could enjoy many lovely views.<br/><br/>Although summer can be very hot, riding a bike actually made us feel cool because of the wind. It was a very comfortable and enjoyable experience for both of us.<br/><br/>I really like bicycle trips because they provide great exercise and help make my body stronger. On that day, I even competed with my friend while riding, but he always beat me! Still, that made the trip more fun and exciting.<br/><br/>More importantly, the trip helped me relax and reduce my stress. Before that, I hadn’t done well in my final exam, so I felt quite upset. Jason suggested going on this bicycle trip to cheer me up, and after the ride, I felt much better and forgot about my sadness.<br/><br/>Overall, it was a relaxing and memorable experience, and it reminded me how important it is to spend time outdoors with good friends.',
+              },
+            ],
+          },
+          {
+            question:
+              'Which form of vehicle is more popular in your country, bikes, cars or motorcycles?',
+            versions: [
+              {
+                score: '5.0',
+                answer:
+                  'In my country, motorcycles are quite popular, especially in busy cities. They are affordable and easier to park compared to cars.<br/><br/>Also, motorcycles can move through traffic more quickly, which helps people save time during rush hour.<br/><br/>For short daily trips, many people find them very practical.',
+              },
+            ],
+          },
+          {
+            question: 'Do you think air pollution comes mostly from mobile vehicles?',
+            versions: [
+              {
+                score: '5.0',
+                answer:
+                  'I think vehicles do have some impact on air pollution, but they are not the main cause.<br/><br/>In many areas, pollution mainly comes from factories. The smoke and industrial waste they produce can seriously damage air quality.<br/><br/>Compared to that, emissions from vehicles are only part of the problem. So it is important to control both industrial pollution and traffic emissions.',
+              },
+            ],
+          },
+          {
+            question:
+              'Do you think people need to change the way of transportation drastically to protect the environment?',
+            versions: [
+              {
+                score: '5.0',
+                answer:
+                  'No, I don’t think changes should be too drastic. If the transition is too sudden, it may cause inconvenience and stress for the public.<br/><br/>Instead, I believe the change should be smooth and gradual. For example, governments can improve public transport and encourage people to use greener vehicles.<br/><br/>This way, people have enough time to adapt, and the results are more stable in the long run.',
+              },
+            ],
+          },
+          {
+            question:
+              'How are transportation systems in urban areas and rural areas different?',
+            versions: [
+              {
+                score: '5.0',
+                answer:
+                  'Transportation in urban areas is usually more developed. Cities often have subways, buses, and taxis, which make traveling convenient.<br/><br/>In contrast, rural areas normally have fewer transport options, and the schedules may be less reliable.<br/><br/>As a result, people living in the countryside often depend more on private vehicles.',
+              },
+            ],
+          },
+          {
+            question: 'Why do more people own and drive private cars now?',
+            versions: [
+              {
+                score: '5.0',
+                answer:
+                  'One major reason is the improvement in living standards. More people can afford a car than before.<br/><br/>Another reason is convenience. Private cars allow people to travel anytime without waiting for public transport.<br/><br/>They also provide more comfort and privacy, which is especially important for families.',
+              },
+            ],
+          },
+          {
+            question: 'What do you think of the future of electric cars?',
+            versions: [
+              {
+                score: '5.0',
+                answer:
+                  'I believe electric cars have a very promising future because they are more environmentally friendly and produce less pollution.<br/><br/>As technology improves, their batteries will likely last longer, and charging stations will become more common.<br/><br/>However, they may not fully replace traditional cars immediately, but their popularity will definitely continue to grow.',
+              },
+            ],
+          },
+        ],
       },
       {
         id: '2026-01-04-p2-no-mobile-phone-occasion',
