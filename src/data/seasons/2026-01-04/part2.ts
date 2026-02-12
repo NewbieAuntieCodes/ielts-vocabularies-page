@@ -458,6 +458,46 @@ export const initialPart2Data_2026_01_04: TopicData[] = [
               },
             ],
           },
+          {
+            question: "Why do people buy things they don't need?",
+            versions: [
+              {
+                score: '5.0',
+                answer:
+                  'I think there are several reasons. First, many people buy things because of advertising. When they see big discounts or promotions, they feel it is a good chance, even if they don’t really need the product.<br/><br/>Also, shopping can make people feel happy. Some people buy things to reduce stress or improve their mood.<br/><br/>Another reason is social influence. When they see their friends buying new clothes or the latest phones, they may want the same things to keep up with others.',
+              },
+            ],
+          },
+          {
+            question: "Do you think it's a waste of time to go shopping?",
+            versions: [
+              {
+                score: '5.0',
+                answer:
+                  'I don’t think shopping is a waste of time if people buy what they really need. It is part of daily life.<br/><br/>However, spending too much time in shopping malls without a clear purpose can be inefficient. People could use that time to study, exercise, or rest.<br/><br/>So I believe it depends on how people shop and how much time they spend.',
+              },
+            ],
+          },
+          {
+            question: 'Why are some people keen on shopping?',
+            versions: [
+              {
+                score: '5.0',
+                answer:
+                  'Some people see shopping as a way to relax. After working or studying for a long time, going shopping helps them forget their pressure.<br/><br/>For others, it is a hobby. They enjoy choosing products, comparing prices, and finding good deals.<br/><br/>Besides that, buying new things can give people a sense of freshness, especially when they want to change their lifestyle or image.',
+              },
+            ],
+          },
+          {
+            question: 'What kind of people like shopping?',
+            versions: [
+              {
+                score: '5.0',
+                answer:
+                  'Young people usually like shopping more because they care about fashion and new trends.<br/><br/>People who have stable incomes also enjoy shopping since they can afford more things.<br/><br/>In addition, some extroverted people like shopping because they enjoy going out and spending time with friends.<br/><br/>On the other hand, people who are more practical or prefer saving money may not be very interested in shopping.',
+              },
+            ],
+          },
         ],
       },
       {
@@ -489,6 +529,46 @@ export const initialPart2Data_2026_01_04: TopicData[] = [
                 score: '5.0',
                 answer:
                   'My favorite place in my house where I can relax is my bedroom. It is on the second floor of my home, and it is not very big, but it is very comfortable and quiet.<br/><br/>My bedroom is simple and clean. There is a bed, a desk, a chair, and a bookshelf. The walls are light-colored, so the room looks bright. There is also a window next to my bed, and I can see the sky and some trees outside. When the weather is good, I like to open the window and let fresh air come in.<br/><br/>In my bedroom, I enjoy doing many things. I often listen to music, watch videos, or play games on my phone. Sometimes I sit at my desk to do homework or read a book. When I feel tired after school, I like to lie on my bed and rest for a while.<br/><br/>I feel relaxed in this place because it is very quiet and private. No one disturbs me there, and I can do whatever I like. It is my own space, so I feel safe and comfortable. That is why my bedroom is my favorite place to relax in my house.',
+              },
+            ],
+          },
+          {
+            question: 'Why is it important to have a place to relax at home?',
+            versions: [
+              {
+                score: '5.0',
+                answer:
+                  'I think it is very important because people are often tired after work or study. Having a comfortable place helps them rest both physically and mentally.<br/><br/>Also, a relaxing space can reduce stress. For example, people can read a book, listen to music, or simply lie down without being disturbed.<br/><br/>In addition, it gives people a sense of safety and privacy, which is hard to get in public places.',
+              },
+            ],
+          },
+          {
+            question: 'Do you think home design affects people’s mood? Why?',
+            versions: [
+              {
+                score: '5.0',
+                answer:
+                  'Yes, I believe home design has a strong influence on people’s mood. A bright and clean room can make people feel relaxed and positive.<br/><br/>On the contrary, if a home is dark or messy, people may feel uncomfortable or even stressed.<br/><br/>For example, natural light, soft colors, and simple furniture usually create a peaceful atmosphere, which is good for emotional health.',
+              },
+            ],
+          },
+          {
+            question: 'How do people usually relax at home in your country?',
+            versions: [
+              {
+                score: '5.0',
+                answer:
+                  'In my country, many people relax by watching TV or using their phones, such as browsing social media or watching short videos.<br/><br/>Some people prefer quieter activities like reading, cooking, or drinking tea.<br/><br/>Recently, more people have started doing exercise at home, like yoga or simple workouts, because it is convenient and saves time.',
+              },
+            ],
+          },
+          {
+            question: 'Do you prefer relaxing at home or going out? Why?',
+            versions: [
+              {
+                score: '5.0',
+                answer:
+                  'I personally prefer relaxing at home because it is more comfortable and I can completely be myself.<br/><br/>At home, I don’t need to worry about noise or crowds, so it is easier for me to recharge my energy.<br/><br/>Although going out can be fun sometimes, especially with friends, staying at home is usually the best way for me to truly relax.',
               },
             ],
           },
@@ -552,6 +632,69 @@ export const initialPart2Data_2026_01_04: TopicData[] = [
 	                score: '5.0',
 	                answer:
 	                  'I’d like to describe an interesting building, which is the Guangzhou Tower.<br/><br/>It is located in Guangzhou City, and it is very close to the Pearl River, which is also called Zhujiang. It is in the city center, so it is very easy to see and visit.<br/><br/>The Guangzhou Tower looks very special. It has a slim waist shape, so local people like to call it “Xiaomanyao”. The design is very different from other buildings. At night, the tower becomes even more beautiful because it has many colorful lighting shows. In the evening, the lights change all the time, and many people stop to watch them.<br/><br/>The tower has many functions. People can buy a ticket and go up to the top of the tower. From there, they can enjoy the view of the whole city. Inside the tower, there are also many restaurants with a variety of food, so people can have meals there while enjoying the view.<br/><br/>Around the Guangzhou Tower, the area feels very lively, especially at night or during festivals. Many people like to take a walk under the tower, enjoy the river view, and spend time with friends or family.<br/><br/>I think the Guangzhou Tower is very interesting because it is not only a landmark building, but also a place for tourism, entertainment, and relaxation. That’s why it is one of my favorite buildings in Guangzhou.',
+	              },
+	            ],
+	          },
+	          {
+	            question: 'What types of buildings are popular in your country?',
+	            versions: [
+	              {
+	                score: '5.0',
+	                answer:
+	                  'In my country, modern apartment buildings are very popular, especially in big cities. They are convenient and usually close to public transport, shopping malls, and schools.<br/><br/>At the same time, some people prefer houses in quieter areas because they offer more space and privacy.<br/><br/>Recently, smart buildings have also become more common, as they provide better security and advanced technology.',
+	              },
+	            ],
+	          },
+	          {
+	            question:
+	              'Is it worth spending a lot of money on the exterior appearance of a building?',
+	            versions: [
+	              {
+	                score: '5.0',
+	                answer:
+	                  'I think it depends. For public buildings or famous landmarks, an attractive exterior can make a city look more modern and appealing. It may even attract tourists.<br/><br/>However, for ordinary residential buildings, it is more important to focus on safety and comfort rather than appearance.<br/><br/>So, money should be spent wisely based on the building’s purpose.',
+	              },
+	            ],
+	          },
+	          {
+	            question:
+	              'Is it more important for a building to look good on the outside or on the inside?',
+	            versions: [
+	              {
+	                score: '5.0',
+	                answer:
+	                  'In my opinion, the interior is more important because people spend most of their time inside the building.<br/><br/>A well-designed interior can improve comfort and make daily life more enjoyable.<br/><br/>Of course, the exterior also matters since it creates the first impression, but functionality should always come first.',
+	              },
+	            ],
+	          },
+	          {
+	            question: 'Why do people like to visit historical sites?',
+	            versions: [
+	              {
+	                score: '5.0',
+	                answer:
+	                  'Many people visit historical sites to learn about the past and understand their culture better.<br/><br/>These places also give people a chance to see unique architecture that cannot be found in modern cities.<br/><br/>Besides that, visiting historical sites can be an interesting travel experience and a good way to relax.',
+	              },
+	            ],
+	          },
+	          {
+	            question:
+	              'Do you think it’s reasonable to charge an entry fee for visiting interesting buildings?',
+	            versions: [
+	              {
+	                score: '5.0',
+	                answer:
+	                  'Yes, I think it is reasonable. The money can be used to maintain the building and protect it from damage.<br/><br/>Without enough funding, some historical buildings might not survive for future generations.<br/><br/>However, the price should be affordable so that more people have the chance to visit.',
+	              },
+	            ],
+	          },
+	          {
+	            question: 'Is it better to live in a new building or an old one?',
+	            versions: [
+	              {
+	                score: '5.0',
+	                answer:
+	                  'Personally, I think new buildings are better because they are safer and usually have better facilities, such as elevators and parking spaces.<br/><br/>Old buildings may have historical charm, but they sometimes have problems like poor insulation or outdated equipment.<br/><br/>So overall, new buildings are more suitable for modern lifestyles.',
 	              },
 	            ],
 	          },
